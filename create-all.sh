@@ -2,6 +2,7 @@
 
 dirs="
 diacaustic
+lens-paraxial
 "
 
 for f in ${dirs}
