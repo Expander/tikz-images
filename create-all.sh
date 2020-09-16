@@ -1,7 +1,7 @@
 #!/bin/sh
 
 dirs="
-diacaustic
+lens-diacaustic
 lens-paraxial
 "
 
