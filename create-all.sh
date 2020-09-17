@@ -1,10 +1,9 @@
 #!/bin/sh
 
-script='create.sh'
 basedir=$(dirname $0)
-dirs=$(find ${basedir} -name ${script} -type f | xargs dirname)
+tex=$(find ${basedir} -name '*.tex' -type f)
 
-for f in ${dirs}
+for f in ${tex}
 do
-    (cd $f; [ -e ${script} ] && ./${script})
+    (cd $(dirname $f); pdflatex -shell-escape $(basename $f))
 done
