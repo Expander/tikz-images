@@ -1,0 +1,13 @@
+#!/bin/bash
+
+line="---"
+
+printf '%s\n' '# List of tikz images'
+
+for f in "$@" ; do
+    name=$(basename ${f})
+    imag="![${name}](${f} \"${name}\")"
+    printf '%s\n' "## ${name}"
+    printf '%s\n' "[${imag}](${f})"
+    printf '%s\n%s\n%s\n' "~~~.tex" "$(cat ${f%.*}.tex)" "~~~"
+done
