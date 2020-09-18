@@ -59,7 +59,7 @@
     ]
     \addplot[smooth,very thick] {  sqrt(-x) };
     \addplot[smooth,very thick] { -sqrt(-x) };
-    \pgfplotsinvokeforeach{1.2,1.1,...,-1.2}{%
+    \pgfplotsinvokeforeach{1.4,1.3,...,-1.4}{%
       \draw[red] (axis cs:-2,#1) -- (axis cs:{-#1*#1},#1) -- (axis cs:-0.25,0);
     }
   \end{axis}
