@@ -2,7 +2,7 @@
 ## mirror-catacaustic.svg
 [![mirror-catacaustic.svg](./mirror-catacaustic/mirror-catacaustic.svg "mirror-catacaustic.svg")](./mirror-catacaustic/mirror-catacaustic.svg)
 ~~~.tex
-\documentclass[crop,tikz,convert={outext=.svg,command=\unexpanded{pdf2svg \infile\space\outfile}}]{standalone}
+\documentclass[crop,tikz]{standalone}
 
 \begin{document}
 \begin{tikzpicture}
@@ -18,7 +18,7 @@
 ## lens-paraxial.svg
 [![lens-paraxial.svg](./lens-paraxial/lens-paraxial.svg "lens-paraxial.svg")](./lens-paraxial/lens-paraxial.svg)
 ~~~.tex
-\documentclass[crop,tikz,convert={outext=.svg,command=\unexpanded{pdf2svg \infile\space\outfile}}]{standalone}
+\documentclass[crop,tikz]{standalone}
 
 \begin{document}
 \begin{tikzpicture}
@@ -36,7 +36,7 @@
 ## mirror-parabolic.svg
 [![mirror-parabolic.svg](./mirror-parabolic/mirror-parabolic.svg "mirror-parabolic.svg")](./mirror-parabolic/mirror-parabolic.svg)
 ~~~.tex
-\documentclass[crop,tikz,convert={outext=.svg,command=\unexpanded{pdf2svg \infile\space\outfile}}]{standalone}
+\documentclass[crop,tikz]{standalone}
 
 \usepackage{pgfplots}
 \tikzset{>=latex}
@@ -76,7 +76,7 @@
 ## lens-diacaustic.svg
 [![lens-diacaustic.svg](./lens-diacaustic/lens-diacaustic.svg "lens-diacaustic.svg")](./lens-diacaustic/lens-diacaustic.svg)
 ~~~.tex
-\documentclass[crop,tikz,convert={outext=.svg,command=\unexpanded{pdf2svg \infile\space\outfile}}]{standalone}
+\documentclass[crop,tikz]{standalone}
 
 \begin{document}
 \begin{tikzpicture}
@@ -94,7 +94,7 @@
 ## aperture.svg
 [![aperture.svg](./aperture/aperture.svg "aperture.svg")](./aperture/aperture.svg)
 ~~~.tex
-\documentclass[crop,tikz,convert={outext=.svg,command=\unexpanded{pdf2svg \infile\space\outfile}}]{standalone}
+\documentclass[crop,tikz]{standalone}
 
 \tikzset{>=latex}
 \usetikzlibrary{calc}

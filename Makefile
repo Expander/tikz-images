@@ -25,4 +25,4 @@ $(LIST_FILE): $(SVG_FILES)
 	cd $(shell dirname $<) && pdflatex -shell-escape $(shell basename $<)
 
 %.svg: %.pdf
-	@true
+	pdf2svg $< $@
