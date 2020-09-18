@@ -39,7 +39,6 @@
 \documentclass[crop,tikz]{standalone}
 
 \usepackage{pgfplots}
-\tikzset{>=latex}
 \pgfplotsset{compat=1.16}
 
 \begin{document}
