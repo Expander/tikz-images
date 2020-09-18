@@ -56,7 +56,7 @@
     ]
     \addplot[smooth] (-x*x,x);
     \pgfplotsinvokeforeach{1.4,1.3,...,-1.4}{%
-      \draw[red] (axis cs:-2,#1) -- (axis cs:{-#1*#1},#1) -- (axis cs:-0.25,0);
+      \draw[red] (axis cs:-2.5,#1) -- (axis cs:{-#1*#1},#1) -- (axis cs:-0.25,0);
     }
   \end{axis}
 \end{tikzpicture}
