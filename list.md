@@ -40,7 +40,6 @@
 
 \usepackage{pgfplots}
 \tikzset{>=latex}
-\usetikzlibrary{decorations.markings}
 \pgfplotsset{compat=1.16}
 
 \begin{document}
@@ -60,15 +59,9 @@
     ]
     \addplot[smooth,very thick] {  sqrt(-x) };
     \addplot[smooth,very thick] { -sqrt(-x) };
-    \begin{scope}[decoration={
-        markings,
-        mark=at position 0.5 with {\arrow{>}}}
-      ]
-      \pgfplotsinvokeforeach{1.2,1,...,-1.2}{%
-        \draw[red,postaction={decorate}] (axis cs:-2,#1) -- (axis cs:{-#1*#1},#1);
-        \draw[red,postaction={decorate}] (axis cs:{-#1*#1},#1) -- (axis cs:-0.25,0);
-      }
-    \end{scope}
+    \pgfplotsinvokeforeach{1.2,1.1,...,-1.2}{%
+      \draw[red] (axis cs:-2,#1) -- (axis cs:{-#1*#1},#1) -- (axis cs:-0.25,0);
+    }
   \end{axis}
 \end{tikzpicture}
 \end{document}
