@@ -1,7 +1,5 @@
 #!/bin/bash
 
-line="---"
-
 printf '%s\n' '# List of tikz images'
 
 for f in "$@" ; do
