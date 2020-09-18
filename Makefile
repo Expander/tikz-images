@@ -7,9 +7,9 @@ SVG_FILES := $(patsubst %.pdf,%.svg,$(PDF_FILES))
 
 LIST_FILE := list.md
 
-.PHONY: all clean distclean list
+.PHONY: all clean distclean
 
-all: $(PDF_FILES) list
+all: $(PDF_FILES) $(LIST_FILE)
 
 clean:
 	-rm -f $(AUX_FILES) $(LOG_FILES)
@@ -18,7 +18,7 @@ distclean: clean
 	-rm -f $(PDF_FILES) $(SVG_FILES)
 	-rm -f $(LIST_FILE)
 
-list: $(SVG_FILES)
+$(LIST_FILE): $(SVG_FILES)
 	./generate-list $(SVG_FILES) > $(LIST_FILE)
 
 %.pdf: %.tex
