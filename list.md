@@ -60,9 +60,6 @@
     ]
     \addplot[smooth,very thick] {  sqrt(-x) };
     \addplot[smooth,very thick] { -sqrt(-x) };
-    \draw[thick,dashed] (axis cs:-2,0) -- (axis cs:0,0);
-    \draw[thick] (axis cs:-0.25,0.05) -- (axis cs:-0.25,-0.05) node[below] {$F$};
-    \draw[<->] (axis cs:-0.25,-0.6) -- node[below] {$f$} (axis cs:0,-0.6);
     \begin{scope}[decoration={
         markings,
         mark=at position 0.5 with {\arrow{>}}}
