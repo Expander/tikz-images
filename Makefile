@@ -1,4 +1,4 @@
-TEX_FILES := $(shell find . -name '*.tex' -type f)
+TEX_FILES := $(shell find . -name '*.tex' -type f | sort)
 
 AUX_FILES := $(patsubst %.tex,%.aux,$(TEX_FILES))
 LOG_FILES := $(patsubst %.tex,%.log,$(TEX_FILES))
