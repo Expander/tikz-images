@@ -9,14 +9,14 @@
 
 \begin{document}
 \begin{tikzpicture}
-  % source
+  % rays
   \foreach \d in { -20,-19,...,-2 } { \draw[->,red] (0,0) -- +(\d:{4/cos(\d)}); };
   \foreach \d in {  20, 19,..., 2 } { \draw[->,red] (0,0) -- +(\d:{4/cos(\d)}); };
   \foreach \d in { -1, 0, 1       } { \draw[->,red] (0,0) -- +(\d:6); };
   % aperture
   \draw[fill] (4-0.05,-1.6) rectangle (4+0.05,-0.1);
   \draw[fill] (4-0.05, 0.1) rectangle (4+0.05, 1.6);
-  % rays
+  % description
   \draw[]   ($( 1:6)+(0.1,0)$) -- +(0.2,0);
   \draw[]   ($(-1:6)+(0.1,0)$) -- +(0.2,0);
   \draw[->] ($( 1:6)+(0.2, 0.5)$) -- +(0,-0.5);
