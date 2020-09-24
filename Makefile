@@ -19,7 +19,7 @@ distclean: clean
 	-rm -f $(LIST_FILE)
 
 $(LIST_FILE): $(SVG_FILES)
-	./generate-list $(SVG_FILES) > $(LIST_FILE)
+	./generate-list $^ > $(LIST_FILE)
 
 %.pdf: %.tex
 	cd $(shell dirname $<) && pdflatex -shell-escape $(shell basename $<)
