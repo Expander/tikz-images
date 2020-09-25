@@ -196,6 +196,26 @@ color(75bp)=(violet); color(100bp)=(violet)}
 \end{tikzpicture}
 \end{document}
 ~~~
+## plane-wave-fronts.svg
+[![plane-wave-fronts.svg](optics/plane-wave-fronts/plane-wave-fronts.svg "plane-wave-fronts.svg")](optics/plane-wave-fronts/plane-wave-fronts.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\tikzset{>=latex}
+
+\begin{document}
+  \begin{tikzpicture}
+    \foreach \X in {0,0.5,1,1.5,2} { \draw (\X,0) -- +(0,5); }
+    \foreach \X in {0,1,2} {%
+      \foreach \Y in {0.5,1,...,4.5} {%
+        \draw[blue] (\X,\Y)+(-90:0.5) arc (-90:90:0.5);
+        \draw[fill,red] (\X,\Y) circle (0.05);
+      }
+    }
+    \draw[->] (2,2.5) -- +(1,0);
+  \end{tikzpicture}
+\end{document}
+~~~
 ## reflection-law.svg
 [![reflection-law.svg](optics/reflection-law/reflection-law.svg "reflection-law.svg")](optics/reflection-law/reflection-law.svg)
 ~~~.tex
