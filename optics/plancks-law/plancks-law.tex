@@ -1,0 +1,55 @@
+\documentclass[crop,tikz]{standalone}
+
+\usepackage{amsmath}
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\tikzset{>=latex}
+\pgfplotsset{compat=1.16}
+
+% rainbow line
+\pgfdeclareverticalshading{rainbow}{100bp}
+{color(0bp)=(red); color(25bp)=(red); color(35bp)=(yellow);
+color(45bp)=(green); color(55bp)=(cyan); color(65bp)=(blue);
+color(75bp)=(violet); color(100bp)=(violet)}
+
+\begin{document}
+\begin{tikzpicture}
+  % data generated with: data/strahlungsspektrum.m
+  \pgfplotstableread{data/T300K.dat}\tableThreeHoundred
+  \pgfplotstableread{data/T500K.dat}\tableFiveHoundred
+  \pgfplotstableread{data/T1000K.dat}\tableOneThousand
+  \pgfplotstableread{data/T3000K.dat}\tableThreeThousand
+  \pgfplotstableread{data/T5777K.dat}\tableFiveThousand
+  \pgfplotstableread{data/T10000K.dat}\tableTenThousand
+  \pgfplotstableread{data/wien.dat}\tableWien
+  \begin{loglogaxis}[
+    axis on top, % axis before the rectangle
+    width=10cm,
+    height=8cm,
+    xmin=0.1, xmax=100,
+    ymin=1e-2, ymax=1e10,
+    xlabel={$\lambda/\mu\text{m}$},
+    ylabel={$S_\lambda(\lambda)/(\text{W}\,\text{m}^{-2}\,\mu\text{m}^{-1})$}
+    ]
+    % light band
+    \shade[shading=rainbow,shading angle=90,opacity=0.2] (axis cs:0.38,1e-2) rectangle (axis cs:0.78,1e10);
+    % intensities
+    \addplot[   ,thick] table [x index=0, y index=1] {\tableThreeHoundred};
+    \addplot[   ,thick] table [x index=0, y index=1] {\tableFiveHoundred};
+    \addplot[   ,thick] table [x index=0, y index=1] {\tableOneThousand};
+    \addplot[   ,thick] table [x index=0, y index=1] {\tableThreeThousand};
+    \addplot[red,thick] table [x index=0, y index=1] {\tableFiveThousand};
+    \addplot[   ,thick] table [x index=0, y index=1] {\tableTenThousand};
+    % temperatures
+    \node[rotate=66,font=\small,anchor=west] at (2.8 ,2e-2) {$300\,\text{K}$};
+    \node[rotate=70,font=\small,anchor=west] at (1.4 ,2e-2) {$500\,\text{K}$};
+    \node[rotate=75,font=\small,anchor=west] at (0.6 ,2e-2) {$1000\,\text{K}$};
+    \node[rotate=77,font=\small,anchor=west] at (0.16,2e-2) {$3000\,\text{K}$};
+    \node[rotate=70,font=\small,red]         at (0.15,1e+5) {$5777\,\text{K}$};
+    \node[rotate=40,font=\small]             at (0.18,5e+8) {$10000\,\text{K}$};
+    % Wien's displacement law
+    \addplot[blue,thick,dashed] table [x index=0, y index=1] {\tableWien};
+    \draw[->,blue] (rel axis cs: 0.95,0.95) node[above,anchor=north east,align=center,fill=white] {Wien'sches\\ Verschiebungsgesetz} -- (2.5,2e5);
+  \end{loglogaxis}
+\end{tikzpicture}
+\end{document}
