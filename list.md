@@ -1,6 +1,6 @@
 # List of tikz images
 ## aperture.svg
-[![aperture.svg](aperture/aperture.svg "aperture.svg")](aperture/aperture.svg)
+[![aperture.svg](optics/aperture/aperture.svg "aperture.svg")](optics/aperture/aperture.svg)
 ~~~.tex
 \documentclass[crop,tikz]{standalone}
 
@@ -26,7 +26,7 @@
 \end{document}
 ~~~
 ## diffraction-single-slit.svg
-[![diffraction-single-slit.svg](diffraction-single-slit/diffraction-single-slit.svg "diffraction-single-slit.svg")](diffraction-single-slit/diffraction-single-slit.svg)
+[![diffraction-single-slit.svg](optics/diffraction-single-slit/diffraction-single-slit.svg "diffraction-single-slit.svg")](optics/diffraction-single-slit/diffraction-single-slit.svg)
 ~~~.tex
 \documentclass[crop,tikz]{standalone}
 
@@ -57,7 +57,7 @@
 \end{document}
 ~~~
 ## lens-diacaustic.svg
-[![lens-diacaustic.svg](lens-diacaustic/lens-diacaustic.svg "lens-diacaustic.svg")](lens-diacaustic/lens-diacaustic.svg)
+[![lens-diacaustic.svg](optics/lens-diacaustic/lens-diacaustic.svg "lens-diacaustic.svg")](optics/lens-diacaustic/lens-diacaustic.svg)
 ~~~.tex
 \documentclass[crop,tikz]{standalone}
 
@@ -75,7 +75,7 @@
 \end{document}
 ~~~
 ## lens-paraxial.svg
-[![lens-paraxial.svg](lens-paraxial/lens-paraxial.svg "lens-paraxial.svg")](lens-paraxial/lens-paraxial.svg)
+[![lens-paraxial.svg](optics/lens-paraxial/lens-paraxial.svg "lens-paraxial.svg")](optics/lens-paraxial/lens-paraxial.svg)
 ~~~.tex
 \documentclass[crop,tikz]{standalone}
 
@@ -93,7 +93,7 @@
 \end{document}
 ~~~
 ## mirror-catacaustic.svg
-[![mirror-catacaustic.svg](mirror-catacaustic/mirror-catacaustic.svg "mirror-catacaustic.svg")](mirror-catacaustic/mirror-catacaustic.svg)
+[![mirror-catacaustic.svg](optics/mirror-catacaustic/mirror-catacaustic.svg "mirror-catacaustic.svg")](optics/mirror-catacaustic/mirror-catacaustic.svg)
 ~~~.tex
 \documentclass[crop,tikz]{standalone}
 
@@ -109,7 +109,7 @@
 \end{document}
 ~~~
 ## mirror-parabolic.svg
-[![mirror-parabolic.svg](mirror-parabolic/mirror-parabolic.svg "mirror-parabolic.svg")](mirror-parabolic/mirror-parabolic.svg)
+[![mirror-parabolic.svg](optics/mirror-parabolic/mirror-parabolic.svg "mirror-parabolic.svg")](optics/mirror-parabolic/mirror-parabolic.svg)
 ~~~.tex
 \documentclass[crop,tikz]{standalone}
 
@@ -138,7 +138,7 @@
 \end{document}
 ~~~
 ## thin-layer.svg
-[![thin-layer.svg](thin-layer/thin-layer.svg "thin-layer.svg")](thin-layer/thin-layer.svg)
+[![thin-layer.svg](optics/thin-layer/thin-layer.svg "thin-layer.svg")](optics/thin-layer/thin-layer.svg)
 ~~~.tex
 \documentclass[crop,tikz]{standalone}
 
