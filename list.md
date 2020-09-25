@@ -176,12 +176,12 @@ color(75bp)=(violet); color(100bp)=(violet)}
     % light band
     \shade[shading=rainbow,shading angle=90,opacity=0.2] (axis cs:0.38,1e-2) rectangle (axis cs:0.78,1e10);
     % intensities
-    \addplot[   ,thick] table [x index=0, y index=1] {\tableThreeHoundred};
-    \addplot[   ,thick] table [x index=0, y index=1] {\tableFiveHoundred};
-    \addplot[   ,thick] table [x index=0, y index=1] {\tableOneThousand};
-    \addplot[   ,thick] table [x index=0, y index=1] {\tableThreeThousand};
-    \addplot[red,thick] table [x index=0, y index=1] {\tableFiveThousand};
-    \addplot[   ,thick] table [x index=0, y index=1] {\tableTenThousand};
+    \addplot[thick]     table [x index=0, y index=1] {\tableThreeHoundred};
+    \addplot[thick]     table [x index=0, y index=1] {\tableFiveHoundred};
+    \addplot[thick]     table [x index=0, y index=1] {\tableOneThousand};
+    \addplot[thick]     table [x index=0, y index=1] {\tableThreeThousand};
+    \addplot[thick,red] table [x index=0, y index=1] {\tableFiveThousand};
+    \addplot[thick]     table [x index=0, y index=1] {\tableTenThousand};
     % temperatures
     \node[rotate=66,font=\small,anchor=west] at (2.8 ,2e-2) {$300\,\text{K}$};
     \node[rotate=70,font=\small,anchor=west] at (1.4 ,2e-2) {$500\,\text{K}$};
