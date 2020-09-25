@@ -25,6 +25,33 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## circular-wave-fronts.svg
+[![circular-wave-fronts.svg](optics/circular-wave-fronts/circular-wave-fronts.svg "circular-wave-fronts.svg")](optics/circular-wave-fronts/circular-wave-fronts.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\tikzset{>=latex}
+
+\begin{document}
+\begin{tikzpicture}
+  \foreach \R in {0.5,1,1.5,2} { \draw (0,0) circle (\R); }
+  \foreach \R in {0.5} {%
+    \foreach \A in {0,45,...,315} {%
+      \draw[blue] (\A:\R)+(\A-120:0.5) arc (\A-120:\A+120:0.5);
+      \draw[fill,red] (\A:\R) circle (0.05);
+    }
+  }
+  \foreach \R in {1.5} {%
+    \foreach \A in {0,20,...,340} {%
+      \draw[blue] (\A:\R)+(\A-100:0.5) arc (\A-100:\A+100:0.5);
+      \draw[fill,red] (\A:\R) circle (0.05);
+    }
+  }
+  \foreach \X in {0,45,...,315} { \draw[->] (\X:2) -- +(\X:0.5); }
+  \draw[fill,red] (0,0) circle (0.05);
+\end{tikzpicture}
+\end{document}
+~~~
 ## diffraction-single-slit.svg
 [![diffraction-single-slit.svg](optics/diffraction-single-slit/diffraction-single-slit.svg "diffraction-single-slit.svg")](optics/diffraction-single-slit/diffraction-single-slit.svg)
 ~~~.tex
@@ -204,16 +231,16 @@ color(75bp)=(violet); color(100bp)=(violet)}
 \tikzset{>=latex}
 
 \begin{document}
-  \begin{tikzpicture}
-    \foreach \X in {0,0.5,1,1.5,2} { \draw (\X,0) -- +(0,5); }
-    \foreach \X in {0,1,2} {%
-      \foreach \Y in {0.5,1,...,4.5} {%
-        \draw[blue] (\X,\Y)+(-90:0.5) arc (-90:90:0.5);
-        \draw[fill,red] (\X,\Y) circle (0.05);
-      }
+\begin{tikzpicture}
+  \foreach \X in {0,0.5,1,1.5,2} { \draw (\X,0) -- +(0,5); }
+  \foreach \X in {0,1,2} {%
+    \foreach \Y in {0.5,1,...,4.5} {%
+      \draw[blue] (\X,\Y)+(-90:0.5) arc (-90:90:0.5);
+      \draw[fill,red] (\X,\Y) circle (0.05);
     }
-    \draw[->] (2,2.5) -- +(1,0);
-  \end{tikzpicture}
+  }
+  \draw[->] (2,2.5) -- +(1,0);
+\end{tikzpicture}
 \end{document}
 ~~~
 ## reflection-law.svg
