@@ -1,4 +1,33 @@
 # List of tikz images
+## circular-polarized-wave.svg
+[![circular-polarized-wave.svg](electrodynamics/circular-polarized-wave/circular-polarized-wave.svg "circular-polarized-wave.svg")](electrodynamics/circular-polarized-wave/circular-polarized-wave.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\tikzset{>=latex}
+
+\begin{document}
+\begin{tikzpicture}[x={(-10:1cm)},y={(90:1cm)},z={(210:1cm)}]
+  % Axes
+  \draw[->] (-1,0,0) -- (5,  0,0) node[above] {$z$};
+  \draw[->] ( 0,0,0) -- (0,1.5,0) node[above] {$x$};
+  \draw[->] ( 0,0,0) -- (0,0,1.5) node[left ] {$y$};
+  % Propagation
+  \draw[->,ultra thick] (6,0,0) -- (7,0,0);
+  % Waves
+  \draw[blue,thick] plot[domain=0:4.5,samples=200] (\x,{cos(deg(pi*\x))},{-sin(deg(pi*\x))});
+  \draw[red ,thick] plot[domain=0:4.5,samples=200] (\x,{sin(deg(pi*\x))},{cos(deg(pi*\x))});
+  % Arrows
+  \foreach \x in {0.1,0.2,...,4.4} {
+    \draw[->,help lines,blue] (\x,0,0) -- (\x,{cos(deg(pi*\x))},{-sin(deg(pi*\x))});
+    \draw[->,help lines,red ] (\x,0,0) -- (\x,{sin(deg(pi*\x))},{cos(deg(pi*\x))});
+  }
+  % Labels
+  \node[blue,above right] at (0,1.2,0) {$\vec{E}$};
+  \node[red,below] at (0,0,1) {$\vec{B}$};
+\end{tikzpicture}
+\end{document}
+~~~
 ## aperture.svg
 [![aperture.svg](optics/aperture/aperture.svg "aperture.svg")](optics/aperture/aperture.svg)
 ~~~.tex
