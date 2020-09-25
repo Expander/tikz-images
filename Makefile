@@ -22,7 +22,7 @@ $(LIST_FILE): $(SVG_FILES)
 	./generate-list $^ > $@
 
 %.pdf: %.tex
-	cd $(shell dirname $<) && pdflatex -shell-escape $(shell basename $<)
+	cd $(shell dirname $<) && pdflatex $(shell basename $<)
 
 %.svg: %.pdf
 	pdf2svg $< $@
