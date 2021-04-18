@@ -10,7 +10,7 @@
 \begin{tikzpicture}[scale=1.3]
   % axes
   \draw[->,thick] (xyz cs:x=-0.5) -- (xyz cs:x=4)  node[below] {$x$};
-  \draw[->,thick] (xyz cs:y=-0.5) -- (xyz cs:y=3)  node[above] {$z$};
+  \draw[->,thick] (xyz cs:y=-0.5) -- (xyz cs:y=3)  node[left]  {$z$};
   \draw[->,thick] (xyz cs:z=1)    -- (xyz cs:z=-4) node[above] {$y$};
   % dashed lines
   \draw[dashed] (xyz cs:x=3)  -- ++(xyz cs:z=-2) -- ++(xyz cs:y=2) coordinate (p) node[above] {$P(x,y,z)$};
