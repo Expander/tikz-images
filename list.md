@@ -79,8 +79,8 @@
   \draw[thick,black!40!green] (r1) arc (70:20:2);
   \node[right,xshift=0.5em,black!40!green] at ($(1,0.5)+(50:2)$) {$s(t_1,t_2)$};
   % space-point vectors
-  \draw[->,thick,red]  (xyz cs:x=0) -- node[above,xshift=-1em]{$\place(t_1)$} (r1);
-  \draw[->,thick,blue] (xyz cs:x=0) -- node[below,xshift=+1em]{$\place(t_2)$} (r2);
+  \draw[->,thick,red] (xyz cs:x=0) -- node[above,xshift=-1em]{$\place(t_1)$} (r1);
+  \draw[->,thick,red] (xyz cs:x=0) -- node[below,xshift=+1em]{$\place(t_2)$} (r2);
 \end{tikzpicture}
 \end{document}
 ~~~
@@ -108,8 +108,8 @@
   % space point
   \coordinate (r1) at ($(1,0.5)+(70:2)$);
   \coordinate (r2) at ($(1,0.5)+(20:2)$);
-  \draw[->,thick,red]  (xyz cs:x=0) -- node[above,xshift=-1em]{$\place(t_1)$} (r1);
-  \draw[->,thick,blue] (xyz cs:x=0) -- node[below,xshift=+1em]{$\place(t_2)$} (r2);
+  \draw[->,thick,red] (xyz cs:x=0) -- node[above,xshift=-1em]{$\place(t_1)$} (r1);
+  \draw[->,thick,red] (xyz cs:x=0) -- node[below,xshift=+1em]{$\place(t_2)$} (r2);
   % delta r
   \draw[->,thick,dashed] (r1) -- node[below,anchor=east,xshift=0.5em,yshift=-1em]{$\Delta\place$} (r2);
 \end{tikzpicture}
@@ -139,8 +139,8 @@
   % space point
   \coordinate (r1) at ($(1,0.5)+(70:2)$);
   \coordinate (r2) at ($(1,0.5)+(20:2)$);
-  \draw[->,thick,red]  (xyz cs:x=0) -- node[above,xshift=-1em]{$\place(t_1)$} (r1);
-  \draw[->,thick,blue] (xyz cs:x=0) -- node[below,xshift=+1em]{$\place(t_2)$} (r2);
+  \draw[->,thick,red] (xyz cs:x=0) -- node[above,xshift=-1em]{$\place(t_1)$} (r1);
+  \draw[->,thick,red] (xyz cs:x=0) -- node[below,xshift=+1em]{$\place(t_2)$} (r2);
 \end{tikzpicture}
 \end{document}
 ~~~

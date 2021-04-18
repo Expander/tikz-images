@@ -120,24 +120,24 @@
 <g style="fill:rgb(100%,0%,0%);fill-opacity:1;">
   <use xlink:href="#glyph1-2" x="46.315" y="65.957"/>
 </g>
-<path style="fill:none;stroke-width:0.79701;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(0%,0%,100%);stroke-opacity:1;stroke-miterlimit:10;" d="M 0.00021875 0.000375 L 101.816625 41.867563 " transform="matrix(1,0,0,-1,18.824,116.016)"/>
-<path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,100%);fill-opacity:1;" d="M 124.953125 72.375 C 123.578125 72.660156 121.203125 72.796875 119.421875 72.546875 L 120.898438 76.144531 C 121.992188 74.710938 123.773438 73.140625 124.953125 72.375 "/>
-<g style="fill:rgb(0%,0%,100%);fill-opacity:1;">
+<path style="fill:none;stroke-width:0.79701;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(100%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;" d="M 0.00021875 0.000375 L 101.816625 41.867563 " transform="matrix(1,0,0,-1,18.824,116.016)"/>
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(100%,0%,0%);fill-opacity:1;" d="M 124.953125 72.375 C 123.578125 72.660156 121.203125 72.796875 119.421875 72.546875 L 120.898438 76.144531 C 121.992188 74.710938 123.773438 73.140625 124.953125 72.375 "/>
+<g style="fill:rgb(100%,0%,0%);fill-opacity:1;">
   <use xlink:href="#glyph0-7" x="71.239" y="105.387"/>
 </g>
-<g style="fill:rgb(0%,0%,100%);fill-opacity:1;">
+<g style="fill:rgb(100%,0%,0%);fill-opacity:1;">
   <use xlink:href="#glyph0-8" x="71.557803" y="105.387"/>
 </g>
-<g style="fill:rgb(0%,0%,100%);fill-opacity:1;">
+<g style="fill:rgb(100%,0%,0%);fill-opacity:1;">
   <use xlink:href="#glyph1-1" x="76.328" y="105.387"/>
 </g>
-<g style="fill:rgb(0%,0%,100%);fill-opacity:1;">
+<g style="fill:rgb(100%,0%,0%);fill-opacity:1;">
   <use xlink:href="#glyph0-5" x="80.202" y="105.387"/>
 </g>
-<g style="fill:rgb(0%,0%,100%);fill-opacity:1;">
+<g style="fill:rgb(100%,0%,0%);fill-opacity:1;">
   <use xlink:href="#glyph2-2" x="83.8" y="106.881"/>
 </g>
-<g style="fill:rgb(0%,0%,100%);fill-opacity:1;">
+<g style="fill:rgb(100%,0%,0%);fill-opacity:1;">
   <use xlink:href="#glyph1-2" x="88.269" y="105.387"/>
 </g>
 </g>
