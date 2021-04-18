@@ -16,17 +16,17 @@ clean:
 	-rm -f $(AUX_FILES) $(LOG_FILES)
 
 distclean: clean
-	-rm -f $(PDF_FILES) $(SVG_FILES)
+	-rm -f $(PDF_FILES) $(PNG_FILES) $(SVG_FILES)
 	-rm -f $(LIST_FILE)
 
 $(LIST_FILE): $(SVG_FILES)
 	./generate-list $^ > $@
 
 %.pdf: %.tex
-	cd $(shell dirname $<) && pdflatex $(shell basename $<)
+	cd $(dir $<) && pdflatex $(notdir $<)
 
 %.png: %.pdf
-	cd $(shell dirname $<) && pdftoppm -singlefile -r 300 -png $(notdir $<) $(basename $(notdir $@))
+	cd $(dir $<) && pdftoppm -singlefile -r 300 -png $(notdir $<) $(basename $(notdir $@))
 
 %.svg: %.pdf
 	pdf2svg $< $@
