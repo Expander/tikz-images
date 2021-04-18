@@ -84,6 +84,39 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## curve-length-parts.svg
+[![curve-length-parts.svg](mechanics/curve-length-parts/curve-length-parts.svg "curve-length-parts.svg")](mechanics/curve-length-parts/curve-length-parts.svg) [[PDF]](mechanics/curve-length-parts/curve-length-parts.pdf) [[PNG]](mechanics/curve-length-parts/curve-length-parts.png) [[SVG]](mechanics/curve-length-parts/curve-length-parts.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\tikzset{>=latex}
+\usetikzlibrary{calc}
+\newcommand{\place}{\vec{r}}
+
+\begin{document}
+\begin{tikzpicture}[scale=1.3]
+  % axes
+  \draw[->,thick] (xyz cs:x=-0.5) -- (xyz cs:x=4)  node[below] {$x$};
+  \draw[->,thick] (xyz cs:y=-0.5) -- (xyz cs:y=3)  node[left] {$z$};
+  \draw[->,thick] (xyz cs:z=1)    -- (xyz cs:z=-4) node[above] {$y$};
+  % space point
+  \coordinate (r1) at ($(1,0.5)+(70:2)$);
+  \coordinate (r2) at ($(1,0.5)+(20:2)$);
+  % path
+  \draw[thick,black!40!green] (r1) arc (70:20:2);
+  \node[right,xshift=0.5em,black!40!green] at ($(1,0.5)+(50:2)$) {$s(t_1,t_2)$};
+  % space-point vectors
+  \foreach \r/\n in { 70/1, 53.3333/2, 36.6667/3 } {%
+    \draw[->,gray] (0,0) -- ($(1,0.5)+({\r-50/3}:2)$);
+    \draw[->] ($(1,0.5)+(\r:2)$) -- ($(1,0.5)+({\r-50/3}:2)$);
+    \node[scale=0.7] at ($(1,0.5)+({\r-50/6}:1.8)$) {$\Delta\place_{\n}$};
+  }
+  % main space-point vectors
+  \draw[->,thick,red] (xyz cs:x=0) -- node[above,xshift=-1em]{$\place(t_1)$} (r1);
+  \draw[->,thick,red] (xyz cs:x=0) -- node[below,xshift=+1em]{$\place(t_2)$} (r2);
+\end{tikzpicture}
+\end{document}
+~~~
 ## space-point-2-delta.svg
 [![space-point-2-delta.svg](mechanics/space-point-2-delta/space-point-2-delta.svg "space-point-2-delta.svg")](mechanics/space-point-2-delta/space-point-2-delta.svg) [[PDF]](mechanics/space-point-2-delta/space-point-2-delta.pdf) [[PNG]](mechanics/space-point-2-delta/space-point-2-delta.png) [[SVG]](mechanics/space-point-2-delta/space-point-2-delta.svg)
 ~~~.tex
