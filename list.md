@@ -57,6 +57,40 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## space-point-2-delta.svg
+[![space-point-2-delta.svg](mechanics/space-point-2-delta/space-point-2-delta.svg "space-point-2-delta.svg")](mechanics/space-point-2-delta/space-point-2-delta.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\tikzset{>=latex}
+\usetikzlibrary{calc,decorations.markings}
+\newcommand{\place}{\vec{r}}
+\newcommand{\ex}{\vec{e}_x}
+\newcommand{\ey}{\vec{e}_y}
+\newcommand{\ez}{\vec{e}_z}
+
+\begin{document}
+\begin{tikzpicture}[scale=1.3]
+  % axes
+  \draw[->,thick] (xyz cs:x=-0.5) -- (xyz cs:x=4)  node[below] {$x$};
+  \draw[->,thick] (xyz cs:y=-0.5) -- (xyz cs:y=3)  node[left] {$z$};
+  \draw[->,thick] (xyz cs:z=1)    -- (xyz cs:z=-4) node[above] {$y$};
+  % path
+  \draw[thick,
+        decoration={markings, mark=at position 0.5 with {\arrow{>}}},
+        postaction={decorate},
+        black!40!green]
+       (xyz cs:x=1,y=2.5,z=0) arc (90:0:2);
+  % space point
+  \coordinate (r1) at ($(1,0.5)+(70:2)$);
+  \coordinate (r2) at ($(1,0.5)+(20:2)$);
+  \draw[->,thick,red]  (xyz cs:x=0) -- node[above,xshift=-1em]{$\place(t_1)$} (r1);
+  \draw[->,thick,blue] (xyz cs:x=0) -- node[below,xshift=+1em]{$\place(t_2)$} (r2);
+  % delta r
+  \draw[->,thick,dashed] (r1) -- node[below,anchor=east,xshift=0.5em,yshift=-1em]{$\Delta\place$} (r2);
+\end{tikzpicture}
+\end{document}
+~~~
 ## space-point-2.svg
 [![space-point-2.svg](mechanics/space-point-2/space-point-2.svg "space-point-2.svg")](mechanics/space-point-2/space-point-2.svg)
 ~~~.tex
@@ -78,7 +112,8 @@
   % path
   \draw[thick,
         decoration={markings, mark=at position 0.5 with {\arrow{>}}},
-        postaction={decorate}]
+        postaction={decorate},
+        black!40!green]
        (xyz cs:x=1,y=2.5,z=0) arc (90:0:2);
   % space point
   \coordinate (r1) at ($(1,0.5)+(70:2)$);
