@@ -6,6 +6,6 @@ for f in "$@" ; do
     name=$(basename ${f})
     imag="![${name}](${f} \"${name}\")"
     printf '%s\n' "## ${name}"
-    printf '%s %s %s %s\n' "[${imag}](${f})" "[PDF](${f%.*}.pdf)" "[PNG](${f%.*}.png)" "[SVG](${f})"
+    printf '%s %s %s %s\n' "[${imag}](${f})" "[[PDF]](${f%.*}.pdf)" "[[PNG]](${f%.*}.png)" "[[SVG]](${f})"
     printf '%s\n%s\n%s\n' "~~~.tex" "$(cat ${f%.*}.tex)" "~~~"
 done
