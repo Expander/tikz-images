@@ -92,9 +92,6 @@
 \tikzset{>=latex}
 \usetikzlibrary{calc,decorations.markings}
 \newcommand{\place}{\vec{r}}
-\newcommand{\ex}{\vec{e}_x}
-\newcommand{\ey}{\vec{e}_y}
-\newcommand{\ez}{\vec{e}_z}
 
 \begin{document}
 \begin{tikzpicture}[scale=1.3]
@@ -126,9 +123,6 @@
 \tikzset{>=latex}
 \usetikzlibrary{calc,decorations.markings}
 \newcommand{\place}{\vec{r}}
-\newcommand{\ex}{\vec{e}_x}
-\newcommand{\ey}{\vec{e}_y}
-\newcommand{\ez}{\vec{e}_z}
 
 \begin{document}
 \begin{tikzpicture}[scale=1.3]
@@ -215,9 +209,6 @@
 \usetikzlibrary{calc,decorations.markings}
 \newcommand{\place}{\vec{r}}
 \newcommand{\velocity}{\vec{v}}
-\newcommand{\ex}{\vec{e}_x}
-\newcommand{\ey}{\vec{e}_y}
-\newcommand{\ez}{\vec{e}_z}
 
 \begin{document}
 \begin{tikzpicture}[scale=1.3]
@@ -251,9 +242,6 @@
 \usetikzlibrary{calc,decorations.markings}
 \newcommand{\place}{\vec{r}}
 \newcommand{\velocity}{\vec{v}}
-\newcommand{\ex}{\vec{e}_x}
-\newcommand{\ey}{\vec{e}_y}
-\newcommand{\ez}{\vec{e}_z}
 
 \begin{document}
 \begin{tikzpicture}[scale=1.3]
