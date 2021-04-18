@@ -265,6 +265,35 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## velocity-drdt.svg
+[![velocity-drdt.svg](mechanics/velocity-drdt/velocity-drdt.svg "velocity-drdt.svg")](mechanics/velocity-drdt/velocity-drdt.svg) [[PDF]](mechanics/velocity-drdt/velocity-drdt.pdf) [[PNG]](mechanics/velocity-drdt/velocity-drdt.png) [[SVG]](mechanics/velocity-drdt/velocity-drdt.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\tikzset{>=latex}
+\usetikzlibrary{calc,decorations.markings}
+\newcommand{\place}{\vec{r}}
+
+\begin{document}
+\begin{tikzpicture}[scale=1.3]
+  % axes
+  \draw[->,thick] (xyz cs:x=-0.5) -- (xyz cs:x=4)  node[below] {$x$};
+  \draw[->,thick] (xyz cs:y=-0.5) -- (xyz cs:y=3)  node[left] {$z$};
+  \draw[->,thick] (xyz cs:z=1)    -- (xyz cs:z=-4) node[above] {$y$};
+  % path
+  \draw[thick,
+        decoration={markings, mark=at position 0.5 with {\arrow{>}}},
+        postaction={decorate},
+        black!40!green]
+       (xyz cs:x=1,y=2.5,z=0) arc (90:0:2);
+  % space point
+  \coordinate (r1) at ($(1,0.5)+(70:2)$);
+  \draw[->,thick,red]  (xyz cs:x=0) -- node[above,xshift=-1em]{$\place(t)$} (r1);
+  % velocity
+  \draw[->,thick,blue] (r1) -- node[above,xshift=0.5em]{$\displaystyle\frac{\Delta\place}{\Delta t}$} ++(-20:1.5);
+\end{tikzpicture}
+\end{document}
+~~~
 ## velocity.svg
 [![velocity.svg](mechanics/velocity/velocity.svg "velocity.svg")](mechanics/velocity/velocity.svg) [[PDF]](mechanics/velocity/velocity.pdf) [[PNG]](mechanics/velocity/velocity.png) [[SVG]](mechanics/velocity/velocity.svg)
 ~~~.tex
