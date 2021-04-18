@@ -1,6 +1,6 @@
 # List of tikz images
 ## circular-polarized-wave.svg
-[![circular-polarized-wave.svg](electrodynamics/circular-polarized-wave/circular-polarized-wave.svg "circular-polarized-wave.svg")](electrodynamics/circular-polarized-wave/circular-polarized-wave.svg) [PDF](electrodynamics/circular-polarized-wave/circular-polarized-wave.pdf) [PNG](electrodynamics/circular-polarized-wave/circular-polarized-wave.png) [SVG](electrodynamics/circular-polarized-wave/circular-polarized-wave.svg)
+[![circular-polarized-wave.svg](electrodynamics/circular-polarized-wave/circular-polarized-wave.svg "circular-polarized-wave.svg")](electrodynamics/circular-polarized-wave/circular-polarized-wave.svg) [[PDF]](electrodynamics/circular-polarized-wave/circular-polarized-wave.pdf) [[PNG]](electrodynamics/circular-polarized-wave/circular-polarized-wave.png) [[SVG]](electrodynamics/circular-polarized-wave/circular-polarized-wave.svg)
 ~~~.tex
 \documentclass[crop,tikz]{standalone}
 
@@ -29,7 +29,7 @@
 \end{document}
 ~~~
 ## linear-polarized-wave.svg
-[![linear-polarized-wave.svg](electrodynamics/linear-polarized-wave/linear-polarized-wave.svg "linear-polarized-wave.svg")](electrodynamics/linear-polarized-wave/linear-polarized-wave.svg) [PDF](electrodynamics/linear-polarized-wave/linear-polarized-wave.pdf) [PNG](electrodynamics/linear-polarized-wave/linear-polarized-wave.png) [SVG](electrodynamics/linear-polarized-wave/linear-polarized-wave.svg)
+[![linear-polarized-wave.svg](electrodynamics/linear-polarized-wave/linear-polarized-wave.svg "linear-polarized-wave.svg")](electrodynamics/linear-polarized-wave/linear-polarized-wave.svg) [[PDF]](electrodynamics/linear-polarized-wave/linear-polarized-wave.pdf) [[PNG]](electrodynamics/linear-polarized-wave/linear-polarized-wave.png) [[SVG]](electrodynamics/linear-polarized-wave/linear-polarized-wave.svg)
 ~~~.tex
 \documentclass[crop,tikz]{standalone}
 
@@ -58,7 +58,7 @@
 \end{document}
 ~~~
 ## curve-length.svg
-[![curve-length.svg](mechanics/curve-length/curve-length.svg "curve-length.svg")](mechanics/curve-length/curve-length.svg) [PDF](mechanics/curve-length/curve-length.pdf) [PNG](mechanics/curve-length/curve-length.png) [SVG](mechanics/curve-length/curve-length.svg)
+[![curve-length.svg](mechanics/curve-length/curve-length.svg "curve-length.svg")](mechanics/curve-length/curve-length.svg) [[PDF]](mechanics/curve-length/curve-length.pdf) [[PNG]](mechanics/curve-length/curve-length.png) [[SVG]](mechanics/curve-length/curve-length.svg)
 ~~~.tex
 \documentclass[crop,tikz]{standalone}
 
@@ -85,7 +85,7 @@
 \end{document}
 ~~~
 ## space-point-2-delta.svg
-[![space-point-2-delta.svg](mechanics/space-point-2-delta/space-point-2-delta.svg "space-point-2-delta.svg")](mechanics/space-point-2-delta/space-point-2-delta.svg) [PDF](mechanics/space-point-2-delta/space-point-2-delta.pdf) [PNG](mechanics/space-point-2-delta/space-point-2-delta.png) [SVG](mechanics/space-point-2-delta/space-point-2-delta.svg)
+[![space-point-2-delta.svg](mechanics/space-point-2-delta/space-point-2-delta.svg "space-point-2-delta.svg")](mechanics/space-point-2-delta/space-point-2-delta.svg) [[PDF]](mechanics/space-point-2-delta/space-point-2-delta.pdf) [[PNG]](mechanics/space-point-2-delta/space-point-2-delta.png) [[SVG]](mechanics/space-point-2-delta/space-point-2-delta.svg)
 ~~~.tex
 \documentclass[crop,tikz]{standalone}
 
@@ -116,7 +116,7 @@
 \end{document}
 ~~~
 ## space-point-2.svg
-[![space-point-2.svg](mechanics/space-point-2/space-point-2.svg "space-point-2.svg")](mechanics/space-point-2/space-point-2.svg) [PDF](mechanics/space-point-2/space-point-2.pdf) [PNG](mechanics/space-point-2/space-point-2.png) [SVG](mechanics/space-point-2/space-point-2.svg)
+[![space-point-2.svg](mechanics/space-point-2/space-point-2.svg "space-point-2.svg")](mechanics/space-point-2/space-point-2.svg) [[PDF]](mechanics/space-point-2/space-point-2.pdf) [[PNG]](mechanics/space-point-2/space-point-2.png) [[SVG]](mechanics/space-point-2/space-point-2.svg)
 ~~~.tex
 \documentclass[crop,tikz]{standalone}
 
@@ -145,7 +145,7 @@
 \end{document}
 ~~~
 ## space-point.svg
-[![space-point.svg](mechanics/space-point/space-point.svg "space-point.svg")](mechanics/space-point/space-point.svg) [PDF](mechanics/space-point/space-point.pdf) [PNG](mechanics/space-point/space-point.png) [SVG](mechanics/space-point/space-point.svg)
+[![space-point.svg](mechanics/space-point/space-point.svg "space-point.svg")](mechanics/space-point/space-point.svg) [[PDF]](mechanics/space-point/space-point.pdf) [[PNG]](mechanics/space-point/space-point.png) [[SVG]](mechanics/space-point/space-point.svg)
 ~~~.tex
 \documentclass[crop,tikz]{standalone}
 
@@ -178,7 +178,7 @@
 \end{document}
 ~~~
 ## straight-curve.svg
-[![straight-curve.svg](mechanics/straight-curve/straight-curve.svg "straight-curve.svg")](mechanics/straight-curve/straight-curve.svg) [PDF](mechanics/straight-curve/straight-curve.pdf) [PNG](mechanics/straight-curve/straight-curve.png) [SVG](mechanics/straight-curve/straight-curve.svg)
+[![straight-curve.svg](mechanics/straight-curve/straight-curve.svg "straight-curve.svg")](mechanics/straight-curve/straight-curve.svg) [[PDF]](mechanics/straight-curve/straight-curve.pdf) [[PNG]](mechanics/straight-curve/straight-curve.png) [[SVG]](mechanics/straight-curve/straight-curve.svg)
 ~~~.tex
 \documentclass[crop,tikz]{standalone}
 
@@ -201,7 +201,7 @@
 \end{document}
 ~~~
 ## velocity-2.svg
-[![velocity-2.svg](mechanics/velocity-2/velocity-2.svg "velocity-2.svg")](mechanics/velocity-2/velocity-2.svg) [PDF](mechanics/velocity-2/velocity-2.pdf) [PNG](mechanics/velocity-2/velocity-2.png) [SVG](mechanics/velocity-2/velocity-2.svg)
+[![velocity-2.svg](mechanics/velocity-2/velocity-2.svg "velocity-2.svg")](mechanics/velocity-2/velocity-2.svg) [[PDF]](mechanics/velocity-2/velocity-2.pdf) [[PNG]](mechanics/velocity-2/velocity-2.png) [[SVG]](mechanics/velocity-2/velocity-2.svg)
 ~~~.tex
 \documentclass[crop,tikz]{standalone}
 
@@ -234,7 +234,7 @@
 \end{document}
 ~~~
 ## velocity-average.svg
-[![velocity-average.svg](mechanics/velocity-average/velocity-average.svg "velocity-average.svg")](mechanics/velocity-average/velocity-average.svg) [PDF](mechanics/velocity-average/velocity-average.pdf) [PNG](mechanics/velocity-average/velocity-average.png) [SVG](mechanics/velocity-average/velocity-average.svg)
+[![velocity-average.svg](mechanics/velocity-average/velocity-average.svg "velocity-average.svg")](mechanics/velocity-average/velocity-average.svg) [[PDF]](mechanics/velocity-average/velocity-average.pdf) [[PNG]](mechanics/velocity-average/velocity-average.png) [[SVG]](mechanics/velocity-average/velocity-average.svg)
 ~~~.tex
 \documentclass[crop,tikz]{standalone}
 
@@ -266,7 +266,7 @@
 \end{document}
 ~~~
 ## velocity.svg
-[![velocity.svg](mechanics/velocity/velocity.svg "velocity.svg")](mechanics/velocity/velocity.svg) [PDF](mechanics/velocity/velocity.pdf) [PNG](mechanics/velocity/velocity.png) [SVG](mechanics/velocity/velocity.svg)
+[![velocity.svg](mechanics/velocity/velocity.svg "velocity.svg")](mechanics/velocity/velocity.svg) [[PDF]](mechanics/velocity/velocity.pdf) [[PNG]](mechanics/velocity/velocity.png) [[SVG]](mechanics/velocity/velocity.svg)
 ~~~.tex
 \documentclass[crop,tikz]{standalone}
 
@@ -296,7 +296,7 @@
 \end{document}
 ~~~
 ## aperture.svg
-[![aperture.svg](optics/aperture/aperture.svg "aperture.svg")](optics/aperture/aperture.svg) [PDF](optics/aperture/aperture.pdf) [PNG](optics/aperture/aperture.png) [SVG](optics/aperture/aperture.svg)
+[![aperture.svg](optics/aperture/aperture.svg "aperture.svg")](optics/aperture/aperture.svg) [[PDF]](optics/aperture/aperture.pdf) [[PNG]](optics/aperture/aperture.png) [[SVG]](optics/aperture/aperture.svg)
 ~~~.tex
 \documentclass[crop,tikz]{standalone}
 
@@ -322,7 +322,7 @@
 \end{document}
 ~~~
 ## circular-wave-fronts.svg
-[![circular-wave-fronts.svg](optics/circular-wave-fronts/circular-wave-fronts.svg "circular-wave-fronts.svg")](optics/circular-wave-fronts/circular-wave-fronts.svg) [PDF](optics/circular-wave-fronts/circular-wave-fronts.pdf) [PNG](optics/circular-wave-fronts/circular-wave-fronts.png) [SVG](optics/circular-wave-fronts/circular-wave-fronts.svg)
+[![circular-wave-fronts.svg](optics/circular-wave-fronts/circular-wave-fronts.svg "circular-wave-fronts.svg")](optics/circular-wave-fronts/circular-wave-fronts.svg) [[PDF]](optics/circular-wave-fronts/circular-wave-fronts.pdf) [[PNG]](optics/circular-wave-fronts/circular-wave-fronts.png) [[SVG]](optics/circular-wave-fronts/circular-wave-fronts.svg)
 ~~~.tex
 \documentclass[crop,tikz]{standalone}
 
@@ -349,7 +349,7 @@
 \end{document}
 ~~~
 ## diffraction-single-slit.svg
-[![diffraction-single-slit.svg](optics/diffraction-single-slit/diffraction-single-slit.svg "diffraction-single-slit.svg")](optics/diffraction-single-slit/diffraction-single-slit.svg) [PDF](optics/diffraction-single-slit/diffraction-single-slit.pdf) [PNG](optics/diffraction-single-slit/diffraction-single-slit.png) [SVG](optics/diffraction-single-slit/diffraction-single-slit.svg)
+[![diffraction-single-slit.svg](optics/diffraction-single-slit/diffraction-single-slit.svg "diffraction-single-slit.svg")](optics/diffraction-single-slit/diffraction-single-slit.svg) [[PDF]](optics/diffraction-single-slit/diffraction-single-slit.pdf) [[PNG]](optics/diffraction-single-slit/diffraction-single-slit.png) [[SVG]](optics/diffraction-single-slit/diffraction-single-slit.svg)
 ~~~.tex
 \documentclass[crop,tikz]{standalone}
 
@@ -380,7 +380,7 @@
 \end{document}
 ~~~
 ## huygens-aperture.svg
-[![huygens-aperture.svg](optics/huygens-aperture/huygens-aperture.svg "huygens-aperture.svg")](optics/huygens-aperture/huygens-aperture.svg) [PDF](optics/huygens-aperture/huygens-aperture.pdf) [PNG](optics/huygens-aperture/huygens-aperture.png) [SVG](optics/huygens-aperture/huygens-aperture.svg)
+[![huygens-aperture.svg](optics/huygens-aperture/huygens-aperture.svg "huygens-aperture.svg")](optics/huygens-aperture/huygens-aperture.svg) [[PDF]](optics/huygens-aperture/huygens-aperture.pdf) [[PNG]](optics/huygens-aperture/huygens-aperture.png) [[SVG]](optics/huygens-aperture/huygens-aperture.svg)
 ~~~.tex
 \documentclass[crop,tikz]{standalone}
 
@@ -402,7 +402,7 @@
 \end{document}
 ~~~
 ## huygens-double-slit.svg
-[![huygens-double-slit.svg](optics/huygens-double-slit/huygens-double-slit.svg "huygens-double-slit.svg")](optics/huygens-double-slit/huygens-double-slit.svg) [PDF](optics/huygens-double-slit/huygens-double-slit.pdf) [PNG](optics/huygens-double-slit/huygens-double-slit.png) [SVG](optics/huygens-double-slit/huygens-double-slit.svg)
+[![huygens-double-slit.svg](optics/huygens-double-slit/huygens-double-slit.svg "huygens-double-slit.svg")](optics/huygens-double-slit/huygens-double-slit.svg) [[PDF]](optics/huygens-double-slit/huygens-double-slit.pdf) [[PNG]](optics/huygens-double-slit/huygens-double-slit.png) [[SVG]](optics/huygens-double-slit/huygens-double-slit.svg)
 ~~~.tex
 \documentclass[crop,tikz]{standalone}
 
@@ -433,7 +433,7 @@
 \end{document}
 ~~~
 ## lens-diacaustic.svg
-[![lens-diacaustic.svg](optics/lens-diacaustic/lens-diacaustic.svg "lens-diacaustic.svg")](optics/lens-diacaustic/lens-diacaustic.svg) [PDF](optics/lens-diacaustic/lens-diacaustic.pdf) [PNG](optics/lens-diacaustic/lens-diacaustic.png) [SVG](optics/lens-diacaustic/lens-diacaustic.svg)
+[![lens-diacaustic.svg](optics/lens-diacaustic/lens-diacaustic.svg "lens-diacaustic.svg")](optics/lens-diacaustic/lens-diacaustic.svg) [[PDF]](optics/lens-diacaustic/lens-diacaustic.pdf) [[PNG]](optics/lens-diacaustic/lens-diacaustic.png) [[SVG]](optics/lens-diacaustic/lens-diacaustic.svg)
 ~~~.tex
 \documentclass[crop,tikz]{standalone}
 
@@ -451,7 +451,7 @@
 \end{document}
 ~~~
 ## lens-paraxial.svg
-[![lens-paraxial.svg](optics/lens-paraxial/lens-paraxial.svg "lens-paraxial.svg")](optics/lens-paraxial/lens-paraxial.svg) [PDF](optics/lens-paraxial/lens-paraxial.pdf) [PNG](optics/lens-paraxial/lens-paraxial.png) [SVG](optics/lens-paraxial/lens-paraxial.svg)
+[![lens-paraxial.svg](optics/lens-paraxial/lens-paraxial.svg "lens-paraxial.svg")](optics/lens-paraxial/lens-paraxial.svg) [[PDF]](optics/lens-paraxial/lens-paraxial.pdf) [[PNG]](optics/lens-paraxial/lens-paraxial.png) [[SVG]](optics/lens-paraxial/lens-paraxial.svg)
 ~~~.tex
 \documentclass[crop,tikz]{standalone}
 
@@ -469,7 +469,7 @@
 \end{document}
 ~~~
 ## mirror-catacaustic.svg
-[![mirror-catacaustic.svg](optics/mirror-catacaustic/mirror-catacaustic.svg "mirror-catacaustic.svg")](optics/mirror-catacaustic/mirror-catacaustic.svg) [PDF](optics/mirror-catacaustic/mirror-catacaustic.pdf) [PNG](optics/mirror-catacaustic/mirror-catacaustic.png) [SVG](optics/mirror-catacaustic/mirror-catacaustic.svg)
+[![mirror-catacaustic.svg](optics/mirror-catacaustic/mirror-catacaustic.svg "mirror-catacaustic.svg")](optics/mirror-catacaustic/mirror-catacaustic.svg) [[PDF]](optics/mirror-catacaustic/mirror-catacaustic.pdf) [[PNG]](optics/mirror-catacaustic/mirror-catacaustic.png) [[SVG]](optics/mirror-catacaustic/mirror-catacaustic.svg)
 ~~~.tex
 \documentclass[crop,tikz]{standalone}
 
@@ -485,7 +485,7 @@
 \end{document}
 ~~~
 ## mirror-parabolic.svg
-[![mirror-parabolic.svg](optics/mirror-parabolic/mirror-parabolic.svg "mirror-parabolic.svg")](optics/mirror-parabolic/mirror-parabolic.svg) [PDF](optics/mirror-parabolic/mirror-parabolic.pdf) [PNG](optics/mirror-parabolic/mirror-parabolic.png) [SVG](optics/mirror-parabolic/mirror-parabolic.svg)
+[![mirror-parabolic.svg](optics/mirror-parabolic/mirror-parabolic.svg "mirror-parabolic.svg")](optics/mirror-parabolic/mirror-parabolic.svg) [[PDF]](optics/mirror-parabolic/mirror-parabolic.pdf) [[PNG]](optics/mirror-parabolic/mirror-parabolic.png) [[SVG]](optics/mirror-parabolic/mirror-parabolic.svg)
 ~~~.tex
 \documentclass[crop,tikz]{standalone}
 
@@ -514,7 +514,7 @@
 \end{document}
 ~~~
 ## plancks-law.svg
-[![plancks-law.svg](optics/plancks-law/plancks-law.svg "plancks-law.svg")](optics/plancks-law/plancks-law.svg) [PDF](optics/plancks-law/plancks-law.pdf) [PNG](optics/plancks-law/plancks-law.png) [SVG](optics/plancks-law/plancks-law.svg)
+[![plancks-law.svg](optics/plancks-law/plancks-law.svg "plancks-law.svg")](optics/plancks-law/plancks-law.svg) [[PDF]](optics/plancks-law/plancks-law.pdf) [[PNG]](optics/plancks-law/plancks-law.png) [[SVG]](optics/plancks-law/plancks-law.svg)
 ~~~.tex
 \documentclass[crop,tikz]{standalone}
 
@@ -573,7 +573,7 @@ color(75bp)=(violet); color(100bp)=(violet)}
 \end{document}
 ~~~
 ## plane-wave-fronts.svg
-[![plane-wave-fronts.svg](optics/plane-wave-fronts/plane-wave-fronts.svg "plane-wave-fronts.svg")](optics/plane-wave-fronts/plane-wave-fronts.svg) [PDF](optics/plane-wave-fronts/plane-wave-fronts.pdf) [PNG](optics/plane-wave-fronts/plane-wave-fronts.png) [SVG](optics/plane-wave-fronts/plane-wave-fronts.svg)
+[![plane-wave-fronts.svg](optics/plane-wave-fronts/plane-wave-fronts.svg "plane-wave-fronts.svg")](optics/plane-wave-fronts/plane-wave-fronts.svg) [[PDF]](optics/plane-wave-fronts/plane-wave-fronts.pdf) [[PNG]](optics/plane-wave-fronts/plane-wave-fronts.png) [[SVG]](optics/plane-wave-fronts/plane-wave-fronts.svg)
 ~~~.tex
 \documentclass[crop,tikz]{standalone}
 
@@ -593,7 +593,7 @@ color(75bp)=(violet); color(100bp)=(violet)}
 \end{document}
 ~~~
 ## reflection-law.svg
-[![reflection-law.svg](optics/reflection-law/reflection-law.svg "reflection-law.svg")](optics/reflection-law/reflection-law.svg) [PDF](optics/reflection-law/reflection-law.pdf) [PNG](optics/reflection-law/reflection-law.png) [SVG](optics/reflection-law/reflection-law.svg)
+[![reflection-law.svg](optics/reflection-law/reflection-law.svg "reflection-law.svg")](optics/reflection-law/reflection-law.svg) [[PDF]](optics/reflection-law/reflection-law.pdf) [[PNG]](optics/reflection-law/reflection-law.png) [[SVG]](optics/reflection-law/reflection-law.svg)
 ~~~.tex
 \documentclass[crop,tikz]{standalone}
 
@@ -652,7 +652,7 @@ color(75bp)=(violet); color(100bp)=(violet)}
 \end{document}
 ~~~
 ## refraction-law.svg
-[![refraction-law.svg](optics/refraction-law/refraction-law.svg "refraction-law.svg")](optics/refraction-law/refraction-law.svg) [PDF](optics/refraction-law/refraction-law.pdf) [PNG](optics/refraction-law/refraction-law.png) [SVG](optics/refraction-law/refraction-law.svg)
+[![refraction-law.svg](optics/refraction-law/refraction-law.svg "refraction-law.svg")](optics/refraction-law/refraction-law.svg) [[PDF]](optics/refraction-law/refraction-law.pdf) [[PNG]](optics/refraction-law/refraction-law.png) [[SVG]](optics/refraction-law/refraction-law.svg)
 ~~~.tex
 \documentclass[crop,tikz]{standalone}
 
@@ -715,7 +715,7 @@ color(75bp)=(violet); color(100bp)=(violet)}
 \end{document}
 ~~~
 ## thin-layer.svg
-[![thin-layer.svg](optics/thin-layer/thin-layer.svg "thin-layer.svg")](optics/thin-layer/thin-layer.svg) [PDF](optics/thin-layer/thin-layer.pdf) [PNG](optics/thin-layer/thin-layer.png) [SVG](optics/thin-layer/thin-layer.svg)
+[![thin-layer.svg](optics/thin-layer/thin-layer.svg "thin-layer.svg")](optics/thin-layer/thin-layer.svg) [[PDF]](optics/thin-layer/thin-layer.pdf) [[PNG]](optics/thin-layer/thin-layer.png) [[SVG]](optics/thin-layer/thin-layer.svg)
 ~~~.tex
 \documentclass[crop,tikz]{standalone}
 
