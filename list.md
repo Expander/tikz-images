@@ -156,6 +156,29 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## straight-curve.svg
+[![straight-curve.svg](mechanics/straight-curve/straight-curve.svg "straight-curve.svg")](mechanics/straight-curve/straight-curve.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\tikzset{>=latex}
+\usetikzlibrary{decorations.markings}
+
+\begin{document}
+\begin{tikzpicture}[scale=1.3]
+  % axes
+  \draw[->,thick] (xyz cs:x=-0.5) -- (xyz cs:x=4)  node[below] {$x$};
+  \draw[->,thick] (xyz cs:y=-0.5) -- (xyz cs:y=3)  node[left]  {$z$};
+  \draw[->,thick] (xyz cs:z=1)    -- (xyz cs:z=-4) node[above] {$y$};
+  % path
+  \draw[red,very thick,
+        decoration={markings, mark=at position 0.8 with {\arrow{>}}},
+        postaction={decorate},
+        black!40!green]
+       (xyz cs:x=-1) -- (xyz cs:x=4,y=3,z=2);
+\end{tikzpicture}
+\end{document}
+~~~
 ## velocity-2.svg
 [![velocity-2.svg](mechanics/velocity-2/velocity-2.svg "velocity-2.svg")](mechanics/velocity-2/velocity-2.svg)
 ~~~.tex
