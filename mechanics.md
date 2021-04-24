@@ -1,4 +1,33 @@
 # Mechanics
+## circular-motion-non-uniform.svg
+[![circular-motion-non-uniform.svg](mechanics/circular-motion-non-uniform/circular-motion-non-uniform.svg "circular-motion-non-uniform.svg")](mechanics/circular-motion-non-uniform/circular-motion-non-uniform.svg) [[PDF]](mechanics/circular-motion-non-uniform/circular-motion-non-uniform.pdf) [[PNG]](mechanics/circular-motion-non-uniform/circular-motion-non-uniform.png) [[SVG]](mechanics/circular-motion-non-uniform/circular-motion-non-uniform.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\tikzset{>=latex}
+\usetikzlibrary{decorations.markings}
+\newcommand{\place}{\vec{r}}
+\newcommand{\velocity}{\vec{v}}
+\newcommand{\acceleration}{\vec{a}}
+
+\begin{document}
+\begin{tikzpicture}[scale=2]
+  % axes
+  \draw[->] (-1.2,0) -- (1.2,0) node[below] {$x$};
+  \draw[->] (0,-1.2) -- (0,1.2) node[left] {$y$};
+  % circle
+  \draw[
+    decoration={markings, mark=at position 0.4 with {\arrow{>}}},
+    postaction={decorate},
+    black!40!green
+  ] (0,0) circle (1);
+  % place, velocity, acceleration
+  \draw[->,red] (0,0) -- node[left,anchor=south east,yshift=-0.2em]{$\place(t)$} (20:1);
+  \draw[->,blue] (20:1) -- node[right,anchor=west]{$\velocity(t)$} +(20+90:0.7);
+  \draw[->,orange] (20:1) -- ++(160:0.5) node[left,xshift=0.4em,yshift=0.6em] {$\acceleration(t)$};
+\end{tikzpicture}
+\end{document}
+~~~
 ## circular-motion-uniform.svg
 [![circular-motion-uniform.svg](mechanics/circular-motion-uniform/circular-motion-uniform.svg "circular-motion-uniform.svg")](mechanics/circular-motion-uniform/circular-motion-uniform.svg) [[PDF]](mechanics/circular-motion-uniform/circular-motion-uniform.pdf) [[PNG]](mechanics/circular-motion-uniform/circular-motion-uniform.png) [[SVG]](mechanics/circular-motion-uniform/circular-motion-uniform.svg)
 ~~~.tex
@@ -23,7 +52,7 @@
   ] (0,0) circle (1);
   % place, velocity, acceleration
   \draw[->,red] (0,0) -- node[left,anchor=south east,yshift=-0.2em]{$\place(t)$} (20:1);
-  \draw[->,blue] (20:1) -- node[right,anchor=west]{$\velocity(t)$} +(20+90:0.7) node (v) {};
+  \draw[->,blue] (20:1) -- node[right,anchor=west]{$\velocity(t)$} +(20+90:0.7);
   \begin{scope}[shift={(-0.03,0.03)}]
     \draw[->,orange] (20:1) -- node[left, anchor=south east] {$\acceleration(t)$} (20:0.8);
   \end{scope}
