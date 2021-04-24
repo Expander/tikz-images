@@ -1,9 +1,9 @@
 # tikz images
 
-[List of electrodynamics images](electrodynamics.md)
+[Electrodynamics](electrodynamics.md)
 
-[List of mechanics images](mechanics.md)
+[Mechanics](mechanics.md)
 
-[List of optics images](optics.md)
+[Optics](optics.md)
 
 License: CC0
