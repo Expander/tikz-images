@@ -9,16 +9,16 @@ PDF_FILES := $(patsubst %.tex,%.pdf,$(TEX_FILES))
 PNG_FILES := $(patsubst %.tex,%.png,$(TEX_FILES))
 SVG_FILES := $(patsubst %.pdf,%.svg,$(PDF_FILES))
 
-EDY_LIST  := electrodynamics.md
+EDY_MD    := electrodynamics.md
 EDY_SVG   := $(patsubst %.tex,%.svg,$(EDY_TEX))
 
-MEC_LIST  := mechanics.md
+MEC_MD    := mechanics.md
 MEC_SVG   := $(patsubst %.tex,%.svg,$(MEC_TEX))
 
-OPT_LIST  := optics.md
+OPT_MD    := optics.md
 OPT_SVG   := $(patsubst %.tex,%.svg,$(OPT_TEX))
 
-MD_FILES  := $(EDY_LIST) $(MEC_LIST) $(OPT_LIST)
+MD_FILES  := $(EDY_MD) $(MEC_MD) $(OPT_MD)
 
 .PHONY: all clean distclean
 
@@ -31,13 +31,13 @@ distclean: clean
 	-rm -f $(PDF_FILES) $(PNG_FILES) $(SVG_FILES)
 	-rm -f $(MD_FILES)
 
-$(EDY_LIST): $(EDY_SVG)
+$(EDY_MD): $(EDY_SVG)
 	./generate-list Electrodynamics $^ > $@
 
-$(MEC_LIST): $(MEC_SVG)
+$(MEC_MD): $(MEC_SVG)
 	./generate-list Mechanics $^ > $@
 
-$(OPT_LIST): $(OPT_SVG)
+$(OPT_MD): $(OPT_SVG)
 	./generate-list Optics $^ > $@
 
 %.pdf: %.tex
