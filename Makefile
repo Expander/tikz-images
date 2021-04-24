@@ -32,13 +32,13 @@ distclean: clean
 	-rm -f $(MD_FILES)
 
 $(EDY_LIST): $(EDY_SVG)
-	./generate-list $^ > $@
+	./generate-list Electrodynamics $^ > $@
 
 $(MEC_LIST): $(MEC_SVG)
-	./generate-list $^ > $@
+	./generate-list Mechanics $^ > $@
 
 $(OPT_LIST): $(OPT_SVG)
-	./generate-list $^ > $@
+	./generate-list Optics $^ > $@
 
 %.pdf: %.tex
 	cd $(dir $<) && pdflatex $(notdir $<)

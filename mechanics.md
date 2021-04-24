@@ -1,4 +1,4 @@
-# List of tikz images
+# Mechanics
 ## curve-length.svg
 [![curve-length.svg](mechanics/curve-length/curve-length.svg "curve-length.svg")](mechanics/curve-length/curve-length.svg) [[PDF]](mechanics/curve-length/curve-length.pdf) [[PNG]](mechanics/curve-length/curve-length.png) [[SVG]](mechanics/curve-length/curve-length.svg)
 ~~~.tex

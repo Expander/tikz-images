@@ -1,4 +1,4 @@
-# List of tikz images
+# Optics
 ## aperture.svg
 [![aperture.svg](optics/aperture/aperture.svg "aperture.svg")](optics/aperture/aperture.svg) [[PDF]](optics/aperture/aperture.pdf) [[PNG]](optics/aperture/aperture.png) [[SVG]](optics/aperture/aperture.svg)
 ~~~.tex

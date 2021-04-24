@@ -1,6 +1,9 @@
 #!/bin/bash
 
-printf '%s\n' '# List of tikz images'
+title="$1"
+shift
+
+printf '%s\n' "# ${title}"
 
 for f in "$@" ; do
     name=$(basename ${f})
