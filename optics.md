@@ -83,31 +83,6 @@
 \end{tikzpicture}
 \end{document}
 ~~~
-## huygens-aperture_inverted.svg
-[![huygens-aperture_inverted.svg](optics/huygens-aperture/huygens-aperture_inverted.svg "huygens-aperture_inverted.svg")](optics/huygens-aperture/huygens-aperture_inverted.svg) [[PDF]](optics/huygens-aperture/huygens-aperture_inverted.pdf) [[PNG]](optics/huygens-aperture/huygens-aperture_inverted.png) [[SVG]](optics/huygens-aperture/huygens-aperture_inverted.svg)
-~~~.tex
-\documentclass[crop,tikz]{standalone}
-\usetikzlibrary{backgrounds}
-\colorlet{blue}{cyan}
-\tikzset{ inverted/.style={every path/.style={draw=white,text=white}, background rectangle/.style={fill}, show background rectangle }}
-
-\tikzset{>=latex}
-
-\begin{document}
-\begin{tikzpicture}
-  \foreach\X in {-2,-1.5,-1,-0.5,0} {\draw(\X,-2)--(\X,2);}
-  \draw[->] (-3,0) -- +(0.7,0);
-  \draw[fill] (0.05,-2) rectangle (-0.05,-1);
-  \draw[fill] (0.05,2)  rectangle (-0.05,1);
-  \foreach\Y in {-1,-0.5,...,1} {%
-    \draw[fill,red] (0,\Y) circle (0.05);
-    \draw[blue] (0,\Y)+(-90:0.5) arc (-90:+90:0.5);
-  }
-  \draw (0,-1.5) arc (-90:0:0.5) -- (0.5,1) arc (0:90:0.5);
-  \draw (0,-2)   arc (-90:0:1)   -- (1,1)   arc (0:90:1);
-\end{tikzpicture}
-\end{document}
-~~~
 ## huygens-aperture.svg
 [![huygens-aperture.svg](optics/huygens-aperture/huygens-aperture.svg "huygens-aperture.svg")](optics/huygens-aperture/huygens-aperture.svg) [[PDF]](optics/huygens-aperture/huygens-aperture.pdf) [[PNG]](optics/huygens-aperture/huygens-aperture.png) [[SVG]](optics/huygens-aperture/huygens-aperture.svg)
 ~~~.tex
@@ -559,13 +534,10 @@ color(75bp)=(violet); color(100bp)=(violet)}
 \end{tikzpicture}
 \end{document}
 ~~~
-## huygens-aperture_inverted_inverted.svg
-[![huygens-aperture_inverted_inverted.svg](optics/huygens-aperture/huygens-aperture_inverted_inverted.svg "huygens-aperture_inverted_inverted.svg")](optics/huygens-aperture/huygens-aperture_inverted_inverted.svg) [[PDF]](optics/huygens-aperture/huygens-aperture_inverted_inverted.pdf) [[PNG]](optics/huygens-aperture/huygens-aperture_inverted_inverted.png) [[SVG]](optics/huygens-aperture/huygens-aperture_inverted_inverted.svg)
+## huygens-aperture_inverted.svg
+[![huygens-aperture_inverted.svg](optics/huygens-aperture/huygens-aperture_inverted.svg "huygens-aperture_inverted.svg")](optics/huygens-aperture/huygens-aperture_inverted.svg) [[PDF]](optics/huygens-aperture/huygens-aperture_inverted.pdf) [[PNG]](optics/huygens-aperture/huygens-aperture_inverted.png) [[SVG]](optics/huygens-aperture/huygens-aperture_inverted.svg)
 ~~~.tex
 \documentclass[crop,tikz]{standalone}
-\usetikzlibrary{backgrounds}
-\colorlet{blue}{cyan}
-\tikzset{ inverted/.style={every path/.style={draw=white,text=white}, background rectangle/.style={fill}, show background rectangle }}
 \usetikzlibrary{backgrounds}
 \colorlet{blue}{cyan}
 \tikzset{ inverted/.style={every path/.style={draw=white,text=white}, background rectangle/.style={fill}, show background rectangle }}

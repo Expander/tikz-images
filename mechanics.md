@@ -1,38 +1,4 @@
 # Mechanics
-## circular-motion-non-uniform_inverted.svg
-[![circular-motion-non-uniform_inverted.svg](mechanics/circular-motion-non-uniform/circular-motion-non-uniform_inverted.svg "circular-motion-non-uniform_inverted.svg")](mechanics/circular-motion-non-uniform/circular-motion-non-uniform_inverted.svg) [[PDF]](mechanics/circular-motion-non-uniform/circular-motion-non-uniform_inverted.pdf) [[PNG]](mechanics/circular-motion-non-uniform/circular-motion-non-uniform_inverted.png) [[SVG]](mechanics/circular-motion-non-uniform/circular-motion-non-uniform_inverted.svg)
-~~~.tex
-\documentclass[crop,tikz]{standalone}
-\usetikzlibrary{backgrounds}
-\colorlet{blue}{cyan}
-\tikzset{ inverted/.style={every path/.style={draw=white,text=white}, background rectangle/.style={fill}, show background rectangle }}
-
-\tikzset{>=latex}
-\usetikzlibrary{decorations.markings}
-\colorlet{green}{green}
-\newcommand{\place}{\vec{r}}
-\newcommand{\velocity}{\vec{v}}
-\newcommand{\acceleration}{\vec{a}}
-
-\begin{document}
-\begin{tikzpicture}[inverted,scale=2]
-  % axes
-  \draw[->,thick] (-1.2,0) -- (1.2,0) node[below] {$x$};
-  \draw[->,thick] (0,-1.2) -- (0,1.2) node[left] {$y$};
-  % circle
-  \draw[
-    decoration={markings, mark=at position 0.4 with {\arrow{>}}},
-    postaction={decorate},
-    green,
-    thick
-  ] (0,0) circle (1);
-  % place, velocity, acceleration
-  \draw[->,thick,red] (0,0) -- node[left,anchor=south east,yshift=-0.2em]{$\place(t)$} (20:1);
-  \draw[->,thick,blue] (20:1) -- node[right,anchor=west]{$\velocity(t)$} +(20+90:0.7);
-  \draw[->,thick,orange] (20:1) -- ++(160:0.5) node[left,xshift=0.4em,yshift=0.6em] {$\acceleration(t)$};
-\end{tikzpicture}
-\end{document}
-~~~
 ## circular-motion-non-uniform.svg
 [![circular-motion-non-uniform.svg](mechanics/circular-motion-non-uniform/circular-motion-non-uniform.svg "circular-motion-non-uniform.svg")](mechanics/circular-motion-non-uniform/circular-motion-non-uniform.svg) [[PDF]](mechanics/circular-motion-non-uniform/circular-motion-non-uniform.pdf) [[PNG]](mechanics/circular-motion-non-uniform/circular-motion-non-uniform.png) [[SVG]](mechanics/circular-motion-non-uniform/circular-motion-non-uniform.svg)
 ~~~.tex
@@ -41,6 +7,7 @@
 \tikzset{>=latex}
 \usetikzlibrary{decorations.markings}
 \colorlet{green}{black!40!green}
+\definecolor{orange}{RGB}{250,194,25}
 \newcommand{\place}{\vec{r}}
 \newcommand{\velocity}{\vec{v}}
 \newcommand{\acceleration}{\vec{a}}
@@ -72,6 +39,7 @@
 \tikzset{>=latex}
 \usetikzlibrary{decorations.markings}
 \colorlet{green}{black!40!green}
+\definecolor{orange}{RGB}{250,194,25}
 \newcommand{\place}{\vec{r}}
 \newcommand{\velocity}{\vec{v}}
 \newcommand{\acceleration}{\vec{a}}
@@ -286,6 +254,7 @@
 \tikzset{>=latex}
 \usetikzlibrary{calc,decorations.markings}
 \colorlet{green}{black!40!green}
+\definecolor{orange}{RGB}{250,194,25}
 \newcommand{\place}{\vec{r}}
 \newcommand{\velocity}{\vec{v}}
 
@@ -440,13 +409,10 @@
 \end{tikzpicture}
 \end{document}
 ~~~
-## circular-motion-non-uniform_inverted_inverted.svg
-[![circular-motion-non-uniform_inverted_inverted.svg](mechanics/circular-motion-non-uniform/circular-motion-non-uniform_inverted_inverted.svg "circular-motion-non-uniform_inverted_inverted.svg")](mechanics/circular-motion-non-uniform/circular-motion-non-uniform_inverted_inverted.svg) [[PDF]](mechanics/circular-motion-non-uniform/circular-motion-non-uniform_inverted_inverted.pdf) [[PNG]](mechanics/circular-motion-non-uniform/circular-motion-non-uniform_inverted_inverted.png) [[SVG]](mechanics/circular-motion-non-uniform/circular-motion-non-uniform_inverted_inverted.svg)
+## circular-motion-non-uniform_inverted.svg
+[![circular-motion-non-uniform_inverted.svg](mechanics/circular-motion-non-uniform/circular-motion-non-uniform_inverted.svg "circular-motion-non-uniform_inverted.svg")](mechanics/circular-motion-non-uniform/circular-motion-non-uniform_inverted.svg) [[PDF]](mechanics/circular-motion-non-uniform/circular-motion-non-uniform_inverted.pdf) [[PNG]](mechanics/circular-motion-non-uniform/circular-motion-non-uniform_inverted.png) [[SVG]](mechanics/circular-motion-non-uniform/circular-motion-non-uniform_inverted.svg)
 ~~~.tex
 \documentclass[crop,tikz]{standalone}
-\usetikzlibrary{backgrounds}
-\colorlet{blue}{cyan}
-\tikzset{ inverted/.style={every path/.style={draw=white,text=white}, background rectangle/.style={fill}, show background rectangle }}
 \usetikzlibrary{backgrounds}
 \colorlet{blue}{cyan}
 \tikzset{ inverted/.style={every path/.style={draw=white,text=white}, background rectangle/.style={fill}, show background rectangle }}
@@ -454,12 +420,13 @@
 \tikzset{>=latex}
 \usetikzlibrary{decorations.markings}
 \colorlet{green}{green}
+\definecolor{orange}{RGB}{250,194,25}
 \newcommand{\place}{\vec{r}}
 \newcommand{\velocity}{\vec{v}}
 \newcommand{\acceleration}{\vec{a}}
 
 \begin{document}
-\begin{tikzpicture}[inverted,inverted,scale=2]
+\begin{tikzpicture}[inverted,scale=2]
   % axes
   \draw[->,thick] (-1.2,0) -- (1.2,0) node[below] {$x$};
   \draw[->,thick] (0,-1.2) -- (0,1.2) node[left] {$y$};
@@ -488,6 +455,7 @@
 \tikzset{>=latex}
 \usetikzlibrary{decorations.markings}
 \colorlet{green}{green}
+\definecolor{orange}{RGB}{250,194,25}
 \newcommand{\place}{\vec{r}}
 \newcommand{\velocity}{\vec{v}}
 \newcommand{\acceleration}{\vec{a}}
@@ -652,7 +620,38 @@
 ## space-point_inverted.svg
 [![space-point_inverted.svg](mechanics/space-point/space-point_inverted.svg "space-point_inverted.svg")](mechanics/space-point/space-point_inverted.svg) [[PDF]](mechanics/space-point/space-point_inverted.pdf) [[PNG]](mechanics/space-point/space-point_inverted.png) [[SVG]](mechanics/space-point/space-point_inverted.svg)
 ~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{ inverted/.style={every path/.style={draw=white,text=white}, background rectangle/.style={fill}, show background rectangle }}
 
+\tikzset{>=latex}
+\newcommand{\place}{\vec{r}}
+\newcommand{\ex}{\vec{e}_x}
+\newcommand{\ey}{\vec{e}_y}
+\newcommand{\ez}{\vec{e}_z}
+
+\begin{document}
+\begin{tikzpicture}[inverted,scale=1.3]
+  % axes
+  \draw[->,thick] (xyz cs:x=-0.5) -- (xyz cs:x=4)  node[below] {$x$};
+  \draw[->,thick] (xyz cs:y=-0.5) -- (xyz cs:y=3)  node[left]  {$z$};
+  \draw[->,thick] (xyz cs:z=1)    -- (xyz cs:z=-4) node[above] {$y$};
+  % dashed lines
+  \draw[dashed] (xyz cs:x=3)  -- ++(xyz cs:z=-2) -- ++(xyz cs:y=2) coordinate (p) node[above] {$P(x,y,z)$};
+  \draw[dashed] (xyz cs:z=-2) -- ++(xyz cs:x=3);
+  \draw[dashed] (xyz cs:x=0,y=2,z=0) -- ++(xyz cs:x=3) -- ++(xyz cs:z=-2) -- ++(xyz cs:x=-3) -- ++(xyz cs:z=2);
+  \draw[dashed] (xyz cs:x=3)  -- ++(xyz cs:y=2);
+  \draw[dashed] (xyz cs:z=-2) -- ++(xyz cs:y=2);
+  \node[fill,circle,inner sep=1.5pt] at (p) {};
+  % point
+  \draw[->,very thick,red,shorten >= 0.5mm] (xyz cs:x=0) -- node[below]{$\place$} (xyz cs:x=3,y=2,z=-2);
+  % unit vectors
+  \draw[->,very thick,blue] (xyz cs:x=0) -- node[below]{$\ex$} (xyz cs:x=1);
+  \draw[->,very thick,blue] (xyz cs:x=0) -- (xyz cs:z=-1) node[left,yshift=0.6em,xshift=0.3em]{$\ey$};
+  \draw[->,very thick,blue] (xyz cs:x=0) -- node[left]{$\ez$} (xyz cs:y=1);
+\end{tikzpicture}
+\end{document}
 ~~~
 ## straight-curve_inverted.svg
 [![straight-curve_inverted.svg](mechanics/straight-curve/straight-curve_inverted.svg "straight-curve_inverted.svg")](mechanics/straight-curve/straight-curve_inverted.svg) [[PDF]](mechanics/straight-curve/straight-curve_inverted.pdf) [[PNG]](mechanics/straight-curve/straight-curve_inverted.png) [[SVG]](mechanics/straight-curve/straight-curve_inverted.svg)
@@ -692,6 +691,7 @@
 \tikzset{>=latex}
 \usetikzlibrary{calc,decorations.markings}
 \colorlet{green}{green}
+\definecolor{orange}{RGB}{250,194,25}
 \newcommand{\place}{\vec{r}}
 \newcommand{\velocity}{\vec{v}}
 
@@ -827,5 +827,34 @@
 ## velocity_inverted.svg
 [![velocity_inverted.svg](mechanics/velocity/velocity_inverted.svg "velocity_inverted.svg")](mechanics/velocity/velocity_inverted.svg) [[PDF]](mechanics/velocity/velocity_inverted.pdf) [[PNG]](mechanics/velocity/velocity_inverted.png) [[SVG]](mechanics/velocity/velocity_inverted.svg)
 ~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{ inverted/.style={every path/.style={draw=white,text=white}, background rectangle/.style={fill}, show background rectangle }}
 
+\tikzset{>=latex}
+\usetikzlibrary{calc,decorations.markings}
+\colorlet{green}{green}
+\newcommand{\place}{\vec{r}}
+\newcommand{\velocity}{\vec{v}}
+
+\begin{document}
+\begin{tikzpicture}[inverted,scale=1.3]
+  % axes
+  \draw[->,thick] (xyz cs:x=-0.5) -- (xyz cs:x=4)  node[below] {$x$};
+  \draw[->,thick] (xyz cs:y=-0.5) -- (xyz cs:y=3)  node[left] {$z$};
+  \draw[->,thick] (xyz cs:z=1)    -- (xyz cs:z=-4) node[above] {$y$};
+  % path
+  \draw[thick,
+        decoration={markings, mark=at position 0.5 with {\arrow{>}}},
+        postaction={decorate},
+        green]
+       (xyz cs:x=1,y=2.5,z=0) arc (90:0:2);
+  % space point
+  \coordinate (r1) at ($(1,0.5)+(70:2)$);
+  \draw[->,thick,red]  (xyz cs:x=0) -- node[above,xshift=-1em]{$\place(t)$} (r1);
+  % velocity
+  \draw[->,thick,blue] (r1) -- node[above,xshift=0.5em]{$\velocity(t)$} ++(-20:1.5);
+\end{tikzpicture}
+\end{document}
 ~~~

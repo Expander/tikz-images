@@ -1,19 +1,19 @@
 EDY_MD    := electrodynamics.md
-EDY_TEX   := $(shell find electrodynamics -name '*.tex' -type f | sort)
+EDY_TEX   := $(shell find electrodynamics -name '*.tex' -a ! -name '*_inverted.tex' -type f | sort)
 EDY_TEX   := $(EDY_TEX) $(patsubst %.tex,%_inverted.tex,$(EDY_TEX))
 EDY_SVG   := $(patsubst %.tex,%.svg,$(EDY_TEX))
 
 MEC_MD    := mechanics.md
-MEC_TEX   := $(shell find mechanics       -name '*.tex' -type f | sort)
+MEC_TEX   := $(shell find mechanics       -name '*.tex' -a ! -name '*_inverted.tex' -type f | sort)
 MEC_TEX   := $(MEC_TEX) $(patsubst %.tex,%_inverted.tex,$(MEC_TEX))
 MEC_SVG   := $(patsubst %.tex,%.svg,$(MEC_TEX))
 
 OPT_MD    := optics.md
-OPT_TEX   := $(shell find optics          -name '*.tex' -type f | sort)
+OPT_TEX   := $(shell find optics          -name '*.tex' -a ! -name '*_inverted.tex' -type f | sort)
 OPT_TEX   := $(OPT_TEX) $(patsubst %.tex,%_inverted.tex,$(OPT_TEX))
 OPT_SVG   := $(patsubst %.tex,%.svg,$(OPT_TEX))
 
-MD_FILES  := $(EDY_MD) $(MEC_MD) $(OPT_MD)
+MD_FILES  := $(EDY_MD)  $(MEC_MD)  $(OPT_MD)
 SVG_FILES := $(EDY_SVG) $(MEC_SVG) $(OPT_SVG)
 TEX_FILES := $(EDY_TEX) $(MEC_TEX) $(OPT_TEX)
 
@@ -23,6 +23,8 @@ PDF_FILES := $(patsubst %.tex,%.pdf,$(TEX_FILES))
 PNG_FILES := $(patsubst %.tex,%.png,$(TEX_FILES))
 
 .PHONY: all clean distclean
+
+.PRECIOUS: %_inverted.tex
 
 all: $(PDF_FILES) $(PNG_FILES) $(SVG_FILES) $(MD_FILES)
 
