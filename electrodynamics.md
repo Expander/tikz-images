@@ -63,7 +63,13 @@
 \documentclass[crop,tikz]{standalone}
 \usetikzlibrary{backgrounds}
 \colorlet{blue}{cyan}
-\tikzset{ inverted/.style={every path/.style={draw=white,text=white}, background rectangle/.style={fill}, show background rectangle }}
+\tikzset{
+  inverted/.style = {
+    every path/.style = {draw=white,text=white},
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
 
 \tikzset{>=latex}
 
@@ -95,7 +101,13 @@
 \documentclass[crop,tikz]{standalone}
 \usetikzlibrary{backgrounds}
 \colorlet{blue}{cyan}
-\tikzset{ inverted/.style={every path/.style={draw=white,text=white}, background rectangle/.style={fill}, show background rectangle }}
+\tikzset{
+  inverted/.style = {
+    every path/.style = {draw=white,text=white},
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
 
 \tikzset{>=latex}
 

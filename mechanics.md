@@ -481,7 +481,13 @@
 \documentclass[crop,tikz]{standalone}
 \usetikzlibrary{backgrounds}
 \colorlet{blue}{cyan}
-\tikzset{ inverted/.style={every path/.style={draw=white,text=white}, background rectangle/.style={fill}, show background rectangle }}
+\tikzset{
+  inverted/.style = {
+    every path/.style = {draw=white,text=white},
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
 
 \tikzset{>=latex}
 \usetikzlibrary{decorations.markings}
@@ -516,7 +522,13 @@
 \documentclass[crop,tikz]{standalone}
 \usetikzlibrary{backgrounds}
 \colorlet{blue}{cyan}
-\tikzset{ inverted/.style={every path/.style={draw=white,text=white}, background rectangle/.style={fill}, show background rectangle }}
+\tikzset{
+  inverted/.style = {
+    every path/.style = {draw=white,text=white},
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
 
 \tikzset{>=latex}
 \usetikzlibrary{decorations.markings}
@@ -553,7 +565,13 @@
 \documentclass[crop,tikz]{standalone}
 \usetikzlibrary{backgrounds}
 \colorlet{blue}{cyan}
-\tikzset{ inverted/.style={every path/.style={draw=white,text=white}, background rectangle/.style={fill}, show background rectangle }}
+\tikzset{
+  inverted/.style = {
+    every path/.style = {draw=white,text=white},
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
 
 \tikzset{>=latex}
 \usetikzlibrary{calc}
@@ -584,7 +602,13 @@
 \documentclass[crop,tikz]{standalone}
 \usetikzlibrary{backgrounds}
 \colorlet{blue}{cyan}
-\tikzset{ inverted/.style={every path/.style={draw=white,text=white}, background rectangle/.style={fill}, show background rectangle }}
+\tikzset{
+  inverted/.style = {
+    every path/.style = {draw=white,text=white},
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
 
 \tikzset{>=latex}
 \usetikzlibrary{calc}
@@ -621,7 +645,13 @@
 \documentclass[crop,tikz]{standalone}
 \usetikzlibrary{backgrounds}
 \colorlet{blue}{cyan}
-\tikzset{ inverted/.style={every path/.style={draw=white,text=white}, background rectangle/.style={fill}, show background rectangle }}
+\tikzset{
+  inverted/.style = {
+    every path/.style = {draw=white,text=white},
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
 
 \tikzset{>=latex}
 
@@ -640,7 +670,13 @@
 \documentclass[crop,tikz]{standalone}
 \usetikzlibrary{backgrounds}
 \colorlet{blue}{cyan}
-\tikzset{ inverted/.style={every path/.style={draw=white,text=white}, background rectangle/.style={fill}, show background rectangle }}
+\tikzset{
+  inverted/.style = {
+    every path/.style = {draw=white,text=white},
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
 
 \tikzset{>=latex}
 \usetikzlibrary{patterns}
@@ -662,7 +698,13 @@
 \documentclass[crop,tikz]{standalone}
 \usetikzlibrary{backgrounds}
 \colorlet{blue}{cyan}
-\tikzset{ inverted/.style={every path/.style={draw=white,text=white}, background rectangle/.style={fill}, show background rectangle }}
+\tikzset{
+  inverted/.style = {
+    every path/.style = {draw=white,text=white},
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
 
 \tikzset{>=latex}
 
@@ -680,7 +722,13 @@
 \documentclass[crop,tikz]{standalone}
 \usetikzlibrary{backgrounds}
 \colorlet{blue}{cyan}
-\tikzset{ inverted/.style={every path/.style={draw=white,text=white}, background rectangle/.style={fill}, show background rectangle }}
+\tikzset{
+  inverted/.style = {
+    every path/.style = {draw=white,text=white},
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
 
 \tikzset{>=latex}
 
@@ -699,7 +747,13 @@
 \documentclass[crop,tikz]{standalone}
 \usetikzlibrary{backgrounds}
 \colorlet{blue}{cyan}
-\tikzset{ inverted/.style={every path/.style={draw=white,text=white}, background rectangle/.style={fill}, show background rectangle }}
+\tikzset{
+  inverted/.style = {
+    every path/.style = {draw=white,text=white},
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
 
 \tikzset{>=latex}
 \usetikzlibrary{calc,decorations.markings}
@@ -734,7 +788,13 @@
 \documentclass[crop,tikz]{standalone}
 \usetikzlibrary{backgrounds}
 \colorlet{blue}{cyan}
-\tikzset{ inverted/.style={every path/.style={draw=white,text=white}, background rectangle/.style={fill}, show background rectangle }}
+\tikzset{
+  inverted/.style = {
+    every path/.style = {draw=white,text=white},
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
 
 \tikzset{>=latex}
 \usetikzlibrary{calc,decorations.markings}
@@ -767,7 +827,13 @@
 \documentclass[crop,tikz]{standalone}
 \usetikzlibrary{backgrounds}
 \colorlet{blue}{cyan}
-\tikzset{ inverted/.style={every path/.style={draw=white,text=white}, background rectangle/.style={fill}, show background rectangle }}
+\tikzset{
+  inverted/.style = {
+    every path/.style = {draw=white,text=white},
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
 
 \tikzset{>=latex}
 \newcommand{\place}{\vec{r}}
@@ -803,7 +869,13 @@
 \documentclass[crop,tikz]{standalone}
 \usetikzlibrary{backgrounds}
 \colorlet{blue}{cyan}
-\tikzset{ inverted/.style={every path/.style={draw=white,text=white}, background rectangle/.style={fill}, show background rectangle }}
+\tikzset{
+  inverted/.style = {
+    every path/.style = {draw=white,text=white},
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
 
 \tikzset{>=latex}
 \usetikzlibrary{decorations.markings}
@@ -830,7 +902,13 @@
 \documentclass[crop,tikz]{standalone}
 \usetikzlibrary{backgrounds}
 \colorlet{blue}{cyan}
-\tikzset{ inverted/.style={every path/.style={draw=white,text=white}, background rectangle/.style={fill}, show background rectangle }}
+\tikzset{
+  inverted/.style = {
+    every path/.style = {draw=white,text=white},
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
 
 \tikzset{>=latex}
 \usetikzlibrary{calc,decorations.markings}
@@ -870,7 +948,13 @@
 \documentclass[crop,tikz]{standalone}
 \usetikzlibrary{backgrounds}
 \colorlet{blue}{cyan}
-\tikzset{ inverted/.style={every path/.style={draw=white,text=white}, background rectangle/.style={fill}, show background rectangle }}
+\tikzset{
+  inverted/.style = {
+    every path/.style = {draw=white,text=white},
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
 
 \tikzset{>=latex}
 \usetikzlibrary{calc,decorations.markings}
@@ -907,7 +991,13 @@
 \documentclass[crop,tikz]{standalone}
 \usetikzlibrary{backgrounds}
 \colorlet{blue}{cyan}
-\tikzset{ inverted/.style={every path/.style={draw=white,text=white}, background rectangle/.style={fill}, show background rectangle }}
+\tikzset{
+  inverted/.style = {
+    every path/.style = {draw=white,text=white},
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
 
 \tikzset{>=latex}
 \usetikzlibrary{calc}
@@ -941,7 +1031,13 @@
 \documentclass[crop,tikz]{standalone}
 \usetikzlibrary{backgrounds}
 \colorlet{blue}{cyan}
-\tikzset{ inverted/.style={every path/.style={draw=white,text=white}, background rectangle/.style={fill}, show background rectangle }}
+\tikzset{
+  inverted/.style = {
+    every path/.style = {draw=white,text=white},
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
 
 \tikzset{>=latex}
 \usetikzlibrary{calc,decorations.markings}
@@ -974,7 +1070,13 @@
 \documentclass[crop,tikz]{standalone}
 \usetikzlibrary{backgrounds}
 \colorlet{blue}{cyan}
-\tikzset{ inverted/.style={every path/.style={draw=white,text=white}, background rectangle/.style={fill}, show background rectangle }}
+\tikzset{
+  inverted/.style = {
+    every path/.style = {draw=white,text=white},
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
 
 \tikzset{>=latex}
 \usetikzlibrary{calc,decorations.markings}

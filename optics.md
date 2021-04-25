@@ -447,7 +447,13 @@ color(75bp)=(violet); color(100bp)=(violet)}
 \documentclass[crop,tikz]{standalone}
 \usetikzlibrary{backgrounds}
 \colorlet{blue}{cyan}
-\tikzset{ inverted/.style={every path/.style={draw=white,text=white}, background rectangle/.style={fill}, show background rectangle }}
+\tikzset{
+  inverted/.style = {
+    every path/.style = {draw=white,text=white},
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
 
 \tikzset{>=latex}
 \usetikzlibrary{calc}
@@ -476,7 +482,13 @@ color(75bp)=(violet); color(100bp)=(violet)}
 \documentclass[crop,tikz]{standalone}
 \usetikzlibrary{backgrounds}
 \colorlet{blue}{cyan}
-\tikzset{ inverted/.style={every path/.style={draw=white,text=white}, background rectangle/.style={fill}, show background rectangle }}
+\tikzset{
+  inverted/.style = {
+    every path/.style = {draw=white,text=white},
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
 
 \tikzset{>=latex}
 
@@ -506,7 +518,13 @@ color(75bp)=(violet); color(100bp)=(violet)}
 \documentclass[crop,tikz]{standalone}
 \usetikzlibrary{backgrounds}
 \colorlet{blue}{cyan}
-\tikzset{ inverted/.style={every path/.style={draw=white,text=white}, background rectangle/.style={fill}, show background rectangle }}
+\tikzset{
+  inverted/.style = {
+    every path/.style = {draw=white,text=white},
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
 
 \tikzset{>=latex}
 \usetikzlibrary{calc}
@@ -540,7 +558,13 @@ color(75bp)=(violet); color(100bp)=(violet)}
 \documentclass[crop,tikz]{standalone}
 \usetikzlibrary{backgrounds}
 \colorlet{blue}{cyan}
-\tikzset{ inverted/.style={every path/.style={draw=white,text=white}, background rectangle/.style={fill}, show background rectangle }}
+\tikzset{
+  inverted/.style = {
+    every path/.style = {draw=white,text=white},
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
 
 \tikzset{>=latex}
 
@@ -565,7 +589,13 @@ color(75bp)=(violet); color(100bp)=(violet)}
 \documentclass[crop,tikz]{standalone}
 \usetikzlibrary{backgrounds}
 \colorlet{blue}{cyan}
-\tikzset{ inverted/.style={every path/.style={draw=white,text=white}, background rectangle/.style={fill}, show background rectangle }}
+\tikzset{
+  inverted/.style = {
+    every path/.style = {draw=white,text=white},
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
 
 \tikzset{>=latex}
 
@@ -599,7 +629,13 @@ color(75bp)=(violet); color(100bp)=(violet)}
 \documentclass[crop,tikz]{standalone}
 \usetikzlibrary{backgrounds}
 \colorlet{blue}{cyan}
-\tikzset{ inverted/.style={every path/.style={draw=white,text=white}, background rectangle/.style={fill}, show background rectangle }}
+\tikzset{
+  inverted/.style = {
+    every path/.style = {draw=white,text=white},
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
 
 \begin{document}
 \begin{tikzpicture}
@@ -620,7 +656,13 @@ color(75bp)=(violet); color(100bp)=(violet)}
 \documentclass[crop,tikz]{standalone}
 \usetikzlibrary{backgrounds}
 \colorlet{blue}{cyan}
-\tikzset{ inverted/.style={every path/.style={draw=white,text=white}, background rectangle/.style={fill}, show background rectangle }}
+\tikzset{
+  inverted/.style = {
+    every path/.style = {draw=white,text=white},
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
 
 \begin{document}
 \begin{tikzpicture}
@@ -641,7 +683,13 @@ color(75bp)=(violet); color(100bp)=(violet)}
 \documentclass[crop,tikz]{standalone}
 \usetikzlibrary{backgrounds}
 \colorlet{blue}{cyan}
-\tikzset{ inverted/.style={every path/.style={draw=white,text=white}, background rectangle/.style={fill}, show background rectangle }}
+\tikzset{
+  inverted/.style = {
+    every path/.style = {draw=white,text=white},
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
 
 \begin{document}
 \begin{tikzpicture}
@@ -660,7 +708,13 @@ color(75bp)=(violet); color(100bp)=(violet)}
 \documentclass[crop,tikz]{standalone}
 \usetikzlibrary{backgrounds}
 \colorlet{blue}{cyan}
-\tikzset{ inverted/.style={every path/.style={draw=white,text=white}, background rectangle/.style={fill}, show background rectangle }}
+\tikzset{
+  inverted/.style = {
+    every path/.style = {draw=white,text=white},
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
 
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.16}
@@ -692,7 +746,13 @@ color(75bp)=(violet); color(100bp)=(violet)}
 \documentclass[crop,tikz]{standalone}
 \usetikzlibrary{backgrounds}
 \colorlet{blue}{cyan}
-\tikzset{ inverted/.style={every path/.style={draw=white,text=white}, background rectangle/.style={fill}, show background rectangle }}
+\tikzset{
+  inverted/.style = {
+    every path/.style = {draw=white,text=white},
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
 
 \usepackage{amsmath}
 \usepackage{pgfplots}
@@ -754,7 +814,13 @@ color(75bp)=(violet); color(100bp)=(violet)}
 \documentclass[crop,tikz]{standalone}
 \usetikzlibrary{backgrounds}
 \colorlet{blue}{cyan}
-\tikzset{ inverted/.style={every path/.style={draw=white,text=white}, background rectangle/.style={fill}, show background rectangle }}
+\tikzset{
+  inverted/.style = {
+    every path/.style = {draw=white,text=white},
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
 
 \tikzset{>=latex}
 
@@ -777,7 +843,13 @@ color(75bp)=(violet); color(100bp)=(violet)}
 \documentclass[crop,tikz]{standalone}
 \usetikzlibrary{backgrounds}
 \colorlet{blue}{cyan}
-\tikzset{ inverted/.style={every path/.style={draw=white,text=white}, background rectangle/.style={fill}, show background rectangle }}
+\tikzset{
+  inverted/.style = {
+    every path/.style = {draw=white,text=white},
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
 
 \tikzset{>=latex}
 \usetikzlibrary{calc}
@@ -839,7 +911,13 @@ color(75bp)=(violet); color(100bp)=(violet)}
 \documentclass[crop,tikz]{standalone}
 \usetikzlibrary{backgrounds}
 \colorlet{blue}{cyan}
-\tikzset{ inverted/.style={every path/.style={draw=white,text=white}, background rectangle/.style={fill}, show background rectangle }}
+\tikzset{
+  inverted/.style = {
+    every path/.style = {draw=white,text=white},
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
 
 \tikzset{>=latex}
 \usetikzlibrary{calc}
@@ -905,7 +983,13 @@ color(75bp)=(violet); color(100bp)=(violet)}
 \documentclass[crop,tikz]{standalone}
 \usetikzlibrary{backgrounds}
 \colorlet{blue}{cyan}
-\tikzset{ inverted/.style={every path/.style={draw=white,text=white}, background rectangle/.style={fill}, show background rectangle }}
+\tikzset{
+  inverted/.style = {
+    every path/.style = {draw=white,text=white},
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
 
 \tikzset{>=latex}
 \usetikzlibrary{calc}
