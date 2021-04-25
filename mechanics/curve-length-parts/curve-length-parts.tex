@@ -2,6 +2,7 @@
 
 \tikzset{>=latex}
 \usetikzlibrary{calc}
+\colorlet{green}{black!40!green}
 \newcommand{\place}{\vec{r}}
 
 \begin{document}
@@ -14,8 +15,8 @@
   \coordinate (r1) at ($(1,0.5)+(70:2)$);
   \coordinate (r2) at ($(1,0.5)+(20:2)$);
   % path
-  \draw[thick,black!40!green] (r1) arc (70:20:2);
-  \node[right,xshift=0.5em,black!40!green] at ($(1,0.5)+(50:2)$) {$s(t_1,t_2)$};
+  \draw[thick,green] (r1) arc (70:20:2);
+  \node[right,xshift=0.5em,green] at ($(1,0.5)+(50:2)$) {$s(t_1,t_2)$};
   % space-point vectors
   \foreach \r/\n in { 70/1, 53.3333/2, 36.6667/3 } {%
     \draw[->,gray] (0,0) -- ($(1,0.5)+({\r-50/3}:2)$);

@@ -2,6 +2,7 @@
 
 \tikzset{>=latex}
 \usetikzlibrary{calc,decorations.markings}
+\colorlet{green}{black!40!green}
 \newcommand{\place}{\vec{r}}
 
 \begin{document}
@@ -14,7 +15,7 @@
   \draw[thick,
         decoration={markings, mark=at position 0.5 with {\arrow{>}}},
         postaction={decorate},
-        black!40!green]
+        green]
        (xyz cs:x=1,y=2.5,z=0) arc (90:0:2);
   % space point
   \coordinate (r1) at ($(1,0.5)+(70:2)$);

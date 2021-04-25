@@ -2,6 +2,7 @@
 
 \tikzset{>=latex}
 \usetikzlibrary{decorations.markings}
+\colorlet{green}{black!40!green}
 \newcommand{\place}{\vec{r}}
 \newcommand{\velocity}{\vec{v}}
 \newcommand{\acceleration}{\vec{a}}
@@ -15,7 +16,7 @@
   \draw[
     decoration={markings, mark=at position 0.4 with {\arrow{>}}},
     postaction={decorate},
-    black!40!green,
+    green,
     thick
   ] (0,0) circle (1);
   % place, velocity, acceleration

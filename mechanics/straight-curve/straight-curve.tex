@@ -2,6 +2,7 @@
 
 \tikzset{>=latex}
 \usetikzlibrary{decorations.markings}
+\colorlet{green}{black!40!green}
 
 \begin{document}
 \begin{tikzpicture}[scale=1.3]
@@ -13,7 +14,7 @@
   \draw[red,very thick,
         decoration={markings, mark=at position 0.8 with {\arrow{>}}},
         postaction={decorate},
-        black!40!green]
+        green]
        (xyz cs:x=-1) -- (xyz cs:x=4,y=3,z=2);
 \end{tikzpicture}
 \end{document}
