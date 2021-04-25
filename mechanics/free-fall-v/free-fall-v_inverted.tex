@@ -1,0 +1,14 @@
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{ inverted/.style={every path/.style={draw=white,text=white}, background rectangle/.style={fill}, show background rectangle }}
+
+\tikzset{>=latex}
+
+\begin{document}
+\begin{tikzpicture}[inverted,scale=2.5]
+  \draw[->] (0,0) -- (1,0) node[right] {$t$};
+  \draw[->] (0,-0.8) -- (0,0.2) node[left] {$v_z$};
+  \draw[red] (0,0) -- (0.8,-0.8);
+\end{tikzpicture}
+\end{document}

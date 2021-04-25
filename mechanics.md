@@ -127,6 +127,53 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## free-fall-a.svg
+[![free-fall-a.svg](mechanics/free-fall-v/free-fall-a/free-fall-a.svg "free-fall-a.svg")](mechanics/free-fall-v/free-fall-a/free-fall-a.svg) [[PDF]](mechanics/free-fall-v/free-fall-a/free-fall-a.pdf) [[PNG]](mechanics/free-fall-v/free-fall-a/free-fall-a.png) [[SVG]](mechanics/free-fall-v/free-fall-a/free-fall-a.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\tikzset{>=latex}
+
+\begin{document}
+\begin{tikzpicture}[scale=2.5]
+  \draw[->] (0,0) -- (1,0) node[right] {$t$};
+  \draw[->] (0,-0.8) -- (0,0.2) node[left] {$a_z$};
+  \draw[red] (0,-0.5) -- (0.8,-0.5);
+  \draw (-0.05,-0.5) node[left] {$-g$} -- (0.05,-0.5);
+\end{tikzpicture}
+\end{document}
+~~~
+## free-fall-v.svg
+[![free-fall-v.svg](mechanics/free-fall-v/free-fall-v.svg "free-fall-v.svg")](mechanics/free-fall-v/free-fall-v.svg) [[PDF]](mechanics/free-fall-v/free-fall-v.pdf) [[PNG]](mechanics/free-fall-v/free-fall-v.png) [[SVG]](mechanics/free-fall-v/free-fall-v.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\tikzset{>=latex}
+
+\begin{document}
+\begin{tikzpicture}[scale=2.5]
+  \draw[->] (0,0) -- (1,0) node[right] {$t$};
+  \draw[->] (0,-0.8) -- (0,0.2) node[left] {$v_z$};
+  \draw[red] (0,0) -- (0.8,-0.8);
+\end{tikzpicture}
+\end{document}
+~~~
+## free-fall-z.svg
+[![free-fall-z.svg](mechanics/free-fall-z/free-fall-z.svg "free-fall-z.svg")](mechanics/free-fall-z/free-fall-z.svg) [[PDF]](mechanics/free-fall-z/free-fall-z.pdf) [[PNG]](mechanics/free-fall-z/free-fall-z.png) [[SVG]](mechanics/free-fall-z/free-fall-z.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\tikzset{>=latex}
+
+\begin{document}
+\begin{tikzpicture}[scale=2.5]
+  \draw[->] (0,0) -- (1,0) node[right] {$t$};
+  \draw[->] (0,0) -- (0,1) node[left] {$z$};
+  \draw[red] (0,0.8) parabola bend (0,0.8) (0.8,0);
+  \draw (-0.05,0.8) node[left] {$h$} -- (0.05,0.8);
+\end{tikzpicture}
+\end{document}
+~~~
 ## space-point-2-delta.svg
 [![space-point-2-delta.svg](mechanics/space-point-2-delta/space-point-2-delta.svg "space-point-2-delta.svg")](mechanics/space-point-2-delta/space-point-2-delta.svg) [[PDF]](mechanics/space-point-2-delta/space-point-2-delta.pdf) [[PNG]](mechanics/space-point-2-delta/space-point-2-delta.png) [[SVG]](mechanics/space-point-2-delta/space-point-2-delta.svg)
 ~~~.tex
@@ -546,6 +593,62 @@
   % main space-point vectors
   \draw[->,thick,red] (xyz cs:x=0) -- node[above,xshift=-1em]{$\place(t_1)$} (r1);
   \draw[->,thick,red] (xyz cs:x=0) -- node[below,xshift=+1em]{$\place(t_2)$} (r2);
+\end{tikzpicture}
+\end{document}
+~~~
+## free-fall-a_inverted.svg
+[![free-fall-a_inverted.svg](mechanics/free-fall-v/free-fall-a/free-fall-a_inverted.svg "free-fall-a_inverted.svg")](mechanics/free-fall-v/free-fall-a/free-fall-a_inverted.svg) [[PDF]](mechanics/free-fall-v/free-fall-a/free-fall-a_inverted.pdf) [[PNG]](mechanics/free-fall-v/free-fall-a/free-fall-a_inverted.png) [[SVG]](mechanics/free-fall-v/free-fall-a/free-fall-a_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{ inverted/.style={every path/.style={draw=white,text=white}, background rectangle/.style={fill}, show background rectangle }}
+
+\tikzset{>=latex}
+
+\begin{document}
+\begin{tikzpicture}[inverted,scale=2.5]
+  \draw[->] (0,0) -- (1,0) node[right] {$t$};
+  \draw[->] (0,-0.8) -- (0,0.2) node[left] {$a_z$};
+  \draw[red] (0,-0.5) -- (0.8,-0.5);
+  \draw (-0.05,-0.5) node[left] {$-g$} -- (0.05,-0.5);
+\end{tikzpicture}
+\end{document}
+~~~
+## free-fall-v_inverted.svg
+[![free-fall-v_inverted.svg](mechanics/free-fall-v/free-fall-v_inverted.svg "free-fall-v_inverted.svg")](mechanics/free-fall-v/free-fall-v_inverted.svg) [[PDF]](mechanics/free-fall-v/free-fall-v_inverted.pdf) [[PNG]](mechanics/free-fall-v/free-fall-v_inverted.png) [[SVG]](mechanics/free-fall-v/free-fall-v_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{ inverted/.style={every path/.style={draw=white,text=white}, background rectangle/.style={fill}, show background rectangle }}
+
+\tikzset{>=latex}
+
+\begin{document}
+\begin{tikzpicture}[inverted,scale=2.5]
+  \draw[->] (0,0) -- (1,0) node[right] {$t$};
+  \draw[->] (0,-0.8) -- (0,0.2) node[left] {$v_z$};
+  \draw[red] (0,0) -- (0.8,-0.8);
+\end{tikzpicture}
+\end{document}
+~~~
+## free-fall-z_inverted.svg
+[![free-fall-z_inverted.svg](mechanics/free-fall-z/free-fall-z_inverted.svg "free-fall-z_inverted.svg")](mechanics/free-fall-z/free-fall-z_inverted.svg) [[PDF]](mechanics/free-fall-z/free-fall-z_inverted.pdf) [[PNG]](mechanics/free-fall-z/free-fall-z_inverted.png) [[SVG]](mechanics/free-fall-z/free-fall-z_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{ inverted/.style={every path/.style={draw=white,text=white}, background rectangle/.style={fill}, show background rectangle }}
+
+\tikzset{>=latex}
+
+\begin{document}
+\begin{tikzpicture}[inverted,scale=2.5]
+  \draw[->] (0,0) -- (1,0) node[right] {$t$};
+  \draw[->] (0,0) -- (0,1) node[left] {$z$};
+  \draw[red] (0,0.8) parabola bend (0,0.8) (0.8,0);
+  \draw (-0.05,0.8) node[left] {$h$} -- (0.05,0.8);
 \end{tikzpicture}
 \end{document}
 ~~~
