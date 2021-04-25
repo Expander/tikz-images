@@ -1,0 +1,11 @@
+#!/bin/bash
+
+input="$1"
+output="$2"
+
+sed '
+s|black!40!green|green|g
+s|{standalone}|{standalone}\n\\usetikzlibrary{backgrounds}\n\\colorlet{blue}{cyan}\n\\tikzset{ inverted/.style={every path/.style={draw=white,text=white}, background rectangle/.style={fill}, show background rectangle }}|
+s|\\begin{tikzpicture}[^\[]|\\begin{tikzpicture}[inverted]|g
+s|\\begin{tikzpicture}\[|\\begin{tikzpicture}[inverted,|g
+' "${input}" > "${output}"

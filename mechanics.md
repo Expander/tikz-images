@@ -1,4 +1,37 @@
 # Mechanics
+## circular-motion-non-uniform_inverted.svg
+[![circular-motion-non-uniform_inverted.svg](mechanics/circular-motion-non-uniform/circular-motion-non-uniform_inverted.svg "circular-motion-non-uniform_inverted.svg")](mechanics/circular-motion-non-uniform/circular-motion-non-uniform_inverted.svg) [[PDF]](mechanics/circular-motion-non-uniform/circular-motion-non-uniform_inverted.pdf) [[PNG]](mechanics/circular-motion-non-uniform/circular-motion-non-uniform_inverted.png) [[SVG]](mechanics/circular-motion-non-uniform/circular-motion-non-uniform_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{ inverted/.style={every path/.style={draw=white,text=white}, background rectangle/.style={fill}, show background rectangle }}
+
+\tikzset{>=latex}
+\usetikzlibrary{decorations.markings}
+\newcommand{\place}{\vec{r}}
+\newcommand{\velocity}{\vec{v}}
+\newcommand{\acceleration}{\vec{a}}
+
+\begin{document}
+\begin{tikzpicture}[inverted,scale=2]
+  % axes
+  \draw[->,thick] (-1.2,0) -- (1.2,0) node[below] {$x$};
+  \draw[->,thick] (0,-1.2) -- (0,1.2) node[left] {$y$};
+  % circle
+  \draw[
+    decoration={markings, mark=at position 0.4 with {\arrow{>}}},
+    postaction={decorate},
+    green,
+    thick
+  ] (0,0) circle (1);
+  % place, velocity, acceleration
+  \draw[->,thick,red] (0,0) -- node[left,anchor=south east,yshift=-0.2em]{$\place(t)$} (20:1);
+  \draw[->,thick,blue] (20:1) -- node[right,anchor=west]{$\velocity(t)$} +(20+90:0.7);
+  \draw[->,thick,orange] (20:1) -- ++(160:0.5) node[left,xshift=0.4em,yshift=0.6em] {$\acceleration(t)$};
+\end{tikzpicture}
+\end{document}
+~~~
 ## circular-motion-non-uniform.svg
 [![circular-motion-non-uniform.svg](mechanics/circular-motion-non-uniform/circular-motion-non-uniform.svg "circular-motion-non-uniform.svg")](mechanics/circular-motion-non-uniform/circular-motion-non-uniform.svg) [[PDF]](mechanics/circular-motion-non-uniform/circular-motion-non-uniform.pdf) [[PNG]](mechanics/circular-motion-non-uniform/circular-motion-non-uniform.png) [[SVG]](mechanics/circular-motion-non-uniform/circular-motion-non-uniform.svg)
 ~~~.tex
@@ -385,6 +418,99 @@
         decoration={markings, mark=at position 0.5 with {\arrow{>}}},
         postaction={decorate},
         black!40!green]
+       (xyz cs:x=1,y=2.5,z=0) arc (90:0:2);
+  % space point
+  \coordinate (r1) at ($(1,0.5)+(70:2)$);
+  \draw[->,thick,red]  (xyz cs:x=0) -- node[above,xshift=-1em]{$\place(t)$} (r1);
+  % velocity
+  \draw[->,thick,blue] (r1) -- node[above,xshift=0.5em]{$\velocity(t)$} ++(-20:1.5);
+\end{tikzpicture}
+\end{document}
+~~~
+## circular-motion-non-uniform_inverted_inverted.svg
+[![circular-motion-non-uniform_inverted_inverted.svg](mechanics/circular-motion-non-uniform/circular-motion-non-uniform_inverted_inverted.svg "circular-motion-non-uniform_inverted_inverted.svg")](mechanics/circular-motion-non-uniform/circular-motion-non-uniform_inverted_inverted.svg) [[PDF]](mechanics/circular-motion-non-uniform/circular-motion-non-uniform_inverted_inverted.pdf) [[PNG]](mechanics/circular-motion-non-uniform/circular-motion-non-uniform_inverted_inverted.png) [[SVG]](mechanics/circular-motion-non-uniform/circular-motion-non-uniform_inverted_inverted.svg)
+~~~.tex
+
+~~~
+## circular-motion-uniform_inverted.svg
+[![circular-motion-uniform_inverted.svg](mechanics/circular-motion-uniform/circular-motion-uniform_inverted.svg "circular-motion-uniform_inverted.svg")](mechanics/circular-motion-uniform/circular-motion-uniform_inverted.svg) [[PDF]](mechanics/circular-motion-uniform/circular-motion-uniform_inverted.pdf) [[PNG]](mechanics/circular-motion-uniform/circular-motion-uniform_inverted.png) [[SVG]](mechanics/circular-motion-uniform/circular-motion-uniform_inverted.svg)
+~~~.tex
+
+~~~
+## curve-length_inverted.svg
+[![curve-length_inverted.svg](mechanics/curve-length/curve-length_inverted.svg "curve-length_inverted.svg")](mechanics/curve-length/curve-length_inverted.svg) [[PDF]](mechanics/curve-length/curve-length_inverted.pdf) [[PNG]](mechanics/curve-length/curve-length_inverted.png) [[SVG]](mechanics/curve-length/curve-length_inverted.svg)
+~~~.tex
+
+~~~
+## curve-length-parts_inverted.svg
+[![curve-length-parts_inverted.svg](mechanics/curve-length-parts/curve-length-parts_inverted.svg "curve-length-parts_inverted.svg")](mechanics/curve-length-parts/curve-length-parts_inverted.svg) [[PDF]](mechanics/curve-length-parts/curve-length-parts_inverted.pdf) [[PNG]](mechanics/curve-length-parts/curve-length-parts_inverted.png) [[SVG]](mechanics/curve-length-parts/curve-length-parts_inverted.svg)
+~~~.tex
+
+~~~
+## space-point-2-delta_inverted.svg
+[![space-point-2-delta_inverted.svg](mechanics/space-point-2-delta/space-point-2-delta_inverted.svg "space-point-2-delta_inverted.svg")](mechanics/space-point-2-delta/space-point-2-delta_inverted.svg) [[PDF]](mechanics/space-point-2-delta/space-point-2-delta_inverted.pdf) [[PNG]](mechanics/space-point-2-delta/space-point-2-delta_inverted.png) [[SVG]](mechanics/space-point-2-delta/space-point-2-delta_inverted.svg)
+~~~.tex
+
+~~~
+## space-point-2_inverted.svg
+[![space-point-2_inverted.svg](mechanics/space-point-2/space-point-2_inverted.svg "space-point-2_inverted.svg")](mechanics/space-point-2/space-point-2_inverted.svg) [[PDF]](mechanics/space-point-2/space-point-2_inverted.pdf) [[PNG]](mechanics/space-point-2/space-point-2_inverted.png) [[SVG]](mechanics/space-point-2/space-point-2_inverted.svg)
+~~~.tex
+
+~~~
+## space-point_inverted.svg
+[![space-point_inverted.svg](mechanics/space-point/space-point_inverted.svg "space-point_inverted.svg")](mechanics/space-point/space-point_inverted.svg) [[PDF]](mechanics/space-point/space-point_inverted.pdf) [[PNG]](mechanics/space-point/space-point_inverted.png) [[SVG]](mechanics/space-point/space-point_inverted.svg)
+~~~.tex
+
+~~~
+## straight-curve_inverted.svg
+[![straight-curve_inverted.svg](mechanics/straight-curve/straight-curve_inverted.svg "straight-curve_inverted.svg")](mechanics/straight-curve/straight-curve_inverted.svg) [[PDF]](mechanics/straight-curve/straight-curve_inverted.pdf) [[PNG]](mechanics/straight-curve/straight-curve_inverted.png) [[SVG]](mechanics/straight-curve/straight-curve_inverted.svg)
+~~~.tex
+
+~~~
+## velocity-2-delta_inverted.svg
+[![velocity-2-delta_inverted.svg](mechanics/velocity-2-delta/velocity-2-delta_inverted.svg "velocity-2-delta_inverted.svg")](mechanics/velocity-2-delta/velocity-2-delta_inverted.svg) [[PDF]](mechanics/velocity-2-delta/velocity-2-delta_inverted.pdf) [[PNG]](mechanics/velocity-2-delta/velocity-2-delta_inverted.png) [[SVG]](mechanics/velocity-2-delta/velocity-2-delta_inverted.svg)
+~~~.tex
+
+~~~
+## velocity-2_inverted.svg
+[![velocity-2_inverted.svg](mechanics/velocity-2/velocity-2_inverted.svg "velocity-2_inverted.svg")](mechanics/velocity-2/velocity-2_inverted.svg) [[PDF]](mechanics/velocity-2/velocity-2_inverted.pdf) [[PNG]](mechanics/velocity-2/velocity-2_inverted.png) [[SVG]](mechanics/velocity-2/velocity-2_inverted.svg)
+~~~.tex
+
+~~~
+## velocity-average_inverted.svg
+[![velocity-average_inverted.svg](mechanics/velocity-average/velocity-average_inverted.svg "velocity-average_inverted.svg")](mechanics/velocity-average/velocity-average_inverted.svg) [[PDF]](mechanics/velocity-average/velocity-average_inverted.pdf) [[PNG]](mechanics/velocity-average/velocity-average_inverted.png) [[SVG]](mechanics/velocity-average/velocity-average_inverted.svg)
+~~~.tex
+
+~~~
+## velocity-drdt_inverted.svg
+[![velocity-drdt_inverted.svg](mechanics/velocity-drdt/velocity-drdt_inverted.svg "velocity-drdt_inverted.svg")](mechanics/velocity-drdt/velocity-drdt_inverted.svg) [[PDF]](mechanics/velocity-drdt/velocity-drdt_inverted.pdf) [[PNG]](mechanics/velocity-drdt/velocity-drdt_inverted.png) [[SVG]](mechanics/velocity-drdt/velocity-drdt_inverted.svg)
+~~~.tex
+
+~~~
+## velocity_inverted.svg
+[![velocity_inverted.svg](mechanics/velocity/velocity_inverted.svg "velocity_inverted.svg")](mechanics/velocity/velocity_inverted.svg) [[PDF]](mechanics/velocity/velocity_inverted.pdf) [[PNG]](mechanics/velocity/velocity_inverted.png) [[SVG]](mechanics/velocity/velocity_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{ inverted/.style={every path/.style={draw=white,text=white}, background rectangle/.style={fill}, show background rectangle }}
+
+\tikzset{>=latex}
+\usetikzlibrary{calc,decorations.markings}
+\newcommand{\place}{\vec{r}}
+\newcommand{\velocity}{\vec{v}}
+
+\begin{document}
+\begin{tikzpicture}[inverted,scale=1.3]
+  % axes
+  \draw[->,thick] (xyz cs:x=-0.5) -- (xyz cs:x=4)  node[below] {$x$};
+  \draw[->,thick] (xyz cs:y=-0.5) -- (xyz cs:y=3)  node[left] {$z$};
+  \draw[->,thick] (xyz cs:z=1)    -- (xyz cs:z=-4) node[above] {$y$};
+  % path
+  \draw[thick,
+        decoration={markings, mark=at position 0.5 with {\arrow{>}}},
+        postaction={decorate},
+        green]
        (xyz cs:x=1,y=2.5,z=0) arc (90:0:2);
   % space point
   \coordinate (r1) at ($(1,0.5)+(70:2)$);
