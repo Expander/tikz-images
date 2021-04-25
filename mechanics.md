@@ -128,7 +128,7 @@
 \end{document}
 ~~~
 ## free-fall-a.svg
-[![free-fall-a.svg](mechanics/free-fall-v/free-fall-a/free-fall-a.svg "free-fall-a.svg")](mechanics/free-fall-v/free-fall-a/free-fall-a.svg) [[PDF]](mechanics/free-fall-v/free-fall-a/free-fall-a.pdf) [[PNG]](mechanics/free-fall-v/free-fall-a/free-fall-a.png) [[SVG]](mechanics/free-fall-v/free-fall-a/free-fall-a.svg)
+[![free-fall-a.svg](mechanics/free-fall-a/free-fall-a.svg "free-fall-a.svg")](mechanics/free-fall-a/free-fall-a.svg) [[PDF]](mechanics/free-fall-a/free-fall-a.pdf) [[PNG]](mechanics/free-fall-a/free-fall-a.png) [[SVG]](mechanics/free-fall-a/free-fall-a.svg)
 ~~~.tex
 \documentclass[crop,tikz]{standalone}
 
@@ -597,7 +597,7 @@
 \end{document}
 ~~~
 ## free-fall-a_inverted.svg
-[![free-fall-a_inverted.svg](mechanics/free-fall-v/free-fall-a/free-fall-a_inverted.svg "free-fall-a_inverted.svg")](mechanics/free-fall-v/free-fall-a/free-fall-a_inverted.svg) [[PDF]](mechanics/free-fall-v/free-fall-a/free-fall-a_inverted.pdf) [[PNG]](mechanics/free-fall-v/free-fall-a/free-fall-a_inverted.png) [[SVG]](mechanics/free-fall-v/free-fall-a/free-fall-a_inverted.svg)
+[![free-fall-a_inverted.svg](mechanics/free-fall-a/free-fall-a_inverted.svg "free-fall-a_inverted.svg")](mechanics/free-fall-a/free-fall-a_inverted.svg) [[PDF]](mechanics/free-fall-a/free-fall-a_inverted.pdf) [[PNG]](mechanics/free-fall-a/free-fall-a_inverted.png) [[SVG]](mechanics/free-fall-a/free-fall-a_inverted.svg)
 ~~~.tex
 \documentclass[crop,tikz]{standalone}
 \usetikzlibrary{backgrounds}
