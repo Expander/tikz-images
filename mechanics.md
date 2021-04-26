@@ -1,4 +1,27 @@
 # Mechanics
+## circular-motion.svg
+[![circular-motion.svg](mechanics/circular-motion/circular-motion.svg "circular-motion.svg")](mechanics/circular-motion/circular-motion.svg) [[PDF]](mechanics/circular-motion/circular-motion.pdf) [[PNG]](mechanics/circular-motion/circular-motion.png) [[SVG]](mechanics/circular-motion/circular-motion.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\tikzset{>=latex}
+\colorlet{green}{black!40!green}
+\newcommand{\place}{\vec{r}}
+
+\begin{document}
+\begin{tikzpicture}[scale=2]
+    \draw[->] (-1.2,0) -- (1.2,0) node[below] {$x$};
+    \draw[->] (0,-1.2) -- (0,1.2) node[left] {$y$};
+    \draw[green, thick] (0,0) circle (1);
+    \draw[->,thick,red] (0,0) -- (45:1) node[right,anchor=south west]{$\place(t)$};
+    \draw[->] (0.6,0) arc (0:45:0.6);
+    \draw (0.4,0) node[above] {$\varphi(t)$};
+    \draw (-0.5,0) node[above] {$R$};
+    \draw[dashed] (0.707,0.707) -- (0.707,0) node[below] {$x(t)$};
+    \draw[dashed] (45:1) -- (0,0.707) node[left] {$y(t)$};
+\end{tikzpicture}
+\end{document}
+~~~
 ## circular-motion-non-uniform.svg
 [![circular-motion-non-uniform.svg](mechanics/circular-motion-non-uniform/circular-motion-non-uniform.svg "circular-motion-non-uniform.svg")](mechanics/circular-motion-non-uniform/circular-motion-non-uniform.svg) [[PDF]](mechanics/circular-motion-non-uniform/circular-motion-non-uniform.pdf) [[PNG]](mechanics/circular-motion-non-uniform/circular-motion-non-uniform.png) [[SVG]](mechanics/circular-motion-non-uniform/circular-motion-non-uniform.svg)
 ~~~.tex
@@ -472,6 +495,38 @@
   \draw[->,thick,red]  (xyz cs:x=0) -- node[above,xshift=-1em]{$\place(t)$} (r1);
   % velocity
   \draw[->,thick,blue] (r1) -- node[above,xshift=0.5em]{$\velocity(t)$} ++(-20:1.5);
+\end{tikzpicture}
+\end{document}
+~~~
+## circular-motion_inverted.svg
+[![circular-motion_inverted.svg](mechanics/circular-motion/circular-motion_inverted.svg "circular-motion_inverted.svg")](mechanics/circular-motion/circular-motion_inverted.svg) [[PDF]](mechanics/circular-motion/circular-motion_inverted.pdf) [[PNG]](mechanics/circular-motion/circular-motion_inverted.png) [[SVG]](mechanics/circular-motion/circular-motion_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    every path/.style = {draw=white,text=white},
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\tikzset{>=latex}
+\colorlet{green}{green}
+\newcommand{\place}{\vec{r}}
+
+\begin{document}
+\begin{tikzpicture}[inverted,scale=2]
+    \draw[->] (-1.2,0) -- (1.2,0) node[below] {$x$};
+    \draw[->] (0,-1.2) -- (0,1.2) node[left] {$y$};
+    \draw[green, thick] (0,0) circle (1);
+    \draw[->,thick,red] (0,0) -- (45:1) node[right,anchor=south west]{$\place(t)$};
+    \draw[->] (0.6,0) arc (0:45:0.6);
+    \draw (0.4,0) node[above] {$\varphi(t)$};
+    \draw (-0.5,0) node[above] {$R$};
+    \draw[dashed] (0.707,0.707) -- (0.707,0) node[below] {$x(t)$};
+    \draw[dashed] (45:1) -- (0,0.707) node[left] {$y(t)$};
 \end{tikzpicture}
 \end{document}
 ~~~
