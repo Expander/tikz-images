@@ -85,6 +85,72 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## circular-motion-non-uniform-velocity-2.svg
+[![circular-motion-non-uniform-velocity-2.svg](mechanics/circular-motion-non-uniform-velocity-2/circular-motion-non-uniform-velocity-2.svg "circular-motion-non-uniform-velocity-2.svg")](mechanics/circular-motion-non-uniform-velocity-2/circular-motion-non-uniform-velocity-2.svg) [[PDF]](mechanics/circular-motion-non-uniform-velocity-2/circular-motion-non-uniform-velocity-2.pdf) [[PNG]](mechanics/circular-motion-non-uniform-velocity-2/circular-motion-non-uniform-velocity-2.png) [[SVG]](mechanics/circular-motion-non-uniform-velocity-2/circular-motion-non-uniform-velocity-2.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\tikzset{>=latex}
+\usetikzlibrary{decorations.markings}
+\colorlet{green}{black!40!green}
+\newcommand{\place}{\vec{r}}
+\newcommand{\velocity}{\vec{v}}
+\newcommand{\acceleration}{\vec{a}}
+
+\begin{document}
+\begin{tikzpicture}[scale=2]
+  % axes
+  \draw[->,thick] (-1.2,0) -- (1.2,0) node[below] {$x$};
+  \draw[->,thick] (0,-1.2) -- (0,1.2) node[left] {$y$};
+  % circle
+  \draw[
+    decoration={markings, mark=at position 0.4 with {\arrow{>}}},
+    postaction={decorate},
+    green,
+    thick
+  ] (0,0) circle (1);
+  % place, velocity
+  \draw[->,thick,red] (0,0) -- node[anchor=north west,yshift=0.5em]{$\place(t_1)$} (20:1);
+  \draw[->,thick,blue] (20:1) -- +(20+90:0.7) node[right]{$\velocity(t_1)$};
+  % place, velocity
+  \draw[->,thick,red] (0,0) -- node[anchor=south,yshift=0.3em]{$\place(t_2)$} (30:1);
+  \draw[->,thick,blue] (30:1) -- +(30+90:0.9) node[above left,yshift=-0.5em]{$\velocity(t_2)$};
+\end{tikzpicture}
+\end{document}
+~~~
+## circular-motion-non-uniform-velocity-2-delta.svg
+[![circular-motion-non-uniform-velocity-2-delta.svg](mechanics/circular-motion-non-uniform-velocity-2-delta/circular-motion-non-uniform-velocity-2-delta.svg "circular-motion-non-uniform-velocity-2-delta.svg")](mechanics/circular-motion-non-uniform-velocity-2-delta/circular-motion-non-uniform-velocity-2-delta.svg) [[PDF]](mechanics/circular-motion-non-uniform-velocity-2-delta/circular-motion-non-uniform-velocity-2-delta.pdf) [[PNG]](mechanics/circular-motion-non-uniform-velocity-2-delta/circular-motion-non-uniform-velocity-2-delta.png) [[SVG]](mechanics/circular-motion-non-uniform-velocity-2-delta/circular-motion-non-uniform-velocity-2-delta.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\tikzset{>=latex}
+\usetikzlibrary{decorations.markings}
+\colorlet{green}{black!40!green}
+\definecolor{orange}{RGB}{250,194,25}
+\newcommand{\place}{\vec{r}}
+\newcommand{\velocity}{\vec{v}}
+\newcommand{\acceleration}{\vec{a}}
+
+\begin{document}
+\begin{tikzpicture}[scale=2]
+  % axes
+  \draw[->,thick] (-1.2,0) -- (1.2,0) node[below] {$x$};
+  \draw[->,thick] (0,-1.2) -- (0,1.2) node[left] {$y$};
+  % circle
+  \draw[
+    decoration={markings, mark=at position 0.4 with {\arrow{>}}},
+    postaction={decorate},
+    green,
+    thick
+  ] (0,0) circle (1);
+  % place, velocity
+  \draw[->,thick,blue] (20:1) -- node[right]{$\velocity(t_1)$} ++(20+90:0.7) coordinate (v1);
+  % place, velocity
+  \draw[->,thick,blue] (20:1) -- node[left]{$\velocity(t_2)$} ++(30+90:0.9) coordinate (v2);
+  \draw[->,thick,orange] (v1) -- node[above] {$\Delta\velocity$} (v2);
+\end{tikzpicture}
+\end{document}
+~~~
 ## circular-motion-uniform.svg
 [![circular-motion-uniform.svg](mechanics/circular-motion-uniform/circular-motion-uniform.svg "circular-motion-uniform.svg")](mechanics/circular-motion-uniform/circular-motion-uniform.svg) [[PDF]](mechanics/circular-motion-uniform/circular-motion-uniform.pdf) [[PNG]](mechanics/circular-motion-uniform/circular-motion-uniform.png) [[SVG]](mechanics/circular-motion-uniform/circular-motion-uniform.svg)
 ~~~.tex
@@ -758,6 +824,90 @@
   \draw[->,thick,red] (0,0) -- node[left,anchor=south east,yshift=-0.2em]{$\place(t)$} (20:1);
   \draw[->,thick,blue] (20:1) -- node[right,anchor=west]{$\velocity(t)$} +(20+90:0.7);
   \draw[->,thick,orange] (20:1) -- ++(160:0.5) node[left,xshift=0.4em,yshift=0.6em] {$\acceleration(t)$};
+\end{tikzpicture}
+\end{document}
+~~~
+## circular-motion-non-uniform-velocity-2_inverted.svg
+[![circular-motion-non-uniform-velocity-2_inverted.svg](mechanics/circular-motion-non-uniform-velocity-2/circular-motion-non-uniform-velocity-2_inverted.svg "circular-motion-non-uniform-velocity-2_inverted.svg")](mechanics/circular-motion-non-uniform-velocity-2/circular-motion-non-uniform-velocity-2_inverted.svg) [[PDF]](mechanics/circular-motion-non-uniform-velocity-2/circular-motion-non-uniform-velocity-2_inverted.pdf) [[PNG]](mechanics/circular-motion-non-uniform-velocity-2/circular-motion-non-uniform-velocity-2_inverted.png) [[SVG]](mechanics/circular-motion-non-uniform-velocity-2/circular-motion-non-uniform-velocity-2_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    every path/.style = {draw=white,text=white},
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\tikzset{>=latex}
+\usetikzlibrary{decorations.markings}
+\colorlet{green}{green}
+\newcommand{\place}{\vec{r}}
+\newcommand{\velocity}{\vec{v}}
+\newcommand{\acceleration}{\vec{a}}
+
+\begin{document}
+\begin{tikzpicture}[inverted,scale=2]
+  % axes
+  \draw[->,thick] (-1.2,0) -- (1.2,0) node[below] {$x$};
+  \draw[->,thick] (0,-1.2) -- (0,1.2) node[left] {$y$};
+  % circle
+  \draw[
+    decoration={markings, mark=at position 0.4 with {\arrow{>}}},
+    postaction={decorate},
+    green,
+    thick
+  ] (0,0) circle (1);
+  % place, velocity
+  \draw[->,thick,red] (0,0) -- node[anchor=north west,yshift=0.5em]{$\place(t_1)$} (20:1);
+  \draw[->,thick,blue] (20:1) -- +(20+90:0.7) node[right]{$\velocity(t_1)$};
+  % place, velocity
+  \draw[->,thick,red] (0,0) -- node[anchor=south,yshift=0.3em]{$\place(t_2)$} (30:1);
+  \draw[->,thick,blue] (30:1) -- +(30+90:0.9) node[above left,yshift=-0.5em]{$\velocity(t_2)$};
+\end{tikzpicture}
+\end{document}
+~~~
+## circular-motion-non-uniform-velocity-2-delta_inverted.svg
+[![circular-motion-non-uniform-velocity-2-delta_inverted.svg](mechanics/circular-motion-non-uniform-velocity-2-delta/circular-motion-non-uniform-velocity-2-delta_inverted.svg "circular-motion-non-uniform-velocity-2-delta_inverted.svg")](mechanics/circular-motion-non-uniform-velocity-2-delta/circular-motion-non-uniform-velocity-2-delta_inverted.svg) [[PDF]](mechanics/circular-motion-non-uniform-velocity-2-delta/circular-motion-non-uniform-velocity-2-delta_inverted.pdf) [[PNG]](mechanics/circular-motion-non-uniform-velocity-2-delta/circular-motion-non-uniform-velocity-2-delta_inverted.png) [[SVG]](mechanics/circular-motion-non-uniform-velocity-2-delta/circular-motion-non-uniform-velocity-2-delta_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    every path/.style = {draw=white,text=white},
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\tikzset{>=latex}
+\usetikzlibrary{decorations.markings}
+\colorlet{green}{green}
+\definecolor{orange}{RGB}{250,194,25}
+\newcommand{\place}{\vec{r}}
+\newcommand{\velocity}{\vec{v}}
+\newcommand{\acceleration}{\vec{a}}
+
+\begin{document}
+\begin{tikzpicture}[inverted,scale=2]
+  % axes
+  \draw[->,thick] (-1.2,0) -- (1.2,0) node[below] {$x$};
+  \draw[->,thick] (0,-1.2) -- (0,1.2) node[left] {$y$};
+  % circle
+  \draw[
+    decoration={markings, mark=at position 0.4 with {\arrow{>}}},
+    postaction={decorate},
+    green,
+    thick
+  ] (0,0) circle (1);
+  % place, velocity
+  \draw[->,thick,blue] (20:1) -- node[right]{$\velocity(t_1)$} ++(20+90:0.7) coordinate (v1);
+  % place, velocity
+  \draw[->,thick,blue] (20:1) -- node[left]{$\velocity(t_2)$} ++(30+90:0.9) coordinate (v2);
+  \draw[->,thick,orange] (v1) -- node[above] {$\Delta\velocity$} (v2);
 \end{tikzpicture}
 \end{document}
 ~~~
