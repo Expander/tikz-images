@@ -1,0 +1,38 @@
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    every path/.style = {draw=white,text=white},
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\tikzset{>=latex}
+\usetikzlibrary{decorations.markings}
+\colorlet{green}{green}
+\newcommand{\place}{\vec{r}}
+\newcommand{\velocity}{\vec{v}}
+\newcommand{\acceleration}{\vec{a}}
+
+\begin{document}
+\begin{tikzpicture}[inverted,scale=2]
+  % axes
+  \draw[->,thick] (-1.2,0) -- (1.2,0) node[below] {$x$};
+  \draw[->,thick] (0,-1.2) -- (0,1.2) node[left] {$y$};
+  % circle
+  \draw[
+    decoration={markings, mark=at position 0.4 with {\arrow{>}}},
+    postaction={decorate},
+    green,
+    thick
+  ] (0,0) circle (1);
+  % place, velocity
+  \draw[->,thick,red] (0,0) -- node[anchor=north west,yshift=0.5em]{$\place(t_1)$} (20:1);
+  \draw[->,thick,blue] (20:1) -- +(20+90:0.7) node[right]{$\velocity(t_1)$};
+  % place, velocity
+  \draw[->,thick,red] (0,0) -- node[anchor=south,yshift=0.3em]{$\place(t_2)$} (30:1);
+  \draw[->,thick,blue] (30:1) -- +(30+90:0.7) node[above left,yshift=-0.5em]{$\velocity(t_2)$};
+\end{tikzpicture}
+\end{document}
