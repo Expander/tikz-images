@@ -127,7 +127,6 @@
 \tikzset{>=latex}
 \usetikzlibrary{decorations.markings}
 \colorlet{green}{black!40!green}
-\definecolor{orange}{RGB}{250,194,25}
 \newcommand{\place}{\vec{r}}
 \newcommand{\velocity}{\vec{v}}
 
@@ -764,7 +763,6 @@
 \tikzset{>=latex}
 \usetikzlibrary{decorations.markings}
 \colorlet{green}{green}
-\definecolor{orange}{RGB}{250,194,25}
 \newcommand{\place}{\vec{r}}
 \newcommand{\velocity}{\vec{v}}
 
