@@ -1,4 +1,35 @@
 # Mechanics
+## circular-motion-acceleration.svg
+[![circular-motion-acceleration.svg](mechanics/circular-motion-acceleration/circular-motion-acceleration.svg "circular-motion-acceleration.svg")](mechanics/circular-motion-acceleration/circular-motion-acceleration.svg) [[PDF]](mechanics/circular-motion-acceleration/circular-motion-acceleration.pdf) [[PNG]](mechanics/circular-motion-acceleration/circular-motion-acceleration.png) [[SVG]](mechanics/circular-motion-acceleration/circular-motion-acceleration.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\tikzset{>=latex}
+\usetikzlibrary{decorations.markings}
+\colorlet{green}{black!40!green}
+\definecolor{orange}{RGB}{250,194,25}
+\newcommand{\place}{\vec{r}}
+\newcommand{\acceleration}{\vec{a}}
+
+\begin{document}
+\begin{tikzpicture}[scale=2]
+  \draw[->,thick] (-1.2,0) -- (1.2,0) node[below] {$x$};
+  \draw[->,thick] (0,-1.2) -- (0,1.2) node[left] {$y$};
+  \draw[
+    decoration={markings, mark=at position 0.4 with {\arrow{>}}},
+    postaction={decorate},
+    green,
+    thick
+  ] (0,0) circle (1);
+  \draw[->,thick,red] (0,0) -- (45:1) node[right]{$\place(t)$};
+  \begin{scope}[shift={(-0.03,0.03)}]
+    \draw[->,thick,orange,dashed] (45:1) -- +(135:0.6) node[left,anchor=south west]{$\acceleration_T(t)$};
+    \draw[->,thick,orange,dashed] (45:1) -- +(225:0.6) node[right,anchor=north west]{$\acceleration_R(t)$};
+    \draw[->,thick,orange] (45:1) -- +(180:0.84) node[left]{$\acceleration(t)$};
+  \end{scope}
+\end{tikzpicture}
+\end{document}
+~~~
 ## circular-motion.svg
 [![circular-motion.svg](mechanics/circular-motion/circular-motion.svg "circular-motion.svg")](mechanics/circular-motion/circular-motion.svg) [[PDF]](mechanics/circular-motion/circular-motion.pdf) [[PNG]](mechanics/circular-motion/circular-motion.png) [[SVG]](mechanics/circular-motion/circular-motion.svg)
 ~~~.tex
@@ -109,7 +140,7 @@
       green,
       thick
     ] (0,0) circle (1);
-      \draw[->,thick,red] (0,0) -- node[right,anchor=north west]{$\place(t)$} (45:1);
+    \draw[->,thick,red] (0,0) -- node[right,anchor=north west]{$\place(t)$} (45:1);
     \draw[->,thick,blue] (45:1) -- +(135:0.6) node[right,anchor=south west]{$\velocity(t)$};
 \end{tikzpicture}
 \end{document}
@@ -524,6 +555,46 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## circular-motion-acceleration_inverted.svg
+[![circular-motion-acceleration_inverted.svg](mechanics/circular-motion-acceleration/circular-motion-acceleration_inverted.svg "circular-motion-acceleration_inverted.svg")](mechanics/circular-motion-acceleration/circular-motion-acceleration_inverted.svg) [[PDF]](mechanics/circular-motion-acceleration/circular-motion-acceleration_inverted.pdf) [[PNG]](mechanics/circular-motion-acceleration/circular-motion-acceleration_inverted.png) [[SVG]](mechanics/circular-motion-acceleration/circular-motion-acceleration_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    every path/.style = {draw=white,text=white},
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\tikzset{>=latex}
+\usetikzlibrary{decorations.markings}
+\colorlet{green}{green}
+\definecolor{orange}{RGB}{250,194,25}
+\newcommand{\place}{\vec{r}}
+\newcommand{\acceleration}{\vec{a}}
+
+\begin{document}
+\begin{tikzpicture}[inverted,scale=2]
+  \draw[->,thick] (-1.2,0) -- (1.2,0) node[below] {$x$};
+  \draw[->,thick] (0,-1.2) -- (0,1.2) node[left] {$y$};
+  \draw[
+    decoration={markings, mark=at position 0.4 with {\arrow{>}}},
+    postaction={decorate},
+    green,
+    thick
+  ] (0,0) circle (1);
+  \draw[->,thick,red] (0,0) -- (45:1) node[right]{$\place(t)$};
+  \begin{scope}[shift={(-0.03,0.03)}]
+    \draw[->,thick,orange,dashed] (45:1) -- +(135:0.6) node[left,anchor=south west]{$\acceleration_T(t)$};
+    \draw[->,thick,orange,dashed] (45:1) -- +(225:0.6) node[right,anchor=north west]{$\acceleration_R(t)$};
+    \draw[->,thick,orange] (45:1) -- +(180:0.84) node[left]{$\acceleration(t)$};
+  \end{scope}
+\end{tikzpicture}
+\end{document}
+~~~
 ## circular-motion_inverted.svg
 [![circular-motion_inverted.svg](mechanics/circular-motion/circular-motion_inverted.svg "circular-motion_inverted.svg")](mechanics/circular-motion/circular-motion_inverted.svg) [[PDF]](mechanics/circular-motion/circular-motion_inverted.pdf) [[PNG]](mechanics/circular-motion/circular-motion_inverted.png) [[SVG]](mechanics/circular-motion/circular-motion_inverted.svg)
 ~~~.tex
@@ -670,7 +741,7 @@
       green,
       thick
     ] (0,0) circle (1);
-      \draw[->,thick,red] (0,0) -- node[right,anchor=north west]{$\place(t)$} (45:1);
+    \draw[->,thick,red] (0,0) -- node[right,anchor=north west]{$\place(t)$} (45:1);
     \draw[->,thick,blue] (45:1) -- +(135:0.6) node[right,anchor=south west]{$\velocity(t)$};
 \end{tikzpicture}
 \end{document}
