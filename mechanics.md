@@ -444,23 +444,21 @@
   % axes
   \draw[->,thick] (xyz cs:x=-0.5) -- (xyz cs:x=4)  node[below] {$x$};
   \draw[->,thick] (xyz cs:y=-0.5) -- (xyz cs:y=3)  node[left] {$z$};
-  \draw[->,thick] (xyz cs:z=1)    -- (xyz cs:z=-4) node[above] {$y$};
+  \draw[->,thick] (xyz cs:z=1)    -- (xyz cs:z=-4);
   % path
   \draw[thick,
         decoration={markings, mark=at position 0.5 with {\arrow{>}}},
         postaction={decorate},
-        green]
+        green!20!white]
        (xyz cs:x=1,y=2.5,z=0) arc (90:0:2);
   % space point
   \coordinate (r1) at ($(1,0.5)+(70:2)$);
   \coordinate (r2) at ($(1,0.5)+(20:2)$);
-  \draw[->,thick,red] (xyz cs:x=0) -- node[above,xshift=-1em]{$\place(t_1)$} (r1);
-  \draw[->,thick,red] (xyz cs:x=0) -- node[below,xshift=+1em]{$\place(t_2)$} (r2);
   % velocities
   \draw[->,thick,blue] (r1) -- node[above,xshift=0.5em]{$\velocity(t_1)$} ++(-20:1.5) coordinate (v1);
-  \draw[->,thick,blue] (r2) -- ++(-70:0.8) node[below]{$\velocity(t_2)$} coordinate (v2);
+  \draw[->,thick,blue] (r1) -- node[left]{$\velocity(t_2)$} ++(-70:0.8) coordinate (v2);
   % delta
-  \draw[->,thick,orange] (v1) -- node[right]{$\Delta\velocity$} (v2);
+  \draw[->,thick,orange] (v1) -- node[below, xshift=-0.5em]{$\Delta\velocity$} (v2);
 \end{tikzpicture}
 \end{document}
 ~~~
@@ -1188,23 +1186,21 @@
   % axes
   \draw[->,thick] (xyz cs:x=-0.5) -- (xyz cs:x=4)  node[below] {$x$};
   \draw[->,thick] (xyz cs:y=-0.5) -- (xyz cs:y=3)  node[left] {$z$};
-  \draw[->,thick] (xyz cs:z=1)    -- (xyz cs:z=-4) node[above] {$y$};
+  \draw[->,thick] (xyz cs:z=1)    -- (xyz cs:z=-4);
   % path
   \draw[thick,
         decoration={markings, mark=at position 0.5 with {\arrow{>}}},
         postaction={decorate},
-        green]
+        green!20!white]
        (xyz cs:x=1,y=2.5,z=0) arc (90:0:2);
   % space point
   \coordinate (r1) at ($(1,0.5)+(70:2)$);
   \coordinate (r2) at ($(1,0.5)+(20:2)$);
-  \draw[->,thick,red] (xyz cs:x=0) -- node[above,xshift=-1em]{$\place(t_1)$} (r1);
-  \draw[->,thick,red] (xyz cs:x=0) -- node[below,xshift=+1em]{$\place(t_2)$} (r2);
   % velocities
   \draw[->,thick,blue] (r1) -- node[above,xshift=0.5em]{$\velocity(t_1)$} ++(-20:1.5) coordinate (v1);
-  \draw[->,thick,blue] (r2) -- ++(-70:0.8) node[below]{$\velocity(t_2)$} coordinate (v2);
+  \draw[->,thick,blue] (r1) -- node[left]{$\velocity(t_2)$} ++(-70:0.8) coordinate (v2);
   % delta
-  \draw[->,thick,orange] (v1) -- node[right]{$\Delta\velocity$} (v2);
+  \draw[->,thick,orange] (v1) -- node[below, xshift=-0.5em]{$\Delta\velocity$} (v2);
 \end{tikzpicture}
 \end{document}
 ~~~
