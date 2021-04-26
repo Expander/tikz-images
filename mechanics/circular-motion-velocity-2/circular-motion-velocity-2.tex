@@ -17,15 +17,10 @@
     thick
   ] (0,0) circle (1);
   % 1
-  \draw[->,thick,red] (0,0) -- (45:1);
-  \node[red] at (33:0.83) {$\place(t)$};
+  \draw[->,thick,red] (0,0) -- node[left,yshift=1em,xshift=0.5em] {$\place(t)$} (45:1);
   \draw[->,thick,blue] (45:1) -- node[right,yshift=0.5em]{$\velocity(t)$} +(135:0.6);
-  \draw[->] (0.6,0) arc (0:45:0.6);
-  \draw (0.4,0) node[above] {$\varphi(t)$};
   % 2
-  \draw[->,thick,red] (0,0) -- (135:1);
-  \node[red] at (123:0.83) {$\place(t)$};
+  \draw[->,thick,red] (0,0) -- node[right,yshift=1em,xshift=-0.5em] {$\place(t)$} (135:1);
   \draw[->,thick,blue] (135:1) -- node[left,yshift=0.5em]{$\velocity(t)$} +(225:0.6);
-  \draw[->] (0.65,0) arc (0:135:0.65);
 \end{tikzpicture}
 \end{document}
