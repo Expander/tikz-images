@@ -10,11 +10,11 @@
 
 \begin{document}
 \begin{tikzpicture}[scale=2]
-    \draw[->] (-1.2,0) -- (1.2,0) node[below] {$x$};
-    \draw[->] (0,-1.2) -- (0,1.2) node[left] {$y$};
+    \draw[->,thick] (-1.2,0) -- (1.2,0) node[below] {$x$};
+    \draw[->,thick] (0,-1.2) -- (0,1.2) node[left] {$y$};
     \draw[green, thick] (0,0) circle (1);
     \draw[->,thick,red] (0,0) -- (45:1) node[right,anchor=south west]{$\place(t)$};
-    \draw[->] (0.6,0) arc (0:45:0.6);
+    \draw[->,thick] (0.6,0) arc (0:45:0.6);
     \draw (0.4,0) node[above] {$\varphi(t)$};
     \draw (-0.5,0) node[above] {$R$};
     \draw[dashed] (0.707,0.707) -- (0.707,0) node[below] {$x(t)$};
@@ -85,6 +85,32 @@
   \begin{scope}[shift={(-0.03,0.03)}]
     \draw[->,thick,orange] (20:1) -- node[left, anchor=south east] {$\acceleration(t)$} (20:0.8);
   \end{scope}
+\end{tikzpicture}
+\end{document}
+~~~
+## circular-motion-velocity.svg
+[![circular-motion-velocity.svg](mechanics/circular-motion-velocity/circular-motion-velocity.svg "circular-motion-velocity.svg")](mechanics/circular-motion-velocity/circular-motion-velocity.svg) [[PDF]](mechanics/circular-motion-velocity/circular-motion-velocity.pdf) [[PNG]](mechanics/circular-motion-velocity/circular-motion-velocity.png) [[SVG]](mechanics/circular-motion-velocity/circular-motion-velocity.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\tikzset{>=latex}
+\usetikzlibrary{decorations.markings}
+\colorlet{green}{black!40!green}
+\newcommand{\place}{\vec{r}}
+\newcommand{\velocity}{\vec{v}}
+
+\begin{document}
+\begin{tikzpicture}[scale=2]
+    \draw[->,thick] (-1.2,0) -- (1.2,0) node[below] {$x$};
+    \draw[->,thick] (0,-1.2) -- (0,1.2) node[left] {$y$};
+    \draw[
+      decoration={markings, mark=at position 0.4 with {\arrow{>}}},
+      postaction={decorate},
+      green,
+      thick
+    ] (0,0) circle (1);
+      \draw[->,thick,red] (0,0) -- node[right,anchor=north west]{$\place(t)$} (45:1);
+    \draw[->,thick,blue] (45:1) -- +(135:0.6) node[right,anchor=south west]{$\velocity(t)$};
 \end{tikzpicture}
 \end{document}
 ~~~
@@ -518,11 +544,11 @@
 
 \begin{document}
 \begin{tikzpicture}[inverted,scale=2]
-    \draw[->] (-1.2,0) -- (1.2,0) node[below] {$x$};
-    \draw[->] (0,-1.2) -- (0,1.2) node[left] {$y$};
+    \draw[->,thick] (-1.2,0) -- (1.2,0) node[below] {$x$};
+    \draw[->,thick] (0,-1.2) -- (0,1.2) node[left] {$y$};
     \draw[green, thick] (0,0) circle (1);
     \draw[->,thick,red] (0,0) -- (45:1) node[right,anchor=south west]{$\place(t)$};
-    \draw[->] (0.6,0) arc (0:45:0.6);
+    \draw[->,thick] (0.6,0) arc (0:45:0.6);
     \draw (0.4,0) node[above] {$\varphi(t)$};
     \draw (-0.5,0) node[above] {$R$};
     \draw[dashed] (0.707,0.707) -- (0.707,0) node[below] {$x(t)$};
@@ -611,6 +637,41 @@
   \begin{scope}[shift={(-0.03,0.03)}]
     \draw[->,thick,orange] (20:1) -- node[left, anchor=south east] {$\acceleration(t)$} (20:0.8);
   \end{scope}
+\end{tikzpicture}
+\end{document}
+~~~
+## circular-motion-velocity_inverted.svg
+[![circular-motion-velocity_inverted.svg](mechanics/circular-motion-velocity/circular-motion-velocity_inverted.svg "circular-motion-velocity_inverted.svg")](mechanics/circular-motion-velocity/circular-motion-velocity_inverted.svg) [[PDF]](mechanics/circular-motion-velocity/circular-motion-velocity_inverted.pdf) [[PNG]](mechanics/circular-motion-velocity/circular-motion-velocity_inverted.png) [[SVG]](mechanics/circular-motion-velocity/circular-motion-velocity_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    every path/.style = {draw=white,text=white},
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\tikzset{>=latex}
+\usetikzlibrary{decorations.markings}
+\colorlet{green}{green}
+\newcommand{\place}{\vec{r}}
+\newcommand{\velocity}{\vec{v}}
+
+\begin{document}
+\begin{tikzpicture}[inverted,scale=2]
+    \draw[->,thick] (-1.2,0) -- (1.2,0) node[below] {$x$};
+    \draw[->,thick] (0,-1.2) -- (0,1.2) node[left] {$y$};
+    \draw[
+      decoration={markings, mark=at position 0.4 with {\arrow{>}}},
+      postaction={decorate},
+      green,
+      thick
+    ] (0,0) circle (1);
+      \draw[->,thick,red] (0,0) -- node[right,anchor=north west]{$\place(t)$} (45:1);
+    \draw[->,thick,blue] (45:1) -- +(135:0.6) node[right,anchor=south west]{$\velocity(t)$};
 \end{tikzpicture}
 \end{document}
 ~~~
