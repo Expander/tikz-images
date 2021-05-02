@@ -588,6 +588,28 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## spring.svg
+[![spring.svg](mechanics/spring/spring.svg "spring.svg")](mechanics/spring/spring.svg) [[PDF]](mechanics/spring/spring.pdf) [[PNG]](mechanics/spring/spring.png) [[SVG]](mechanics/spring/spring.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\usepackage{amsmath}
+\tikzset{>=latex}
+\usetikzlibrary{patterns,decorations.pathmorphing}
+
+\begin{document}
+\begin{tikzpicture}[scale=2]
+  \draw[->] (-0.9,1) -- (1,1) node[right] {$x$};
+  \draw (0,0.9) -- (0,1.1) node[above] {$0$};
+  \draw (-1,1) -- (-1,0) -- (1,0);
+  \pattern[pattern=north east lines,pattern color=black] (-1.2,1)--++(0.2,0)--++(0,-1)
+  --++(2,0)--++(0,-0.2)--++(-2,0)--++(-0.2,0)--cycle;
+  \draw[decoration={aspect=0.3, segment length=2mm, amplitude=2mm,coil},decorate] (-1,0.25) -- (0.5,0.25);
+  \draw[red,fill] (0.5,0.25) circle (0.25);
+  \draw[->] (0.5,0.75) node[right]{$\vec{F}$} -- (0,0.75);
+\end{tikzpicture}
+\end{document}
+~~~
 ## straight-curve.svg
 [![straight-curve.svg](mechanics/straight-curve/straight-curve.svg "straight-curve.svg")](mechanics/straight-curve/straight-curve.svg) [[PDF]](mechanics/straight-curve/straight-curve.pdf) [[PNG]](mechanics/straight-curve/straight-curve.png) [[SVG]](mechanics/straight-curve/straight-curve.svg)
 ~~~.tex
@@ -1548,6 +1570,37 @@
   \draw[->,very thick,blue] (xyz cs:x=0) -- node[below]{$\ex$} (xyz cs:x=1);
   \draw[->,very thick,blue] (xyz cs:x=0) -- (xyz cs:z=-1) node[left,yshift=0.6em,xshift=0.3em]{$\ey$};
   \draw[->,very thick,blue] (xyz cs:x=0) -- node[left]{$\ez$} (xyz cs:y=1);
+\end{tikzpicture}
+\end{document}
+~~~
+## spring_inverted.svg
+[![spring_inverted.svg](mechanics/spring/spring_inverted.svg "spring_inverted.svg")](mechanics/spring/spring_inverted.svg) [[PDF]](mechanics/spring/spring_inverted.pdf) [[PNG]](mechanics/spring/spring_inverted.png) [[SVG]](mechanics/spring/spring_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    every path/.style = {draw=white,text=white},
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\usepackage{amsmath}
+\tikzset{>=latex}
+\usetikzlibrary{patterns,decorations.pathmorphing}
+
+\begin{document}
+\begin{tikzpicture}[inverted,scale=2]
+  \draw[->] (-0.9,1) -- (1,1) node[right] {$x$};
+  \draw (0,0.9) -- (0,1.1) node[above] {$0$};
+  \draw (-1,1) -- (-1,0) -- (1,0);
+  \pattern[pattern=north east lines,pattern color=white] (-1.2,1)--++(0.2,0)--++(0,-1)
+  --++(2,0)--++(0,-0.2)--++(-2,0)--++(-0.2,0)--cycle;
+  \draw[decoration={aspect=0.3, segment length=2mm, amplitude=2mm,coil},decorate] (-1,0.25) -- (0.5,0.25);
+  \draw[red,fill] (0.5,0.25) circle (0.25);
+  \draw[->] (0.5,0.75) node[right]{$\vec{F}$} -- (0,0.75);
 \end{tikzpicture}
 \end{document}
 ~~~
