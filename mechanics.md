@@ -434,6 +434,42 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## ship-forces.svg
+[![ship-forces.svg](mechanics/ship-forces/ship-forces.svg "ship-forces.svg")](mechanics/ship-forces/ship-forces.svg) [[PDF]](mechanics/ship-forces/ship-forces.pdf) [[PNG]](mechanics/ship-forces/ship-forces.png) [[SVG]](mechanics/ship-forces/ship-forces.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\usepackage{amsmath}
+\usetikzlibrary{calc}
+\tikzset{>=latex}
+\newcommand{\F}{\vec{F}}
+
+\newcommand{\bigship}[3]{%
+  \begin{scope}[shift={#1}, scale={#2/10}, rotate=#3]
+    \draw[fill=black, rounded corners=1] (0,0) -- ++(1,-1) -- ++(9,0) -- ++(0,1) -- cycle;%
+    \draw[fill=black, rounded corners=1] (7,0.1) rectangle ++(2,0.7);%
+  \end{scope}
+}
+
+\newcommand{\smallship}[3]{%
+  \begin{scope}[shift={#1}, scale={#2/2}, rotate=#3]
+    \draw[fill=black, rounded corners=1] (0,0) -- ++(0.7,-1) -- ++(2,0) -- ++(0,1) -- cycle;%
+    \draw[fill=black, rounded corners=1] (1.6,0) rectangle ++(1,0.4);%
+  \end{scope}
+}
+
+\begin{document}
+\begin{tikzpicture}[]
+  \bigship{(0,0)}{3}{0}
+  \smallship{(148:4.8)}{0.6}{-30}
+  \smallship{(208:4.8)}{0.6}{30}
+  % arrows
+  \draw[->, blue, thick] (0,0) -- node[above] {$\F_1$} (150:4) coordinate (F1);
+  \draw[->, blue, thick] (0,0) -- node[below] {$\F_2$} (210:4) coordinate (F2);
+  \draw[->, red , thick] (0,0) -- node[above] {$\F_\text{res}$} ($(F1)+(F2)$);
+\end{tikzpicture}
+\end{document}
+~~~
 ## space-point-2-delta.svg
 [![space-point-2-delta.svg](mechanics/space-point-2-delta/space-point-2-delta.svg "space-point-2-delta.svg")](mechanics/space-point-2-delta/space-point-2-delta.svg) [[PDF]](mechanics/space-point-2-delta/space-point-2-delta.pdf) [[PNG]](mechanics/space-point-2-delta/space-point-2-delta.png) [[SVG]](mechanics/space-point-2-delta/space-point-2-delta.svg)
 ~~~.tex
@@ -1290,6 +1326,51 @@
   \draw[->] (0,0) -- (0,1) node[left] {$z$};
   \draw[red] (0,0.8) parabola bend (0,0.8) (0.8,0);
   \draw (-0.05,0.8) node[left] {$h$} -- (0.05,0.8);
+\end{tikzpicture}
+\end{document}
+~~~
+## ship-forces_inverted.svg
+[![ship-forces_inverted.svg](mechanics/ship-forces/ship-forces_inverted.svg "ship-forces_inverted.svg")](mechanics/ship-forces/ship-forces_inverted.svg) [[PDF]](mechanics/ship-forces/ship-forces_inverted.pdf) [[PNG]](mechanics/ship-forces/ship-forces_inverted.png) [[SVG]](mechanics/ship-forces/ship-forces_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    every path/.style = {draw=white,text=white},
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\usepackage{amsmath}
+\usetikzlibrary{calc}
+\tikzset{>=latex}
+\newcommand{\F}{\vec{F}}
+
+\newcommand{\bigship}[3]{%
+  \begin{scope}[shift={#1}, scale={#2/10}, rotate=#3]
+    \draw[fill=white, rounded corners=1] (0,0) -- ++(1,-1) -- ++(9,0) -- ++(0,1) -- cycle;%
+    \draw[fill=white, rounded corners=1] (7,0.1) rectangle ++(2,0.7);%
+  \end{scope}
+}
+
+\newcommand{\smallship}[3]{%
+  \begin{scope}[shift={#1}, scale={#2/2}, rotate=#3]
+    \draw[fill=white, rounded corners=1] (0,0) -- ++(0.7,-1) -- ++(2,0) -- ++(0,1) -- cycle;%
+    \draw[fill=white, rounded corners=1] (1.6,0) rectangle ++(1,0.4);%
+  \end{scope}
+}
+
+\begin{document}
+\begin{tikzpicture}[inverted,]
+  \bigship{(0,0)}{3}{0}
+  \smallship{(148:4.8)}{0.6}{-30}
+  \smallship{(208:4.8)}{0.6}{30}
+  % arrows
+  \draw[->, blue, thick] (0,0) -- node[above] {$\F_1$} (150:4) coordinate (F1);
+  \draw[->, blue, thick] (0,0) -- node[below] {$\F_2$} (210:4) coordinate (F2);
+  \draw[->, red , thick] (0,0) -- node[above] {$\F_\text{res}$} ($(F1)+(F2)$);
 \end{tikzpicture}
 \end{document}
 ~~~
