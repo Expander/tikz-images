@@ -12,7 +12,7 @@
 \tikzset{>=latex}
 
 \begin{document}
-\begin{tikzpicture}
+\begin{tikzpicture}[inverted,inverted]
   \foreach\X in {-2,-1.5,-1,-0.5,0} {\draw(\X,-2)--(\X,2);}
   \draw[->] (-3,0) -- +(0.7,0);
   \draw[fill] (0.05,-2) rectangle (-0.05,-1);

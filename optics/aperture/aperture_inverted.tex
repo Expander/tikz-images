@@ -13,7 +13,7 @@
 \usetikzlibrary{calc}
 
 \begin{document}
-\begin{tikzpicture}
+\begin{tikzpicture}[inverted,inverted]
   % rays
   \foreach \d in { -20,-19,...,-2 } { \draw[->,red] (0,0) -- +(\d:{4/cos(\d)}); };
   \foreach \d in {  20, 19,..., 2 } { \draw[->,red] (0,0) -- +(\d:{4/cos(\d)}); };

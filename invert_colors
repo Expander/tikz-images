@@ -7,6 +7,6 @@ sed '
 s|black!40!green|green|g
 s|black|white|g
 s|{standalone}|{standalone}\n\\usetikzlibrary{backgrounds}\n\\colorlet{blue}{cyan}\n\\tikzset{\n  inverted/.style = {\n    every path/.style = {draw=white,text=white},\n    background rectangle/.style={fill},\n    show background rectangle\n  }\n}|
-s|\\begin{tikzpicture}[^\[]|\\begin{tikzpicture}[inverted]|g
+s|\\begin{tikzpicture} *$|\\begin{tikzpicture}[inverted]|g
 s|\\begin{tikzpicture}\[|\\begin{tikzpicture}[inverted,|g
 ' "${input}" > "${output}"

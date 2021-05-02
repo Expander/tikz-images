@@ -22,7 +22,7 @@ color(45bp)=(green); color(55bp)=(cyan); color(65bp)=(blue);
 color(75bp)=(violet); color(100bp)=(violet)}
 
 \begin{document}
-\begin{tikzpicture}
+\begin{tikzpicture}[inverted,inverted]
   % data generated with: data/strahlungsspektrum.m
   \pgfplotstableread{data/T300K.dat}\tableThreeHoundred
   \pgfplotstableread{data/T500K.dat}\tableFiveHoundred

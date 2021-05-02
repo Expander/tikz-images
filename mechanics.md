@@ -368,6 +368,29 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## force-addition.svg
+[![force-addition.svg](mechanics/force-addition/force-addition.svg "force-addition.svg")](mechanics/force-addition/force-addition.svg) [[PDF]](mechanics/force-addition/force-addition.pdf) [[PNG]](mechanics/force-addition/force-addition.png) [[SVG]](mechanics/force-addition/force-addition.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\usepackage{amsmath}
+\tikzset{>=latex}
+\newcommand{\F}{\vec{F}}
+
+\begin{document}
+\begin{tikzpicture}
+  \draw[step=1.0,gray!50,very thin] (-1,-2) grid (4,2);
+  \draw[->] (-1,0) -- (4,0) node[right] {$F_x/\text{N}$};
+  \draw[->] (0,-2) -- (0,2) node[above] {$F_y/\text{N}$};
+  % 
+  \draw[->,blue] (0,0) -- node[above] {$\F_1$} (2,1);
+  \draw[->,blue] (0,0) -- node[below] {$\F_2$} (1,-1);
+  \draw[->,red,thick] (0,0) -- node[above,xshift=1em] {$\F_\text{res}$} (3,0);
+  \draw[->,blue,dashed] (2,1) -- (3,0);
+  \draw[->,blue,dashed] (1,-1) -- (3,0);
+\end{tikzpicture}
+\end{document}
+~~~
 ## free-fall-a.svg
 [![free-fall-a.svg](mechanics/free-fall-a/free-fall-a.svg "free-fall-a.svg")](mechanics/free-fall-a/free-fall-a.svg) [[PDF]](mechanics/free-fall-a/free-fall-a.pdf) [[PNG]](mechanics/free-fall-a/free-fall-a.png) [[SVG]](mechanics/free-fall-a/free-fall-a.svg)
 ~~~.tex
@@ -459,7 +482,7 @@
 }
 
 \begin{document}
-\begin{tikzpicture}[]
+\begin{tikzpicture}
   \bigship{(0,0)}{3}{0}
   \smallship{(148:4.8)}{0.6}{-30}
   \smallship{(208:4.8)}{0.6}{30}
@@ -1227,6 +1250,38 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## force-addition_inverted.svg
+[![force-addition_inverted.svg](mechanics/force-addition/force-addition_inverted.svg "force-addition_inverted.svg")](mechanics/force-addition/force-addition_inverted.svg) [[PDF]](mechanics/force-addition/force-addition_inverted.pdf) [[PNG]](mechanics/force-addition/force-addition_inverted.png) [[SVG]](mechanics/force-addition/force-addition_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    every path/.style = {draw=white,text=white},
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\usepackage{amsmath}
+\tikzset{>=latex}
+\newcommand{\F}{\vec{F}}
+
+\begin{document}
+\begin{tikzpicture}[inverted,inverted]
+  \draw[step=1.0,gray!50,very thin] (-1,-2) grid (4,2);
+  \draw[->] (-1,0) -- (4,0) node[right] {$F_x/\text{N}$};
+  \draw[->] (0,-2) -- (0,2) node[above] {$F_y/\text{N}$};
+  % 
+  \draw[->,blue] (0,0) -- node[above] {$\F_1$} (2,1);
+  \draw[->,blue] (0,0) -- node[below] {$\F_2$} (1,-1);
+  \draw[->,red,thick] (0,0) -- node[above,xshift=1em] {$\F_\text{res}$} (3,0);
+  \draw[->,blue,dashed] (2,1) -- (3,0);
+  \draw[->,blue,dashed] (1,-1) -- (3,0);
+\end{tikzpicture}
+\end{document}
+~~~
 ## free-fall-a_inverted.svg
 [![free-fall-a_inverted.svg](mechanics/free-fall-a/free-fall-a_inverted.svg "free-fall-a_inverted.svg")](mechanics/free-fall-a/free-fall-a_inverted.svg) [[PDF]](mechanics/free-fall-a/free-fall-a_inverted.pdf) [[PNG]](mechanics/free-fall-a/free-fall-a_inverted.png) [[SVG]](mechanics/free-fall-a/free-fall-a_inverted.svg)
 ~~~.tex
@@ -1363,7 +1418,7 @@
 }
 
 \begin{document}
-\begin{tikzpicture}[inverted,]
+\begin{tikzpicture}[inverted,inverted]
   \bigship{(0,0)}{3}{0}
   \smallship{(148:4.8)}{0.6}{-30}
   \smallship{(208:4.8)}{0.6}{30}

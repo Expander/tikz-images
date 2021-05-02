@@ -459,7 +459,7 @@ color(75bp)=(violet); color(100bp)=(violet)}
 \usetikzlibrary{calc}
 
 \begin{document}
-\begin{tikzpicture}
+\begin{tikzpicture}[inverted,inverted]
   % rays
   \foreach \d in { -20,-19,...,-2 } { \draw[->,red] (0,0) -- +(\d:{4/cos(\d)}); };
   \foreach \d in {  20, 19,..., 2 } { \draw[->,red] (0,0) -- +(\d:{4/cos(\d)}); };
@@ -493,7 +493,7 @@ color(75bp)=(violet); color(100bp)=(violet)}
 \tikzset{>=latex}
 
 \begin{document}
-\begin{tikzpicture}
+\begin{tikzpicture}[inverted,inverted]
   \foreach \R in {0.5,1,1.5,2} { \draw (0,0) circle (\R); }
   \foreach \R in {0.5} {%
     \foreach \A in {0,45,...,315} {%
@@ -530,7 +530,7 @@ color(75bp)=(violet); color(100bp)=(violet)}
 \usetikzlibrary{calc}
 
 \begin{document}
-\begin{tikzpicture}
+\begin{tikzpicture}[inverted,inverted]
   % slit
   \draw[fill] (-0.1, 1.05) rectangle (0.1, 2.0);
   \draw[fill] (-0.1,-1.05) rectangle (0.1,-2.0);
@@ -569,7 +569,7 @@ color(75bp)=(violet); color(100bp)=(violet)}
 \tikzset{>=latex}
 
 \begin{document}
-\begin{tikzpicture}
+\begin{tikzpicture}[inverted,inverted]
   \foreach\X in {-2,-1.5,-1,-0.5,0} {\draw(\X,-2)--(\X,2);}
   \draw[->] (-3,0) -- +(0.7,0);
   \draw[fill] (0.05,-2) rectangle (-0.05,-1);
@@ -602,7 +602,7 @@ color(75bp)=(violet); color(100bp)=(violet)}
 \usetikzlibrary{decorations.pathreplacing}
 
 \begin{document}
-\begin{tikzpicture}
+\begin{tikzpicture}[inverted,inverted]
   % direction
   \draw[->] (-3,0) -- +(0.7,0);
   % plain waves
@@ -638,7 +638,7 @@ color(75bp)=(violet); color(100bp)=(violet)}
 }
 
 \begin{document}
-\begin{tikzpicture}
+\begin{tikzpicture}[inverted,inverted]
   \pgfmathsetmacro{\radius}{4}
   \pgfmathsetmacro{\refractiveindex}{2}
   \draw[fill=cyan!20] (-30:\radius) arc (-30:30:\radius) -- cycle;
@@ -665,7 +665,7 @@ color(75bp)=(violet); color(100bp)=(violet)}
 }
 
 \begin{document}
-\begin{tikzpicture}
+\begin{tikzpicture}[inverted,inverted]
   \pgfmathsetmacro{\radius}{4}
   \pgfmathsetmacro{\refractiveindex}{2}
   \draw[fill=cyan!20] (-30:\radius) arc (-30:30:\radius) -- cycle;
@@ -692,7 +692,7 @@ color(75bp)=(violet); color(100bp)=(violet)}
 }
 
 \begin{document}
-\begin{tikzpicture}
+\begin{tikzpicture}[inverted,inverted]
   \pgfmathsetmacro{\radius}{4}
   \draw (-90:\radius) arc (-90:90:\radius);
   \foreach \Y in { -3.7,-3.6,...,3.7 } {%
@@ -720,7 +720,7 @@ color(75bp)=(violet); color(100bp)=(violet)}
 \pgfplotsset{compat=1.16}
 
 \begin{document}
-\begin{tikzpicture}
+\begin{tikzpicture}[inverted,inverted]
   \begin{axis}[
     domain={-sqrt(2)}:{sqrt(2)},
     samples=100,
@@ -767,7 +767,7 @@ color(45bp)=(green); color(55bp)=(cyan); color(65bp)=(blue);
 color(75bp)=(violet); color(100bp)=(violet)}
 
 \begin{document}
-\begin{tikzpicture}
+\begin{tikzpicture}[inverted,inverted]
   % data generated with: data/strahlungsspektrum.m
   \pgfplotstableread{data/T300K.dat}\tableThreeHoundred
   \pgfplotstableread{data/T500K.dat}\tableFiveHoundred
@@ -825,7 +825,7 @@ color(75bp)=(violet); color(100bp)=(violet)}
 \tikzset{>=latex}
 
 \begin{document}
-\begin{tikzpicture}
+\begin{tikzpicture}[inverted,inverted]
   \foreach \X in {0,0.5,1,1.5,2} { \draw (\X,0) -- +(0,5); }
   \foreach \X in {0,1,2} {%
     \foreach \Y in {0.5,1,...,4.5} {%
@@ -862,7 +862,7 @@ color(75bp)=(violet); color(100bp)=(violet)}
 }
 
 \begin{document}
-\begin{tikzpicture}
+\begin{tikzpicture}[inverted,inverted]
   \coordinate (a) at (1,0);
   \coordinate (b) at (2.5,0);
   \coordinate (c) at (4,0);
@@ -930,7 +930,7 @@ color(75bp)=(violet); color(100bp)=(violet)}
 }
 
 \begin{document}
-\begin{tikzpicture}
+\begin{tikzpicture}[inverted,inverted]
   \coordinate (a) at (1,0);
   \coordinate (b) at (2.5,0);
   \coordinate (c) at (4,0);
@@ -995,7 +995,7 @@ color(75bp)=(violet); color(100bp)=(violet)}
 \usetikzlibrary{calc}
 
 \begin{document}
-\begin{tikzpicture}
+\begin{tikzpicture}[inverted,inverted]
   \draw[fill,cyan!20] (110:10) arc (110:70:10) -- (70:9) arc (70:110:9) -- cycle;
   \coordinate (a) at (92:10);
   \coordinate (b) at (90:9);
