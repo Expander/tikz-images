@@ -101,7 +101,7 @@
   <use xlink:href="#glyph0-8" x="219.080527" y="114.995"/>
 </g>
 <path style="fill:none;stroke-width:0.3985;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(50%,50%,50%);stroke-opacity:1;stroke-dasharray:2.98883,2.98883;stroke-miterlimit:10;" d="M 28.347031 0.00153125 L 28.347031 90.708562 L 28.347031 -85.041438 " transform="matrix(1,0,0,-1,31.985,104.357)"/>
-<g style="fill:rgb(0%,0%,0%);fill-opacity:1;">
+<g style="fill:rgb(100%,100%,100%);fill-opacity:1;">
   <use xlink:href="#glyph0-9" x="63.851" y="10.129"/>
   <use xlink:href="#glyph0-10" x="70.077625" y="10.129"/>
   <use xlink:href="#glyph0-11" x="75.058925" y="10.129"/>
@@ -129,10 +129,10 @@
 </g>
 <path style="fill:none;stroke-width:0.3985;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(50%,50%,50%);stroke-opacity:1;stroke-miterlimit:10;" d="M 79.370469 0.00153125 C 79.370469 -5.971125 80.944688 -11.838313 83.929063 -17.006281 " transform="matrix(1,0,0,-1,31.985,104.357)"/>
 <path style="fill:none;stroke-width:0.3985;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(0%,100%,0%);stroke-opacity:1;stroke-miterlimit:10;" d="M 97.405625 -5.818781 L 150.679063 -25.209406 " transform="matrix(1,0,0,-1,31.985,104.357)"/>
-<g style="fill:rgb(0%,0%,0%);fill-opacity:1;">
+<g style="fill:rgb(100%,100%,100%);fill-opacity:1;">
   <use xlink:href="#glyph1-1" x="186.182" y="132.277"/>
 </g>
-<g style="fill:rgb(0%,0%,0%);fill-opacity:1;">
+<g style="fill:rgb(100%,100%,100%);fill-opacity:1;">
   <use xlink:href="#glyph2-2" x="192.075" y="133.771"/>
 </g>
 <path style="fill-rule:nonzero;fill:rgb(100%,0%,0%);fill-opacity:1;stroke-width:0.3985;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(100%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;" d="M 29.765 0.00153125 C 29.765 0.782781 29.128281 1.415594 28.347031 1.415594 C 27.565781 1.415594 26.929063 0.782781 26.929063 0.00153125 C 26.929063 -0.783625 27.565781 -1.416438 28.347031 -1.416438 C 29.128281 -1.416438 29.765 -0.783625 29.765 0.00153125 Z M 29.765 0.00153125 " transform="matrix(1,0,0,-1,31.985,104.357)"/>
