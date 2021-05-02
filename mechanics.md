@@ -484,12 +484,12 @@
 \begin{document}
 \begin{tikzpicture}
   \bigship{(0,0)}{3}{0}
-  \smallship{(-42:3.7)}{0.6}{-45}
-  \smallship{(29:5.3)}{0.6}{30}
+  \smallship{(-42:2.3)}{0.6}{-45}
+  \smallship{(29:3.1)}{0.6}{30}
   % arrows
-  \draw[->, blue, thick] (0,0) -- node[above left] {$\F_1$} (4,2) coordinate (F1);
-  \draw[->, blue, thick] (0,0) -- node[below left] {$\F_2$} (2,-2) coordinate (F2);
-  \draw[->, red , thick] (0,0) -- node[above] {$\F_\text{res}$} ($(F1)+(F2)$);
+  \draw[->, blue, thick] (0,0) -- node[above left] {$\F_1$} (2,1) coordinate (F1);
+  \draw[->, blue, thick] (0,0) -- node[below left] {$\F_2$} (1,-1) coordinate (F2);
+  \draw[->, red , thick] (0,0) -- node[above right] {$\F_\text{res}$} ($(F1)+(F2)$);
 \end{tikzpicture}
 \end{document}
 ~~~
@@ -1420,12 +1420,12 @@
 \begin{document}
 \begin{tikzpicture}[inverted,inverted]
   \bigship{(0,0)}{3}{0}
-  \smallship{(-42:3.7)}{0.6}{-45}
-  \smallship{(29:5.3)}{0.6}{30}
+  \smallship{(-42:2.3)}{0.6}{-45}
+  \smallship{(29:3.1)}{0.6}{30}
   % arrows
-  \draw[->, blue, thick] (0,0) -- node[above left] {$\F_1$} (4,2) coordinate (F1);
-  \draw[->, blue, thick] (0,0) -- node[below left] {$\F_2$} (2,-2) coordinate (F2);
-  \draw[->, red , thick] (0,0) -- node[above] {$\F_\text{res}$} ($(F1)+(F2)$);
+  \draw[->, blue, thick] (0,0) -- node[above left] {$\F_1$} (2,1) coordinate (F1);
+  \draw[->, blue, thick] (0,0) -- node[below left] {$\F_2$} (1,-1) coordinate (F2);
+  \draw[->, red , thick] (0,0) -- node[above right] {$\F_\text{res}$} ($(F1)+(F2)$);
 \end{tikzpicture}
 \end{document}
 ~~~
