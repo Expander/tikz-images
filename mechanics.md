@@ -11,6 +11,8 @@
 \begin{tikzpicture}
   \draw[gray!50,fill] (-2,0) circle (1)   coordinate (c1);
   \draw[gray!50,fill] (+2,0) circle (0.5) coordinate (c2);
+  \node[blue,yshift=1.2cm] at (c1) {1};
+  \node[red, yshift=0.7cm] at (c2) {2};
   \draw[->,blue] (c1) -- ++(+1.5,0) node[below] {$\vec{F}_{21}$};
   \draw[->,red]  (c2) -- ++(-1.5,0) node[below] {$\vec{F}_{12}$};
 \end{tikzpicture}
@@ -833,6 +835,8 @@
 \begin{tikzpicture}[inverted,inverted]
   \draw[gray!50,fill] (-2,0) circle (1)   coordinate (c1);
   \draw[gray!50,fill] (+2,0) circle (0.5) coordinate (c2);
+  \node[blue,yshift=1.2cm] at (c1) {1};
+  \node[red, yshift=0.7cm] at (c2) {2};
   \draw[->,blue] (c1) -- ++(+1.5,0) node[below] {$\vec{F}_{21}$};
   \draw[->,red]  (c2) -- ++(-1.5,0) node[below] {$\vec{F}_{12}$};
 \end{tikzpicture}
