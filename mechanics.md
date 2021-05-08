@@ -528,6 +528,26 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## friction.svg
+[![friction.svg](mechanics/friction/friction.svg "friction.svg")](mechanics/friction/friction.svg) [[PDF]](mechanics/friction/friction.pdf) [[PNG]](mechanics/friction/friction.png) [[SVG]](mechanics/friction/friction.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\usepackage{amsmath}
+\newcommand{\F}{\vec{F}}
+\tikzset{>=latex}
+\usetikzlibrary{patterns,decorations.pathmorphing}
+
+\begin{document}
+\begin{tikzpicture}[scale=1.4]
+  \pattern[pattern=north east lines,pattern color=black] (-1,0)--++(0,-0.2)--++(4,0)--++(0,0.2)--cycle;
+  \draw (-1,0) -- ++(4,0);
+  \draw[fill=gray!20] (0,0) rectangle (2,1);
+  \draw[->,thick,blue] (1,0.05) -- ++(2,0) node[above] {$\F_S$};
+  \draw[->,thick,red] (1,0.05) -- ++(-1.5,0) node[above] {$\F_R$};
+\end{tikzpicture}
+\end{document}
+~~~
 ## gravitational-force-earth.svg
 [![gravitational-force-earth.svg](mechanics/gravitational-force-earth/gravitational-force-earth.svg "gravitational-force-earth.svg")](mechanics/gravitational-force-earth/gravitational-force-earth.svg) [[PDF]](mechanics/gravitational-force-earth/gravitational-force-earth.pdf) [[PNG]](mechanics/gravitational-force-earth/gravitational-force-earth.png) [[SVG]](mechanics/gravitational-force-earth/gravitational-force-earth.svg)
 ~~~.tex
@@ -1646,6 +1666,35 @@
   \draw[->] (0,0) -- (0,1) node[left] {$z$};
   \draw[red] (0,0.8) parabola bend (0,0.8) (0.8,0);
   \draw (-0.05,0.8) node[left] {$h$} -- (0.05,0.8);
+\end{tikzpicture}
+\end{document}
+~~~
+## friction_inverted.svg
+[![friction_inverted.svg](mechanics/friction/friction_inverted.svg "friction_inverted.svg")](mechanics/friction/friction_inverted.svg) [[PDF]](mechanics/friction/friction_inverted.pdf) [[PNG]](mechanics/friction/friction_inverted.png) [[SVG]](mechanics/friction/friction_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    every path/.style = {draw=white,text=white},
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\usepackage{amsmath}
+\newcommand{\F}{\vec{F}}
+\tikzset{>=latex}
+\usetikzlibrary{patterns,decorations.pathmorphing}
+
+\begin{document}
+\begin{tikzpicture}[inverted,scale=1.4]
+  \pattern[pattern=north east lines,pattern color=white] (-1,0)--++(0,-0.2)--++(4,0)--++(0,0.2)--cycle;
+  \draw (-1,0) -- ++(4,0);
+  \draw[fill=gray] (0,0) rectangle (2,1);
+  \draw[->,thick,blue] (1,0.05) -- ++(2,0) node[above] {$\F_S$};
+  \draw[->,thick,red] (1,0.05) -- ++(-1.5,0) node[above] {$\F_R$};
 \end{tikzpicture}
 \end{document}
 ~~~
