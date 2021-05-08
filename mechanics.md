@@ -325,22 +325,53 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## constraint-force-inclined-plane.svg
+[![constraint-force-inclined-plane.svg](mechanics/constraint-force-inclined-plane/constraint-force-inclined-plane.svg "constraint-force-inclined-plane.svg")](mechanics/constraint-force-inclined-plane/constraint-force-inclined-plane.svg) [[PDF]](mechanics/constraint-force-inclined-plane/constraint-force-inclined-plane.pdf) [[PNG]](mechanics/constraint-force-inclined-plane/constraint-force-inclined-plane.png) [[SVG]](mechanics/constraint-force-inclined-plane/constraint-force-inclined-plane.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\usetikzlibrary{calc}
+\tikzset{>=latex}
+\colorlet{green}{black!40!green}
+\colorlet{gray}{gray!20}
+\newcommand{\F}{\vec{F}}
+\newcommand{\Z}{\vec{Z}}
+
+\begin{document}
+\begin{tikzpicture}[scale=2.5]
+  \draw[fill=gray] (0,0) -- (2,0) -- (0,1) -- cycle;
+  \draw (2,0) -- (0,1);
+  \draw ([shift={(153.4:0.6)}]2,0) arc (153.4:180:0.6);
+  \draw (1.6,0) node[above] {$\alpha$};
+  \coordinate (a) at (1,0.55);
+  \draw[fill,black] (a) circle (0.04);
+  \draw[->,thick,red] (a) -- +(0,-1) node[below] {$\F_g$};
+  \pgfmathsetmacro{\al}{atan(0.5)} % angle
+  \pgfmathsetmacro{\sa}{sin(\al)}; % sin(angle)
+  \pgfmathsetmacro{\ca}{cos(\al)}; % cos(angle)
+  \draw[->,thick,green] (a) -- +($(\sa*\ca,-\sa*\sa)$) node[above] {$\F_H$};
+  \draw[->,thick,green,dashed] (a) -- +($(-\sa*\ca,-\ca*\ca)$) node[below] {$\F_N$};
+  \draw[->,thick,blue] (a) -- +($(\sa*\ca,\ca*\ca)$) node[above] {$\Z$};
+\end{tikzpicture}
+\end{document}
+~~~
 ## constraint-force-table.svg
 [![constraint-force-table.svg](mechanics/constraint-force-table/constraint-force-table.svg "constraint-force-table.svg")](mechanics/constraint-force-table/constraint-force-table.svg) [[PDF]](mechanics/constraint-force-table/constraint-force-table.pdf) [[PNG]](mechanics/constraint-force-table/constraint-force-table.png) [[SVG]](mechanics/constraint-force-table/constraint-force-table.svg)
 ~~~.tex
 \documentclass[crop,tikz]{standalone}
 
 \tikzset{>=latex}
+\colorlet{gray}{gray!20}
 \newcommand{\F}{\vec{F}}
 \newcommand{\Z}{\vec{Z}}
 
 \begin{document}
 \begin{tikzpicture}[scale=1.5]
-  \draw[fill,gray!20] (xyz cs:x=0.1,z=-0.2) -- ++(xyz cs:x=2.6) -- ++(xyz cs:z=-3) -- ++(xyz cs:x=-2.6) -- cycle;
+  \draw[fill,gray] (xyz cs:x=0.1,z=-0.2) -- ++(xyz cs:x=2.6) -- ++(xyz cs:z=-3) -- ++(xyz cs:x=-2.6) -- cycle;
   \draw[->] (xyz cs:x=-0.5) -- (xyz cs:x=3) node[below] {$x$};
   \draw[->] (xyz cs:y=-0.5) -- (xyz cs:y=2) node[left] {$z$};
   \draw[->] (xyz cs:z=1) -- (xyz cs:z=-3) node[above] {$y$};
-  \draw[fill] (xyz cs:x=1.5,z=-1.5) circle (0.1);
+  \draw[fill,black] (xyz cs:x=1.5,z=-1.5) circle (0.1);
   \draw[->,red] (xyz cs:x=1.5,z=-1.5) -- ++(0,-1) node[below] {$\F_g$};
   \draw[->,blue] (xyz cs:x=1.5,z=-1.5) -- ++(0,+1) node[above] {$\Z$};
 \end{tikzpicture}
@@ -1306,6 +1337,45 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## constraint-force-inclined-plane_inverted.svg
+[![constraint-force-inclined-plane_inverted.svg](mechanics/constraint-force-inclined-plane/constraint-force-inclined-plane_inverted.svg "constraint-force-inclined-plane_inverted.svg")](mechanics/constraint-force-inclined-plane/constraint-force-inclined-plane_inverted.svg) [[PDF]](mechanics/constraint-force-inclined-plane/constraint-force-inclined-plane_inverted.pdf) [[PNG]](mechanics/constraint-force-inclined-plane/constraint-force-inclined-plane_inverted.png) [[SVG]](mechanics/constraint-force-inclined-plane/constraint-force-inclined-plane_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    every path/.style = {draw=white,text=white},
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\usetikzlibrary{calc}
+\tikzset{>=latex}
+\colorlet{green}{green}
+\colorlet{gray}{gray}
+\newcommand{\F}{\vec{F}}
+\newcommand{\Z}{\vec{Z}}
+
+\begin{document}
+\begin{tikzpicture}[inverted,scale=2.5]
+  \draw[fill=gray] (0,0) -- (2,0) -- (0,1) -- cycle;
+  \draw (2,0) -- (0,1);
+  \draw ([shift={(153.4:0.6)}]2,0) arc (153.4:180:0.6);
+  \draw (1.6,0) node[above] {$\alpha$};
+  \coordinate (a) at (1,0.55);
+  \draw[fill,white] (a) circle (0.04);
+  \draw[->,thick,red] (a) -- +(0,-1) node[below] {$\F_g$};
+  \pgfmathsetmacro{\al}{atan(0.5)} % angle
+  \pgfmathsetmacro{\sa}{sin(\al)}; % sin(angle)
+  \pgfmathsetmacro{\ca}{cos(\al)}; % cos(angle)
+  \draw[->,thick,green] (a) -- +($(\sa*\ca,-\sa*\sa)$) node[above] {$\F_H$};
+  \draw[->,thick,green,dashed] (a) -- +($(-\sa*\ca,-\ca*\ca)$) node[below] {$\F_N$};
+  \draw[->,thick,blue] (a) -- +($(\sa*\ca,\ca*\ca)$) node[above] {$\Z$};
+\end{tikzpicture}
+\end{document}
+~~~
 ## constraint-force-table_inverted.svg
 [![constraint-force-table_inverted.svg](mechanics/constraint-force-table/constraint-force-table_inverted.svg "constraint-force-table_inverted.svg")](mechanics/constraint-force-table/constraint-force-table_inverted.svg) [[PDF]](mechanics/constraint-force-table/constraint-force-table_inverted.pdf) [[PNG]](mechanics/constraint-force-table/constraint-force-table_inverted.png) [[SVG]](mechanics/constraint-force-table/constraint-force-table_inverted.svg)
 ~~~.tex
@@ -1321,16 +1391,17 @@
 }
 
 \tikzset{>=latex}
+\colorlet{gray}{gray}
 \newcommand{\F}{\vec{F}}
 \newcommand{\Z}{\vec{Z}}
 
 \begin{document}
 \begin{tikzpicture}[inverted,scale=1.5]
-  \draw[fill,gray!20] (xyz cs:x=0.1,z=-0.2) -- ++(xyz cs:x=2.6) -- ++(xyz cs:z=-3) -- ++(xyz cs:x=-2.6) -- cycle;
+  \draw[fill,gray] (xyz cs:x=0.1,z=-0.2) -- ++(xyz cs:x=2.6) -- ++(xyz cs:z=-3) -- ++(xyz cs:x=-2.6) -- cycle;
   \draw[->] (xyz cs:x=-0.5) -- (xyz cs:x=3) node[below] {$x$};
   \draw[->] (xyz cs:y=-0.5) -- (xyz cs:y=2) node[left] {$z$};
   \draw[->] (xyz cs:z=1) -- (xyz cs:z=-3) node[above] {$y$};
-  \draw[fill] (xyz cs:x=1.5,z=-1.5) circle (0.1);
+  \draw[fill,white] (xyz cs:x=1.5,z=-1.5) circle (0.1);
   \draw[->,red] (xyz cs:x=1.5,z=-1.5) -- ++(0,-1) node[below] {$\F_g$};
   \draw[->,blue] (xyz cs:x=1.5,z=-1.5) -- ++(0,+1) node[above] {$\Z$};
 \end{tikzpicture}
