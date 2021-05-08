@@ -705,6 +705,34 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## spring-2.svg
+[![spring-2.svg](mechanics/spring-2/spring-2.svg "spring-2.svg")](mechanics/spring-2/spring-2.svg) [[PDF]](mechanics/spring-2/spring-2.pdf) [[PNG]](mechanics/spring-2/spring-2.png) [[SVG]](mechanics/spring-2/spring-2.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\usepackage{amsmath}
+\tikzset{>=latex}
+\usetikzlibrary{calc,patterns,decorations.pathmorphing}
+
+\begin{document}
+\begin{tikzpicture}[scale=2]
+  % wall
+  \draw (-1,0.5) -- (-1,0) -- (1,0);
+  \pattern[pattern=north east lines,pattern color=black] (-1.2,0.5)--++(0.2,0)--++(0,-0.5)
+    --++(2,0)--++(0,-0.2)--++(-2,0)--++(-0.2,0)--cycle;
+  % circle
+  \coordinate (c) at (0,0.25);
+  \draw[decoration={aspect=0.3, segment length=2mm, amplitude=2mm,coil},decorate] (-1,0.25) -- (c);
+  \draw[red,fill] (c) circle (0.25);
+  % spring force
+  \draw[->,blue] ($(c)+(0,0.1)$) -- ++(0.5,0) node[above]{$\vec{F}$};
+  \coordinate (o) at ($(c)+(1,0)$);
+  % space vector
+  \draw[->] (o) -- node[below, xshift=1em] {$\vec{r}$} (c);
+  \draw ($(o)+(0,-0.1)$) -- ++(0,0.2) node[above] {$0$};
+\end{tikzpicture}
+\end{document}
+~~~
 ## spring.svg
 [![spring.svg](mechanics/spring/spring.svg "spring.svg")](mechanics/spring/spring.svg) [[PDF]](mechanics/spring/spring.pdf) [[PNG]](mechanics/spring/spring.png) [[SVG]](mechanics/spring/spring.svg)
 ~~~.tex
@@ -1849,6 +1877,43 @@
   \draw[->,very thick,blue] (xyz cs:x=0) -- node[below]{$\ex$} (xyz cs:x=1);
   \draw[->,very thick,blue] (xyz cs:x=0) -- (xyz cs:z=-1) node[left,yshift=0.6em,xshift=0.3em]{$\ey$};
   \draw[->,very thick,blue] (xyz cs:x=0) -- node[left]{$\ez$} (xyz cs:y=1);
+\end{tikzpicture}
+\end{document}
+~~~
+## spring-2_inverted.svg
+[![spring-2_inverted.svg](mechanics/spring-2/spring-2_inverted.svg "spring-2_inverted.svg")](mechanics/spring-2/spring-2_inverted.svg) [[PDF]](mechanics/spring-2/spring-2_inverted.pdf) [[PNG]](mechanics/spring-2/spring-2_inverted.png) [[SVG]](mechanics/spring-2/spring-2_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    every path/.style = {draw=white,text=white},
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\usepackage{amsmath}
+\tikzset{>=latex}
+\usetikzlibrary{calc,patterns,decorations.pathmorphing}
+
+\begin{document}
+\begin{tikzpicture}[inverted,scale=2]
+  % wall
+  \draw (-1,0.5) -- (-1,0) -- (1,0);
+  \pattern[pattern=north east lines,pattern color=white] (-1.2,0.5)--++(0.2,0)--++(0,-0.5)
+    --++(2,0)--++(0,-0.2)--++(-2,0)--++(-0.2,0)--cycle;
+  % circle
+  \coordinate (c) at (0,0.25);
+  \draw[decoration={aspect=0.3, segment length=2mm, amplitude=2mm,coil},decorate] (-1,0.25) -- (c);
+  \draw[red,fill] (c) circle (0.25);
+  % spring force
+  \draw[->,blue] ($(c)+(0,0.1)$) -- ++(0.5,0) node[above]{$\vec{F}$};
+  \coordinate (o) at ($(c)+(1,0)$);
+  % space vector
+  \draw[->] (o) -- node[below, xshift=1em] {$\vec{r}$} (c);
+  \draw ($(o)+(0,-0.1)$) -- ++(0,0.2) node[above] {$0$};
 \end{tikzpicture}
 \end{document}
 ~~~
