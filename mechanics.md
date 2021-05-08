@@ -325,6 +325,28 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## constraint-force-table.svg
+[![constraint-force-table.svg](mechanics/constraint-force-table/constraint-force-table.svg "constraint-force-table.svg")](mechanics/constraint-force-table/constraint-force-table.svg) [[PDF]](mechanics/constraint-force-table/constraint-force-table.pdf) [[PNG]](mechanics/constraint-force-table/constraint-force-table.png) [[SVG]](mechanics/constraint-force-table/constraint-force-table.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\tikzset{>=latex}
+\newcommand{\place}{\vec{r}}
+\newcommand{\F}{\vec{F}}
+\colorlet{green}{black!40!green}
+
+\begin{document}
+\begin{tikzpicture}
+  \draw[] (0,0) circle (2);
+  \draw[fill,black] (45:2.1) circle (0.1) node[right] {$m$};
+  \draw[->] (0,0) -- node[above,xshift=-0.5em] {$\place_1$} (45:2);
+  \node[below] at (0,0) {$0$};
+  \begin{scope}[shift={(0.05,-0.05)}]
+    \draw[->,red,thick] (45:2) -- node[below,xshift=0.5em] {$\F_g$} (45:1);
+  \end{scope}
+\end{tikzpicture}
+\end{document}
+~~~
 ## curve-length.svg
 [![curve-length.svg](mechanics/curve-length/curve-length.svg "curve-length.svg")](mechanics/curve-length/curve-length.svg) [[PDF]](mechanics/curve-length/curve-length.pdf) [[PNG]](mechanics/curve-length/curve-length.png) [[SVG]](mechanics/curve-length/curve-length.svg)
 ~~~.tex
@@ -484,7 +506,6 @@
 \tikzset{>=latex}
 \newcommand{\place}{\vec{r}}
 \newcommand{\F}{\vec{F}}
-\colorlet{green}{black!40!green}
 
 \begin{document}
 \begin{tikzpicture}
@@ -1286,6 +1307,37 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## constraint-force-table_inverted.svg
+[![constraint-force-table_inverted.svg](mechanics/constraint-force-table/constraint-force-table_inverted.svg "constraint-force-table_inverted.svg")](mechanics/constraint-force-table/constraint-force-table_inverted.svg) [[PDF]](mechanics/constraint-force-table/constraint-force-table_inverted.pdf) [[PNG]](mechanics/constraint-force-table/constraint-force-table_inverted.png) [[SVG]](mechanics/constraint-force-table/constraint-force-table_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    every path/.style = {draw=white,text=white},
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\tikzset{>=latex}
+\newcommand{\place}{\vec{r}}
+\newcommand{\F}{\vec{F}}
+\colorlet{green}{green}
+
+\begin{document}
+\begin{tikzpicture}[inverted,inverted]
+  \draw[] (0,0) circle (2);
+  \draw[fill,white] (45:2.1) circle (0.1) node[right] {$m$};
+  \draw[->] (0,0) -- node[above,xshift=-0.5em] {$\place_1$} (45:2);
+  \node[below] at (0,0) {$0$};
+  \begin{scope}[shift={(0.05,-0.05)}]
+    \draw[->,red,thick] (45:2) -- node[below,xshift=0.5em] {$\F_g$} (45:1);
+  \end{scope}
+\end{tikzpicture}
+\end{document}
+~~~
 ## curve-length_inverted.svg
 [![curve-length_inverted.svg](mechanics/curve-length/curve-length_inverted.svg "curve-length_inverted.svg")](mechanics/curve-length/curve-length_inverted.svg) [[PDF]](mechanics/curve-length/curve-length_inverted.pdf) [[PNG]](mechanics/curve-length/curve-length_inverted.png) [[SVG]](mechanics/curve-length/curve-length_inverted.svg)
 ~~~.tex
@@ -1517,7 +1569,6 @@
 \tikzset{>=latex}
 \newcommand{\place}{\vec{r}}
 \newcommand{\F}{\vec{F}}
-\colorlet{green}{green}
 
 \begin{document}
 \begin{tikzpicture}[inverted,inverted]
