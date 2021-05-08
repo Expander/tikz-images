@@ -476,6 +476,31 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## gravitational-force.svg
+[![gravitational-force.svg](mechanics/gravitational-force/gravitational-force.svg "gravitational-force.svg")](mechanics/gravitational-force/gravitational-force.svg) [[PDF]](mechanics/gravitational-force/gravitational-force.pdf) [[PNG]](mechanics/gravitational-force/gravitational-force.png) [[SVG]](mechanics/gravitational-force/gravitational-force.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\tikzset{>=latex}
+\newcommand{\place}{\vec{r}}
+\newcommand{\F}{\vec{F}}
+\colorlet{green}{black!40!green}
+
+\begin{document}
+\begin{tikzpicture}[scale=2]
+  \draw[->] (0,0) node[below] {$0$} -- node[left] {$\place_1$} (-1,1);
+  \draw[->] (0,0) -- node[right] {$\place_2$} (1,1);
+  \draw[fill,black] (-1,1)+(-0.1,0.1) circle (0.08);
+  \draw[fill,black] (1,1)+(0.1,0.1) circle (0.08);
+  \draw[->,green] (-1,1.15) -- node[above] {$\place_2-\place_1$} (1,1.15);
+  \draw[->,blue] (1,1.05) -- node[below] {$\place_1-\place_2$} (-1,1.05);
+  \draw (-1.2,1.1) node[left] {$m_1$};
+  \draw (1.2,1.1) node[right] {$m_2$};
+  \draw[->,red] (-1.1,1.25) -- node[above] {$\F_{G,2\to 1}$} +(0.5,0);
+  \draw[->,red] (1.1,1.25) -- node[above] {$\F_{G,1\to 2}$} +(-0.5,0);
+\end{tikzpicture}
+\end{document}
+~~~
 ## ship-forces.svg
 [![ship-forces.svg](mechanics/ship-forces/ship-forces.svg "ship-forces.svg")](mechanics/ship-forces/ship-forces.svg) [[PDF]](mechanics/ship-forces/ship-forces.pdf) [[PNG]](mechanics/ship-forces/ship-forces.png) [[SVG]](mechanics/ship-forces/ship-forces.svg)
 ~~~.tex
@@ -1450,6 +1475,40 @@
   \draw[->] (0,0) -- (0,1) node[left] {$z$};
   \draw[red] (0,0.8) parabola bend (0,0.8) (0.8,0);
   \draw (-0.05,0.8) node[left] {$h$} -- (0.05,0.8);
+\end{tikzpicture}
+\end{document}
+~~~
+## gravitational-force_inverted.svg
+[![gravitational-force_inverted.svg](mechanics/gravitational-force/gravitational-force_inverted.svg "gravitational-force_inverted.svg")](mechanics/gravitational-force/gravitational-force_inverted.svg) [[PDF]](mechanics/gravitational-force/gravitational-force_inverted.pdf) [[PNG]](mechanics/gravitational-force/gravitational-force_inverted.png) [[SVG]](mechanics/gravitational-force/gravitational-force_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    every path/.style = {draw=white,text=white},
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\tikzset{>=latex}
+\newcommand{\place}{\vec{r}}
+\newcommand{\F}{\vec{F}}
+\colorlet{green}{green}
+
+\begin{document}
+\begin{tikzpicture}[inverted,scale=2]
+  \draw[->] (0,0) node[below] {$0$} -- node[left] {$\place_1$} (-1,1);
+  \draw[->] (0,0) -- node[right] {$\place_2$} (1,1);
+  \draw[fill,white] (-1,1)+(-0.1,0.1) circle (0.08);
+  \draw[fill,white] (1,1)+(0.1,0.1) circle (0.08);
+  \draw[->,green] (-1,1.15) -- node[above] {$\place_2-\place_1$} (1,1.15);
+  \draw[->,blue] (1,1.05) -- node[below] {$\place_1-\place_2$} (-1,1.05);
+  \draw (-1.2,1.1) node[left] {$m_1$};
+  \draw (1.2,1.1) node[right] {$m_2$};
+  \draw[->,red] (-1.1,1.25) -- node[above] {$\F_{G,2\to 1}$} +(0.5,0);
+  \draw[->,red] (1.1,1.25) -- node[above] {$\F_{G,1\to 2}$} +(-0.5,0);
 \end{tikzpicture}
 \end{document}
 ~~~
