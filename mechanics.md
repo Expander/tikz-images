@@ -331,19 +331,18 @@
 \documentclass[crop,tikz]{standalone}
 
 \tikzset{>=latex}
-\newcommand{\place}{\vec{r}}
 \newcommand{\F}{\vec{F}}
-\colorlet{green}{black!40!green}
+\newcommand{\Z}{\vec{Z}}
 
 \begin{document}
-\begin{tikzpicture}
-  \draw[] (0,0) circle (2);
-  \draw[fill,black] (45:2.1) circle (0.1) node[right] {$m$};
-  \draw[->] (0,0) -- node[above,xshift=-0.5em] {$\place_1$} (45:2);
-  \node[below] at (0,0) {$0$};
-  \begin{scope}[shift={(0.05,-0.05)}]
-    \draw[->,red,thick] (45:2) -- node[below,xshift=0.5em] {$\F_g$} (45:1);
-  \end{scope}
+\begin{tikzpicture}[scale=1.5]
+  \draw[fill,gray!20] (xyz cs:x=0.1,z=-0.2) -- ++(xyz cs:x=2.6) -- ++(xyz cs:z=-3) -- ++(xyz cs:x=-2.6) -- cycle;
+  \draw[->] (xyz cs:x=-0.5) -- (xyz cs:x=3) node[below] {$x$};
+  \draw[->] (xyz cs:y=-0.5) -- (xyz cs:y=2) node[left] {$z$};
+  \draw[->] (xyz cs:z=1) -- (xyz cs:z=-3) node[above] {$y$};
+  \draw[fill] (xyz cs:x=1.5,z=-1.5) circle (0.1);
+  \draw[->,red] (xyz cs:x=1.5,z=-1.5) -- ++(0,-1) node[below] {$\F_g$};
+  \draw[->,blue] (xyz cs:x=1.5,z=-1.5) -- ++(0,+1) node[above] {$\Z$};
 \end{tikzpicture}
 \end{document}
 ~~~
@@ -1322,19 +1321,18 @@
 }
 
 \tikzset{>=latex}
-\newcommand{\place}{\vec{r}}
 \newcommand{\F}{\vec{F}}
-\colorlet{green}{green}
+\newcommand{\Z}{\vec{Z}}
 
 \begin{document}
-\begin{tikzpicture}[inverted,inverted]
-  \draw[] (0,0) circle (2);
-  \draw[fill,white] (45:2.1) circle (0.1) node[right] {$m$};
-  \draw[->] (0,0) -- node[above,xshift=-0.5em] {$\place_1$} (45:2);
-  \node[below] at (0,0) {$0$};
-  \begin{scope}[shift={(0.05,-0.05)}]
-    \draw[->,red,thick] (45:2) -- node[below,xshift=0.5em] {$\F_g$} (45:1);
-  \end{scope}
+\begin{tikzpicture}[inverted,scale=1.5]
+  \draw[fill,gray!20] (xyz cs:x=0.1,z=-0.2) -- ++(xyz cs:x=2.6) -- ++(xyz cs:z=-3) -- ++(xyz cs:x=-2.6) -- cycle;
+  \draw[->] (xyz cs:x=-0.5) -- (xyz cs:x=3) node[below] {$x$};
+  \draw[->] (xyz cs:y=-0.5) -- (xyz cs:y=2) node[left] {$z$};
+  \draw[->] (xyz cs:z=1) -- (xyz cs:z=-3) node[above] {$y$};
+  \draw[fill] (xyz cs:x=1.5,z=-1.5) circle (0.1);
+  \draw[->,red] (xyz cs:x=1.5,z=-1.5) -- ++(0,-1) node[below] {$\F_g$};
+  \draw[->,blue] (xyz cs:x=1.5,z=-1.5) -- ++(0,+1) node[above] {$\Z$};
 \end{tikzpicture}
 \end{document}
 ~~~
