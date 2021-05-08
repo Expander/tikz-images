@@ -476,6 +476,28 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## gravitational-force-earth.svg
+[![gravitational-force-earth.svg](mechanics/gravitational-force-earth/gravitational-force-earth.svg "gravitational-force-earth.svg")](mechanics/gravitational-force-earth/gravitational-force-earth.svg) [[PDF]](mechanics/gravitational-force-earth/gravitational-force-earth.pdf) [[PNG]](mechanics/gravitational-force-earth/gravitational-force-earth.png) [[SVG]](mechanics/gravitational-force-earth/gravitational-force-earth.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\tikzset{>=latex}
+\newcommand{\place}{\vec{r}}
+\newcommand{\F}{\vec{F}}
+\colorlet{green}{black!40!green}
+
+\begin{document}
+\begin{tikzpicture}
+  \draw[] (0,0) circle (2);
+  \draw[fill,black] (45:2.1) circle (0.1) node[right] {$m$};
+  \draw[->] (0,0) -- node[above,xshift=-0.5em] {$\place_1$} (45:2);
+  \node[below] at (0,0) {$0$};
+  \begin{scope}[shift={(0.05,-0.05)}]
+    \draw[->,red,thick] (45:2) -- node[below,xshift=0.5em] {$\F_g$} (45:1);
+  \end{scope}
+\end{tikzpicture}
+\end{document}
+~~~
 ## gravitational-force.svg
 [![gravitational-force.svg](mechanics/gravitational-force/gravitational-force.svg "gravitational-force.svg")](mechanics/gravitational-force/gravitational-force.svg) [[PDF]](mechanics/gravitational-force/gravitational-force.pdf) [[PNG]](mechanics/gravitational-force/gravitational-force.png) [[SVG]](mechanics/gravitational-force/gravitational-force.svg)
 ~~~.tex
@@ -1475,6 +1497,37 @@
   \draw[->] (0,0) -- (0,1) node[left] {$z$};
   \draw[red] (0,0.8) parabola bend (0,0.8) (0.8,0);
   \draw (-0.05,0.8) node[left] {$h$} -- (0.05,0.8);
+\end{tikzpicture}
+\end{document}
+~~~
+## gravitational-force-earth_inverted.svg
+[![gravitational-force-earth_inverted.svg](mechanics/gravitational-force-earth/gravitational-force-earth_inverted.svg "gravitational-force-earth_inverted.svg")](mechanics/gravitational-force-earth/gravitational-force-earth_inverted.svg) [[PDF]](mechanics/gravitational-force-earth/gravitational-force-earth_inverted.pdf) [[PNG]](mechanics/gravitational-force-earth/gravitational-force-earth_inverted.png) [[SVG]](mechanics/gravitational-force-earth/gravitational-force-earth_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    every path/.style = {draw=white,text=white},
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\tikzset{>=latex}
+\newcommand{\place}{\vec{r}}
+\newcommand{\F}{\vec{F}}
+\colorlet{green}{green}
+
+\begin{document}
+\begin{tikzpicture}[inverted,inverted]
+  \draw[] (0,0) circle (2);
+  \draw[fill,white] (45:2.1) circle (0.1) node[right] {$m$};
+  \draw[->] (0,0) -- node[above,xshift=-0.5em] {$\place_1$} (45:2);
+  \node[below] at (0,0) {$0$};
+  \begin{scope}[shift={(0.05,-0.05)}]
+    \draw[->,red,thick] (45:2) -- node[below,xshift=0.5em] {$\F_g$} (45:1);
+  \end{scope}
 \end{tikzpicture}
 \end{document}
 ~~~
