@@ -339,19 +339,24 @@
 
 \begin{document}
 \begin{tikzpicture}[scale=2.5]
-  \draw[fill=gray] (0,0) -- (2,0) -- (0,1) -- cycle;
-  \draw (2,0) -- (0,1);
-  \draw ([shift={(153.4:0.6)}]2,0) arc (153.4:180:0.6);
-  \draw (1.6,0) node[above] {$\alpha$};
-  \coordinate (a) at (1,0.55);
-  \draw[fill,black] (a) circle (0.04);
-  \draw[->,thick,red] (a) -- +(0,-1) node[below] {$\F_g$};
   \pgfmathsetmacro{\al}{atan(0.5)} % angle
   \pgfmathsetmacro{\sa}{sin(\al)}; % sin(angle)
   \pgfmathsetmacro{\ca}{cos(\al)}; % cos(angle)
-  \draw[->,thick,green] (a) -- +($(\sa*\ca,-\sa*\sa)$) node[above] {$\F_H$};
+  % inclined plane
+  \draw[fill=gray] (0,0) -- (2,0) -- (0,1) -- cycle;
+  % position of mass
+  \draw[fill,black] (1,0.55) circle (0.04) coordinate (a);
+  % arc
+  \draw ([shift={({180-\al}:0.6)}]2,0) arc ({180-\al}:180:0.6);
+  \node at ($(2,0)+({180-\al/2}:0.4)$) {$\alpha$};
+  % arc
+  \draw ([shift={(-90:0.4)}]a) arc (-90:{-90-\al}:0.4);
+  \node at ($(a)+({-90-\al/2}:0.3)$) {$\alpha$};
+  % forces
+  \draw[->,thick,red]          (a) -- +(0,-1) node[below] {$\F_g$};
+  \draw[->,thick,green]        (a) -- +($(\sa*\ca,-\sa*\sa)$) node[above] {$\F_H$};
   \draw[->,thick,green,dashed] (a) -- +($(-\sa*\ca,-\ca*\ca)$) node[below] {$\F_N$};
-  \draw[->,thick,blue] (a) -- +($(\sa*\ca,\ca*\ca)$) node[above] {$\Z$};
+  \draw[->,thick,blue]         (a) -- +($(\sa*\ca,\ca*\ca)$) node[above] {$\Z$};
 \end{tikzpicture}
 \end{document}
 ~~~
@@ -1446,19 +1451,24 @@
 
 \begin{document}
 \begin{tikzpicture}[inverted,scale=2.5]
-  \draw[fill=gray] (0,0) -- (2,0) -- (0,1) -- cycle;
-  \draw (2,0) -- (0,1);
-  \draw ([shift={(153.4:0.6)}]2,0) arc (153.4:180:0.6);
-  \draw (1.6,0) node[above] {$\alpha$};
-  \coordinate (a) at (1,0.55);
-  \draw[fill,white] (a) circle (0.04);
-  \draw[->,thick,red] (a) -- +(0,-1) node[below] {$\F_g$};
   \pgfmathsetmacro{\al}{atan(0.5)} % angle
   \pgfmathsetmacro{\sa}{sin(\al)}; % sin(angle)
   \pgfmathsetmacro{\ca}{cos(\al)}; % cos(angle)
-  \draw[->,thick,green] (a) -- +($(\sa*\ca,-\sa*\sa)$) node[above] {$\F_H$};
+  % inclined plane
+  \draw[fill=gray] (0,0) -- (2,0) -- (0,1) -- cycle;
+  % position of mass
+  \draw[fill,white] (1,0.55) circle (0.04) coordinate (a);
+  % arc
+  \draw ([shift={({180-\al}:0.6)}]2,0) arc ({180-\al}:180:0.6);
+  \node at ($(2,0)+({180-\al/2}:0.4)$) {$\alpha$};
+  % arc
+  \draw ([shift={(-90:0.4)}]a) arc (-90:{-90-\al}:0.4);
+  \node at ($(a)+({-90-\al/2}:0.3)$) {$\alpha$};
+  % forces
+  \draw[->,thick,red]          (a) -- +(0,-1) node[below] {$\F_g$};
+  \draw[->,thick,green]        (a) -- +($(\sa*\ca,-\sa*\sa)$) node[above] {$\F_H$};
   \draw[->,thick,green,dashed] (a) -- +($(-\sa*\ca,-\ca*\ca)$) node[below] {$\F_N$};
-  \draw[->,thick,blue] (a) -- +($(\sa*\ca,\ca*\ca)$) node[above] {$\Z$};
+  \draw[->,thick,blue]         (a) -- +($(\sa*\ca,\ca*\ca)$) node[above] {$\Z$};
 \end{tikzpicture}
 \end{document}
 ~~~
