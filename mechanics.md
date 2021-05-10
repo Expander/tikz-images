@@ -342,6 +342,9 @@
   \pgfmathsetmacro{\al}{atan(0.5)} % angle
   \pgfmathsetmacro{\sa}{sin(\al)}; % sin(angle)
   \pgfmathsetmacro{\ca}{cos(\al)}; % cos(angle)
+  % axis
+  \draw[->] (0,0) -- ++(2.2,0) node[right] {$x$};
+  \draw[->] (0,0) -- ++(0,1.2) node[above] {$y$};
   % inclined plane
   \draw[fill=gray] (0,0) -- (2,0) -- (0,1) -- cycle;
   % position of mass
@@ -1454,6 +1457,9 @@
   \pgfmathsetmacro{\al}{atan(0.5)} % angle
   \pgfmathsetmacro{\sa}{sin(\al)}; % sin(angle)
   \pgfmathsetmacro{\ca}{cos(\al)}; % cos(angle)
+  % axis
+  \draw[->] (0,0) -- ++(2.2,0) node[right] {$x$};
+  \draw[->] (0,0) -- ++(0,1.2) node[above] {$y$};
   % inclined plane
   \draw[fill=gray] (0,0) -- (2,0) -- (0,1) -- cycle;
   % position of mass
