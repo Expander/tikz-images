@@ -22,7 +22,7 @@
 [![bicycle.svg](mechanics/bicycle/bicycle.svg "bicycle.svg")](mechanics/bicycle/bicycle.svg) [[PDF]](mechanics/bicycle/bicycle.pdf) [[PNG]](mechanics/bicycle/bicycle.png) [[SVG]](mechanics/bicycle/bicycle.svg)
 ~~~.tex
 \documentclass[crop,tikz]{standalone}
-\usetikzlibrary{calc}
+
 \tikzset{>=latex}
 \colorlet{blue}{blue!70!green}
 
@@ -1260,7 +1260,7 @@
     show background rectangle
   }
 }
-\usetikzlibrary{calc}
+
 \tikzset{>=latex}
 \colorlet{blue}{blue!70!green}
 
