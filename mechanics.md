@@ -1006,6 +1006,34 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## zentripetal.svg
+[![zentripetal.svg](mechanics/zentripetal/zentripetal.svg "zentripetal.svg")](mechanics/zentripetal/zentripetal.svg) [[PDF]](mechanics/zentripetal/zentripetal.pdf) [[PNG]](mechanics/zentripetal/zentripetal.png) [[SVG]](mechanics/zentripetal/zentripetal.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\usepackage{amsmath}
+\usetikzlibrary{decorations.markings}
+\tikzset{>=latex}
+\colorlet{green}{black!40!green}
+\newcommand{\vel}{\vec{v}}
+\newcommand{\FZp}{\vec{F}_\text{Zp}}
+
+\begin{document}
+\begin{tikzpicture}[scale=2]
+  \draw[->,thick] (-1.2,0) -- (1.2,0) node[below] {$x$};
+  \draw[->,thick] (0,-1.2) -- (0,1.2) node[left] {$y$};
+  \draw[
+    decoration={markings, mark=at position 0.4 with {\arrow{>}}},
+    postaction={decorate},
+    green,
+    thick
+  ] (0,0) circle (1);
+  \draw[fill] (45:1) circle (0.03);
+  \draw[->,blue,thick] (45:1) -- +(+135:0.5) node[above]{$\vel(t)$};
+  \draw[->,red,thick]   (45:1) -- +(-135:0.5) node[below]{$\FZp(t)$};
+\end{tikzpicture}
+\end{document}
+~~~
 ## actio-reactio_inverted.svg
 [![actio-reactio_inverted.svg](mechanics/actio-reactio/actio-reactio_inverted.svg "actio-reactio_inverted.svg")](mechanics/actio-reactio/actio-reactio_inverted.svg) [[PDF]](mechanics/actio-reactio/actio-reactio_inverted.pdf) [[PNG]](mechanics/actio-reactio/actio-reactio_inverted.png) [[SVG]](mechanics/actio-reactio/actio-reactio_inverted.svg)
 ~~~.tex
@@ -2334,6 +2362,43 @@
   \draw[->,thick,red]  (xyz cs:x=0) -- node[above,xshift=-1em]{$\place(t)$} (r1);
   % velocity
   \draw[->,thick,blue] (r1) -- node[above,xshift=0.5em]{$\velocity(t)$} ++(-20:1.5);
+\end{tikzpicture}
+\end{document}
+~~~
+## zentripetal_inverted.svg
+[![zentripetal_inverted.svg](mechanics/zentripetal/zentripetal_inverted.svg "zentripetal_inverted.svg")](mechanics/zentripetal/zentripetal_inverted.svg) [[PDF]](mechanics/zentripetal/zentripetal_inverted.pdf) [[PNG]](mechanics/zentripetal/zentripetal_inverted.png) [[SVG]](mechanics/zentripetal/zentripetal_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    every path/.style = {draw=white,text=white},
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\usepackage{amsmath}
+\usetikzlibrary{decorations.markings}
+\tikzset{>=latex}
+\colorlet{green}{green}
+\newcommand{\vel}{\vec{v}}
+\newcommand{\FZp}{\vec{F}_\text{Zp}}
+
+\begin{document}
+\begin{tikzpicture}[inverted,scale=2]
+  \draw[->,thick] (-1.2,0) -- (1.2,0) node[below] {$x$};
+  \draw[->,thick] (0,-1.2) -- (0,1.2) node[left] {$y$};
+  \draw[
+    decoration={markings, mark=at position 0.4 with {\arrow{>}}},
+    postaction={decorate},
+    green,
+    thick
+  ] (0,0) circle (1);
+  \draw[fill] (45:1) circle (0.03);
+  \draw[->,blue,thick] (45:1) -- +(+135:0.5) node[above]{$\vel(t)$};
+  \draw[->,red,thick]   (45:1) -- +(-135:0.5) node[below]{$\FZp(t)$};
 \end{tikzpicture}
 \end{document}
 ~~~

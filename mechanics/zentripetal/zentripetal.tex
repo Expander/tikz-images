@@ -1,0 +1,24 @@
+\documentclass[crop,tikz]{standalone}
+
+\usepackage{amsmath}
+\usetikzlibrary{decorations.markings}
+\tikzset{>=latex}
+\colorlet{green}{black!40!green}
+\newcommand{\vel}{\vec{v}}
+\newcommand{\FZp}{\vec{F}_\text{Zp}}
+
+\begin{document}
+\begin{tikzpicture}[scale=2]
+  \draw[->,thick] (-1.2,0) -- (1.2,0) node[below] {$x$};
+  \draw[->,thick] (0,-1.2) -- (0,1.2) node[left] {$y$};
+  \draw[
+    decoration={markings, mark=at position 0.4 with {\arrow{>}}},
+    postaction={decorate},
+    green,
+    thick
+  ] (0,0) circle (1);
+  \draw[fill] (45:1) circle (0.03);
+  \draw[->,blue,thick] (45:1) -- +(+135:0.5) node[above]{$\vel(t)$};
+  \draw[->,red,thick]   (45:1) -- +(-135:0.5) node[below]{$\FZp(t)$};
+\end{tikzpicture}
+\end{document}
