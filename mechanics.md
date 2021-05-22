@@ -385,6 +385,37 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## coriolis-force-1.svg
+[![coriolis-force-1.svg](mechanics/coriolis-force-1/coriolis-force-1.svg "coriolis-force-1.svg")](mechanics/coriolis-force-1/coriolis-force-1.svg) [[PDF]](mechanics/coriolis-force-1/coriolis-force-1.pdf) [[PNG]](mechanics/coriolis-force-1/coriolis-force-1.png) [[SVG]](mechanics/coriolis-force-1/coriolis-force-1.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\usepackage{amsmath}
+\usetikzlibrary{decorations.markings}
+\tikzset{>=latex}
+\colorlet{green}{black!40!green}
+\colorlet{gray}{gray!20}
+\newcommand{\vel}{\vec{v}}
+
+\begin{document}
+\begin{tikzpicture}[scale=2]
+  \node at (-1,1) {$t=0$};
+  \draw[fill=gray,
+    decoration={markings, mark=at position 0.4 with {\arrow{>}}},
+    postaction={decorate},
+    thick
+  ] (0,0) circle (1);
+  \draw[->,thick] (-1.2,0) -- (1.2,0) node[below] {$x$};
+  \draw[->,thick] (0,-1.2) -- (0,1.2) node[left] {$y$};
+  \draw[->,blue,thick] (0,0) -- (0.5,0) node[below] {$x'$};
+  \draw[->,blue,thick] (0,0) -- (0,0.5) node[left] {$y'$};
+  \draw[fill] (0,0) circle (0.05);
+  \draw[->,green,thick] (0.1,0.1) -- +(0:0.5) node[above]{$\vel$};
+  \node at (1.2,0.4) {$\Sigma$};
+  \node at (0.4,0.4) {\textcolor{blue}{$\Sigma'$}};
+\end{tikzpicture}
+\end{document}
+~~~
 ## curve-length.svg
 [![curve-length.svg](mechanics/curve-length/curve-length.svg "curve-length.svg")](mechanics/curve-length/curve-length.svg) [[PDF]](mechanics/curve-length/curve-length.pdf) [[PNG]](mechanics/curve-length/curve-length.png) [[SVG]](mechanics/curve-length/curve-length.svg)
 ~~~.tex
@@ -1564,6 +1595,46 @@
   \draw[fill,white] (xyz cs:x=1.5,z=-1.5) circle (0.1);
   \draw[->,red] (xyz cs:x=1.5,z=-1.5) -- ++(0,-1) node[below] {$\F_g$};
   \draw[->,blue] (xyz cs:x=1.5,z=-1.5) -- ++(0,+1) node[above] {$\Z$};
+\end{tikzpicture}
+\end{document}
+~~~
+## coriolis-force-1_inverted.svg
+[![coriolis-force-1_inverted.svg](mechanics/coriolis-force-1/coriolis-force-1_inverted.svg "coriolis-force-1_inverted.svg")](mechanics/coriolis-force-1/coriolis-force-1_inverted.svg) [[PDF]](mechanics/coriolis-force-1/coriolis-force-1_inverted.pdf) [[PNG]](mechanics/coriolis-force-1/coriolis-force-1_inverted.png) [[SVG]](mechanics/coriolis-force-1/coriolis-force-1_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    every path/.style = {draw=white,text=white},
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\usepackage{amsmath}
+\usetikzlibrary{decorations.markings}
+\tikzset{>=latex}
+\colorlet{green}{green}
+\colorlet{gray}{gray}
+\newcommand{\vel}{\vec{v}}
+
+\begin{document}
+\begin{tikzpicture}[inverted,scale=2]
+  \node at (-1,1) {$t=0$};
+  \draw[fill=gray,
+    decoration={markings, mark=at position 0.4 with {\arrow{>}}},
+    postaction={decorate},
+    thick
+  ] (0,0) circle (1);
+  \draw[->,thick] (-1.2,0) -- (1.2,0) node[below] {$x$};
+  \draw[->,thick] (0,-1.2) -- (0,1.2) node[left] {$y$};
+  \draw[->,blue,thick] (0,0) -- (0.5,0) node[below] {$x'$};
+  \draw[->,blue,thick] (0,0) -- (0,0.5) node[left] {$y'$};
+  \draw[fill] (0,0) circle (0.05);
+  \draw[->,green,thick] (0.1,0.1) -- +(0:0.5) node[above]{$\vel$};
+  \node at (1.2,0.4) {$\Sigma$};
+  \node at (0.4,0.4) {\textcolor{blue}{$\Sigma'$}};
 \end{tikzpicture}
 \end{document}
 ~~~
