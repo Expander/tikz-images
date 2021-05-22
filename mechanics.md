@@ -416,6 +416,57 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## coriolis-force-2.svg
+[![coriolis-force-2.svg](mechanics/coriolis-force-2/coriolis-force-2.svg "coriolis-force-2.svg")](mechanics/coriolis-force-2/coriolis-force-2.svg) [[PDF]](mechanics/coriolis-force-2/coriolis-force-2.pdf) [[PNG]](mechanics/coriolis-force-2/coriolis-force-2.png) [[SVG]](mechanics/coriolis-force-2/coriolis-force-2.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\usepackage{amsmath}
+\usetikzlibrary{decorations.markings}
+\tikzset{>=latex}
+\colorlet{green}{black!40!green}
+\colorlet{gray}{gray!20}
+\newcommand{\FCo}{\vec{F}_\text{Co}}
+\newcommand{\vel}{\vec{v}}
+\newcommand{\velp}{\vec{v}^{\,\prime}}
+
+\begin{document}
+\begin{tikzpicture}[scale=2]
+  \node at (-1,1) {$t>0$};
+  \draw[fill=gray,
+    decoration={markings, mark=at position 0.4 with {\arrow{>}}},
+    postaction={decorate},
+    thick
+  ] (0,0) circle (1);
+  \draw[->,thick] (-1.2,0) -- (1.2,0) node[below] {$x$};
+  \draw[->,thick] (0,-1.2) -- (0,1.2) node[left] {$y$};
+  \draw[->,blue,thick] (0,0) -- (45:0.5) node[right] {$x'$};
+  \draw[->,blue,thick] (0,0) -- (135:0.5) node[left] {$y'$};
+  \draw[fill] (0.7,0) circle (0.05);
+  \draw[->,green,thick] (0.8,0.1) -- +(0:0.5) node[above]{$\vel$};
+  \draw[red,thick] (0,0) arc (135:45:0.5);
+  \draw[->,red,thick] (0.7,0)+(-45:0.1) -- +(-45:0.5) node[right] {$\velp$};
+  \draw[->,thick] (0.7,0) -- +(225:0.5) node[below] {$\FCo$};
+  \node at (1.2,0.6) {$\Sigma$};
+  \node at (70:0.5) {\textcolor{blue}{$\Sigma'$}};
+
+  % \node at (-1,1) {$t=0$};
+  % \draw[fill=gray,
+  %   decoration={markings, mark=at position 0.4 with {\arrow{>}}},
+  %   postaction={decorate},
+  %   thick
+  % ] (0,0) circle (1);
+  % \draw[->,thick] (-1.2,0) -- (1.2,0) node[below] {$x$};
+  % \draw[->,thick] (0,-1.2) -- (0,1.2) node[left] {$y$};
+  % \draw[->,blue,thick] (0,0) -- (0.5,0) node[below] {$x'$};
+  % \draw[->,blue,thick] (0,0) -- (0,0.5) node[left] {$y'$};
+  % \draw[fill] (0,0) circle (0.05);
+  % \draw[->,green,thick] (0.1,0.1) -- +(0:0.5) node[above]{$\vel$};
+  % \node at (1.2,0.4) {$\Sigma$};
+  % \node at (0.4,0.4) {\textcolor{blue}{$\Sigma'$}};
+\end{tikzpicture}
+\end{document}
+~~~
 ## curve-length.svg
 [![curve-length.svg](mechanics/curve-length/curve-length.svg "curve-length.svg")](mechanics/curve-length/curve-length.svg) [[PDF]](mechanics/curve-length/curve-length.pdf) [[PNG]](mechanics/curve-length/curve-length.png) [[SVG]](mechanics/curve-length/curve-length.svg)
 ~~~.tex
@@ -1635,6 +1686,66 @@
   \draw[->,green,thick] (0.1,0.1) -- +(0:0.5) node[above]{$\vel$};
   \node at (1.2,0.4) {$\Sigma$};
   \node at (0.4,0.4) {\textcolor{blue}{$\Sigma'$}};
+\end{tikzpicture}
+\end{document}
+~~~
+## coriolis-force-2_inverted.svg
+[![coriolis-force-2_inverted.svg](mechanics/coriolis-force-2/coriolis-force-2_inverted.svg "coriolis-force-2_inverted.svg")](mechanics/coriolis-force-2/coriolis-force-2_inverted.svg) [[PDF]](mechanics/coriolis-force-2/coriolis-force-2_inverted.pdf) [[PNG]](mechanics/coriolis-force-2/coriolis-force-2_inverted.png) [[SVG]](mechanics/coriolis-force-2/coriolis-force-2_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    every path/.style = {draw=white,text=white},
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\usepackage{amsmath}
+\usetikzlibrary{decorations.markings}
+\tikzset{>=latex}
+\colorlet{green}{green}
+\colorlet{gray}{gray}
+\newcommand{\FCo}{\vec{F}_\text{Co}}
+\newcommand{\vel}{\vec{v}}
+\newcommand{\velp}{\vec{v}^{\,\prime}}
+
+\begin{document}
+\begin{tikzpicture}[inverted,scale=2]
+  \node at (-1,1) {$t>0$};
+  \draw[fill=gray,
+    decoration={markings, mark=at position 0.4 with {\arrow{>}}},
+    postaction={decorate},
+    thick
+  ] (0,0) circle (1);
+  \draw[->,thick] (-1.2,0) -- (1.2,0) node[below] {$x$};
+  \draw[->,thick] (0,-1.2) -- (0,1.2) node[left] {$y$};
+  \draw[->,blue,thick] (0,0) -- (45:0.5) node[right] {$x'$};
+  \draw[->,blue,thick] (0,0) -- (135:0.5) node[left] {$y'$};
+  \draw[fill] (0.7,0) circle (0.05);
+  \draw[->,green,thick] (0.8,0.1) -- +(0:0.5) node[above]{$\vel$};
+  \draw[red,thick] (0,0) arc (135:45:0.5);
+  \draw[->,red,thick] (0.7,0)+(-45:0.1) -- +(-45:0.5) node[right] {$\velp$};
+  \draw[->,thick] (0.7,0) -- +(225:0.5) node[below] {$\FCo$};
+  \node at (1.2,0.6) {$\Sigma$};
+  \node at (70:0.5) {\textcolor{blue}{$\Sigma'$}};
+
+  % \node at (-1,1) {$t=0$};
+  % \draw[fill=gray,
+  %   decoration={markings, mark=at position 0.4 with {\arrow{>}}},
+  %   postaction={decorate},
+  %   thick
+  % ] (0,0) circle (1);
+  % \draw[->,thick] (-1.2,0) -- (1.2,0) node[below] {$x$};
+  % \draw[->,thick] (0,-1.2) -- (0,1.2) node[left] {$y$};
+  % \draw[->,blue,thick] (0,0) -- (0.5,0) node[below] {$x'$};
+  % \draw[->,blue,thick] (0,0) -- (0,0.5) node[left] {$y'$};
+  % \draw[fill] (0,0) circle (0.05);
+  % \draw[->,green,thick] (0.1,0.1) -- +(0:0.5) node[above]{$\vel$};
+  % \node at (1.2,0.4) {$\Sigma$};
+  % \node at (0.4,0.4) {\textcolor{blue}{$\Sigma'$}};
 \end{tikzpicture}
 \end{document}
 ~~~

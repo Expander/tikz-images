@@ -1,0 +1,32 @@
+\documentclass[crop,tikz]{standalone}
+
+\usepackage{amsmath}
+\usetikzlibrary{decorations.markings}
+\tikzset{>=latex}
+\colorlet{green}{black!40!green}
+\colorlet{gray}{gray!20}
+\newcommand{\FCo}{\vec{F}_\text{Co}}
+\newcommand{\vel}{\vec{v}}
+\newcommand{\velp}{\vec{v}^{\,\prime}}
+
+\begin{document}
+\begin{tikzpicture}[scale=2]
+  \node at (-1,1) {$t>0$};
+  \draw[fill=gray,
+    decoration={markings, mark=at position 0.4 with {\arrow{>}}},
+    postaction={decorate},
+    thick
+  ] (0,0) circle (1);
+  \draw[->,thick] (-1.2,0) -- (1.2,0) node[below] {$x$};
+  \draw[->,thick] (0,-1.2) -- (0,1.2) node[left] {$y$};
+  \draw[->,blue,thick] (0,0) -- (45:0.5) node[right] {$x'$};
+  \draw[->,blue,thick] (0,0) -- (135:0.5) node[left] {$y'$};
+  \draw[fill] (0.7,0) circle (0.05);
+  \draw[->,green,thick] (0.8,0.1) -- +(0:0.5) node[above]{$\vel$};
+  \draw[red,thick] (0,0) arc (135:45:0.5);
+  \draw[->,red,thick] (0.7,0)+(-45:0.1) -- +(-45:0.5) node[right] {$\velp$};
+  \draw[->,thick] (0.7,0) -- +(225:0.5) node[below] {$\FCo$};
+  \node at (1.2,0.6) {$\Sigma$};
+  \node at (70:0.5) {\textcolor{blue}{$\Sigma'$}};
+\end{tikzpicture}
+\end{document}
