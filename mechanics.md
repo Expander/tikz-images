@@ -1597,7 +1597,7 @@
 \usetikzlibrary{calc}
 \tikzset{>=latex}
 \colorlet{green}{green}
-\colorlet{gray}{gray}
+\colorlet{gray}{gray!60}
 \newcommand{\F}{\vec{F}}
 \newcommand{\Z}{\vec{Z}}
 
@@ -1642,7 +1642,7 @@
 }
 
 \tikzset{>=latex}
-\colorlet{gray}{gray}
+\colorlet{gray}{gray!60}
 \newcommand{\F}{\vec{F}}
 \newcommand{\Z}{\vec{Z}}
 
@@ -1676,7 +1676,7 @@
 \usetikzlibrary{decorations.markings}
 \tikzset{>=latex}
 \colorlet{green}{green}
-\colorlet{gray}{gray}
+\colorlet{gray}{gray!60}
 \newcommand{\vel}{\vec{v}}
 
 \begin{document}
@@ -1716,7 +1716,7 @@
 \usetikzlibrary{decorations.markings}
 \tikzset{>=latex}
 \colorlet{green}{green}
-\colorlet{gray}{gray}
+\colorlet{gray}{gray!60}
 \newcommand{\FCo}{\vec{F}_\text{Co}}
 \newcommand{\vel}{\vec{v}}
 \newcommand{\velp}{\vec{v}^{\,\prime}}
@@ -2027,7 +2027,7 @@
 \begin{tikzpicture}[inverted,scale=1.4]
   \pattern[pattern=north east lines,pattern color=white] (-1,0)--++(0,-0.2)--++(4,0)--++(0,0.2)--cycle;
   \draw (-1,0) -- ++(4,0);
-  \draw[fill=gray] (0,0) rectangle (2,1);
+  \draw[fill=gray!60] (0,0) rectangle (2,1);
   \draw[->,thick,blue] (1,0.05) -- ++(2,0) node[above] {$\F_S$};
   \draw[->,thick,red] (1,0.05) -- ++(-1.5,0) node[above] {$\F_R$};
 \end{tikzpicture}
