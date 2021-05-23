@@ -1,0 +1,22 @@
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    every path/.style = {draw=white,text=white},
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\tikzset{>=latex}
+\newcommand{\narcs}{8}
+
+\begin{document}
+\begin{tikzpicture}[inverted,scale=2,clip]
+  \draw (0,0) circle (1);
+  \foreach \a in {0,...,\narcs-1} {
+    \draw[->,blue] ({\a*360/\narcs}:1) to[bend left=360/(2*\narcs)] ({(\a + \narcs/2 - 1)*360/\narcs}:1);
+  }
+\end{tikzpicture}
+\end{document}

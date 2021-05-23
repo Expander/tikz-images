@@ -639,6 +639,23 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## foucault-curve.svg
+[![foucault-curve.svg](mechanics/foucault-curve/foucault-curve.svg "foucault-curve.svg")](mechanics/foucault-curve/foucault-curve.svg) [[PDF]](mechanics/foucault-curve/foucault-curve.pdf) [[PNG]](mechanics/foucault-curve/foucault-curve.png) [[SVG]](mechanics/foucault-curve/foucault-curve.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\tikzset{>=latex}
+\newcommand{\narcs}{8}
+
+\begin{document}
+\begin{tikzpicture}[scale=2,clip]
+  \draw (0,0) circle (1);
+  \foreach \a in {0,...,\narcs-1} {
+    \draw[->,blue] ({\a*360/\narcs}:1) to[bend left=360/(2*\narcs)] ({(\a + \narcs/2 - 1)*360/\narcs}:1);
+  }
+\end{tikzpicture}
+\end{document}
+~~~
 ## free-fall-a.svg
 [![free-fall-a.svg](mechanics/free-fall-a/free-fall-a.svg "free-fall-a.svg")](mechanics/free-fall-a/free-fall-a.svg) [[PDF]](mechanics/free-fall-a/free-fall-a.pdf) [[PNG]](mechanics/free-fall-a/free-fall-a.png) [[SVG]](mechanics/free-fall-a/free-fall-a.svg)
 ~~~.tex
@@ -2036,6 +2053,32 @@
   \draw[->,red,thick] (0,0) -- node[above,xshift=1em] {$\F_\text{res}$} (3,0);
   \draw[->,blue,dashed] (2,1) -- (3,0);
   \draw[->,blue,dashed] (1,-1) -- (3,0);
+\end{tikzpicture}
+\end{document}
+~~~
+## foucault-curve_inverted.svg
+[![foucault-curve_inverted.svg](mechanics/foucault-curve/foucault-curve_inverted.svg "foucault-curve_inverted.svg")](mechanics/foucault-curve/foucault-curve_inverted.svg) [[PDF]](mechanics/foucault-curve/foucault-curve_inverted.pdf) [[PNG]](mechanics/foucault-curve/foucault-curve_inverted.png) [[SVG]](mechanics/foucault-curve/foucault-curve_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    every path/.style = {draw=white,text=white},
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\tikzset{>=latex}
+\newcommand{\narcs}{8}
+
+\begin{document}
+\begin{tikzpicture}[inverted,scale=2,clip]
+  \draw (0,0) circle (1);
+  \foreach \a in {0,...,\narcs-1} {
+    \draw[->,blue] ({\a*360/\narcs}:1) to[bend left=360/(2*\narcs)] ({(\a + \narcs/2 - 1)*360/\narcs}:1);
+  }
 \end{tikzpicture}
 \end{document}
 ~~~
