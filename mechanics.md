@@ -932,8 +932,8 @@
   \draw[fill=blue!70] (C) -- ++(0,0,-\cubez) -- ++(0,-\cubey,0) -- ++(0,0,\cubez) -- cycle
                       (C) -- ++(-\cubex,0,0) -- ++(0,0,-\cubez) -- ++(\cubex,0,0) -- cycle;
   % arrows
-  \draw[->,red,thick] (CMS) -- node[below,xshift=-0.3em] {$\vec{r}$} (R);
-  \draw[->,blue,thick] (R) -- +(220:0.5) node[below] {$\vec{v}$};
+  \draw[->,red,thick] (CMS) -- node[below,xshift=-0.3em] {$\vec{r}_i$} (R);
+  \draw[->,blue,thick] (R) -- +(220:0.5) node[below] {$\vec{v}_i$};
 \end{tikzpicture}
 \end{document}
 ~~~
@@ -2615,8 +2615,8 @@
   \draw[fill=blue!70] (C) -- ++(0,0,-\cubez) -- ++(0,-\cubey,0) -- ++(0,0,\cubez) -- cycle
                       (C) -- ++(-\cubex,0,0) -- ++(0,0,-\cubez) -- ++(\cubex,0,0) -- cycle;
   % arrows
-  \draw[->,red,thick] (CMS) -- node[below,xshift=-0.3em] {$\vec{r}$} (R);
-  \draw[->,blue,thick] (R) -- +(220:0.5) node[below] {$\vec{v}$};
+  \draw[->,red,thick] (CMS) -- node[below,xshift=-0.3em] {$\vec{r}_i$} (R);
+  \draw[->,blue,thick] (R) -- +(220:0.5) node[below] {$\vec{v}_i$};
 \end{tikzpicture}
 \end{document}
 ~~~
