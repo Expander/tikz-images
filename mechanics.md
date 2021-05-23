@@ -817,6 +817,32 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## rotation-angular-momentum.svg
+[![rotation-angular-momentum.svg](mechanics/rotation-angular-momentum/rotation-angular-momentum.svg "rotation-angular-momentum.svg")](mechanics/rotation-angular-momentum/rotation-angular-momentum.svg) [[PDF]](mechanics/rotation-angular-momentum/rotation-angular-momentum.pdf) [[PNG]](mechanics/rotation-angular-momentum/rotation-angular-momentum.png) [[SVG]](mechanics/rotation-angular-momentum/rotation-angular-momentum.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\tikzset{>=latex}
+\usetikzlibrary{decorations.markings}
+\colorlet{green}{black!40!green}
+
+\begin{document}
+\begin{tikzpicture}[scale=1.3]
+  \draw[dashed,thick] (0,1) -- (0,2);
+  \draw[->,thick] (0,2) -- +(0,1) node[right] {$\vec{\omega}$};
+  \draw[->,brown,thick] (-0.05,2) -- +(0,1.5) node[left] {$\vec{L}$};
+  \fill (0,2) circle (0.03);
+  \draw[thick,
+        decoration={markings, mark=at position 0.4 with {\arrow{>}}},
+        postaction={decorate},
+        green
+  ] (0,2) ellipse (2 and 0.5);
+  \fill (1.5,1.67) circle (0.05);
+  \draw[->,red ,thick] (0,2) -- node[above] {$\vec{r}(t)$} (1.5,1.65);
+  \draw[->,blue,thick] (1.5,1.65) -- +(20:1) node[below] {$\vec{v}(t)$};
+\end{tikzpicture}
+\end{document}
+~~~
 ## rotation-axis.svg
 [![rotation-axis.svg](mechanics/rotation-axis/rotation-axis.svg "rotation-axis.svg")](mechanics/rotation-axis/rotation-axis.svg) [[PDF]](mechanics/rotation-axis/rotation-axis.pdf) [[PNG]](mechanics/rotation-axis/rotation-axis.png) [[SVG]](mechanics/rotation-axis/rotation-axis.svg)
 ~~~.tex
@@ -2366,6 +2392,41 @@
   \draw (1.2,1.1) node[right] {$m_2$};
   \draw[->,blue] (-1.1,1.25) -- node[above] {$\F_{G,2\to 1}$} +(+0.5,0);
   \draw[->,red]  (+1.1,1.25) -- node[above] {$\F_{G,1\to 2}$} +(-0.5,0);
+\end{tikzpicture}
+\end{document}
+~~~
+## rotation-angular-momentum_inverted.svg
+[![rotation-angular-momentum_inverted.svg](mechanics/rotation-angular-momentum/rotation-angular-momentum_inverted.svg "rotation-angular-momentum_inverted.svg")](mechanics/rotation-angular-momentum/rotation-angular-momentum_inverted.svg) [[PDF]](mechanics/rotation-angular-momentum/rotation-angular-momentum_inverted.pdf) [[PNG]](mechanics/rotation-angular-momentum/rotation-angular-momentum_inverted.png) [[SVG]](mechanics/rotation-angular-momentum/rotation-angular-momentum_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    every path/.style = {draw=white,text=white},
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\tikzset{>=latex}
+\usetikzlibrary{decorations.markings}
+\colorlet{green}{green}
+
+\begin{document}
+\begin{tikzpicture}[inverted,scale=1.3]
+  \draw[dashed,thick] (0,1) -- (0,2);
+  \draw[->,thick] (0,2) -- +(0,1) node[right] {$\vec{\omega}$};
+  \draw[->,brown,thick] (-0.05,2) -- +(0,1.5) node[left] {$\vec{L}$};
+  \fill (0,2) circle (0.03);
+  \draw[thick,
+        decoration={markings, mark=at position 0.4 with {\arrow{>}}},
+        postaction={decorate},
+        green
+  ] (0,2) ellipse (2 and 0.5);
+  \fill (1.5,1.67) circle (0.05);
+  \draw[->,red ,thick] (0,2) -- node[above] {$\vec{r}(t)$} (1.5,1.65);
+  \draw[->,blue,thick] (1.5,1.65) -- +(20:1) node[below] {$\vec{v}(t)$};
 \end{tikzpicture}
 \end{document}
 ~~~
