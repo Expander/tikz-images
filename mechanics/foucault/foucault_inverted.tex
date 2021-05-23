@@ -1,0 +1,34 @@
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    every path/.style = {draw=white,text=white},
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\tikzset{>=latex}
+\usetikzlibrary{calc,decorations.markings}
+\colorlet{gray}{gray!60}
+\colorlet{green}{green}
+
+\newcommand{\angl}{20}
+\newcommand{\leng}{1.5}
+
+\begin{document}
+\begin{tikzpicture}[inverted,scale=2,clip]
+  \draw[thick,
+        decoration={markings, mark=at position 0.4 with {\arrow{>}}},
+        postaction={decorate},
+        fill=gray
+        ] (0,0) ellipse (1 and 0.25);
+  \draw[->] (0,0) -- ++(0,0.8) node[above] {$\vec{\omega}$};
+  \coordinate (a) at (0,2); % fixation
+  \draw[line width=2pt,brown] (-1.5,0) -- ++ (0,2) -- (a);
+  \draw[blue,thick] (a) -- ++(-90+\angl:\leng) coordinate (m);
+  \draw[fill] (m) circle (1pt);
+  \draw[<->,green,thick] (m) arc (-90+\angl:-90-\angl:\leng);
+\end{tikzpicture}
+\end{document}

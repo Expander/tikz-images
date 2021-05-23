@@ -656,6 +656,35 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## foucault.svg
+[![foucault.svg](mechanics/foucault/foucault.svg "foucault.svg")](mechanics/foucault/foucault.svg) [[PDF]](mechanics/foucault/foucault.pdf) [[PNG]](mechanics/foucault/foucault.png) [[SVG]](mechanics/foucault/foucault.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\tikzset{>=latex}
+\usetikzlibrary{calc,decorations.markings}
+\colorlet{gray}{gray!20}
+\colorlet{green}{black!40!green}
+
+\newcommand{\angl}{20}
+\newcommand{\leng}{1.5}
+
+\begin{document}
+\begin{tikzpicture}[scale=2,clip]
+  \draw[thick,
+        decoration={markings, mark=at position 0.4 with {\arrow{>}}},
+        postaction={decorate},
+        fill=gray
+        ] (0,0) ellipse (1 and 0.25);
+  \draw[->] (0,0) -- ++(0,0.8) node[above] {$\vec{\omega}$};
+  \coordinate (a) at (0,2); % fixation
+  \draw[line width=2pt,brown] (-1.5,0) -- ++ (0,2) -- (a);
+  \draw[blue,thick] (a) -- ++(-90+\angl:\leng) coordinate (m);
+  \draw[fill] (m) circle (1pt);
+  \draw[<->,green,thick] (m) arc (-90+\angl:-90-\angl:\leng);
+\end{tikzpicture}
+\end{document}
+~~~
 ## free-fall-a.svg
 [![free-fall-a.svg](mechanics/free-fall-a/free-fall-a.svg "free-fall-a.svg")](mechanics/free-fall-a/free-fall-a.svg) [[PDF]](mechanics/free-fall-a/free-fall-a.pdf) [[PNG]](mechanics/free-fall-a/free-fall-a.png) [[SVG]](mechanics/free-fall-a/free-fall-a.svg)
 ~~~.tex
@@ -2079,6 +2108,44 @@
   \foreach \a in {0,...,\narcs-1} {
     \draw[->,blue] ({\a*360/\narcs}:1) to[bend left=360/(2*\narcs)] ({(\a + \narcs/2 - 1)*360/\narcs}:1);
   }
+\end{tikzpicture}
+\end{document}
+~~~
+## foucault_inverted.svg
+[![foucault_inverted.svg](mechanics/foucault/foucault_inverted.svg "foucault_inverted.svg")](mechanics/foucault/foucault_inverted.svg) [[PDF]](mechanics/foucault/foucault_inverted.pdf) [[PNG]](mechanics/foucault/foucault_inverted.png) [[SVG]](mechanics/foucault/foucault_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    every path/.style = {draw=white,text=white},
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\tikzset{>=latex}
+\usetikzlibrary{calc,decorations.markings}
+\colorlet{gray}{gray!60}
+\colorlet{green}{green}
+
+\newcommand{\angl}{20}
+\newcommand{\leng}{1.5}
+
+\begin{document}
+\begin{tikzpicture}[inverted,scale=2,clip]
+  \draw[thick,
+        decoration={markings, mark=at position 0.4 with {\arrow{>}}},
+        postaction={decorate},
+        fill=gray
+        ] (0,0) ellipse (1 and 0.25);
+  \draw[->] (0,0) -- ++(0,0.8) node[above] {$\vec{\omega}$};
+  \coordinate (a) at (0,2); % fixation
+  \draw[line width=2pt,brown] (-1.5,0) -- ++ (0,2) -- (a);
+  \draw[blue,thick] (a) -- ++(-90+\angl:\leng) coordinate (m);
+  \draw[fill] (m) circle (1pt);
+  \draw[<->,green,thick] (m) arc (-90+\angl:-90-\angl:\leng);
 \end{tikzpicture}
 \end{document}
 ~~~
