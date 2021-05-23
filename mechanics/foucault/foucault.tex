@@ -1,7 +1,7 @@
 \documentclass[crop,tikz]{standalone}
 
 \tikzset{>=latex}
-\usetikzlibrary{calc,decorations.markings}
+\usetikzlibrary{decorations.markings}
 \colorlet{gray}{gray!20}
 \colorlet{green}{black!40!green}
 
@@ -9,7 +9,7 @@
 \newcommand{\leng}{1.5}
 
 \begin{document}
-\begin{tikzpicture}[scale=2,clip]
+\begin{tikzpicture}[scale=2]
   \draw[thick,
         decoration={markings, mark=at position 0.4 with {\arrow{>}}},
         postaction={decorate},

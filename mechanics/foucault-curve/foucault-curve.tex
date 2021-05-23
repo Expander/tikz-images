@@ -4,7 +4,7 @@
 \newcommand{\narcs}{8}
 
 \begin{document}
-\begin{tikzpicture}[scale=2,clip]
+\begin{tikzpicture}[scale=2]
   \draw (0,0) circle (1);
   \foreach \a in {0,...,\narcs-1} {
     \draw[->,blue] ({\a*360/\narcs}:1) to[bend left=360/(2*\narcs)] ({(\a + \narcs/2 - 1)*360/\narcs}:1);
