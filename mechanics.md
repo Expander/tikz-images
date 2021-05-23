@@ -868,6 +868,30 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## rotation-turning-momentum.svg
+[![rotation-turning-momentum.svg](mechanics/rotation-turning-momentum/rotation-turning-momentum.svg "rotation-turning-momentum.svg")](mechanics/rotation-turning-momentum/rotation-turning-momentum.svg) [[PDF]](mechanics/rotation-turning-momentum/rotation-turning-momentum.pdf) [[PNG]](mechanics/rotation-turning-momentum/rotation-turning-momentum.png) [[SVG]](mechanics/rotation-turning-momentum/rotation-turning-momentum.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\tikzset{>=latex}
+\usetikzlibrary{calc,decorations.markings,shapes}
+\colorlet{gray}{gray!20}
+\colorlet{green}{black!40!green}
+
+\begin{document}
+\begin{tikzpicture}
+  \draw[thick] (-3cm,-2cm) -- ++(5cm,0) -- ++(1.41cm,1.41cm) -- ++(-5cm,0) -- cycle;
+  \node (A) at (0,0) [thick, cylinder, aspect=2, shape border rotate=90, draw, minimum height=3cm, minimum width=2cm, cylinder body fill=gray!20, cylinder uses custom fill, cylinder end fill=gray] {};
+  \draw[dashed,red,thick] (0,-1.5cm) -- (0,1.5cm);
+  \draw[->,red,thick] (0,1.5cm) -- +(0,0.5cm) node[above] {$\vec{M}$};
+  \coordinate (C) at (0,-1cm);
+  \coordinate (R) at ($(C)+(-2cm,-0.5cm)$);
+  \draw[->,blue,thick] (C) -- node[above,xshift=-0.5cm] {$\vec{r}$} (R);
+  \draw[->,green,thick] (R) -- +(1cm,-0.4cm) node[below,yshift=-0.1cm] {$\vec{F}$};
+  \draw[fill] (C) circle (0.05cm) node[right] {$P$};
+\end{tikzpicture}
+\end{document}
+~~~
 ## ship-forces.svg
 [![ship-forces.svg](mechanics/ship-forces/ship-forces.svg "ship-forces.svg")](mechanics/ship-forces/ship-forces.svg) [[PDF]](mechanics/ship-forces/ship-forces.pdf) [[PNG]](mechanics/ship-forces/ship-forces.png) [[SVG]](mechanics/ship-forces/ship-forces.svg)
 ~~~.tex
@@ -2461,6 +2485,39 @@
   \fill (1.5,1.67) circle (0.05);
   \draw[->,red ,thick] (0,2) -- node[above] {$\vec{r}(t)$} (1.5,1.65);
   \draw[->,blue,thick] (1.5,1.65) -- +(20:1) node[below] {$\vec{v}(t)$};
+\end{tikzpicture}
+\end{document}
+~~~
+## rotation-turning-momentum_inverted.svg
+[![rotation-turning-momentum_inverted.svg](mechanics/rotation-turning-momentum/rotation-turning-momentum_inverted.svg "rotation-turning-momentum_inverted.svg")](mechanics/rotation-turning-momentum/rotation-turning-momentum_inverted.svg) [[PDF]](mechanics/rotation-turning-momentum/rotation-turning-momentum_inverted.pdf) [[PNG]](mechanics/rotation-turning-momentum/rotation-turning-momentum_inverted.png) [[SVG]](mechanics/rotation-turning-momentum/rotation-turning-momentum_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    every path/.style = {draw=white,text=white},
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\tikzset{>=latex}
+\usetikzlibrary{calc,decorations.markings,shapes}
+\colorlet{gray}{gray!60}
+\colorlet{green}{green}
+
+\begin{document}
+\begin{tikzpicture}[inverted,inverted]
+  \draw[thick] (-3cm,-2cm) -- ++(5cm,0) -- ++(1.41cm,1.41cm) -- ++(-5cm,0) -- cycle;
+  \node (A) at (0,0) [thick, cylinder, aspect=2, shape border rotate=90, draw, minimum height=3cm, minimum width=2cm, cylinder body fill=gray!60, cylinder uses custom fill, cylinder end fill=gray] {};
+  \draw[dashed,red,thick] (0,-1.5cm) -- (0,1.5cm);
+  \draw[->,red,thick] (0,1.5cm) -- +(0,0.5cm) node[above] {$\vec{M}$};
+  \coordinate (C) at (0,-1cm);
+  \coordinate (R) at ($(C)+(-2cm,-0.5cm)$);
+  \draw[->,blue,thick] (C) -- node[above,xshift=-0.5cm] {$\vec{r}$} (R);
+  \draw[->,green,thick] (R) -- +(1cm,-0.4cm) node[below,yshift=-0.1cm] {$\vec{F}$};
+  \draw[fill] (C) circle (0.05cm) node[right] {$P$};
 \end{tikzpicture}
 \end{document}
 ~~~
