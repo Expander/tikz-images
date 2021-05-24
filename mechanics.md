@@ -1166,6 +1166,48 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## three-body-system.svg
+[![three-body-system.svg](mechanics/three-body-system/three-body-system.svg "three-body-system.svg")](mechanics/three-body-system/three-body-system.svg) [[PDF]](mechanics/three-body-system/three-body-system.pdf) [[PNG]](mechanics/three-body-system/three-body-system.png) [[SVG]](mechanics/three-body-system/three-body-system.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\tikzset{>=latex}
+\colorlet{green}{black!40!green}
+\newcommand{\F}{\vec{F}}
+
+\begin{document}
+\begin{tikzpicture}[scale=1.2]
+  \draw[thick] (-2,-2) -- ++(4,0) -- ++(0,4) -- ++(-4,0) -- cycle;
+  \pgfmathsetmacro{\radi}{0.06};
+  \pgfmathsetmacro{\xone}{0.4};
+  \pgfmathsetmacro{\yone}{0.6};
+  \pgfmathsetmacro{\xtwo}{-0.8};
+  \pgfmathsetmacro{\ytwo}{0.2};
+  \pgfmathsetmacro{\xthr}{0.2};
+  \pgfmathsetmacro{\ythr}{-0.5};
+  % coordinates
+  \coordinate (r1) at (\xone,\yone);
+  \coordinate (r2) at (\xtwo,\ytwo);
+  \coordinate (r3) at (\xthr,\ythr);
+  % distances
+  \pgfmathsetmacro{\donetwo}{(\xone-\xtwo)^2 + (\yone-\ytwo)^(3/2)};
+  \pgfmathsetmacro{\donethr}{(\xone-\xthr)^2 + (\yone-\ythr)^(3/2)};
+  \pgfmathsetmacro{\dtwothr}{(\xtwo-\xthr)^2 + (\ytwo-\ythr)^(3/2)};
+  % 1
+  \draw[fill] (r1) circle (\radi) node[below] {$1$};
+  \draw[->,blue] (r1) -- ++({(\xone-\xtwo)/\donetwo}, {(\yone-\ytwo)/\donetwo}) node[right] {$\F_{2\to 1}$};
+  \draw[->,red]  (r1) -- ++({(\xone-\xthr)/\donethr}, {(\yone-\ythr)/\donethr}) node[above] {$\F_{3\to 1}$};
+  % 2
+  \draw[fill] (r2) circle (\radi) node[right] {$2$};
+  \draw[->,blue]  (r2) -- ++({(\xtwo-\xone)/\donetwo}, {(\ytwo-\yone)/\donetwo}) node[below] {$\F_{1\to 2}$};
+  \draw[->,green] (r2) -- ++({(\xtwo-\xthr)/\dtwothr}, {(\ytwo-\ythr)/\dtwothr}) node[above] {$\F_{3\to 2}$};
+  % 3
+  \draw[fill] (r3) circle (\radi) node[above] {$3$};
+  \draw[->,red]   (r3) -- ++({(\xthr-\xone)/\donethr}, {(\ythr-\yone)/\donethr}) node[below] {$\F_{1\to 3}$};
+  \draw[->,green] (r3) -- ++({(\xthr-\xtwo)/\dtwothr}, {(\ythr-\ytwo)/\dtwothr}) node[right] {$\F_{2\to 3}$};
+\end{tikzpicture}
+\end{document}
+~~~
 ## velocity-2-delta.svg
 [![velocity-2-delta.svg](mechanics/velocity-2-delta/velocity-2-delta.svg "velocity-2-delta.svg")](mechanics/velocity-2-delta/velocity-2-delta.svg) [[PDF]](mechanics/velocity-2-delta/velocity-2-delta.pdf) [[PNG]](mechanics/velocity-2-delta/velocity-2-delta.png) [[SVG]](mechanics/velocity-2-delta/velocity-2-delta.svg)
 ~~~.tex
@@ -2918,6 +2960,57 @@
         postaction={decorate},
         green]
        (xyz cs:x=-1) -- (xyz cs:x=4,y=3,z=2);
+\end{tikzpicture}
+\end{document}
+~~~
+## three-body-system_inverted.svg
+[![three-body-system_inverted.svg](mechanics/three-body-system/three-body-system_inverted.svg "three-body-system_inverted.svg")](mechanics/three-body-system/three-body-system_inverted.svg) [[PDF]](mechanics/three-body-system/three-body-system_inverted.pdf) [[PNG]](mechanics/three-body-system/three-body-system_inverted.png) [[SVG]](mechanics/three-body-system/three-body-system_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    every path/.style = {draw=white,text=white},
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\tikzset{>=latex}
+\colorlet{green}{green}
+\newcommand{\F}{\vec{F}}
+
+\begin{document}
+\begin{tikzpicture}[inverted,scale=1.2]
+  \draw[thick] (-2,-2) -- ++(4,0) -- ++(0,4) -- ++(-4,0) -- cycle;
+  \pgfmathsetmacro{\radi}{0.06};
+  \pgfmathsetmacro{\xone}{0.4};
+  \pgfmathsetmacro{\yone}{0.6};
+  \pgfmathsetmacro{\xtwo}{-0.8};
+  \pgfmathsetmacro{\ytwo}{0.2};
+  \pgfmathsetmacro{\xthr}{0.2};
+  \pgfmathsetmacro{\ythr}{-0.5};
+  % coordinates
+  \coordinate (r1) at (\xone,\yone);
+  \coordinate (r2) at (\xtwo,\ytwo);
+  \coordinate (r3) at (\xthr,\ythr);
+  % distances
+  \pgfmathsetmacro{\donetwo}{(\xone-\xtwo)^2 + (\yone-\ytwo)^(3/2)};
+  \pgfmathsetmacro{\donethr}{(\xone-\xthr)^2 + (\yone-\ythr)^(3/2)};
+  \pgfmathsetmacro{\dtwothr}{(\xtwo-\xthr)^2 + (\ytwo-\ythr)^(3/2)};
+  % 1
+  \draw[fill] (r1) circle (\radi) node[below] {$1$};
+  \draw[->,blue] (r1) -- ++({(\xone-\xtwo)/\donetwo}, {(\yone-\ytwo)/\donetwo}) node[right] {$\F_{2\to 1}$};
+  \draw[->,red]  (r1) -- ++({(\xone-\xthr)/\donethr}, {(\yone-\ythr)/\donethr}) node[above] {$\F_{3\to 1}$};
+  % 2
+  \draw[fill] (r2) circle (\radi) node[right] {$2$};
+  \draw[->,blue]  (r2) -- ++({(\xtwo-\xone)/\donetwo}, {(\ytwo-\yone)/\donetwo}) node[below] {$\F_{1\to 2}$};
+  \draw[->,green] (r2) -- ++({(\xtwo-\xthr)/\dtwothr}, {(\ytwo-\ythr)/\dtwothr}) node[above] {$\F_{3\to 2}$};
+  % 3
+  \draw[fill] (r3) circle (\radi) node[above] {$3$};
+  \draw[->,red]   (r3) -- ++({(\xthr-\xone)/\donethr}, {(\ythr-\yone)/\donethr}) node[below] {$\F_{1\to 3}$};
+  \draw[->,green] (r3) -- ++({(\xthr-\xtwo)/\dtwothr}, {(\ythr-\ytwo)/\dtwothr}) node[right] {$\F_{2\to 3}$};
 \end{tikzpicture}
 \end{document}
 ~~~
