@@ -82,6 +82,37 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## car-forces-initial-frame.svg
+[![car-forces-initial-frame.svg](mechanics/car-forces-initial-frame/car-forces-initial-frame.svg "car-forces-initial-frame.svg")](mechanics/car-forces-initial-frame/car-forces-initial-frame.svg) [[PDF]](mechanics/car-forces-initial-frame/car-forces-initial-frame.pdf) [[PNG]](mechanics/car-forces-initial-frame/car-forces-initial-frame.png) [[SVG]](mechanics/car-forces-initial-frame/car-forces-initial-frame.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\usepackage{amsmath,marvosym}
+\tikzset{>=latex}
+\usetikzlibrary{decorations.markings,positioning,arrows}
+\colorlet{green}{black!40!green}
+\newcommand{\F}{\vec{F}}
+
+\begin{document}
+\begin{tikzpicture}[scale=2]
+  \pgfmathsetmacro{\cx}{-1};
+  \pgfmathsetmacro{\cy}{0};
+  \pgfmathsetmacro{\cw}{0.2};
+  \pgfmathsetmacro{\ch}{0.3};
+  \pgfmathsetmacro{\angl}{40};
+  \node at (0,0) {\LARGE\Gentsroom};
+  \draw[thick,green,
+        decoration={markings, mark=at position 0.9 with {\arrow{>}}},
+        postaction={decorate}
+  ] (180+\angl:1) arc (180+\angl:180-\angl:1);
+  \coordinate (car) at (\cx,\cy);
+  \draw[fill=black] (\cx-\cw/2,\cy-\ch/2) rectangle (\cx+\cw/2,\cy+\ch/2);
+  \draw[->,blue,thick] (car) -- ++(0,0.5) node[above] {$\vec{v}$};
+  \draw[->,red,thick] (car) -- ++(0.5,0) node[above] {$\F_\text{Zp}$};
+  \draw[fill,brown] (car) circle (0.02);
+\end{tikzpicture}
+\end{document}
+~~~
 ## circular-motion-acceleration.svg
 [![circular-motion-acceleration.svg](mechanics/circular-motion-acceleration/circular-motion-acceleration.svg "circular-motion-acceleration.svg")](mechanics/circular-motion-acceleration/circular-motion-acceleration.svg) [[PDF]](mechanics/circular-motion-acceleration/circular-motion-acceleration.pdf) [[PNG]](mechanics/circular-motion-acceleration/circular-motion-acceleration.png) [[SVG]](mechanics/circular-motion-acceleration/circular-motion-acceleration.svg)
 ~~~.tex
@@ -1550,6 +1581,46 @@
   \foreach \a in {240,220,200} {
     \draw[->,brown,line width=2pt] (wheel1)++(\a:\WheelRadiusOuter) -- ++(\a-90:2cm);
   }
+\end{tikzpicture}
+\end{document}
+~~~
+## car-forces-initial-frame_inverted.svg
+[![car-forces-initial-frame_inverted.svg](mechanics/car-forces-initial-frame/car-forces-initial-frame_inverted.svg "car-forces-initial-frame_inverted.svg")](mechanics/car-forces-initial-frame/car-forces-initial-frame_inverted.svg) [[PDF]](mechanics/car-forces-initial-frame/car-forces-initial-frame_inverted.pdf) [[PNG]](mechanics/car-forces-initial-frame/car-forces-initial-frame_inverted.png) [[SVG]](mechanics/car-forces-initial-frame/car-forces-initial-frame_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    every path/.style = {draw=white,text=white},
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\usepackage{amsmath,marvosym}
+\tikzset{>=latex}
+\usetikzlibrary{decorations.markings,positioning,arrows}
+\colorlet{green}{green}
+\newcommand{\F}{\vec{F}}
+
+\begin{document}
+\begin{tikzpicture}[inverted,scale=2]
+  \pgfmathsetmacro{\cx}{-1};
+  \pgfmathsetmacro{\cy}{0};
+  \pgfmathsetmacro{\cw}{0.2};
+  \pgfmathsetmacro{\ch}{0.3};
+  \pgfmathsetmacro{\angl}{40};
+  \node at (0,0) {\LARGE\Gentsroom};
+  \draw[thick,green,
+        decoration={markings, mark=at position 0.9 with {\arrow{>}}},
+        postaction={decorate}
+  ] (180+\angl:1) arc (180+\angl:180-\angl:1);
+  \coordinate (car) at (\cx,\cy);
+  \draw[fill=white] (\cx-\cw/2,\cy-\ch/2) rectangle (\cx+\cw/2,\cy+\ch/2);
+  \draw[->,blue,thick] (car) -- ++(0,0.5) node[above] {$\vec{v}$};
+  \draw[->,red,thick] (car) -- ++(0.5,0) node[above] {$\F_\text{Zp}$};
+  \draw[fill,brown] (car) circle (0.02);
 \end{tikzpicture}
 \end{document}
 ~~~
