@@ -578,6 +578,31 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## earth-forces.svg
+[![earth-forces.svg](mechanics/earth-forces/earth-forces.svg "earth-forces.svg")](mechanics/earth-forces/earth-forces.svg) [[PDF]](mechanics/earth-forces/earth-forces.pdf) [[PNG]](mechanics/earth-forces/earth-forces.png) [[SVG]](mechanics/earth-forces/earth-forces.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\usepackage{amsmath}
+\tikzset{>=latex}
+\colorlet{green}{black!40!green}
+\newcommand{\F}{\vec{F}}
+
+\begin{document}
+\begin{tikzpicture}[scale=2]
+  \draw[dashed] (-1,0) -- (1,0);
+  \draw[->,thick] (0,-1.2) -- (0,1.2) node[above] {$\vec{\omega}$};
+  \draw[thick] (0,0) circle (1);
+  \coordinate (r) at (55:1);
+  \draw[fill=black] (r) circle (0.02);
+  \draw[->,brown,thick] (r) -- (55:0.5) node[below] {$\F_g$};
+  \draw[->,green,thick] (r) -- ++(0.3,0) node[right] {$\F_\text{Zf}$};
+  \draw[->,red,thick]   (r) -- ++(55+90:0.3) node[above] {$\vec{v}^{\,\prime}$};
+  \node[above,blue] at (r) {$\times$};
+  \node[above,blue,xshift=0.7em,yshift=0.7em] at (r) {$\F_\text{Co}$};
+\end{tikzpicture}
+\end{document}
+~~~
 ## fictitious-force.svg
 [![fictitious-force.svg](mechanics/fictitious-force/fictitious-force.svg "fictitious-force.svg")](mechanics/fictitious-force/fictitious-force.svg) [[PDF]](mechanics/fictitious-force/fictitious-force.pdf) [[PNG]](mechanics/fictitious-force/fictitious-force.png) [[SVG]](mechanics/fictitious-force/fictitious-force.svg)
 ~~~.tex
@@ -2165,6 +2190,40 @@
   % main space-point vectors
   \draw[->,thick,red] (xyz cs:x=0) -- node[above,xshift=-1em]{$\place(t_1)$} (r1);
   \draw[->,thick,red] (xyz cs:x=0) -- node[below,xshift=+1em]{$\place(t_2)$} (r2);
+\end{tikzpicture}
+\end{document}
+~~~
+## earth-forces_inverted.svg
+[![earth-forces_inverted.svg](mechanics/earth-forces/earth-forces_inverted.svg "earth-forces_inverted.svg")](mechanics/earth-forces/earth-forces_inverted.svg) [[PDF]](mechanics/earth-forces/earth-forces_inverted.pdf) [[PNG]](mechanics/earth-forces/earth-forces_inverted.png) [[SVG]](mechanics/earth-forces/earth-forces_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    every path/.style = {draw=white,text=white},
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\usepackage{amsmath}
+\tikzset{>=latex}
+\colorlet{green}{green}
+\newcommand{\F}{\vec{F}}
+
+\begin{document}
+\begin{tikzpicture}[inverted,scale=2]
+  \draw[dashed] (-1,0) -- (1,0);
+  \draw[->,thick] (0,-1.2) -- (0,1.2) node[above] {$\vec{\omega}$};
+  \draw[thick] (0,0) circle (1);
+  \coordinate (r) at (55:1);
+  \draw[fill=white] (r) circle (0.02);
+  \draw[->,brown,thick] (r) -- (55:0.5) node[below] {$\F_g$};
+  \draw[->,green,thick] (r) -- ++(0.3,0) node[right] {$\F_\text{Zf}$};
+  \draw[->,red,thick]   (r) -- ++(55+90:0.3) node[above] {$\vec{v}^{\,\prime}$};
+  \node[above,blue] at (r) {$\times$};
+  \node[above,blue,xshift=0.7em,yshift=0.7em] at (r) {$\F_\text{Co}$};
 \end{tikzpicture}
 \end{document}
 ~~~
