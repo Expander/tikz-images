@@ -925,6 +925,26 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## rotating-stick.svg
+[![rotating-stick.svg](mechanics/rotating-stick/rotating-stick.svg "rotating-stick.svg")](mechanics/rotating-stick/rotating-stick.svg) [[PDF]](mechanics/rotating-stick/rotating-stick.pdf) [[PNG]](mechanics/rotating-stick/rotating-stick.png) [[SVG]](mechanics/rotating-stick/rotating-stick.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\tikzset{>=latex}
+\usetikzlibrary{shapes}
+\colorlet{gray}{gray!50}
+
+\begin{document}
+\begin{tikzpicture}
+  % cylinder
+  \node (Z) at (0,0) [thick, cylinder, aspect=1, shape border rotate=0, draw, minimum height=5cm, minimum width=0.1cm, cylinder body fill=gray!20, cylinder uses custom fill, cylinder end fill=gray] {};
+  % rotation axis
+  \draw[->,thick] (0,-0.75) -- +(0,1.5) node[above] {$\vec{\omega}$};
+  % radius
+  \draw[<->,thick,blue] (-2.4,-0.5) -- node[below,xshift=2em] {$\ell$} +(5,0);
+\end{tikzpicture}
+\end{document}
+~~~
 ## rotating-thin-zylinder.svg
 [![rotating-thin-zylinder.svg](mechanics/rotating-thin-zylinder/rotating-thin-zylinder.svg "rotating-thin-zylinder.svg")](mechanics/rotating-thin-zylinder/rotating-thin-zylinder.svg) [[PDF]](mechanics/rotating-thin-zylinder/rotating-thin-zylinder.pdf) [[PNG]](mechanics/rotating-thin-zylinder/rotating-thin-zylinder.png) [[SVG]](mechanics/rotating-thin-zylinder/rotating-thin-zylinder.svg)
 ~~~.tex
@@ -2800,6 +2820,35 @@
   \draw[<->,blue,thick] (0,0 ) -- node[above]{$R$} (2,0);
   \draw[dashed,thick] (0,-2) -- +(0,4);
   \draw[->,thick] (0,2) -- +(0,0.5) node[above] {$\vec{\omega}$};
+\end{tikzpicture}
+\end{document}
+~~~
+## rotating-stick_inverted.svg
+[![rotating-stick_inverted.svg](mechanics/rotating-stick/rotating-stick_inverted.svg "rotating-stick_inverted.svg")](mechanics/rotating-stick/rotating-stick_inverted.svg) [[PDF]](mechanics/rotating-stick/rotating-stick_inverted.pdf) [[PNG]](mechanics/rotating-stick/rotating-stick_inverted.png) [[SVG]](mechanics/rotating-stick/rotating-stick_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    every path/.style = {draw=white,text=white},
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\tikzset{>=latex}
+\usetikzlibrary{shapes}
+\colorlet{gray}{gray!50}
+
+\begin{document}
+\begin{tikzpicture}[inverted,inverted]
+  % cylinder
+  \node (Z) at (0,0) [thick, cylinder, aspect=1, shape border rotate=0, draw, minimum height=5cm, minimum width=0.1cm, cylinder body fill=gray!60, cylinder uses custom fill, cylinder end fill=gray] {};
+  % rotation axis
+  \draw[->,thick] (0,-0.75) -- +(0,1.5) node[above] {$\vec{\omega}$};
+  % radius
+  \draw[<->,thick,blue] (-2.4,-0.5) -- node[below,xshift=2em] {$\ell$} +(5,0);
 \end{tikzpicture}
 \end{document}
 ~~~
