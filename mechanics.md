@@ -903,6 +903,28 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## rotating-thin-zylinder.svg
+[![rotating-thin-zylinder.svg](mechanics/rotating-thin-zylinder/rotating-thin-zylinder.svg "rotating-thin-zylinder.svg")](mechanics/rotating-thin-zylinder/rotating-thin-zylinder.svg) [[PDF]](mechanics/rotating-thin-zylinder/rotating-thin-zylinder.pdf) [[PNG]](mechanics/rotating-thin-zylinder/rotating-thin-zylinder.png) [[SVG]](mechanics/rotating-thin-zylinder/rotating-thin-zylinder.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\tikzset{>=latex}
+\usetikzlibrary{shapes}
+\colorlet{gray}{gray!50}
+
+\begin{document}
+\begin{tikzpicture}
+  % thin cylinder
+  \node (Z) at (0,0) [thick, cylinder, aspect=2, shape border rotate=90, draw, minimum height=3cm, minimum width=2cm, cylinder body fill=gray!20, cylinder uses custom fill, cylinder end fill=gray] {};
+  \draw[thick,fill=gray!20] (0,1.45) ellipse (0.8 and 0.15);
+  % rotation axis
+  \draw[dashed,thick] (0,-1.5) -- +(0,3);
+  \draw[->,thick] (0,1.5) -- +(0,0.8) node[above] {$\vec{\omega}$};
+  % radius
+  \draw[<->,thick,blue] (0,1.45) -- node[above,yshift=0.4em] {$R$} +(0.8,0);
+\end{tikzpicture}
+\end{document}
+~~~
 ## rotating-zylinder.svg
 [![rotating-zylinder.svg](mechanics/rotating-zylinder/rotating-zylinder.svg "rotating-zylinder.svg")](mechanics/rotating-zylinder/rotating-zylinder.svg) [[PDF]](mechanics/rotating-zylinder/rotating-zylinder.pdf) [[PNG]](mechanics/rotating-zylinder/rotating-zylinder.png) [[SVG]](mechanics/rotating-zylinder/rotating-zylinder.svg)
 ~~~.tex
@@ -2725,6 +2747,37 @@
   \draw (1.2,1.1) node[right] {$m_2$};
   \draw[->,blue] (-1.1,1.25) -- node[above] {$\F_{G,2\to 1}$} +(+0.5,0);
   \draw[->,red]  (+1.1,1.25) -- node[above] {$\F_{G,1\to 2}$} +(-0.5,0);
+\end{tikzpicture}
+\end{document}
+~~~
+## rotating-thin-zylinder_inverted.svg
+[![rotating-thin-zylinder_inverted.svg](mechanics/rotating-thin-zylinder/rotating-thin-zylinder_inverted.svg "rotating-thin-zylinder_inverted.svg")](mechanics/rotating-thin-zylinder/rotating-thin-zylinder_inverted.svg) [[PDF]](mechanics/rotating-thin-zylinder/rotating-thin-zylinder_inverted.pdf) [[PNG]](mechanics/rotating-thin-zylinder/rotating-thin-zylinder_inverted.png) [[SVG]](mechanics/rotating-thin-zylinder/rotating-thin-zylinder_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    every path/.style = {draw=white,text=white},
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\tikzset{>=latex}
+\usetikzlibrary{shapes}
+\colorlet{gray}{gray!50}
+
+\begin{document}
+\begin{tikzpicture}[inverted,inverted]
+  % thin cylinder
+  \node (Z) at (0,0) [thick, cylinder, aspect=2, shape border rotate=90, draw, minimum height=3cm, minimum width=2cm, cylinder body fill=gray!60, cylinder uses custom fill, cylinder end fill=gray] {};
+  \draw[thick,fill=gray!60] (0,1.45) ellipse (0.8 and 0.15);
+  % rotation axis
+  \draw[dashed,thick] (0,-1.5) -- +(0,3);
+  \draw[->,thick] (0,1.5) -- +(0,0.8) node[above] {$\vec{\omega}$};
+  % radius
+  \draw[<->,thick,blue] (0,1.45) -- node[above,yshift=0.4em] {$R$} +(0.8,0);
 \end{tikzpicture}
 \end{document}
 ~~~
