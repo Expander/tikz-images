@@ -903,6 +903,25 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## rotating-zylinder.svg
+[![rotating-zylinder.svg](mechanics/rotating-zylinder/rotating-zylinder.svg "rotating-zylinder.svg")](mechanics/rotating-zylinder/rotating-zylinder.svg) [[PDF]](mechanics/rotating-zylinder/rotating-zylinder.pdf) [[PNG]](mechanics/rotating-zylinder/rotating-zylinder.png) [[SVG]](mechanics/rotating-zylinder/rotating-zylinder.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\tikzset{>=latex}
+\usetikzlibrary{shapes}
+\colorlet{gray}{gray!50}
+
+\begin{document}
+\begin{tikzpicture}
+  % cylinder
+  \node (Z) at (0,0) [thick, cylinder, aspect=2, shape border rotate=90, draw, minimum height=3cm, minimum width=2cm, cylinder body fill=gray!20, cylinder uses custom fill, cylinder end fill=gray] {};
+  % rotation axis
+  \draw[dashed,thick] (0,-1.5) -- +(0,3);
+  \draw[->,thick] (0,1.5) -- +(0,1) node[above] {$\vec{\omega}$};
+\end{tikzpicture}
+\end{document}
+~~~
 ## rotation-angular-momentum.svg
 [![rotation-angular-momentum.svg](mechanics/rotation-angular-momentum/rotation-angular-momentum.svg "rotation-angular-momentum.svg")](mechanics/rotation-angular-momentum/rotation-angular-momentum.svg) [[PDF]](mechanics/rotation-angular-momentum/rotation-angular-momentum.pdf) [[PNG]](mechanics/rotation-angular-momentum/rotation-angular-momentum.png) [[SVG]](mechanics/rotation-angular-momentum/rotation-angular-momentum.svg)
 ~~~.tex
@@ -2704,6 +2723,34 @@
   \draw (1.2,1.1) node[right] {$m_2$};
   \draw[->,blue] (-1.1,1.25) -- node[above] {$\F_{G,2\to 1}$} +(+0.5,0);
   \draw[->,red]  (+1.1,1.25) -- node[above] {$\F_{G,1\to 2}$} +(-0.5,0);
+\end{tikzpicture}
+\end{document}
+~~~
+## rotating-zylinder_inverted.svg
+[![rotating-zylinder_inverted.svg](mechanics/rotating-zylinder/rotating-zylinder_inverted.svg "rotating-zylinder_inverted.svg")](mechanics/rotating-zylinder/rotating-zylinder_inverted.svg) [[PDF]](mechanics/rotating-zylinder/rotating-zylinder_inverted.pdf) [[PNG]](mechanics/rotating-zylinder/rotating-zylinder_inverted.png) [[SVG]](mechanics/rotating-zylinder/rotating-zylinder_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    every path/.style = {draw=white,text=white},
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\tikzset{>=latex}
+\usetikzlibrary{shapes}
+\colorlet{gray}{gray!50}
+
+\begin{document}
+\begin{tikzpicture}[inverted,inverted]
+  % cylinder
+  \node (Z) at (0,0) [thick, cylinder, aspect=2, shape border rotate=90, draw, minimum height=3cm, minimum width=2cm, cylinder body fill=gray!60, cylinder uses custom fill, cylinder end fill=gray] {};
+  % rotation axis
+  \draw[dashed,thick] (0,-1.5) -- +(0,3);
+  \draw[->,thick] (0,1.5) -- +(0,1) node[above] {$\vec{\omega}$};
 \end{tikzpicture}
 \end{document}
 ~~~

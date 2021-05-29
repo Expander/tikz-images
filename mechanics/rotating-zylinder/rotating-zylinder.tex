@@ -1,0 +1,15 @@
+\documentclass[crop,tikz]{standalone}
+
+\tikzset{>=latex}
+\usetikzlibrary{shapes}
+\colorlet{gray}{gray!50}
+
+\begin{document}
+\begin{tikzpicture}
+  % cylinder
+  \node (Z) at (0,0) [thick, cylinder, aspect=2, shape border rotate=90, draw, minimum height=3cm, minimum width=2cm, cylinder body fill=gray!20, cylinder uses custom fill, cylinder end fill=gray] {};
+  % rotation axis
+  \draw[dashed,thick] (0,-1.5) -- +(0,3);
+  \draw[->,thick] (0,1.5) -- +(0,1) node[above] {$\vec{\omega}$};
+\end{tikzpicture}
+\end{document}
