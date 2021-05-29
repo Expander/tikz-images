@@ -903,6 +903,28 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## rotating-sphere.svg
+[![rotating-sphere.svg](mechanics/rotating-sphere/rotating-sphere.svg "rotating-sphere.svg")](mechanics/rotating-sphere/rotating-sphere.svg) [[PDF]](mechanics/rotating-sphere/rotating-sphere.pdf) [[PNG]](mechanics/rotating-sphere/rotating-sphere.png) [[SVG]](mechanics/rotating-sphere/rotating-sphere.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\tikzset{>=latex}
+\usetikzlibrary{shapes}
+\colorlet{gray}{gray!50}
+
+\begin{document}
+\begin{tikzpicture}
+  \shade[ball color = gray, opacity = 0.4] (0,0) circle (2cm);
+  \draw[thick] (0,0) circle (2cm);
+  \draw[thick] (-2,0) arc (180:360:2 and 0.6);
+  \draw[thick,dashed] (2,0) arc (0:180:2 and 0.6);
+  \fill[fill=black] (0,0) circle (1pt);
+  \draw[<->,blue,thick] (0,0 ) -- node[above]{$R$} (2,0);
+  \draw[dashed,thick] (0,-2) -- +(0,4);
+  \draw[->,thick] (0,2) -- +(0,0.5) node[above] {$\vec{\omega}$};
+\end{tikzpicture}
+\end{document}
+~~~
 ## rotating-thin-zylinder.svg
 [![rotating-thin-zylinder.svg](mechanics/rotating-thin-zylinder/rotating-thin-zylinder.svg "rotating-thin-zylinder.svg")](mechanics/rotating-thin-zylinder/rotating-thin-zylinder.svg) [[PDF]](mechanics/rotating-thin-zylinder/rotating-thin-zylinder.pdf) [[PNG]](mechanics/rotating-thin-zylinder/rotating-thin-zylinder.png) [[SVG]](mechanics/rotating-thin-zylinder/rotating-thin-zylinder.svg)
 ~~~.tex
@@ -2747,6 +2769,37 @@
   \draw (1.2,1.1) node[right] {$m_2$};
   \draw[->,blue] (-1.1,1.25) -- node[above] {$\F_{G,2\to 1}$} +(+0.5,0);
   \draw[->,red]  (+1.1,1.25) -- node[above] {$\F_{G,1\to 2}$} +(-0.5,0);
+\end{tikzpicture}
+\end{document}
+~~~
+## rotating-sphere_inverted.svg
+[![rotating-sphere_inverted.svg](mechanics/rotating-sphere/rotating-sphere_inverted.svg "rotating-sphere_inverted.svg")](mechanics/rotating-sphere/rotating-sphere_inverted.svg) [[PDF]](mechanics/rotating-sphere/rotating-sphere_inverted.pdf) [[PNG]](mechanics/rotating-sphere/rotating-sphere_inverted.png) [[SVG]](mechanics/rotating-sphere/rotating-sphere_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    every path/.style = {draw=white,text=white},
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\tikzset{>=latex}
+\usetikzlibrary{shapes}
+\colorlet{gray}{gray!50}
+
+\begin{document}
+\begin{tikzpicture}[inverted,inverted]
+  \shade[ball color = gray, opacity = 0.4] (0,0) circle (2cm);
+  \draw[thick] (0,0) circle (2cm);
+  \draw[thick] (-2,0) arc (180:360:2 and 0.6);
+  \draw[thick,dashed] (2,0) arc (0:180:2 and 0.6);
+  \fill[fill=white] (0,0) circle (1pt);
+  \draw[<->,blue,thick] (0,0 ) -- node[above]{$R$} (2,0);
+  \draw[dashed,thick] (0,-2) -- +(0,4);
+  \draw[->,thick] (0,2) -- +(0,0.5) node[above] {$\vec{\omega}$};
 \end{tikzpicture}
 \end{document}
 ~~~
