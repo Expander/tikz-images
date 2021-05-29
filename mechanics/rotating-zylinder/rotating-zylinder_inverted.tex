@@ -19,6 +19,8 @@
   \node (Z) at (0,0) [thick, cylinder, aspect=2, shape border rotate=90, draw, minimum height=3cm, minimum width=2cm, cylinder body fill=gray!60, cylinder uses custom fill, cylinder end fill=gray] {};
   % rotation axis
   \draw[dashed,thick] (0,-1.5) -- +(0,3);
-  \draw[->,thick] (0,1.5) -- +(0,1) node[above] {$\vec{\omega}$};
+  \draw[->,thick] (0,1.5) -- +(0,0.8) node[above] {$\vec{\omega}$};
+  % radius
+  \draw[<->,thick,blue] (0,1.5) -- node[above,yshift=0.4em] {$R$} +(1,0);
 \end{tikzpicture}
 \end{document}
