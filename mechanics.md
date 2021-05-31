@@ -91,7 +91,6 @@
 \tikzset{>=latex}
 \usetikzlibrary{decorations.markings,positioning,arrows}
 \colorlet{green}{black!40!green}
-\newcommand{\F}{\vec{F}}
 
 \begin{document}
 \begin{tikzpicture}[scale=2]
@@ -107,8 +106,8 @@
   ] (180+\angl:1) arc (180+\angl:180-\angl:1);
   \coordinate (car) at (\cx,\cy);
   \draw[fill=black] (\cx-\cw/2,\cy-\ch/2) rectangle (\cx+\cw/2,\cy+\ch/2);
-  \draw[->,blue,thick] (car) -- ++(0,0.5) node[above] {$\vec{v}$};
-  \draw[->,red,thick] (car) -- ++(0.5,0) node[above] {$\F_\text{Zp}$};
+  \draw[->,blue,thick] (car) -- ++(0,0.5) node[above] {$\vec{v}(t)$};
+  \draw[->,red,thick] (car) -- ++(0.5,0) node[above] {$\vec{F}_\text{Zp}(t)$};
   \draw[fill,brown] (car) circle (0.02);
 \end{tikzpicture}
 \end{document}
@@ -137,8 +136,8 @@
   ] (180+\angl:1) arc (180+\angl:180-\angl:1);
   \coordinate (car) at (\cx,\cy);
   \draw[fill=black] (\cx-\cw/2,\cy-\ch/2) rectangle (\cx+\cw/2,\cy+\ch/2);
-  \draw[->,red,thick] (car) -- ++(0.5,0) node[above] {$\F_\text{Zp}$};
-  \draw[->,violet!50,thick] (car) -- ++(-0.5,0) node[above] {$\F_\text{Zf}$};
+  \draw[->,red,thick] (car) -- ++(0.5,0) node[above] {$\F_\text{Zp}(t)$};
+  \draw[->,violet!50,thick] (car) -- ++(-0.5,0) node[above] {$\F_\text{Zf}(t)$};
   \node[brown] at (car) {\LARGE\Gentsroom};
 \end{tikzpicture}
 \end{document}
@@ -1719,7 +1718,6 @@
 \tikzset{>=latex}
 \usetikzlibrary{decorations.markings,positioning,arrows}
 \colorlet{green}{green}
-\newcommand{\F}{\vec{F}}
 
 \begin{document}
 \begin{tikzpicture}[inverted,scale=2]
@@ -1735,8 +1733,8 @@
   ] (180+\angl:1) arc (180+\angl:180-\angl:1);
   \coordinate (car) at (\cx,\cy);
   \draw[fill=white] (\cx-\cw/2,\cy-\ch/2) rectangle (\cx+\cw/2,\cy+\ch/2);
-  \draw[->,blue,thick] (car) -- ++(0,0.5) node[above] {$\vec{v}$};
-  \draw[->,red,thick] (car) -- ++(0.5,0) node[above] {$\F_\text{Zp}$};
+  \draw[->,blue,thick] (car) -- ++(0,0.5) node[above] {$\vec{v}(t)$};
+  \draw[->,red,thick] (car) -- ++(0.5,0) node[above] {$\vec{F}_\text{Zp}(t)$};
   \draw[fill,brown] (car) circle (0.02);
 \end{tikzpicture}
 \end{document}
@@ -1774,8 +1772,8 @@
   ] (180+\angl:1) arc (180+\angl:180-\angl:1);
   \coordinate (car) at (\cx,\cy);
   \draw[fill=white] (\cx-\cw/2,\cy-\ch/2) rectangle (\cx+\cw/2,\cy+\ch/2);
-  \draw[->,red,thick] (car) -- ++(0.5,0) node[above] {$\F_\text{Zp}$};
-  \draw[->,violet!50,thick] (car) -- ++(-0.5,0) node[above] {$\F_\text{Zf}$};
+  \draw[->,red,thick] (car) -- ++(0.5,0) node[above] {$\F_\text{Zp}(t)$};
+  \draw[->,violet!50,thick] (car) -- ++(-0.5,0) node[above] {$\F_\text{Zf}(t)$};
   \node[brown] at (car) {\LARGE\Gentsroom};
 \end{tikzpicture}
 \end{document}

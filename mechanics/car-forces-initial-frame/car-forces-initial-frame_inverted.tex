@@ -13,7 +13,6 @@
 \tikzset{>=latex}
 \usetikzlibrary{decorations.markings,positioning,arrows}
 \colorlet{green}{green}
-\newcommand{\F}{\vec{F}}
 
 \begin{document}
 \begin{tikzpicture}[inverted,scale=2]
@@ -29,8 +28,8 @@
   ] (180+\angl:1) arc (180+\angl:180-\angl:1);
   \coordinate (car) at (\cx,\cy);
   \draw[fill=white] (\cx-\cw/2,\cy-\ch/2) rectangle (\cx+\cw/2,\cy+\ch/2);
-  \draw[->,blue,thick] (car) -- ++(0,0.5) node[above] {$\vec{v}$};
-  \draw[->,red,thick] (car) -- ++(0.5,0) node[above] {$\F_\text{Zp}$};
+  \draw[->,blue,thick] (car) -- ++(0,0.5) node[above] {$\vec{v}(t)$};
+  \draw[->,red,thick] (car) -- ++(0.5,0) node[above] {$\vec{F}_\text{Zp}(t)$};
   \draw[fill,brown] (car) circle (0.02);
 \end{tikzpicture}
 \end{document}
