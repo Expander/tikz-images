@@ -18,6 +18,31 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## balance.svg
+[![balance.svg](mechanics/balance/balance.svg "balance.svg")](mechanics/balance/balance.svg) [[PDF]](mechanics/balance/balance.pdf) [[PNG]](mechanics/balance/balance.png) [[SVG]](mechanics/balance/balance.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\tikzset{>=latex}
+%\usetikzlibrary{calc,decorations.markings,shapes}
+\colorlet{gray}{gray!20}
+\colorlet{green}{black!40!green}
+
+\begin{document}
+\begin{tikzpicture}
+  \draw[fill=gray] (-2,0) rectangle (4,0.2);
+  \draw[fill=gray] (-0.1,-0.5) -- (0,0) -- (0.1,-0.5) -- cycle;
+  \draw[fill=black] (-2,0.6) circle (0.4);
+  \draw[fill=black] ( 4,0.4) circle (0.2);
+  \draw[->,red] (0,-0.1) -- node[below]{$\vec{r}_1$} +(-2,0);
+  \draw[->,red] (0,-0.1) -- node[below]{$\vec{r}_2$} +( 4,0);
+  \draw[->,blue] (-2,-0.1) -- +(0,-2) node[left]{$\vec{F}_{1}$};
+  \draw[->,blue] ( 4,-0.1) -- +(0,-1) node[right]{$\vec{F}_{2}$};
+  \draw[->] (0,0.3) -- +(1,0) node[above] {$x$};
+  \draw[->] (0,0.3) -- +(0,1) node[right] {$y$};
+\end{tikzpicture}
+\end{document}
+~~~
 ## bicycle.svg
 [![bicycle.svg](mechanics/bicycle/bicycle.svg "bicycle.svg")](mechanics/bicycle/bicycle.svg) [[PDF]](mechanics/bicycle/bicycle.pdf) [[PNG]](mechanics/bicycle/bicycle.png) [[SVG]](mechanics/bicycle/bicycle.svg)
 ~~~.tex
@@ -1628,6 +1653,40 @@
   \node[red, yshift=0.7cm] at (c2) {2};
   \draw[->,blue] (c1) -- ++(+1.5,0) node[below] {$\vec{F}_{2\to 1}$};
   \draw[->,red]  (c2) -- ++(-1.5,0) node[below] {$\vec{F}_{1\to 2}$};
+\end{tikzpicture}
+\end{document}
+~~~
+## balance_inverted.svg
+[![balance_inverted.svg](mechanics/balance/balance_inverted.svg "balance_inverted.svg")](mechanics/balance/balance_inverted.svg) [[PDF]](mechanics/balance/balance_inverted.pdf) [[PNG]](mechanics/balance/balance_inverted.png) [[SVG]](mechanics/balance/balance_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    every path/.style = {draw=white,text=white},
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\tikzset{>=latex}
+%\usetikzlibrary{calc,decorations.markings,shapes}
+\colorlet{gray}{gray!60}
+\colorlet{green}{green}
+
+\begin{document}
+\begin{tikzpicture}[inverted,inverted]
+  \draw[fill=gray] (-2,0) rectangle (4,0.2);
+  \draw[fill=gray] (-0.1,-0.5) -- (0,0) -- (0.1,-0.5) -- cycle;
+  \draw[fill=white] (-2,0.6) circle (0.4);
+  \draw[fill=white] ( 4,0.4) circle (0.2);
+  \draw[->,red] (0,-0.1) -- node[below]{$\vec{r}_1$} +(-2,0);
+  \draw[->,red] (0,-0.1) -- node[below]{$\vec{r}_2$} +( 4,0);
+  \draw[->,blue] (-2,-0.1) -- +(0,-2) node[left]{$\vec{F}_{1}$};
+  \draw[->,blue] ( 4,-0.1) -- +(0,-1) node[right]{$\vec{F}_{2}$};
+  \draw[->] (0,0.3) -- +(1,0) node[above] {$x$};
+  \draw[->] (0,0.3) -- +(0,1) node[right] {$y$};
 \end{tikzpicture}
 \end{document}
 ~~~
