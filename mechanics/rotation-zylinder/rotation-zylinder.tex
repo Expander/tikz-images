@@ -6,21 +6,21 @@
 \colorlet{green}{black!40!green}
 
 \begin{document}
-\begin{tikzpicture}
+\begin{tikzpicture}[scale=1.5]
   % cylinder
-  \node (Z) at (0,0) [thick, cylinder, aspect=2, shape border rotate=90, draw, minimum height=3cm, minimum width=2cm, cylinder body fill=gray!20, cylinder uses custom fill, cylinder end fill=gray] {};
+  \node (Z) at (0,0) [thick, cylinder, aspect=2, shape border rotate=90, draw, minimum height=4.5cm, minimum width=3cm, cylinder body fill=gray!20, cylinder uses custom fill, cylinder end fill=gray] {};
   % circular curve
-  \draw[densely dotted,
+  \draw[densely dashed,
         green,
         decoration={markings, mark=at position 0.9 with {\pgftransformscale{0.6}\arrow{>}}},
         postaction={decorate},
         ] (0,0.5) ellipse (0.5 and 0.125);
   % L
   \draw[dashed,brown,thick] (0,-1.5) -- +(0,3);
-  \draw[->,brown,thick] (0,1.5) -- +(0,1) node[above] {$\vec{L}$};
+  \draw[->,brown,thick] (0,1.5) -- +(0,1) node[above] {$\vec{L}(t)$};
   % omega
   \draw[dashed,thick] (-0.05,-1.5) -- +(0,3);
-  \draw[->,thick] (-0.05,1.5) -- +(0,0.5) node[left] {$\vec{\omega}$};
+  \draw[->,thick] (-0.05,1.5) -- +(0,0.5) node[left] {$\vec{\omega}(t)$};
   % center of mass
   \coordinate (CMS) at (0,0);
   \draw[fill] (CMS) circle (0.05) node[right] {$S$};
@@ -34,8 +34,9 @@
   \draw[fill=blue!50] (C) -- ++(-\cubex,0,0) -- ++(0,-\cubey,0) -- ++(\cubex,0,0) -- cycle;
   \draw[fill=blue!70] (C) -- ++(0,0,-\cubez) -- ++(0,-\cubey,0) -- ++(0,0,\cubez) -- cycle
                       (C) -- ++(-\cubex,0,0) -- ++(0,0,-\cubez) -- ++(\cubex,0,0) -- cycle;
+  \node[above] at (C) {$m_i$};
   % arrows
-  \draw[->,red,thick] (CMS) -- node[below,xshift=-0.3em] {$\vec{r}_i$} (R);
-  \draw[->,blue,thick] (R) -- +(220:0.5) node[below] {$\vec{v}_i$};
+  \draw[->,red,thick] (CMS) -- node[below,xshift=-0.5em] {$\vec{r}_i(t)$} (R);
+  \draw[->,blue,thick] (R) -- +(220:0.5) node[left,xshift=-0.3em] {$\vec{v}_i(t)$};
 \end{tikzpicture}
 \end{document}
