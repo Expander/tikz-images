@@ -999,8 +999,8 @@
 \begin{document}
 \begin{tikzpicture}[scale=1.3]
   \draw[dashed,thick] (0,1) -- (0,2);
-  \draw[->,thick] (0,2) -- +(0,1) node[right] {$\vec{\omega}$};
-  \draw[->,brown,thick] (-0.05,2) -- +(0,1.5) node[left] {$\vec{L}$};
+  \draw[->,thick] (0,2) -- +(0,1) node[right] {$\vec{\omega}(t)$};
+  \draw[->,brown,thick] (-0.05,2) -- +(0,1.5) node[left] {$\vec{L}(t)$};
   \fill (0,2) circle (0.03);
   \draw[thick,
         decoration={markings, mark=at position 0.4 with {\arrow{>}}},
@@ -1025,7 +1025,7 @@
 \begin{document}
 \begin{tikzpicture}[scale=1.3]
   \draw[dashed,thick] (0,1) -- (0,2);
-  \draw[->,thick] (0,2) -- +(0,1) node[right] {$\vec{\omega}$};
+  \draw[->,thick] (0,2) -- +(0,1) node[right] {$\vec{\omega}(t)$};
   \fill (0,2) circle (0.03);
   \draw[thick,
         decoration={markings, mark=at position 0.4 with {\arrow{>}}},
@@ -2932,8 +2932,8 @@
 \begin{document}
 \begin{tikzpicture}[inverted,scale=1.3]
   \draw[dashed,thick] (0,1) -- (0,2);
-  \draw[->,thick] (0,2) -- +(0,1) node[right] {$\vec{\omega}$};
-  \draw[->,brown,thick] (-0.05,2) -- +(0,1.5) node[left] {$\vec{L}$};
+  \draw[->,thick] (0,2) -- +(0,1) node[right] {$\vec{\omega}(t)$};
+  \draw[->,brown,thick] (-0.05,2) -- +(0,1.5) node[left] {$\vec{L}(t)$};
   \fill (0,2) circle (0.03);
   \draw[thick,
         decoration={markings, mark=at position 0.4 with {\arrow{>}}},
@@ -2967,7 +2967,7 @@
 \begin{document}
 \begin{tikzpicture}[inverted,scale=1.3]
   \draw[dashed,thick] (0,1) -- (0,2);
-  \draw[->,thick] (0,2) -- +(0,1) node[right] {$\vec{\omega}$};
+  \draw[->,thick] (0,2) -- +(0,1) node[right] {$\vec{\omega}(t)$};
   \fill (0,2) circle (0.03);
   \draw[thick,
         decoration={markings, mark=at position 0.4 with {\arrow{>}}},
