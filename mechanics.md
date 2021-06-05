@@ -1136,6 +1136,39 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## schanze.svg
+[![schanze.svg](mechanics/schanze/schanze.svg "schanze.svg")](mechanics/schanze/schanze.svg) [[PDF]](mechanics/schanze/schanze.pdf) [[PNG]](mechanics/schanze/schanze.png) [[SVG]](mechanics/schanze/schanze.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\tikzset{>=latex}
+\usetikzlibrary{patterns}
+\colorlet{gray}{gray!20}
+\colorlet{green}{black!40!green}
+
+\begin{document}
+\begin{tikzpicture}[scale=2]
+  \pgfmathsetmacro{\del}{0.05}
+  \pgfmathsetmacro{\height}{1.5}
+  % table
+  \draw[fill=brown]
+    (1/2,-\del) -- ++(\del,0) -- ++(0,-\height+\del) -- ++(-\del,0) -- cycle;
+  \draw[fill=brown]
+    (3/2,-\del) -- ++(\del,0) -- ++(0,-\height+\del) -- ++(-\del,0) -- cycle;
+  \draw[fill=brown]
+    (0,0) -- ++(2,0) -- ++(0,-\del) -- ++(-2,0) -- cycle;
+  % track
+  \draw[line width=1pt] (1,0) arc (270:360:1);
+  % circle
+  \coordinate (c) at (2-\del,1);
+  \draw[fill,red] (c) circle (\del);
+  % arrows
+  \draw[blue,<->] (2.05,1) -- node[right] {$h_B$} ++(0,-1);
+  \draw[blue,<->] (-\del,0) -- node[left] {$h_T$} ++(0,-\height);
+  \draw[blue,<->] (-\del,-\height) -- node[above] {$s$} ++(-2,0);
+\end{tikzpicture}
+\end{document}
+~~~
 ## ship-forces.svg
 [![ship-forces.svg](mechanics/ship-forces/ship-forces.svg "ship-forces.svg")](mechanics/ship-forces/ship-forces.svg) [[PDF]](mechanics/ship-forces/ship-forces.pdf) [[PNG]](mechanics/ship-forces/ship-forces.png) [[SVG]](mechanics/ship-forces/ship-forces.svg)
 ~~~.tex
@@ -3131,6 +3164,48 @@
   % arrows
   \draw[->,red,thick] (CMS) -- node[below,xshift=-0.5em] {$\vec{r}_i(t)$} (R);
   \draw[->,blue,thick] (R) -- +(220:0.5) node[left,xshift=-0.3em] {$\vec{v}_i(t)$};
+\end{tikzpicture}
+\end{document}
+~~~
+## schanze_inverted.svg
+[![schanze_inverted.svg](mechanics/schanze/schanze_inverted.svg "schanze_inverted.svg")](mechanics/schanze/schanze_inverted.svg) [[PDF]](mechanics/schanze/schanze_inverted.pdf) [[PNG]](mechanics/schanze/schanze_inverted.png) [[SVG]](mechanics/schanze/schanze_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    every path/.style = {draw=white,text=white},
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\tikzset{>=latex}
+\usetikzlibrary{patterns}
+\colorlet{gray}{gray!60}
+\colorlet{green}{green}
+
+\begin{document}
+\begin{tikzpicture}[inverted,scale=2]
+  \pgfmathsetmacro{\del}{0.05}
+  \pgfmathsetmacro{\height}{1.5}
+  % table
+  \draw[fill=brown]
+    (1/2,-\del) -- ++(\del,0) -- ++(0,-\height+\del) -- ++(-\del,0) -- cycle;
+  \draw[fill=brown]
+    (3/2,-\del) -- ++(\del,0) -- ++(0,-\height+\del) -- ++(-\del,0) -- cycle;
+  \draw[fill=brown]
+    (0,0) -- ++(2,0) -- ++(0,-\del) -- ++(-2,0) -- cycle;
+  % track
+  \draw[line width=1pt] (1,0) arc (270:360:1);
+  % circle
+  \coordinate (c) at (2-\del,1);
+  \draw[fill,red] (c) circle (\del);
+  % arrows
+  \draw[blue,<->] (2.05,1) -- node[right] {$h_B$} ++(0,-1);
+  \draw[blue,<->] (-\del,0) -- node[left] {$h_T$} ++(0,-\height);
+  \draw[blue,<->] (-\del,-\height) -- node[above] {$s$} ++(-2,0);
 \end{tikzpicture}
 \end{document}
 ~~~
