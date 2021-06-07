@@ -713,7 +713,7 @@
     thick,
     width=7cm,
     height=6cm,
-    domain=0.1:4.6,
+    domain=0.5:4.6,
     xmin=0, xmax=5,
     ymin=-2, ymax=0.2,
     samples=200,
@@ -727,8 +727,10 @@
     xticklabels={},
     ytick={\empty},
     yticklabels={},
+    clip=false,
     ]
     \addplot[mark=none,red] {-1/x};
+    \node[left] at (axis cs:0,0) {$0$};
   \end{axis}
 \end{tikzpicture}%
 \end{document}
@@ -772,8 +774,10 @@
     xticklabels={},
     ytick={\empty},
     yticklabels={},
+    clip=false,
     ]
     \addplot[mark=none,red] {x};
+    \node[left] at (axis cs:0,0) {$0$};
   \end{axis}
 \end{tikzpicture}%
 \end{document}
@@ -2672,7 +2676,7 @@
     thick,
     width=7cm,
     height=6cm,
-    domain=0.1:4.6,
+    domain=0.5:4.6,
     xmin=0, xmax=5,
     ymin=-2, ymax=0.2,
     samples=200,
@@ -2686,8 +2690,10 @@
     xticklabels={},
     ytick={\empty},
     yticklabels={},
+    clip=false,
     ]
     \addplot[mark=none,red] {-1/x};
+    \node[left] at (axis cs:0,0) {$0$};
   \end{axis}
 \end{tikzpicture}%
 \end{document}
@@ -2740,8 +2746,10 @@
     xticklabels={},
     ytick={\empty},
     yticklabels={},
+    clip=false,
     ]
     \addplot[mark=none,red] {x};
+    \node[left] at (axis cs:0,0) {$0$};
   \end{axis}
 \end{tikzpicture}%
 \end{document}
