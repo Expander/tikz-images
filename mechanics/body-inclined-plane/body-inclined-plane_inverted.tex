@@ -26,7 +26,15 @@
   \draw[fill=red!30] (body) circle (\radius);
   % arrows
   \draw[->,red,thick] (body) -- ++(180+\al:0.7) node[left] {$\vec{v}_S$};
-  \draw[->,blue,thick] (body)++(\al:0.7*\radius) arc (\al:180:0.7*\radius);
-  \node[below,blue] at ($(body)+(\al:0.7*\radius)$) {$\vec{\omega}$};
+  \coordinate (cube) at ($(body)+(\al:0.7*\radius)$);
+  \draw[->,blue,thick] (cube) arc (\al:180:0.7*\radius);
+  \node[below,blue] at ($(body)+(\al:0.6*\radius)$) {$\vec{\omega}$};
+  % cube
+  \pgfmathsetmacro{\cubex}{0.05}
+  \pgfmathsetmacro{\cubey}{0.05}
+  \pgfmathsetmacro{\cubez}{0.05}
+  \draw[fill=blue!50] (cube) -- ++(-\cubex,0,0) -- ++(0,-\cubey,0) -- ++(\cubex,0,0) -- cycle;
+  \draw[fill=blue!70] (cube) -- ++(0,0,-\cubez) -- ++(0,-\cubey,0) -- ++(0,0,\cubez) -- cycle
+                      (cube) -- ++(-\cubex,0,0) -- ++(0,0,-\cubez) -- ++(\cubex,0,0) -- cycle;
 \end{tikzpicture}%
 \end{document}
