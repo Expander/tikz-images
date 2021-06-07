@@ -688,6 +688,51 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## Epot-linear.svg
+[![Epot-linear.svg](mechanics/Epot-linear/Epot-linear.svg "Epot-linear.svg")](mechanics/Epot-linear/Epot-linear.svg) [[PDF]](mechanics/Epot-linear/Epot-linear.pdf) [[PNG]](mechanics/Epot-linear/Epot-linear.png) [[SVG]](mechanics/Epot-linear/Epot-linear.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\usepackage{amsmath}
+\usepackage{pgfplots}
+
+\tikzset{>=latex}
+\pgfplotsset{
+  compat=1.16,
+  every non boxed x axis/.append style={
+    axis line style={-latex}
+  },
+  every non boxed y axis/.append style={
+    axis line style={-latex}
+  }
+}
+
+\begin{document}
+\begin{tikzpicture}
+  \begin{axis}[
+    thick,
+    width=7cm,
+    height=6cm,
+    domain=0:1,
+    xmin=0, xmax={1},
+    ymin={0}, ymax={1},
+    samples=200,
+    xlabel={$h$},
+    ylabel={$E_\text{pot}$},
+    axis x line=center,
+    axis y line=center,
+    xlabel style={right},
+    ylabel style={above},
+    xtick={\empty},
+    xticklabels={},
+    ytick={\empty},
+    yticklabels={},
+    ]
+    \addplot[mark=none,red] {x};
+  \end{axis}
+\end{tikzpicture}%
+\end{document}
+~~~
 ## fictitious-force.svg
 [![fictitious-force.svg](mechanics/fictitious-force/fictitious-force.svg "fictitious-force.svg")](mechanics/fictitious-force/fictitious-force.svg) [[PDF]](mechanics/fictitious-force/fictitious-force.pdf) [[PNG]](mechanics/fictitious-force/fictitious-force.png) [[SVG]](mechanics/fictitious-force/fictitious-force.svg)
 ~~~.tex
@@ -2546,6 +2591,60 @@
   \node[above,blue] at (r) {$\times$};
   \node[above,blue,xshift=0.7em,yshift=0.7em] at (r) {$\F_\text{Co}$};
 \end{tikzpicture}
+\end{document}
+~~~
+## Epot-linear_inverted.svg
+[![Epot-linear_inverted.svg](mechanics/Epot-linear/Epot-linear_inverted.svg "Epot-linear_inverted.svg")](mechanics/Epot-linear/Epot-linear_inverted.svg) [[PDF]](mechanics/Epot-linear/Epot-linear_inverted.pdf) [[PNG]](mechanics/Epot-linear/Epot-linear_inverted.png) [[SVG]](mechanics/Epot-linear/Epot-linear_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    every path/.style = {draw=white,text=white},
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\usepackage{amsmath}
+\usepackage{pgfplots}
+
+\tikzset{>=latex}
+\pgfplotsset{
+  compat=1.16,
+  every non boxed x axis/.append style={
+    axis line style={-latex}
+  },
+  every non boxed y axis/.append style={
+    axis line style={-latex}
+  }
+}
+
+\begin{document}
+\begin{tikzpicture}[inverted,inverted]
+  \begin{axis}[
+    thick,
+    width=7cm,
+    height=6cm,
+    domain=0:1,
+    xmin=0, xmax={1},
+    ymin={0}, ymax={1},
+    samples=200,
+    xlabel={$h$},
+    ylabel={$E_\text{pot}$},
+    axis x line=center,
+    axis y line=center,
+    xlabel style={right},
+    ylabel style={above},
+    xtick={\empty},
+    xticklabels={},
+    ytick={\empty},
+    yticklabels={},
+    ]
+    \addplot[mark=none,red] {x};
+  \end{axis}
+\end{tikzpicture}%
 \end{document}
 ~~~
 ## fictitious-force_inverted.svg
