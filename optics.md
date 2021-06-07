@@ -449,7 +449,7 @@ color(75bp)=(violet); color(100bp)=(violet)}
 \colorlet{blue}{cyan}
 \tikzset{
   inverted/.style = {
-    every path/.style = {draw=white,text=white},
+    color=white,
     background rectangle/.style={fill},
     show background rectangle
   }
@@ -484,7 +484,7 @@ color(75bp)=(violet); color(100bp)=(violet)}
 \colorlet{blue}{cyan}
 \tikzset{
   inverted/.style = {
-    every path/.style = {draw=white,text=white},
+    color=white,
     background rectangle/.style={fill},
     show background rectangle
   }
@@ -520,7 +520,7 @@ color(75bp)=(violet); color(100bp)=(violet)}
 \colorlet{blue}{cyan}
 \tikzset{
   inverted/.style = {
-    every path/.style = {draw=white,text=white},
+    color=white,
     background rectangle/.style={fill},
     show background rectangle
   }
@@ -560,7 +560,7 @@ color(75bp)=(violet); color(100bp)=(violet)}
 \colorlet{blue}{cyan}
 \tikzset{
   inverted/.style = {
-    every path/.style = {draw=white,text=white},
+    color=white,
     background rectangle/.style={fill},
     show background rectangle
   }
@@ -591,7 +591,7 @@ color(75bp)=(violet); color(100bp)=(violet)}
 \colorlet{blue}{cyan}
 \tikzset{
   inverted/.style = {
-    every path/.style = {draw=white,text=white},
+    color=white,
     background rectangle/.style={fill},
     show background rectangle
   }
@@ -631,7 +631,7 @@ color(75bp)=(violet); color(100bp)=(violet)}
 \colorlet{blue}{cyan}
 \tikzset{
   inverted/.style = {
-    every path/.style = {draw=white,text=white},
+    color=white,
     background rectangle/.style={fill},
     show background rectangle
   }
@@ -658,7 +658,7 @@ color(75bp)=(violet); color(100bp)=(violet)}
 \colorlet{blue}{cyan}
 \tikzset{
   inverted/.style = {
-    every path/.style = {draw=white,text=white},
+    color=white,
     background rectangle/.style={fill},
     show background rectangle
   }
@@ -685,7 +685,7 @@ color(75bp)=(violet); color(100bp)=(violet)}
 \colorlet{blue}{cyan}
 \tikzset{
   inverted/.style = {
-    every path/.style = {draw=white,text=white},
+    color=white,
     background rectangle/.style={fill},
     show background rectangle
   }
@@ -710,7 +710,7 @@ color(75bp)=(violet); color(100bp)=(violet)}
 \colorlet{blue}{cyan}
 \tikzset{
   inverted/.style = {
-    every path/.style = {draw=white,text=white},
+    color=white,
     background rectangle/.style={fill},
     show background rectangle
   }
@@ -748,7 +748,7 @@ color(75bp)=(violet); color(100bp)=(violet)}
 \colorlet{blue}{cyan}
 \tikzset{
   inverted/.style = {
-    every path/.style = {draw=white,text=white},
+    color=white,
     background rectangle/.style={fill},
     show background rectangle
   }
@@ -816,7 +816,7 @@ color(75bp)=(violet); color(100bp)=(violet)}
 \colorlet{blue}{cyan}
 \tikzset{
   inverted/.style = {
-    every path/.style = {draw=white,text=white},
+    color=white,
     background rectangle/.style={fill},
     show background rectangle
   }
@@ -845,7 +845,7 @@ color(75bp)=(violet); color(100bp)=(violet)}
 \colorlet{blue}{cyan}
 \tikzset{
   inverted/.style = {
-    every path/.style = {draw=white,text=white},
+    color=white,
     background rectangle/.style={fill},
     show background rectangle
   }
@@ -913,7 +913,7 @@ color(75bp)=(violet); color(100bp)=(violet)}
 \colorlet{blue}{cyan}
 \tikzset{
   inverted/.style = {
-    every path/.style = {draw=white,text=white},
+    color=white,
     background rectangle/.style={fill},
     show background rectangle
   }
@@ -985,7 +985,7 @@ color(75bp)=(violet); color(100bp)=(violet)}
 \colorlet{blue}{cyan}
 \tikzset{
   inverted/.style = {
-    every path/.style = {draw=white,text=white},
+    color=white,
     background rectangle/.style={fill},
     show background rectangle
   }

@@ -1884,7 +1884,7 @@
 \colorlet{blue}{cyan}
 \tikzset{
   inverted/.style = {
-    every path/.style = {draw=white,text=white},
+    color=white,
     background rectangle/.style={fill},
     show background rectangle
   }
@@ -1912,7 +1912,7 @@
 \colorlet{blue}{cyan}
 \tikzset{
   inverted/.style = {
-    every path/.style = {draw=white,text=white},
+    color=white,
     background rectangle/.style={fill},
     show background rectangle
   }
@@ -1946,7 +1946,7 @@
 \colorlet{blue}{cyan}
 \tikzset{
   inverted/.style = {
-    every path/.style = {draw=white,text=white},
+    color=white,
     background rectangle/.style={fill},
     show background rectangle
   }
@@ -2019,7 +2019,7 @@
 \colorlet{blue}{cyan}
 \tikzset{
   inverted/.style = {
-    every path/.style = {draw=white,text=white},
+    color=white,
     background rectangle/.style={fill},
     show background rectangle
   }
@@ -2063,7 +2063,7 @@
 \colorlet{blue}{cyan}
 \tikzset{
   inverted/.style = {
-    every path/.style = {draw=white,text=white},
+    color=white,
     background rectangle/.style={fill},
     show background rectangle
   }
@@ -2102,7 +2102,7 @@
 \colorlet{blue}{cyan}
 \tikzset{
   inverted/.style = {
-    every path/.style = {draw=white,text=white},
+    color=white,
     background rectangle/.style={fill},
     show background rectangle
   }
@@ -2141,7 +2141,7 @@
 \colorlet{blue}{cyan}
 \tikzset{
   inverted/.style = {
-    every path/.style = {draw=white,text=white},
+    color=white,
     background rectangle/.style={fill},
     show background rectangle
   }
@@ -2181,7 +2181,7 @@
 \colorlet{blue}{cyan}
 \tikzset{
   inverted/.style = {
-    every path/.style = {draw=white,text=white},
+    color=white,
     background rectangle/.style={fill},
     show background rectangle
   }
@@ -2213,7 +2213,7 @@
 \colorlet{blue}{cyan}
 \tikzset{
   inverted/.style = {
-    every path/.style = {draw=white,text=white},
+    color=white,
     background rectangle/.style={fill},
     show background rectangle
   }
@@ -2254,7 +2254,7 @@
 \colorlet{blue}{cyan}
 \tikzset{
   inverted/.style = {
-    every path/.style = {draw=white,text=white},
+    color=white,
     background rectangle/.style={fill},
     show background rectangle
   }
@@ -2296,7 +2296,7 @@
 \colorlet{blue}{cyan}
 \tikzset{
   inverted/.style = {
-    every path/.style = {draw=white,text=white},
+    color=white,
     background rectangle/.style={fill},
     show background rectangle
   }
@@ -2338,7 +2338,7 @@
 \colorlet{blue}{cyan}
 \tikzset{
   inverted/.style = {
-    every path/.style = {draw=white,text=white},
+    color=white,
     background rectangle/.style={fill},
     show background rectangle
   }
@@ -2381,7 +2381,7 @@
 \colorlet{blue}{cyan}
 \tikzset{
   inverted/.style = {
-    every path/.style = {draw=white,text=white},
+    color=white,
     background rectangle/.style={fill},
     show background rectangle
   }
@@ -2423,7 +2423,7 @@
 \colorlet{blue}{cyan}
 \tikzset{
   inverted/.style = {
-    every path/.style = {draw=white,text=white},
+    color=white,
     background rectangle/.style={fill},
     show background rectangle
   }
@@ -2464,7 +2464,7 @@
 \colorlet{blue}{cyan}
 \tikzset{
   inverted/.style = {
-    every path/.style = {draw=white,text=white},
+    color=white,
     background rectangle/.style={fill},
     show background rectangle
   }
@@ -2503,7 +2503,7 @@
 \colorlet{blue}{cyan}
 \tikzset{
   inverted/.style = {
-    every path/.style = {draw=white,text=white},
+    color=white,
     background rectangle/.style={fill},
     show background rectangle
   }
@@ -2538,7 +2538,7 @@
 \colorlet{blue}{cyan}
 \tikzset{
   inverted/.style = {
-    every path/.style = {draw=white,text=white},
+    color=white,
     background rectangle/.style={fill},
     show background rectangle
   }
@@ -2585,7 +2585,7 @@
 \colorlet{blue}{cyan}
 \tikzset{
   inverted/.style = {
-    every path/.style = {draw=white,text=white},
+    color=white,
     background rectangle/.style={fill},
     show background rectangle
   }
@@ -2616,7 +2616,7 @@
 \colorlet{blue}{cyan}
 \tikzset{
   inverted/.style = {
-    every path/.style = {draw=white,text=white},
+    color=white,
     background rectangle/.style={fill},
     show background rectangle
   }
@@ -2656,7 +2656,7 @@
 \colorlet{blue}{cyan}
 \tikzset{
   inverted/.style = {
-    every path/.style = {draw=white,text=white},
+    color=white,
     background rectangle/.style={fill},
     show background rectangle
   }
@@ -2701,7 +2701,7 @@
 \colorlet{blue}{cyan}
 \tikzset{
   inverted/.style = {
-    every path/.style = {draw=white,text=white},
+    color=white,
     background rectangle/.style={fill},
     show background rectangle
   }
@@ -2738,7 +2738,7 @@
 \colorlet{blue}{cyan}
 \tikzset{
   inverted/.style = {
-    every path/.style = {draw=white,text=white},
+    color=white,
     background rectangle/.style={fill},
     show background rectangle
   }
@@ -2781,7 +2781,7 @@
 \colorlet{blue}{cyan}
 \tikzset{
   inverted/.style = {
-    every path/.style = {draw=white,text=white},
+    color=white,
     background rectangle/.style={fill},
     show background rectangle
   }
@@ -2815,7 +2815,7 @@
 \colorlet{blue}{cyan}
 \tikzset{
   inverted/.style = {
-    every path/.style = {draw=white,text=white},
+    color=white,
     background rectangle/.style={fill},
     show background rectangle
   }
@@ -2871,7 +2871,7 @@
 \colorlet{blue}{cyan}
 \tikzset{
   inverted/.style = {
-    every path/.style = {draw=white,text=white},
+    color=white,
     background rectangle/.style={fill},
     show background rectangle
   }
@@ -2927,7 +2927,7 @@
 \colorlet{blue}{cyan}
 \tikzset{
   inverted/.style = {
-    every path/.style = {draw=white,text=white},
+    color=white,
     background rectangle/.style={fill},
     show background rectangle
   }
@@ -2983,7 +2983,7 @@
 \colorlet{blue}{cyan}
 \tikzset{
   inverted/.style = {
-    every path/.style = {draw=white,text=white},
+    color=white,
     background rectangle/.style={fill},
     show background rectangle
   }
@@ -3030,7 +3030,7 @@
 \colorlet{blue}{cyan}
 \tikzset{
   inverted/.style = {
-    every path/.style = {draw=white,text=white},
+    color=white,
     background rectangle/.style={fill},
     show background rectangle
   }
@@ -3062,7 +3062,7 @@
 \colorlet{blue}{cyan}
 \tikzset{
   inverted/.style = {
-    every path/.style = {draw=white,text=white},
+    color=white,
     background rectangle/.style={fill},
     show background rectangle
   }
@@ -3088,7 +3088,7 @@
 \colorlet{blue}{cyan}
 \tikzset{
   inverted/.style = {
-    every path/.style = {draw=white,text=white},
+    color=white,
     background rectangle/.style={fill},
     show background rectangle
   }
@@ -3126,7 +3126,7 @@
 \colorlet{blue}{cyan}
 \tikzset{
   inverted/.style = {
-    every path/.style = {draw=white,text=white},
+    color=white,
     background rectangle/.style={fill},
     show background rectangle
   }
@@ -3151,7 +3151,7 @@
 \colorlet{blue}{cyan}
 \tikzset{
   inverted/.style = {
-    every path/.style = {draw=white,text=white},
+    color=white,
     background rectangle/.style={fill},
     show background rectangle
   }
@@ -3179,7 +3179,7 @@
 \colorlet{blue}{cyan}
 \tikzset{
   inverted/.style = {
-    every path/.style = {draw=white,text=white},
+    color=white,
     background rectangle/.style={fill},
     show background rectangle
   }
@@ -3203,7 +3203,7 @@
 \colorlet{blue}{cyan}
 \tikzset{
   inverted/.style = {
-    every path/.style = {draw=white,text=white},
+    color=white,
     background rectangle/.style={fill},
     show background rectangle
   }
@@ -3228,7 +3228,7 @@
 \colorlet{blue}{cyan}
 \tikzset{
   inverted/.style = {
-    every path/.style = {draw=white,text=white},
+    color=white,
     background rectangle/.style={fill},
     show background rectangle
   }
@@ -3257,7 +3257,7 @@
 \colorlet{blue}{cyan}
 \tikzset{
   inverted/.style = {
-    every path/.style = {draw=white,text=white},
+    color=white,
     background rectangle/.style={fill},
     show background rectangle
   }
@@ -3287,7 +3287,7 @@
 \colorlet{blue}{cyan}
 \tikzset{
   inverted/.style = {
-    every path/.style = {draw=white,text=white},
+    color=white,
     background rectangle/.style={fill},
     show background rectangle
   }
@@ -3321,7 +3321,7 @@
 \colorlet{blue}{cyan}
 \tikzset{
   inverted/.style = {
-    every path/.style = {draw=white,text=white},
+    color=white,
     background rectangle/.style={fill},
     show background rectangle
   }
@@ -3352,7 +3352,7 @@
 \colorlet{blue}{cyan}
 \tikzset{
   inverted/.style = {
-    every path/.style = {draw=white,text=white},
+    color=white,
     background rectangle/.style={fill},
     show background rectangle
   }
@@ -3378,7 +3378,7 @@
 \colorlet{blue}{cyan}
 \tikzset{
   inverted/.style = {
-    every path/.style = {draw=white,text=white},
+    color=white,
     background rectangle/.style={fill},
     show background rectangle
   }
@@ -3409,7 +3409,7 @@
 \colorlet{blue}{cyan}
 \tikzset{
   inverted/.style = {
-    every path/.style = {draw=white,text=white},
+    color=white,
     background rectangle/.style={fill},
     show background rectangle
   }
@@ -3438,7 +3438,7 @@
 \colorlet{blue}{cyan}
 \tikzset{
   inverted/.style = {
-    every path/.style = {draw=white,text=white},
+    color=white,
     background rectangle/.style={fill},
     show background rectangle
   }
@@ -3469,7 +3469,7 @@
 \colorlet{blue}{cyan}
 \tikzset{
   inverted/.style = {
-    every path/.style = {draw=white,text=white},
+    color=white,
     background rectangle/.style={fill},
     show background rectangle
   }
@@ -3499,7 +3499,7 @@
 \colorlet{blue}{cyan}
 \tikzset{
   inverted/.style = {
-    every path/.style = {draw=white,text=white},
+    color=white,
     background rectangle/.style={fill},
     show background rectangle
   }
@@ -3534,7 +3534,7 @@
 \colorlet{blue}{cyan}
 \tikzset{
   inverted/.style = {
-    every path/.style = {draw=white,text=white},
+    color=white,
     background rectangle/.style={fill},
     show background rectangle
   }
@@ -3568,7 +3568,7 @@
 \colorlet{blue}{cyan}
 \tikzset{
   inverted/.style = {
-    every path/.style = {draw=white,text=white},
+    color=white,
     background rectangle/.style={fill},
     show background rectangle
   }
@@ -3604,7 +3604,7 @@
 \colorlet{blue}{cyan}
 \tikzset{
   inverted/.style = {
-    every path/.style = {draw=white,text=white},
+    color=white,
     background rectangle/.style={fill},
     show background rectangle
   }
@@ -3659,7 +3659,7 @@
 \colorlet{blue}{cyan}
 \tikzset{
   inverted/.style = {
-    every path/.style = {draw=white,text=white},
+    color=white,
     background rectangle/.style={fill},
     show background rectangle
   }
@@ -3701,7 +3701,7 @@
 \colorlet{blue}{cyan}
 \tikzset{
   inverted/.style = {
-    every path/.style = {draw=white,text=white},
+    color=white,
     background rectangle/.style={fill},
     show background rectangle
   }
@@ -3746,7 +3746,7 @@
 \colorlet{blue}{cyan}
 \tikzset{
   inverted/.style = {
-    every path/.style = {draw=white,text=white},
+    color=white,
     background rectangle/.style={fill},
     show background rectangle
   }
@@ -3779,7 +3779,7 @@
 \colorlet{blue}{cyan}
 \tikzset{
   inverted/.style = {
-    every path/.style = {draw=white,text=white},
+    color=white,
     background rectangle/.style={fill},
     show background rectangle
   }
@@ -3820,7 +3820,7 @@
 \colorlet{blue}{cyan}
 \tikzset{
   inverted/.style = {
-    every path/.style = {draw=white,text=white},
+    color=white,
     background rectangle/.style={fill},
     show background rectangle
   }
@@ -3859,7 +3859,7 @@
 \colorlet{blue}{cyan}
 \tikzset{
   inverted/.style = {
-    every path/.style = {draw=white,text=white},
+    color=white,
     background rectangle/.style={fill},
     show background rectangle
   }
@@ -3901,7 +3901,7 @@
 \colorlet{blue}{cyan}
 \tikzset{
   inverted/.style = {
-    every path/.style = {draw=white,text=white},
+    color=white,
     background rectangle/.style={fill},
     show background rectangle
   }
@@ -3938,7 +3938,7 @@
 \colorlet{blue}{cyan}
 \tikzset{
   inverted/.style = {
-    every path/.style = {draw=white,text=white},
+    color=white,
     background rectangle/.style={fill},
     show background rectangle
   }
@@ -3969,7 +3969,7 @@
 \colorlet{blue}{cyan}
 \tikzset{
   inverted/.style = {
-    every path/.style = {draw=white,text=white},
+    color=white,
     background rectangle/.style={fill},
     show background rectangle
   }
@@ -4002,7 +4002,7 @@
 \colorlet{blue}{cyan}
 \tikzset{
   inverted/.style = {
-    every path/.style = {draw=white,text=white},
+    color=white,
     background rectangle/.style={fill},
     show background rectangle
   }
@@ -4053,7 +4053,7 @@
 \colorlet{blue}{cyan}
 \tikzset{
   inverted/.style = {
-    every path/.style = {draw=white,text=white},
+    color=white,
     background rectangle/.style={fill},
     show background rectangle
   }
@@ -4097,7 +4097,7 @@
 \colorlet{blue}{cyan}
 \tikzset{
   inverted/.style = {
-    every path/.style = {draw=white,text=white},
+    color=white,
     background rectangle/.style={fill},
     show background rectangle
   }
@@ -4140,7 +4140,7 @@
 \colorlet{blue}{cyan}
 \tikzset{
   inverted/.style = {
-    every path/.style = {draw=white,text=white},
+    color=white,
     background rectangle/.style={fill},
     show background rectangle
   }
@@ -4180,7 +4180,7 @@
 \colorlet{blue}{cyan}
 \tikzset{
   inverted/.style = {
-    every path/.style = {draw=white,text=white},
+    color=white,
     background rectangle/.style={fill},
     show background rectangle
   }
@@ -4219,7 +4219,7 @@
 \colorlet{blue}{cyan}
 \tikzset{
   inverted/.style = {
-    every path/.style = {draw=white,text=white},
+    color=white,
     background rectangle/.style={fill},
     show background rectangle
   }
@@ -4259,7 +4259,7 @@
 \colorlet{blue}{cyan}
 \tikzset{
   inverted/.style = {
-    every path/.style = {draw=white,text=white},
+    color=white,
     background rectangle/.style={fill},
     show background rectangle
   }
@@ -4300,7 +4300,7 @@
 \colorlet{blue}{cyan}
 \tikzset{
   inverted/.style = {
-    every path/.style = {draw=white,text=white},
+    color=white,
     background rectangle/.style={fill},
     show background rectangle
   }
