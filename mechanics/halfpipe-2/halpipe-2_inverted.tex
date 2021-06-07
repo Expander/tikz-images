@@ -1,0 +1,22 @@
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    every path/.style = {draw=white,text=white},
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\begin{document}
+\begin{tikzpicture}[inverted,inverted]
+  \pgfmathsetmacro{\angl}{45}
+  \pgfmathsetmacro{\radius}{2}
+  \pgfmathsetmacro{\circleRadius}{0.2}
+  % track
+  \draw[thick] (-\angl:\radius) arc (-\angl:-180+\angl:\radius);
+  % ball
+  \draw[fill,red] (0,-\radius)+(0,\circleRadius) circle (\circleRadius);
+\end{tikzpicture}%
+\end{document}

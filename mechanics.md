@@ -1090,6 +1090,23 @@
 \end{tikzpicture}%
 \end{document}
 ~~~
+## halpipe-2.svg
+[![halpipe-2.svg](mechanics/halfpipe-2/halpipe-2.svg "halpipe-2.svg")](mechanics/halfpipe-2/halpipe-2.svg) [[PDF]](mechanics/halfpipe-2/halpipe-2.pdf) [[PNG]](mechanics/halfpipe-2/halpipe-2.png) [[SVG]](mechanics/halfpipe-2/halpipe-2.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\begin{document}
+\begin{tikzpicture}
+  \pgfmathsetmacro{\angl}{45}
+  \pgfmathsetmacro{\radius}{2}
+  \pgfmathsetmacro{\circleRadius}{0.2}
+  % track
+  \draw[thick] (-\angl:\radius) arc (-\angl:-180+\angl:\radius);
+  % ball
+  \draw[fill,red] (0,-\radius)+(0,\circleRadius) circle (\circleRadius);
+\end{tikzpicture}%
+\end{document}
+~~~
 ## rotating-sphere.svg
 [![rotating-sphere.svg](mechanics/rotating-sphere/rotating-sphere.svg "rotating-sphere.svg")](mechanics/rotating-sphere/rotating-sphere.svg) [[PDF]](mechanics/rotating-sphere/rotating-sphere.pdf) [[PNG]](mechanics/rotating-sphere/rotating-sphere.png) [[SVG]](mechanics/rotating-sphere/rotating-sphere.svg)
 ~~~.tex
@@ -3245,6 +3262,32 @@
   \draw[fill,red] (ball)+(0,\circleRadius) circle (\circleRadius);
   % height
   \draw[<->,thick] (ball) -- node[right] {$h$} ++(0,{\radius*(-1+cos(\angl))});
+\end{tikzpicture}%
+\end{document}
+~~~
+## halpipe-2_inverted.svg
+[![halpipe-2_inverted.svg](mechanics/halfpipe-2/halpipe-2_inverted.svg "halpipe-2_inverted.svg")](mechanics/halfpipe-2/halpipe-2_inverted.svg) [[PDF]](mechanics/halfpipe-2/halpipe-2_inverted.pdf) [[PNG]](mechanics/halfpipe-2/halpipe-2_inverted.png) [[SVG]](mechanics/halfpipe-2/halpipe-2_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    every path/.style = {draw=white,text=white},
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\begin{document}
+\begin{tikzpicture}[inverted,inverted]
+  \pgfmathsetmacro{\angl}{45}
+  \pgfmathsetmacro{\radius}{2}
+  \pgfmathsetmacro{\circleRadius}{0.2}
+  % track
+  \draw[thick] (-\angl:\radius) arc (-\angl:-180+\angl:\radius);
+  % ball
+  \draw[fill,red] (0,-\radius)+(0,\circleRadius) circle (\circleRadius);
 \end{tikzpicture}%
 \end{document}
 ~~~
