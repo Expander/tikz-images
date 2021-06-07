@@ -783,7 +783,7 @@
 \end{document}
 ~~~
 ## Epot-quadtratic.svg
-[![Epot-quadtratic.svg](mechanics/Epot-linear/Epot-quadtratic/Epot-quadtratic.svg "Epot-quadtratic.svg")](mechanics/Epot-linear/Epot-quadtratic/Epot-quadtratic.svg) [[PDF]](mechanics/Epot-linear/Epot-quadtratic/Epot-quadtratic.pdf) [[PNG]](mechanics/Epot-linear/Epot-quadtratic/Epot-quadtratic.png) [[SVG]](mechanics/Epot-linear/Epot-quadtratic/Epot-quadtratic.svg)
+[![Epot-quadtratic.svg](mechanics/Epot-quadratic/Epot-quadtratic.svg "Epot-quadtratic.svg")](mechanics/Epot-quadratic/Epot-quadtratic.svg) [[PDF]](mechanics/Epot-quadratic/Epot-quadtratic.pdf) [[PNG]](mechanics/Epot-quadratic/Epot-quadtratic.png) [[SVG]](mechanics/Epot-quadratic/Epot-quadtratic.svg)
 ~~~.tex
 \documentclass[crop,tikz]{standalone}
 
@@ -1066,6 +1066,28 @@
   \draw[->,blue] (-1.1,1.25) -- node[above] {$\F_{G,2\to 1}$} +(+0.5,0);
   \draw[->,red]  (+1.1,1.25) -- node[above] {$\F_{G,1\to 2}$} +(-0.5,0);
 \end{tikzpicture}
+\end{document}
+~~~
+## halfpipe-1.svg
+[![halfpipe-1.svg](mechanics/halfpipe-1/halfpipe-1.svg "halfpipe-1.svg")](mechanics/halfpipe-1/halfpipe-1.svg) [[PDF]](mechanics/halfpipe-1/halfpipe-1.pdf) [[PNG]](mechanics/halfpipe-1/halfpipe-1.png) [[SVG]](mechanics/halfpipe-1/halfpipe-1.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\tikzset{>=latex}
+
+\begin{document}
+\begin{tikzpicture}
+  \pgfmathsetmacro{\angl}{45}
+  \pgfmathsetmacro{\radius}{2}
+  \pgfmathsetmacro{\circleRadius}{0.2}
+  \coordinate (ball) at (-\angl:\radius);
+  % track
+  \draw[thick] (ball) arc (-\angl:-180+\angl:\radius);
+  % ball
+  \draw[fill,red] (ball)+(0,\circleRadius) circle (\circleRadius);
+  % height
+  \draw[<->,thick] (ball) -- node[right] {$h$} ++(0,{\radius*(-1+cos(\angl))});
+\end{tikzpicture}%
 \end{document}
 ~~~
 ## rotating-sphere.svg
@@ -2802,7 +2824,7 @@
 \end{document}
 ~~~
 ## Epot-quadtratic_inverted.svg
-[![Epot-quadtratic_inverted.svg](mechanics/Epot-linear/Epot-quadtratic/Epot-quadtratic_inverted.svg "Epot-quadtratic_inverted.svg")](mechanics/Epot-linear/Epot-quadtratic/Epot-quadtratic_inverted.svg) [[PDF]](mechanics/Epot-linear/Epot-quadtratic/Epot-quadtratic_inverted.pdf) [[PNG]](mechanics/Epot-linear/Epot-quadtratic/Epot-quadtratic_inverted.png) [[SVG]](mechanics/Epot-linear/Epot-quadtratic/Epot-quadtratic_inverted.svg)
+[![Epot-quadtratic_inverted.svg](mechanics/Epot-quadratic/Epot-quadtratic_inverted.svg "Epot-quadtratic_inverted.svg")](mechanics/Epot-quadratic/Epot-quadtratic_inverted.svg) [[PDF]](mechanics/Epot-quadratic/Epot-quadtratic_inverted.pdf) [[PNG]](mechanics/Epot-quadratic/Epot-quadtratic_inverted.png) [[SVG]](mechanics/Epot-quadratic/Epot-quadtratic_inverted.svg)
 ~~~.tex
 \documentclass[crop,tikz]{standalone}
 \usetikzlibrary{backgrounds}
@@ -3193,6 +3215,37 @@
   \draw[->,blue] (-1.1,1.25) -- node[above] {$\F_{G,2\to 1}$} +(+0.5,0);
   \draw[->,red]  (+1.1,1.25) -- node[above] {$\F_{G,1\to 2}$} +(-0.5,0);
 \end{tikzpicture}
+\end{document}
+~~~
+## halfpipe-1_inverted.svg
+[![halfpipe-1_inverted.svg](mechanics/halfpipe-1/halfpipe-1_inverted.svg "halfpipe-1_inverted.svg")](mechanics/halfpipe-1/halfpipe-1_inverted.svg) [[PDF]](mechanics/halfpipe-1/halfpipe-1_inverted.pdf) [[PNG]](mechanics/halfpipe-1/halfpipe-1_inverted.png) [[SVG]](mechanics/halfpipe-1/halfpipe-1_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    every path/.style = {draw=white,text=white},
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\tikzset{>=latex}
+
+\begin{document}
+\begin{tikzpicture}[inverted,inverted]
+  \pgfmathsetmacro{\angl}{45}
+  \pgfmathsetmacro{\radius}{2}
+  \pgfmathsetmacro{\circleRadius}{0.2}
+  \coordinate (ball) at (-\angl:\radius);
+  % track
+  \draw[thick] (ball) arc (-\angl:-180+\angl:\radius);
+  % ball
+  \draw[fill,red] (ball)+(0,\circleRadius) circle (\circleRadius);
+  % height
+  \draw[<->,thick] (ball) -- node[right] {$h$} ++(0,{\radius*(-1+cos(\angl))});
+\end{tikzpicture}%
 \end{document}
 ~~~
 ## rotating-sphere_inverted.svg
