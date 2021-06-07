@@ -14,7 +14,7 @@
   \draw[fill=gray] (0,0) -- (2,0) -- (2,{2*tan(\al)}) -- cycle;
   % rotating body
   \coordinate (body) at ($(1,{tan(\al)})+(90+\al:\radius)$);
-  \draw[fill=red!30] (body) circle (\radius);
+  \draw[fill=brown!30] (body) circle (\radius);
   % arrows
   \draw[->,red,thick] (body) -- ++(180+\al:0.7) node[left] {$\vec{v}_S$};
   \coordinate (cube) at ($(body)+(\al:0.7*\radius)$);
