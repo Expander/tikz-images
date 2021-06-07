@@ -107,6 +107,33 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## body-inclined-plane.svg
+[![body-inclined-plane.svg](mechanics/body-inclined-plane/body-inclined-plane.svg "body-inclined-plane.svg")](mechanics/body-inclined-plane/body-inclined-plane.svg) [[PDF]](mechanics/body-inclined-plane/body-inclined-plane.pdf) [[PNG]](mechanics/body-inclined-plane/body-inclined-plane.png) [[SVG]](mechanics/body-inclined-plane/body-inclined-plane.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\tikzset{>=latex}
+\usetikzlibrary{calc}
+\colorlet{gray}{gray!20}
+
+\begin{document}
+\begin{tikzpicture}[scale=2]
+  \pgfmathsetmacro{\al}{atan(0.5)} % angle
+  \pgfmathsetmacro{\sa}{sin(\al)}; % sin(angle)
+  \pgfmathsetmacro{\ca}{cos(\al)}; % cos(angle)
+  \pgfmathsetmacro{\radius}{0.3};  % radius
+  % inclined plane
+  \draw[fill=gray] (0,0) -- (2,0) -- (2,{2*tan(\al)}) -- cycle;
+  % rotating body
+  \coordinate (body) at ($(1,{tan(\al)})+(90+\al:\radius)$);
+  \draw[fill=red!30] (body) circle (\radius);
+  % arrows
+  \draw[->,red,thick] (body) -- ++(180+\al:0.7) node[left] {$\vec{v}_S$};
+  \draw[->,blue,thick] (body)++(\al:0.7*\radius) arc (\al:180:0.7*\radius);
+  \node[below,blue] at ($(body)+(\al:0.7*\radius)$) {$\vec{\omega}$};
+\end{tikzpicture}%
+\end{document}
+~~~
 ## car-forces-initial-frame.svg
 [![car-forces-initial-frame.svg](mechanics/car-forces-initial-frame/car-forces-initial-frame.svg "car-forces-initial-frame.svg")](mechanics/car-forces-initial-frame/car-forces-initial-frame.svg) [[PDF]](mechanics/car-forces-initial-frame/car-forces-initial-frame.pdf) [[PNG]](mechanics/car-forces-initial-frame/car-forces-initial-frame.png) [[SVG]](mechanics/car-forces-initial-frame/car-forces-initial-frame.svg)
 ~~~.tex
@@ -1974,6 +2001,42 @@
     \draw[->,brown,line width=2pt] (wheel1)++(\a:\WheelRadiusOuter) -- ++(\a-90:2cm);
   }
 \end{tikzpicture}
+\end{document}
+~~~
+## body-inclined-plane_inverted.svg
+[![body-inclined-plane_inverted.svg](mechanics/body-inclined-plane/body-inclined-plane_inverted.svg "body-inclined-plane_inverted.svg")](mechanics/body-inclined-plane/body-inclined-plane_inverted.svg) [[PDF]](mechanics/body-inclined-plane/body-inclined-plane_inverted.pdf) [[PNG]](mechanics/body-inclined-plane/body-inclined-plane_inverted.png) [[SVG]](mechanics/body-inclined-plane/body-inclined-plane_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    every path/.style = {draw=white,text=white},
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\tikzset{>=latex}
+\usetikzlibrary{calc}
+\colorlet{gray}{gray!60}
+
+\begin{document}
+\begin{tikzpicture}[inverted,scale=2]
+  \pgfmathsetmacro{\al}{atan(0.5)} % angle
+  \pgfmathsetmacro{\sa}{sin(\al)}; % sin(angle)
+  \pgfmathsetmacro{\ca}{cos(\al)}; % cos(angle)
+  \pgfmathsetmacro{\radius}{0.3};  % radius
+  % inclined plane
+  \draw[fill=gray] (0,0) -- (2,0) -- (2,{2*tan(\al)}) -- cycle;
+  % rotating body
+  \coordinate (body) at ($(1,{tan(\al)})+(90+\al:\radius)$);
+  \draw[fill=red!30] (body) circle (\radius);
+  % arrows
+  \draw[->,red,thick] (body) -- ++(180+\al:0.7) node[left] {$\vec{v}_S$};
+  \draw[->,blue,thick] (body)++(\al:0.7*\radius) arc (\al:180:0.7*\radius);
+  \node[below,blue] at ($(body)+(\al:0.7*\radius)$) {$\vec{\omega}$};
+\end{tikzpicture}%
 \end{document}
 ~~~
 ## car-forces-initial-frame_inverted.svg
