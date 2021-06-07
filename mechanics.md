@@ -688,6 +688,51 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## Epot-gravity.svg
+[![Epot-gravity.svg](mechanics/Epot-gravity/Epot-gravity.svg "Epot-gravity.svg")](mechanics/Epot-gravity/Epot-gravity.svg) [[PDF]](mechanics/Epot-gravity/Epot-gravity.pdf) [[PNG]](mechanics/Epot-gravity/Epot-gravity.png) [[SVG]](mechanics/Epot-gravity/Epot-gravity.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\usepackage{amsmath}
+\usepackage{pgfplots}
+
+\tikzset{>=latex}
+\pgfplotsset{
+  compat=1.16,
+  every non boxed x axis/.append style={
+    axis line style={-latex}
+  },
+  every non boxed y axis/.append style={
+    axis line style={-latex}
+  }
+}
+
+\begin{document}
+\begin{tikzpicture}
+  \begin{axis}[
+    thick,
+    width=7cm,
+    height=6cm,
+    domain=0.1:4.6,
+    xmin=0, xmax=5,
+    ymin=-2, ymax=0.2,
+    samples=200,
+    xlabel={$r$},
+    ylabel={$E_\text{pot}$},
+    axis x line=center,
+    axis y line=center,
+    xlabel style={right},
+    ylabel style={above},
+    xtick={\empty},
+    xticklabels={},
+    ytick={\empty},
+    yticklabels={},
+    ]
+    \addplot[mark=none,red] {-1/x};
+  \end{axis}
+\end{tikzpicture}%
+\end{document}
+~~~
 ## Epot-linear.svg
 [![Epot-linear.svg](mechanics/Epot-linear/Epot-linear.svg "Epot-linear.svg")](mechanics/Epot-linear/Epot-linear.svg) [[PDF]](mechanics/Epot-linear/Epot-linear.pdf) [[PNG]](mechanics/Epot-linear/Epot-linear.png) [[SVG]](mechanics/Epot-linear/Epot-linear.svg)
 ~~~.tex
@@ -2591,6 +2636,60 @@
   \node[above,blue] at (r) {$\times$};
   \node[above,blue,xshift=0.7em,yshift=0.7em] at (r) {$\F_\text{Co}$};
 \end{tikzpicture}
+\end{document}
+~~~
+## Epot-gravity_inverted.svg
+[![Epot-gravity_inverted.svg](mechanics/Epot-gravity/Epot-gravity_inverted.svg "Epot-gravity_inverted.svg")](mechanics/Epot-gravity/Epot-gravity_inverted.svg) [[PDF]](mechanics/Epot-gravity/Epot-gravity_inverted.pdf) [[PNG]](mechanics/Epot-gravity/Epot-gravity_inverted.png) [[SVG]](mechanics/Epot-gravity/Epot-gravity_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    every path/.style = {draw=white,text=white},
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\usepackage{amsmath}
+\usepackage{pgfplots}
+
+\tikzset{>=latex}
+\pgfplotsset{
+  compat=1.16,
+  every non boxed x axis/.append style={
+    axis line style={-latex}
+  },
+  every non boxed y axis/.append style={
+    axis line style={-latex}
+  }
+}
+
+\begin{document}
+\begin{tikzpicture}[inverted,inverted]
+  \begin{axis}[
+    thick,
+    width=7cm,
+    height=6cm,
+    domain=0.1:4.6,
+    xmin=0, xmax=5,
+    ymin=-2, ymax=0.2,
+    samples=200,
+    xlabel={$r$},
+    ylabel={$E_\text{pot}$},
+    axis x line=center,
+    axis y line=center,
+    xlabel style={right},
+    ylabel style={above},
+    xtick={\empty},
+    xticklabels={},
+    ytick={\empty},
+    yticklabels={},
+    ]
+    \addplot[mark=none,red] {-1/x};
+  \end{axis}
+\end{tikzpicture}%
 \end{document}
 ~~~
 ## Epot-linear_inverted.svg
