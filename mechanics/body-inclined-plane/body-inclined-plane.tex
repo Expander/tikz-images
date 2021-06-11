@@ -7,8 +7,6 @@
 \begin{document}
 \begin{tikzpicture}[scale=2]
   \pgfmathsetmacro{\al}{atan(0.5)} % angle
-  \pgfmathsetmacro{\sa}{sin(\al)}; % sin(angle)
-  \pgfmathsetmacro{\ca}{cos(\al)}; % cos(angle)
   \pgfmathsetmacro{\radius}{0.3};  % radius
   % inclined plane
   \draw[fill=gray] (0,0) -- (2,0) -- (2,{2*tan(\al)}) -- cycle;
