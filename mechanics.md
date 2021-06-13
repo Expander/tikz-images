@@ -1814,6 +1814,31 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## work-hub.svg
+[![work-hub.svg](mechanics/work-hub/work-hub.svg "work-hub.svg")](mechanics/work-hub/work-hub.svg) [[PDF]](mechanics/work-hub/work-hub.pdf) [[PNG]](mechanics/work-hub/work-hub.png) [[SVG]](mechanics/work-hub/work-hub.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\usepackage{amsmath}
+\tikzset{>=latex}
+\usetikzlibrary{calc,patterns}
+\colorlet{green}{black!40!green}
+\newcommand{\Fg}{\vec{F}_g}
+\newcommand{\vs}{\vec{s}}
+
+\begin{document}
+\begin{tikzpicture}[scale=1.5]
+  \draw[->] (1,0) -- (1,2) node[left] {$z$};
+  \draw[] (0.95,1) node[left] {$h$} -- +(0.1,0);
+  \coordinate (K) at (1.4,0.1);
+  \draw[fill=gray!20] ($(K)+(-0.2,-0.1)$) rectangle ($(K)+(+0.2,0.1)$) node[above right] {$m$};
+  \draw[red,->] (K) -- +(0,0.9) node[right] {$\vs$};
+  \draw[blue,->] (K) -- +(0,-1) node[right] {$\Fg$};
+  \draw (0,0) -- (2,0);
+  \pattern[pattern=north east lines] (0,0)--(2,0)--(2,-0.2)--(0,-0.2)--cycle;
+\end{tikzpicture}
+\end{document}
+~~~
 ## work.svg
 [![work.svg](mechanics/work/work.svg "work.svg")](mechanics/work/work.svg) [[PDF]](mechanics/work/work.pdf) [[PNG]](mechanics/work/work.png) [[SVG]](mechanics/work/work.svg)
 ~~~.tex
@@ -4278,6 +4303,40 @@
   \draw[->,thick,red]  (xyz cs:x=0) -- node[above,xshift=-1em]{$\place(t)$} (r1);
   % velocity
   \draw[->,thick,blue] (r1) -- node[above,xshift=0.5em]{$\velocity(t)$} ++(-20:1.5);
+\end{tikzpicture}
+\end{document}
+~~~
+## work-hub_inverted.svg
+[![work-hub_inverted.svg](mechanics/work-hub/work-hub_inverted.svg "work-hub_inverted.svg")](mechanics/work-hub/work-hub_inverted.svg) [[PDF]](mechanics/work-hub/work-hub_inverted.pdf) [[PNG]](mechanics/work-hub/work-hub_inverted.png) [[SVG]](mechanics/work-hub/work-hub_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    color=white,
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\usepackage{amsmath}
+\tikzset{>=latex}
+\usetikzlibrary{calc,patterns}
+\colorlet{green}{green}
+\newcommand{\Fg}{\vec{F}_g}
+\newcommand{\vs}{\vec{s}}
+
+\begin{document}
+\begin{tikzpicture}[inverted,scale=1.5]
+  \draw[->] (1,0) -- (1,2) node[left] {$z$};
+  \draw[] (0.95,1) node[left] {$h$} -- +(0.1,0);
+  \coordinate (K) at (1.4,0.1);
+  \draw[fill=gray!60] ($(K)+(-0.2,-0.1)$) rectangle ($(K)+(+0.2,0.1)$) node[above right] {$m$};
+  \draw[red,->] (K) -- +(0,0.9) node[right] {$\vs$};
+  \draw[blue,->] (K) -- +(0,-1) node[right] {$\Fg$};
+  \draw (0,0) -- (2,0);
+  \pattern[pattern=north east lines] (0,0)--(2,0)--(2,-0.2)--(0,-0.2)--cycle;
 \end{tikzpicture}
 \end{document}
 ~~~
