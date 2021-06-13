@@ -1172,9 +1172,7 @@
   ]
   \addplot[red,smooth] { sin(deg(x)) };
 \end{axis}
-\end{tikzpicture}
 %
-\begin{tikzpicture}
 \begin{axis}[
   thick,
   width=6cm,
@@ -1192,15 +1190,14 @@
   xticklabels={\empty},
   ytick={\empty},
   yticklabels={\empty},
+  at={(0,-1.5cm)},
   ]
   \addplot[blue,smooth,domain=0:{2*pi}] { x/(pi)-1 };
   \draw[blue,dashed] (axis cs:2*pi,-1) -- (axis cs:2*pi,1);
   \addplot[blue,smooth,domain={2*pi}:{4*pi}] { (x-2*pi)/(pi)-1 };
   \draw[blue,dashed] (axis cs:4*pi,-1) -- (axis cs:4*pi,1);
 \end{axis}
-\end{tikzpicture}
 %
-\begin{tikzpicture}
 \begin{axis}[
   thick,
   width=6cm,
@@ -1218,6 +1215,7 @@
   xticklabels={\empty},
   ytick={\empty},
   yticklabels={\empty},
+  at={(0,-3cm)},
   ]
   \addplot[green,smooth,domain=0:{pi}] { 1 };
   \draw[green,dashed] (axis cs:pi,-1) -- (axis cs:pi,1);
@@ -1228,9 +1226,7 @@
   \addplot[green,smooth,domain={3*pi}:{4*pi}] { -1 };
   \draw[green,dashed] (axis cs:4*pi,-1) -- (axis cs:4*pi,1);
 \end{axis}
-\end{tikzpicture}
 %
-\begin{tikzpicture}
 \begin{axis}[
   thick,
   width=6cm,
@@ -1248,6 +1244,7 @@
   xticklabels={\empty},
   ytick={\empty},
   yticklabels={\empty},
+  at={(0,-4.5cm)},
   ]
   \addplot[brown,smooth,domain=0:{pi/2}         ] { +x/(pi/2)+0 };
   \addplot[brown,smooth,domain={pi/2}:{3/2*pi}  ] { -x/(pi/2)+2 };
@@ -3775,9 +3772,7 @@
   ]
   \addplot[red,smooth] { sin(deg(x)) };
 \end{axis}
-\end{tikzpicture}
 %
-\begin{tikzpicture}[inverted,inverted]
 \begin{axis}[
   thick,
   width=6cm,
@@ -3795,15 +3790,14 @@
   xticklabels={\empty},
   ytick={\empty},
   yticklabels={\empty},
+  at={(0,-1.5cm)},
   ]
   \addplot[blue,smooth,domain=0:{2*pi}] { x/(pi)-1 };
   \draw[blue,dashed] (axis cs:2*pi,-1) -- (axis cs:2*pi,1);
   \addplot[blue,smooth,domain={2*pi}:{4*pi}] { (x-2*pi)/(pi)-1 };
   \draw[blue,dashed] (axis cs:4*pi,-1) -- (axis cs:4*pi,1);
 \end{axis}
-\end{tikzpicture}
 %
-\begin{tikzpicture}[inverted,inverted]
 \begin{axis}[
   thick,
   width=6cm,
@@ -3821,6 +3815,7 @@
   xticklabels={\empty},
   ytick={\empty},
   yticklabels={\empty},
+  at={(0,-3cm)},
   ]
   \addplot[green,smooth,domain=0:{pi}] { 1 };
   \draw[green,dashed] (axis cs:pi,-1) -- (axis cs:pi,1);
@@ -3831,9 +3826,7 @@
   \addplot[green,smooth,domain={3*pi}:{4*pi}] { -1 };
   \draw[green,dashed] (axis cs:4*pi,-1) -- (axis cs:4*pi,1);
 \end{axis}
-\end{tikzpicture}
 %
-\begin{tikzpicture}[inverted,inverted]
 \begin{axis}[
   thick,
   width=6cm,
@@ -3851,6 +3844,7 @@
   xticklabels={\empty},
   ytick={\empty},
   yticklabels={\empty},
+  at={(0,-4.5cm)},
   ]
   \addplot[brown,smooth,domain=0:{pi/2}         ] { +x/(pi/2)+0 };
   \addplot[brown,smooth,domain={pi/2}:{3/2*pi}  ] { -x/(pi/2)+2 };
