@@ -1481,6 +1481,84 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## sine-frequency.svg
+[![sine-frequency.svg](mechanics/sine-frequency/sine-frequency.svg "sine-frequency.svg")](mechanics/sine-frequency/sine-frequency.svg) [[PDF]](mechanics/sine-frequency/sine-frequency.pdf) [[PNG]](mechanics/sine-frequency/sine-frequency.png) [[SVG]](mechanics/sine-frequency/sine-frequency.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\usepackage{pgfplots}
+\tikzset{>=latex}
+
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[
+  very thick,
+  width=9cm,
+  height=6cm,
+  domain={0}:{2*pi},
+  samples=50,
+  axis y line=middle,
+  axis x line=middle,
+  xlabel={$t$},
+  ylabel={$x$},
+  xlabel style={right},
+  ylabel style={above},
+  xmin=0, xmax={2.1*pi},
+  ymin=-2.1, ymax=2.1,
+  xtick={\empty},
+  xticklabels={\empty},
+  ytick={\empty},
+  yticklabels={\empty},
+  legend cell align={left},
+  legend style={at={(1,1)},anchor=north east}
+  ]
+  \addplot[blue,smooth] { sin(deg(x)) };
+  \addlegendentry{$A\sin(\omega_0 t)$};
+  \addplot[red,smooth,densely dashed] { sin(deg(2*x)) };
+  \addlegendentry{$A\sin(2\omega_0 t)$};
+\end{axis}
+\end{tikzpicture}
+\end{document}
+~~~
+## sine-phase.svg
+[![sine-phase.svg](mechanics/sine-phase/sine-phase.svg "sine-phase.svg")](mechanics/sine-phase/sine-phase.svg) [[PDF]](mechanics/sine-phase/sine-phase.pdf) [[PNG]](mechanics/sine-phase/sine-phase.png) [[SVG]](mechanics/sine-phase/sine-phase.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\usepackage{pgfplots}
+\tikzset{>=latex}
+
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[
+  very thick,
+  width=9cm,
+  height=6cm,
+  domain={0}:{2*pi},
+  samples=50,
+  axis y line=middle,
+  axis x line=middle,
+  xlabel={$t$},
+  ylabel={$x$},
+  xlabel style={right},
+  ylabel style={above},
+  xmin=0, xmax={2.1*pi},
+  ymin=-2.1, ymax=2.1,
+  xtick={\empty},
+  xticklabels={\empty},
+  ytick={\empty},
+  yticklabels={\empty},
+  legend cell align={left},
+  legend style={at={(1,1)},anchor=north east}
+  ]
+  \addplot[blue,smooth] { sin(deg(x)) };
+  \addlegendentry{$A\sin(\omega_0 t)$};
+  \addplot[red,smooth,densely dashed] { sin(deg(x+pi/2)) };
+  \addlegendentry{$A\sin(\omega_0 t + \pi/2)$};
+\end{axis}
+\end{tikzpicture}
+\end{document}
+~~~
 ## sine.svg
 [![sine.svg](mechanics/sine/sine.svg "sine.svg")](mechanics/sine/sine.svg) [[PDF]](mechanics/sine/sine.pdf) [[PNG]](mechanics/sine/sine.png) [[SVG]](mechanics/sine/sine.svg)
 ~~~.tex
@@ -3983,6 +4061,102 @@
   \addlegendentry{$A\sin(\omega_0 t)$};
   \addplot[red,smooth,densely dashed] { 2*sin(deg(x)) };
   \addlegendentry{$2A\sin(\omega_0 t)$};
+\end{axis}
+\end{tikzpicture}
+\end{document}
+~~~
+## sine-frequency_inverted.svg
+[![sine-frequency_inverted.svg](mechanics/sine-frequency/sine-frequency_inverted.svg "sine-frequency_inverted.svg")](mechanics/sine-frequency/sine-frequency_inverted.svg) [[PDF]](mechanics/sine-frequency/sine-frequency_inverted.pdf) [[PNG]](mechanics/sine-frequency/sine-frequency_inverted.png) [[SVG]](mechanics/sine-frequency/sine-frequency_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    color=white,
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\usepackage{pgfplots}
+\tikzset{>=latex}
+
+\begin{document}
+\begin{tikzpicture}[inverted,inverted]
+\begin{axis}[
+  very thick,
+  width=9cm,
+  height=6cm,
+  domain={0}:{2*pi},
+  samples=50,
+  axis y line=middle,
+  axis x line=middle,
+  xlabel={$t$},
+  ylabel={$x$},
+  xlabel style={right},
+  ylabel style={above},
+  xmin=0, xmax={2.1*pi},
+  ymin=-2.1, ymax=2.1,
+  xtick={\empty},
+  xticklabels={\empty},
+  ytick={\empty},
+  yticklabels={\empty},
+  legend cell align={left},
+  legend style={at={(1,1)},anchor=north east}
+  ]
+  \addplot[blue,smooth] { sin(deg(x)) };
+  \addlegendentry{$A\sin(\omega_0 t)$};
+  \addplot[red,smooth,densely dashed] { sin(deg(2*x)) };
+  \addlegendentry{$A\sin(2\omega_0 t)$};
+\end{axis}
+\end{tikzpicture}
+\end{document}
+~~~
+## sine-phase_inverted.svg
+[![sine-phase_inverted.svg](mechanics/sine-phase/sine-phase_inverted.svg "sine-phase_inverted.svg")](mechanics/sine-phase/sine-phase_inverted.svg) [[PDF]](mechanics/sine-phase/sine-phase_inverted.pdf) [[PNG]](mechanics/sine-phase/sine-phase_inverted.png) [[SVG]](mechanics/sine-phase/sine-phase_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    color=white,
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\usepackage{pgfplots}
+\tikzset{>=latex}
+
+\begin{document}
+\begin{tikzpicture}[inverted,inverted]
+\begin{axis}[
+  very thick,
+  width=9cm,
+  height=6cm,
+  domain={0}:{2*pi},
+  samples=50,
+  axis y line=middle,
+  axis x line=middle,
+  xlabel={$t$},
+  ylabel={$x$},
+  xlabel style={right},
+  ylabel style={above},
+  xmin=0, xmax={2.1*pi},
+  ymin=-2.1, ymax=2.1,
+  xtick={\empty},
+  xticklabels={\empty},
+  ytick={\empty},
+  yticklabels={\empty},
+  legend cell align={left},
+  legend style={at={(1,1)},anchor=north east}
+  ]
+  \addplot[blue,smooth] { sin(deg(x)) };
+  \addlegendentry{$A\sin(\omega_0 t)$};
+  \addplot[red,smooth,densely dashed] { sin(deg(x+pi/2)) };
+  \addlegendentry{$A\sin(\omega_0 t + \pi/2)$};
 \end{axis}
 \end{tikzpicture}
 \end{document}
