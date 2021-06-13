@@ -1814,6 +1814,41 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## wagon.svg
+[![wagon.svg](mechanics/wagon/wagon.svg "wagon.svg")](mechanics/wagon/wagon.svg) [[PDF]](mechanics/wagon/wagon.pdf) [[PNG]](mechanics/wagon/wagon.png) [[SVG]](mechanics/wagon/wagon.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\usepackage{amsmath}
+\tikzset{>=latex}
+\usetikzlibrary{calc,patterns}
+\newcommand{\F}{\vec{F}}
+\newcommand{\ort}{\vec{r}}
+\newcommand{\vs}{\vec{s}}
+
+\begin{document}
+\begin{tikzpicture}[scale=1.5]
+  \pgfmathsetmacro{\angl}{30}
+  \pgfmathsetmacro{\wheel}{0.2}
+  \pattern[pattern=north east lines] (-1,0)--++(0,-0.2)--++(4,0)--++(0,0.2)--cycle;
+  \draw (-1,0) -- ++(4,0);
+  \draw[fill=gray!20] (0.5,\wheel) circle (\wheel);
+  \draw[fill=gray!20] (1.5,\wheel) circle (\wheel);
+  \draw[fill=gray!20] (0,2*\wheel) rectangle (2,1+2*\wheel);
+  \coordinate (C) at (1,2*\wheel+0.5);
+  \coordinate (Z) at (3,2*\wheel+0.5);
+  \draw[->,blue] (C) -- ++(\angl:1.5) node[right] {$\F$};
+  \draw[->,red]  (C) -- (Z) node[below] {$\vs$};
+  \draw (C)+(0:0.7) arc (0:\angl:0.7);
+  \node at ($(C)+({\angl/2}:0.55)$) {$\vartheta$};
+  \draw[<->] (1,-0.4) -- node[below] {$\ell$} +(2,0);
+  \coordinate (O) at (2.5,3);
+  \node[above] at (O) {$O$};
+  \draw[->] (O) -- node[left] {$\ort_1$} (C);
+  \draw[->] (O) -- node[right] {$\ort_2$} (Z);
+\end{tikzpicture}
+\end{document}
+~~~
 ## work-hub.svg
 [![work-hub.svg](mechanics/work-hub/work-hub.svg "work-hub.svg")](mechanics/work-hub/work-hub.svg) [[PDF]](mechanics/work-hub/work-hub.pdf) [[PNG]](mechanics/work-hub/work-hub.png) [[SVG]](mechanics/work-hub/work-hub.svg)
 ~~~.tex
@@ -4303,6 +4338,50 @@
   \draw[->,thick,red]  (xyz cs:x=0) -- node[above,xshift=-1em]{$\place(t)$} (r1);
   % velocity
   \draw[->,thick,blue] (r1) -- node[above,xshift=0.5em]{$\velocity(t)$} ++(-20:1.5);
+\end{tikzpicture}
+\end{document}
+~~~
+## wagon_inverted.svg
+[![wagon_inverted.svg](mechanics/wagon/wagon_inverted.svg "wagon_inverted.svg")](mechanics/wagon/wagon_inverted.svg) [[PDF]](mechanics/wagon/wagon_inverted.pdf) [[PNG]](mechanics/wagon/wagon_inverted.png) [[SVG]](mechanics/wagon/wagon_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    color=white,
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\usepackage{amsmath}
+\tikzset{>=latex}
+\usetikzlibrary{calc,patterns}
+\newcommand{\F}{\vec{F}}
+\newcommand{\ort}{\vec{r}}
+\newcommand{\vs}{\vec{s}}
+
+\begin{document}
+\begin{tikzpicture}[inverted,scale=1.5]
+  \pgfmathsetmacro{\angl}{30}
+  \pgfmathsetmacro{\wheel}{0.2}
+  \pattern[pattern=north east lines] (-1,0)--++(0,-0.2)--++(4,0)--++(0,0.2)--cycle;
+  \draw (-1,0) -- ++(4,0);
+  \draw[fill=gray!60] (0.5,\wheel) circle (\wheel);
+  \draw[fill=gray!60] (1.5,\wheel) circle (\wheel);
+  \draw[fill=gray!60] (0,2*\wheel) rectangle (2,1+2*\wheel);
+  \coordinate (C) at (1,2*\wheel+0.5);
+  \coordinate (Z) at (3,2*\wheel+0.5);
+  \draw[->,blue] (C) -- ++(\angl:1.5) node[right] {$\F$};
+  \draw[->,red]  (C) -- (Z) node[below] {$\vs$};
+  \draw (C)+(0:0.7) arc (0:\angl:0.7);
+  \node at ($(C)+({\angl/2}:0.55)$) {$\vartheta$};
+  \draw[<->] (1,-0.4) -- node[below] {$\ell$} +(2,0);
+  \coordinate (O) at (2.5,3);
+  \node[above] at (O) {$O$};
+  \draw[->] (O) -- node[left] {$\ort_1$} (C);
+  \draw[->] (O) -- node[right] {$\ort_2$} (Z);
 \end{tikzpicture}
 \end{document}
 ~~~
