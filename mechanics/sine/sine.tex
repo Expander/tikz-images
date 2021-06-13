@@ -1,0 +1,34 @@
+\documentclass[crop,tikz]{standalone}
+
+\usepackage{pgfplots}
+\tikzset{>=latex}
+
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[
+  thick,
+  width=6cm,
+  height=4cm,
+  domain={0}:{2*pi},
+  samples=50,
+  axis y line=middle,
+  axis x line=middle,
+  xlabel={$t$},
+  ylabel={$x$},
+  xlabel style={right},
+  ylabel style={above},
+  xmin=0, xmax={2.1*pi},
+  ymin=-2.1, ymax=1.1,
+  xtick={\empty},
+  xticklabels={\empty},
+  ytick={\empty},
+  yticklabels={\empty},
+  legend cell align={right},
+  legend style={at={(1,1)},anchor=north east}
+  ]
+  \addplot[red,smooth] { sin(deg(x)) };
+  \draw[<->] (axis cs:0,-2) -- node[above] {$T$} (axis cs:2*pi,-2);
+  \draw[<->,blue] (axis cs:pi/2,0) -- node[right] {$A$} (axis cs:pi/2,1);
+\end{axis}
+\end{tikzpicture}
+\end{document}

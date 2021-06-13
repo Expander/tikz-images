@@ -1442,6 +1442,83 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## sine-amp.svg
+[![sine-amp.svg](mechanics/sine-amp/sine-amp.svg "sine-amp.svg")](mechanics/sine-amp/sine-amp.svg) [[PDF]](mechanics/sine-amp/sine-amp.pdf) [[PNG]](mechanics/sine-amp/sine-amp.png) [[SVG]](mechanics/sine-amp/sine-amp.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\usepackage{pgfplots}
+\tikzset{>=latex}
+
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[
+  very thick,
+  width=9cm,
+  height=6cm,
+  domain={0}:{2*pi},
+  samples=50,
+  axis y line=middle,
+  axis x line=middle,
+  xlabel={$t$},
+  ylabel={$x$},
+  xlabel style={right},
+  ylabel style={above},
+  xmin=0, xmax={2.1*pi},
+  ymin=-2.1, ymax=2.1,
+  xtick={\empty},
+  xticklabels={\empty},
+  ytick={\empty},
+  yticklabels={\empty},
+  legend cell align={right},
+  legend style={at={(1,1)},anchor=north east}
+  ]
+  \addplot[blue,smooth] { sin(deg(x)) };
+  \addlegendentry{$A\sin(\omega_0 t)$};
+  \addplot[red,smooth,densely dashed] { 2*sin(deg(x)) };
+  \addlegendentry{$2A\sin(\omega_0 t)$};
+\end{axis}
+\end{tikzpicture}
+\end{document}
+~~~
+## sine.svg
+[![sine.svg](mechanics/sine/sine.svg "sine.svg")](mechanics/sine/sine.svg) [[PDF]](mechanics/sine/sine.pdf) [[PNG]](mechanics/sine/sine.png) [[SVG]](mechanics/sine/sine.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\usepackage{pgfplots}
+\tikzset{>=latex}
+
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[
+  thick,
+  width=6cm,
+  height=4cm,
+  domain={0}:{2*pi},
+  samples=50,
+  axis y line=middle,
+  axis x line=middle,
+  xlabel={$t$},
+  ylabel={$x$},
+  xlabel style={right},
+  ylabel style={above},
+  xmin=0, xmax={2.1*pi},
+  ymin=-2.1, ymax=1.1,
+  xtick={\empty},
+  xticklabels={\empty},
+  ytick={\empty},
+  yticklabels={\empty},
+  legend cell align={right},
+  legend style={at={(1,1)},anchor=north east}
+  ]
+  \addplot[red,smooth] { sin(deg(x)) };
+  \draw[<->] (axis cs:0,-2) -- node[above] {$T$} (axis cs:2*pi,-2);
+  \draw[<->,blue] (axis cs:pi/2,0) -- node[right] {$A$} (axis cs:pi/2,1);
+\end{axis}
+\end{tikzpicture}
+\end{document}
+~~~
 ## space-point-2-delta.svg
 [![space-point-2-delta.svg](mechanics/space-point-2-delta/space-point-2-delta.svg "space-point-2-delta.svg")](mechanics/space-point-2-delta/space-point-2-delta.svg) [[PDF]](mechanics/space-point-2-delta/space-point-2-delta.pdf) [[PNG]](mechanics/space-point-2-delta/space-point-2-delta.png) [[SVG]](mechanics/space-point-2-delta/space-point-2-delta.svg)
 ~~~.tex
@@ -3859,6 +3936,101 @@
   \draw[->,red,very thick] (0:1) -- +(90:1) node[right]{C};
   \draw[->,red,very thick] (0:1) arc (0:60:1 and 1.4) node[above]{D};
   \draw[->,red,very thick] (0:1) arc (0:90:1) node[above]{E};
+\end{tikzpicture}
+\end{document}
+~~~
+## sine-amp_inverted.svg
+[![sine-amp_inverted.svg](mechanics/sine-amp/sine-amp_inverted.svg "sine-amp_inverted.svg")](mechanics/sine-amp/sine-amp_inverted.svg) [[PDF]](mechanics/sine-amp/sine-amp_inverted.pdf) [[PNG]](mechanics/sine-amp/sine-amp_inverted.png) [[SVG]](mechanics/sine-amp/sine-amp_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    color=white,
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\usepackage{pgfplots}
+\tikzset{>=latex}
+
+\begin{document}
+\begin{tikzpicture}[inverted,inverted]
+\begin{axis}[
+  very thick,
+  width=9cm,
+  height=6cm,
+  domain={0}:{2*pi},
+  samples=50,
+  axis y line=middle,
+  axis x line=middle,
+  xlabel={$t$},
+  ylabel={$x$},
+  xlabel style={right},
+  ylabel style={above},
+  xmin=0, xmax={2.1*pi},
+  ymin=-2.1, ymax=2.1,
+  xtick={\empty},
+  xticklabels={\empty},
+  ytick={\empty},
+  yticklabels={\empty},
+  legend cell align={right},
+  legend style={at={(1,1)},anchor=north east}
+  ]
+  \addplot[blue,smooth] { sin(deg(x)) };
+  \addlegendentry{$A\sin(\omega_0 t)$};
+  \addplot[red,smooth,densely dashed] { 2*sin(deg(x)) };
+  \addlegendentry{$2A\sin(\omega_0 t)$};
+\end{axis}
+\end{tikzpicture}
+\end{document}
+~~~
+## sine_inverted.svg
+[![sine_inverted.svg](mechanics/sine/sine_inverted.svg "sine_inverted.svg")](mechanics/sine/sine_inverted.svg) [[PDF]](mechanics/sine/sine_inverted.pdf) [[PNG]](mechanics/sine/sine_inverted.png) [[SVG]](mechanics/sine/sine_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    color=white,
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\usepackage{pgfplots}
+\tikzset{>=latex}
+
+\begin{document}
+\begin{tikzpicture}[inverted,inverted]
+\begin{axis}[
+  thick,
+  width=6cm,
+  height=4cm,
+  domain={0}:{2*pi},
+  samples=50,
+  axis y line=middle,
+  axis x line=middle,
+  xlabel={$t$},
+  ylabel={$x$},
+  xlabel style={right},
+  ylabel style={above},
+  xmin=0, xmax={2.1*pi},
+  ymin=-2.1, ymax=1.1,
+  xtick={\empty},
+  xticklabels={\empty},
+  ytick={\empty},
+  yticklabels={\empty},
+  legend cell align={right},
+  legend style={at={(1,1)},anchor=north east}
+  ]
+  \addplot[red,smooth] { sin(deg(x)) };
+  \draw[<->] (axis cs:0,-2) -- node[above] {$T$} (axis cs:2*pi,-2);
+  \draw[<->,blue] (axis cs:pi/2,0) -- node[right] {$A$} (axis cs:pi/2,1);
+\end{axis}
 \end{tikzpicture}
 \end{document}
 ~~~
