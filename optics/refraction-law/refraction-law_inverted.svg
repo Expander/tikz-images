@@ -105,7 +105,7 @@
   <use xlink:href="#glyph0-8" x="223.369527" y="119.284"/>
 </g>
 <path style="fill:none;stroke-width:0.3985;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(50%,50%,50%);stroke-opacity:1;stroke-dasharray:2.98883,2.98883;stroke-miterlimit:10;" d="M 28.347094 0.00146875 L 28.347094 90.7085 L 28.347094 -85.0415 " transform="matrix(1,0,0,-1,36.274,108.646)"/>
-<g style="fill:rgb(100%,100%,100%);fill-opacity:1;">
+<g style="fill:rgb(0%,0%,0%);fill-opacity:1;">
   <use xlink:href="#glyph0-9" x="68.14" y="14.418"/>
   <use xlink:href="#glyph0-10" x="74.366625" y="14.418"/>
   <use xlink:href="#glyph0-11" x="79.347925" y="14.418"/>
@@ -133,10 +133,10 @@
 </g>
 <path style="fill:none;stroke-width:0.3985;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(50%,50%,50%);stroke-opacity:1;stroke-miterlimit:10;" d="M 79.370531 0.00146875 C 79.370531 -5.971187 80.94475 -11.838375 83.929125 -17.006344 " transform="matrix(1,0,0,-1,36.274,108.646)"/>
 <path style="fill:none;stroke-width:0.3985;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(0%,100%,0%);stroke-opacity:1;stroke-miterlimit:10;" d="M 97.405687 -5.818844 L 150.679125 -25.209469 " transform="matrix(1,0,0,-1,36.274,108.646)"/>
-<g style="fill:rgb(100%,100%,100%);fill-opacity:1;">
+<g style="fill:rgb(0%,0%,0%);fill-opacity:1;">
   <use xlink:href="#glyph1-1" x="190.472" y="136.566"/>
 </g>
-<g style="fill:rgb(100%,100%,100%);fill-opacity:1;">
+<g style="fill:rgb(0%,0%,0%);fill-opacity:1;">
   <use xlink:href="#glyph2-2" x="196.364" y="138.06"/>
 </g>
 <path style="fill-rule:nonzero;fill:rgb(100%,0%,0%);fill-opacity:1;stroke-width:0.3985;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(100%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;" d="M 29.765062 0.00146875 C 29.765062 0.782719 29.128344 1.415531 28.347094 1.415531 C 27.565844 1.415531 26.929125 0.782719 26.929125 0.00146875 C 26.929125 -0.783687 27.565844 -1.4165 28.347094 -1.4165 C 29.128344 -1.4165 29.765062 -0.783687 29.765062 0.00146875 Z M 29.765062 0.00146875 " transform="matrix(1,0,0,-1,36.274,108.646)"/>

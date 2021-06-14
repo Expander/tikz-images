@@ -1565,6 +1565,16 @@
 \usepackage{pgfplots}
 \tikzset{>=latex}
 
+\pgfplotsset{
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=hardblack,
+      text=white
+    }
+  }
+}
+
 \begin{document}
 \begin{tikzpicture}
 \begin{axis}[
@@ -1604,6 +1614,16 @@
 \usepackage{pgfplots}
 \tikzset{>=latex}
 
+\pgfplotsset{
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=hardblack,
+      text=white
+    }
+  }
+}
+
 \begin{document}
 \begin{tikzpicture}
 \begin{axis}[
@@ -1642,6 +1662,16 @@
 
 \usepackage{pgfplots}
 \tikzset{>=latex}
+
+\pgfplotsset{
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=hardblack,
+      text=white
+    }
+  }
+}
 
 \begin{document}
 \begin{tikzpicture}
@@ -2290,8 +2320,8 @@
 \begin{tikzpicture}[inverted,inverted]
   \draw[fill=gray] (-2,0) rectangle (4,0.2);
   \draw[fill=gray] (-0.1,-0.5) -- (0,0) -- (0.1,-0.5) -- cycle;
-  \draw[fill=white] (-2,0.6) circle (0.4);
-  \draw[fill=white] ( 4,0.4) circle (0.2);
+  \draw[fill=black] (-2,0.6) circle (0.4);
+  \draw[fill=black] ( 4,0.4) circle (0.2);
   \draw[->,red] (0,-0.1) -- node[below]{$\vec{r}_1$} +(-2,0);
   \draw[->,red] (0,-0.1) -- node[below]{$\vec{r}_2$} +( 4,0);
   \draw[->,blue] (-2,-0.1) -- +(0,-2) node[left]{$\vec{F}_{1}$};
@@ -2366,7 +2396,7 @@
   \draw[line width=4pt] (2.4,-0.58)--(2.68,-0.56);
   \draw[line width=2pt] (petal)--(2.6,-0.6);
   % saddle
-  \fill[white,rounded corners=2pt] (d)--++(10:0.8cm)--++(90:1mm)--++(180:0.8cm)--++(170:0.7cm)--++(-70:0.5cm)--cycle;
+  \fill[black,rounded corners=2pt] (d)--++(10:0.8cm)--++(90:1mm)--++(180:0.8cm)--++(170:0.7cm)--++(-70:0.5cm)--cycle;
   % dirt
   \foreach \a in {240,220,200} {
     \draw[->,brown,line width=2pt] (wheel1)++(\a:\WheelRadiusOuter) -- ++(\a-90:2cm);
@@ -2448,7 +2478,7 @@
         postaction={decorate}
   ] (180+\angl:1) arc (180+\angl:180-\angl:1);
   \coordinate (car) at (\cx,\cy);
-  \draw[fill=white] (\cx-\cw/2,\cy-\ch/2) rectangle (\cx+\cw/2,\cy+\ch/2);
+  \draw[fill=black] (\cx-\cw/2,\cy-\ch/2) rectangle (\cx+\cw/2,\cy+\ch/2);
   \draw[->,blue,thick] (car) -- ++(0,0.5) node[above] {$\vec{v}(t)$};
   \draw[->,red,thick] (car) -- ++(0.5,0) node[above] {$\vec{F}_\text{Zp}(t)$};
   \draw[fill,brown] (car) circle (0.02);
@@ -2487,7 +2517,7 @@
         postaction={decorate}
   ] (180+\angl:1) arc (180+\angl:180-\angl:1);
   \coordinate (car) at (\cx,\cy);
-  \draw[fill=white] (\cx-\cw/2,\cy-\ch/2) rectangle (\cx+\cw/2,\cy+\ch/2);
+  \draw[fill=black] (\cx-\cw/2,\cy-\ch/2) rectangle (\cx+\cw/2,\cy+\ch/2);
   \draw[->,red,thick] (car) -- ++(0.5,0) node[above] {$\F_\text{Zp}(t)$};
   \draw[->,violet!50,thick] (car) -- ++(-0.5,0) node[above] {$\F_\text{Zf}(t)$};
   \node[brown] at (car) {\LARGE\Gentsroom};
@@ -2923,7 +2953,7 @@
   % inclined plane
   \draw[fill=gray] (0,0) -- (2,0) -- (0,1) -- cycle;
   % position of mass
-  \draw[fill,white] (1,0.55) circle (0.04) coordinate (a);
+  \draw[fill,black] (1,0.55) circle (0.04) coordinate (a);
   % arc
   \draw ([shift={({180-\al}:0.6)}]2,0) arc ({180-\al}:180:0.6);
   \node at ($(2,0)+({180-\al/2}:0.4)$) {$\alpha$};
@@ -2963,7 +2993,7 @@
   \draw[->] (xyz cs:x=-0.5) -- (xyz cs:x=3) node[below] {$x$};
   \draw[->] (xyz cs:y=-0.5) -- (xyz cs:y=2) node[left] {$z$};
   \draw[->] (xyz cs:z=1) -- (xyz cs:z=-3) node[above] {$y$};
-  \draw[fill,white] (xyz cs:x=1.5,z=-1.5) circle (0.1);
+  \draw[fill,black] (xyz cs:x=1.5,z=-1.5) circle (0.1);
   \draw[->,red] (xyz cs:x=1.5,z=-1.5) -- ++(0,-1) node[below] {$\F_g$};
   \draw[->,blue] (xyz cs:x=1.5,z=-1.5) -- ++(0,+1) node[above] {$\Z$};
 \end{tikzpicture}
@@ -3159,7 +3189,7 @@
   \draw[->,thick] (0,-1.2) -- (0,1.2) node[above] {$\vec{\omega}$};
   \draw[thick] (0,0) circle (1);
   \coordinate (r) at (55:1);
-  \draw[fill=white] (r) circle (0.02);
+  \draw[fill=black] (r) circle (0.02);
   \draw[->,brown,thick] (r) -- (55:0.5) node[below] {$\F_g$};
   \draw[->,green,thick] (r) -- ++(0.3,0) node[right] {$\F_\text{Zf}$};
   \draw[->,red,thick]   (r) -- ++(55+90:0.3) node[above] {$\vec{v}^{\,\prime}$};
@@ -3198,7 +3228,7 @@
 
 \begin{document}
 \begin{tikzpicture}[inverted,inverted]
-  \begin{axis}[
+  \begin{axis}[inverted,
     thick,
     width=7cm,
     height=6cm,
@@ -3254,7 +3284,7 @@
 
 \begin{document}
 \begin{tikzpicture}[inverted,inverted]
-  \begin{axis}[
+  \begin{axis}[inverted,
     thick,
     width=7cm,
     height=6cm,
@@ -3310,7 +3340,7 @@
 
 \begin{document}
 \begin{tikzpicture}[inverted,inverted]
-  \begin{axis}[
+  \begin{axis}[inverted,
     thick,
     width=7cm,
     height=6cm,
@@ -3359,7 +3389,7 @@
 
 \begin{document}
 \begin{tikzpicture}[inverted,scale=1.5]
-  \pattern[pattern=north east lines,pattern color=white] (0,0)--++(3,0)--++(0,-0.2)--++(-3,0)--cycle;
+  \pattern[pattern=north east lines,pattern color=black] (0,0)--++(3,0)--++(0,-0.2)--++(-3,0)--cycle;
   \draw (0,0) -- (3,0);
   \draw[->,thick] (3,1) -- +(0.5,0) node[above]{$\F_\text{res}$};
   % Sigma
@@ -3376,7 +3406,7 @@
   \draw[->,thick] (sp) -- +(0,1) node[left] {$\Sigma'$};
   % r
   \coordinate (m) at (2,1);
-  \draw[fill,white] (m) circle (0.05);
+  \draw[fill,black] (m) circle (0.05);
   \draw[->,red,shorten >= 1]   (s)  -- node[above,xshift=5em] {$\place(t)$} ($(s)!0.98!(m)$);
   \draw[->,green,shorten >= 1] (sp) -- node[right,xshift=1em] {$\place^{\,\prime}(t)$} ($(sp)!0.98!(m)$);
   \draw[->,blue]  (s)  -- node[above,yshift=1em] {$\place_0(t)$} (sp);
@@ -3602,7 +3632,7 @@
 
 \begin{document}
 \begin{tikzpicture}[inverted,scale=1.4]
-  \pattern[pattern=north east lines,pattern color=white] (-1,0)--++(0,-0.2)--++(4,0)--++(0,0.2)--cycle;
+  \pattern[pattern=north east lines,pattern color=black] (-1,0)--++(0,-0.2)--++(4,0)--++(0,0.2)--cycle;
   \draw (-1,0) -- ++(4,0);
   \draw[fill=gray!60] (0,0) rectangle (2,1);
   \draw[->,thick,blue] (1,0.05) -- ++(2,0) node[above] {$\F_S$};
@@ -3631,7 +3661,7 @@
 \begin{document}
 \begin{tikzpicture}[inverted,inverted]
   \draw[] (0,0) circle (2);
-  \draw[fill,white] (45:2.1) circle (0.1) node[right] {$m$};
+  \draw[fill,black] (45:2.1) circle (0.1) node[right] {$m$};
   \draw[->] (0,0) -- node[above,xshift=-0.5em] {$\place_1$} (45:2);
   \node[below] at (0,0) {$0$};
   \begin{scope}[shift={(0.05,-0.05)}]
@@ -3663,8 +3693,8 @@
 \begin{tikzpicture}[inverted,scale=2]
   \draw[->] (0,0) node[below] {$0$} -- node[left] {$\place_1$} (-1,1);
   \draw[->] (0,0) -- node[right] {$\place_2$} (1,1);
-  \draw[fill,white] (-1,1)+(-0.1,0.1) circle (0.08);
-  \draw[fill,white] (1,1)+(0.1,0.1) circle (0.08);
+  \draw[fill,black] (-1,1)+(-0.1,0.1) circle (0.08);
+  \draw[fill,black] (1,1)+(0.1,0.1) circle (0.08);
   \draw[->,blue] (-1,1.15) -- node[above] {$\place_2-\place_1$} (+1,1.15);
   \draw[->,red]  (+1,1.05) -- node[below] {$\place_1-\place_2$} (-1,1.05);
   \draw (-1.2,1.1) node[left] {$m_1$};
@@ -3751,7 +3781,7 @@
 
 \begin{document}
 \begin{tikzpicture}[inverted,inverted]
-\begin{axis}[
+\begin{axis}[inverted,
   thick,
   width=6cm,
   height=3cm,
@@ -3773,7 +3803,7 @@
   \addplot[red,smooth] { sin(deg(x)) };
 \end{axis}
 %
-\begin{axis}[
+\begin{axis}[inverted,
   thick,
   width=6cm,
   height=3cm,
@@ -3798,7 +3828,7 @@
   \draw[blue,dashed] (axis cs:4*pi,-1) -- (axis cs:4*pi,1);
 \end{axis}
 %
-\begin{axis}[
+\begin{axis}[inverted,
   thick,
   width=6cm,
   height=3cm,
@@ -3827,7 +3857,7 @@
   \draw[green,dashed] (axis cs:4*pi,-1) -- (axis cs:4*pi,1);
 \end{axis}
 %
-\begin{axis}[
+\begin{axis}[inverted,
   thick,
   width=6cm,
   height=3cm,
@@ -3879,7 +3909,7 @@
   \draw[thick] (0,0) circle (2cm);
   \draw[thick] (-2,0) arc (180:360:2 and 0.6);
   \draw[thick,dashed] (2,0) arc (0:180:2 and 0.6);
-  \fill[fill=white] (0,0) circle (1pt);
+  \fill[fill=black] (0,0) circle (1pt);
   \draw[<->,blue,thick] (0,0 ) -- node[above]{$R$} (2,0);
   \draw[dashed,thick] (0,-2) -- +(0,4);
   \draw[->,thick] (0,2) -- +(0,0.5) node[above] {$\vec{\omega}$};
@@ -4199,15 +4229,15 @@
 
 \newcommand{\bigship}[3]{%
   \begin{scope}[shift={#1}, scale={#2/10}, rotate=#3, xscale=-1]
-    \draw[fill=white, rounded corners=1] (0,0) -- ++(1,-1) -- ++(9,0) -- ++(0,1) -- cycle;%
-    \draw[fill=white, rounded corners=1] (7,0.1) rectangle ++(2,0.7);%
+    \draw[fill=black, rounded corners=1] (0,0) -- ++(1,-1) -- ++(9,0) -- ++(0,1) -- cycle;%
+    \draw[fill=black, rounded corners=1] (7,0.1) rectangle ++(2,0.7);%
   \end{scope}
 }
 
 \newcommand{\smallship}[3]{%
   \begin{scope}[shift={#1}, scale={#2/2}, rotate=#3, xscale=-1]
-    \draw[fill=white, rounded corners=1] (0,0) -- ++(0.7,-1) -- ++(2,0) -- ++(0,1) -- cycle;%
-    \draw[fill=white, rounded corners=1] (1.6,0) rectangle ++(1,0.4);%
+    \draw[fill=black, rounded corners=1] (0,0) -- ++(0.7,-1) -- ++(2,0) -- ++(0,1) -- cycle;%
+    \draw[fill=black, rounded corners=1] (1.6,0) rectangle ++(1,0.4);%
   \end{scope}
 }
 
@@ -4273,9 +4303,19 @@
 \usepackage{pgfplots}
 \tikzset{>=latex}
 
+\pgfplotsset{
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=black,
+      text=white
+    }
+  }
+}
+
 \begin{document}
 \begin{tikzpicture}[inverted,inverted]
-\begin{axis}[
+\begin{axis}[inverted,
   very thick,
   width=9cm,
   height=6cm,
@@ -4321,9 +4361,19 @@
 \usepackage{pgfplots}
 \tikzset{>=latex}
 
+\pgfplotsset{
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=black,
+      text=white
+    }
+  }
+}
+
 \begin{document}
 \begin{tikzpicture}[inverted,inverted]
-\begin{axis}[
+\begin{axis}[inverted,
   very thick,
   width=9cm,
   height=6cm,
@@ -4369,9 +4419,19 @@
 \usepackage{pgfplots}
 \tikzset{>=latex}
 
+\pgfplotsset{
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=black,
+      text=white
+    }
+  }
+}
+
 \begin{document}
 \begin{tikzpicture}[inverted,inverted]
-\begin{axis}[
+\begin{axis}[inverted,
   very thick,
   width=9cm,
   height=6cm,
@@ -4419,7 +4479,7 @@
 
 \begin{document}
 \begin{tikzpicture}[inverted,inverted]
-\begin{axis}[
+\begin{axis}[inverted,
   thick,
   width=6cm,
   height=4cm,
@@ -4591,7 +4651,7 @@
 \begin{tikzpicture}[inverted,scale=2]
   % wall
   \draw (-1,0.5) -- (-1,0) -- (1,0);
-  \pattern[pattern=north east lines,pattern color=white] (-1.2,0.5)--++(0.2,0)--++(0,-0.5)
+  \pattern[pattern=north east lines,pattern color=black] (-1.2,0.5)--++(0.2,0)--++(0,-0.5)
     --++(2,0)--++(0,-0.2)--++(-2,0)--++(-0.2,0)--cycle;
   % circle
   \coordinate (c) at (0,0.25);
@@ -4629,7 +4689,7 @@
   \draw[->] (-0.9,1) -- (1,1) node[right] {$x$};
   \draw (0,0.9) -- (0,1.1) node[above] {$0$};
   \draw (-1,1) -- (-1,0) -- (1,0);
-  \pattern[pattern=north east lines,pattern color=white] (-1.2,1)--++(0.2,0)--++(0,-1)
+  \pattern[pattern=north east lines,pattern color=black] (-1.2,1)--++(0.2,0)--++(0,-1)
   --++(2,0)--++(0,-0.2)--++(-2,0)--++(-0.2,0)--cycle;
   \draw[decoration={aspect=0.3, segment length=2mm, amplitude=2mm,coil},decorate] (-1,0.25) -- (0.5,0.25);
   \draw[red,fill] (0.5,0.25) circle (0.25);

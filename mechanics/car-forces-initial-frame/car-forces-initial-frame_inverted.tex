@@ -27,7 +27,7 @@
         postaction={decorate}
   ] (180+\angl:1) arc (180+\angl:180-\angl:1);
   \coordinate (car) at (\cx,\cy);
-  \draw[fill=white] (\cx-\cw/2,\cy-\ch/2) rectangle (\cx+\cw/2,\cy+\ch/2);
+  \draw[fill=black] (\cx-\cw/2,\cy-\ch/2) rectangle (\cx+\cw/2,\cy+\ch/2);
   \draw[->,blue,thick] (car) -- ++(0,0.5) node[above] {$\vec{v}(t)$};
   \draw[->,red,thick] (car) -- ++(0.5,0) node[above] {$\vec{F}_\text{Zp}(t)$};
   \draw[fill,brown] (car) circle (0.02);

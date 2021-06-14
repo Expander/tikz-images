@@ -12,9 +12,19 @@
 \usepackage{pgfplots}
 \tikzset{>=latex}
 
+\pgfplotsset{
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=black,
+      text=white
+    }
+  }
+}
+
 \begin{document}
 \begin{tikzpicture}[inverted,inverted]
-\begin{axis}[
+\begin{axis}[inverted,
   very thick,
   width=9cm,
   height=6cm,
