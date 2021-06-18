@@ -696,6 +696,57 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## damped-oscillator.svg
+[![damped-oscillator.svg](mechanics/damped-oscillator/damped-oscillator.svg "damped-oscillator.svg")](mechanics/damped-oscillator/damped-oscillator.svg) [[PDF]](mechanics/damped-oscillator/damped-oscillator.pdf) [[PNG]](mechanics/damped-oscillator/damped-oscillator.png) [[SVG]](mechanics/damped-oscillator/damped-oscillator.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\usepackage{pgfplots}
+\tikzset{>=latex}
+
+\pgfplotsset{
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=hardblack,
+      text=white
+    }
+  }
+}
+
+\begin{document}
+\begin{tikzpicture}
+\pgfmathsetmacro{\damp}{0.2}
+\begin{axis}[
+  thick,
+  width=7cm,
+  height=6cm,
+  domain={0}:{6*pi},
+  samples=50,
+  axis y line=middle,
+  axis x line=middle,
+  xlabel={$t$},
+  ylabel={$x$},
+  xlabel style={right},
+  ylabel style={above},
+  xmin=0, xmax={6.3*pi},
+  ymin=-1.1, ymax=1.1,
+  xtick={\empty},
+  xticklabels={\empty},
+  ytick={\empty},
+  yticklabels={\empty},
+  legend cell align={right},
+  legend style={at={(1,1)},anchor=north east}
+  ]
+  \addplot[red,smooth] { exp(-\damp*x)*cos(deg(x)) };
+  \addlegendentry{$A \mathrm{e}^{-\delta t} \sin(\omega_0 t + \pi/2)$};
+  \addplot[smooth,densely dashed] { exp(-\damp*x) };
+  \addplot[smooth,densely dashed] { -exp(-\damp*x) };
+  \addlegendentry{$\pm A \mathrm{e}^{-\delta t}$};
+\end{axis}
+\end{tikzpicture}
+\end{document}
+~~~
 ## earth-forces.svg
 [![earth-forces.svg](mechanics/earth-forces/earth-forces.svg "earth-forces.svg")](mechanics/earth-forces/earth-forces.svg) [[PDF]](mechanics/earth-forces/earth-forces.pdf) [[PNG]](mechanics/earth-forces/earth-forces.png) [[SVG]](mechanics/earth-forces/earth-forces.svg)
 ~~~.tex
@@ -3161,6 +3212,66 @@
   % main space-point vectors
   \draw[->,thick,red] (xyz cs:x=0) -- node[above,xshift=-1em]{$\place(t_1)$} (r1);
   \draw[->,thick,red] (xyz cs:x=0) -- node[below,xshift=+1em]{$\place(t_2)$} (r2);
+\end{tikzpicture}
+\end{document}
+~~~
+## damped-oscillator_inverted.svg
+[![damped-oscillator_inverted.svg](mechanics/damped-oscillator/damped-oscillator_inverted.svg "damped-oscillator_inverted.svg")](mechanics/damped-oscillator/damped-oscillator_inverted.svg) [[PDF]](mechanics/damped-oscillator/damped-oscillator_inverted.pdf) [[PNG]](mechanics/damped-oscillator/damped-oscillator_inverted.png) [[SVG]](mechanics/damped-oscillator/damped-oscillator_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    color=white,
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\usepackage{pgfplots}
+\tikzset{>=latex}
+
+\pgfplotsset{
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=black,
+      text=white
+    }
+  }
+}
+
+\begin{document}
+\begin{tikzpicture}[inverted,inverted]
+\pgfmathsetmacro{\damp}{0.2}
+\begin{axis}[inverted,
+  thick,
+  width=7cm,
+  height=6cm,
+  domain={0}:{6*pi},
+  samples=50,
+  axis y line=middle,
+  axis x line=middle,
+  xlabel={$t$},
+  ylabel={$x$},
+  xlabel style={right},
+  ylabel style={above},
+  xmin=0, xmax={6.3*pi},
+  ymin=-1.1, ymax=1.1,
+  xtick={\empty},
+  xticklabels={\empty},
+  ytick={\empty},
+  yticklabels={\empty},
+  legend cell align={right},
+  legend style={at={(1,1)},anchor=north east}
+  ]
+  \addplot[red,smooth] { exp(-\damp*x)*cos(deg(x)) };
+  \addlegendentry{$A \mathrm{e}^{-\delta t} \sin(\omega_0 t + \pi/2)$};
+  \addplot[smooth,densely dashed] { exp(-\damp*x) };
+  \addplot[smooth,densely dashed] { -exp(-\damp*x) };
+  \addlegendentry{$\pm A \mathrm{e}^{-\delta t}$};
+\end{axis}
 \end{tikzpicture}
 \end{document}
 ~~~
