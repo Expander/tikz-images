@@ -2057,6 +2057,33 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## spring-damping-motor.svg
+[![spring-damping-motor.svg](mechanics/spring-damping-motor/spring-damping-motor.svg "spring-damping-motor.svg")](mechanics/spring-damping-motor/spring-damping-motor.svg) [[PDF]](mechanics/spring-damping-motor/spring-damping-motor.pdf) [[PNG]](mechanics/spring-damping-motor/spring-damping-motor.png) [[SVG]](mechanics/spring-damping-motor/spring-damping-motor.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\tikzset{>=latex}
+\usetikzlibrary{patterns,decorations.pathmorphing}
+
+\begin{document}
+\begin{tikzpicture}[scale=2]
+  \pgfmathsetmacro{\basinh}{0.3}
+  \pgfmathsetmacro{\basinw}{0.1}
+  \pgfmathsetmacro{\wall}{0.2}
+  \draw[fill=cyan!20,very thick] (-1-\wall,1+\basinh) -- ++(0,-1-\wall-\basinh) -- ++(2+\wall,0) -- ++(0,1+\wall+\basinh);
+  \draw[->] (-0.8,1) -- (0.8,1) node[above] {$x$};
+  \draw (0,0.9) -- (0,1.1) node[above] {$0$};
+  \draw (-1.2,1) -- (-1,1) -- (-1,0) -- (1,0);
+  \pattern[pattern=north east lines,pattern color=black] (-1.2,1)--++(0.2,0)--++(0,-1)
+  --++(2,0)--++(0,-0.2)--++(-2,0)--++(-0.2,0)--cycle;
+  % motor
+  \draw[fill=gray!20] (-1,0) rectangle node {M} (-0.5,0.5);
+  \draw[decoration={aspect=0.3, segment length=2mm, amplitude=2mm,coil},decorate] (-0.5,0.25) -- (0.5,0.25);
+  \draw[red,fill] (0.5,0.25) circle (0.25);
+  \draw[->] (0.5,0.75) node[right]{$\vec{F}$} -- (0,0.75);
+\end{tikzpicture}
+\end{document}
+~~~
 ## spring-damping.svg
 [![spring-damping.svg](mechanics/spring-damping/spring-damping.svg "spring-damping.svg")](mechanics/spring-damping/spring-damping.svg) [[PDF]](mechanics/spring-damping/spring-damping.pdf) [[PNG]](mechanics/spring-damping/spring-damping.png) [[SVG]](mechanics/spring-damping/spring-damping.svg)
 ~~~.tex
@@ -5099,6 +5126,42 @@
   % space vector
   \draw[->] (o) -- node[below, xshift=1em] {$\vec{r}$} (c);
   \draw ($(o)+(0,-0.1)$) -- ++(0,0.2) node[above] {$0$};
+\end{tikzpicture}
+\end{document}
+~~~
+## spring-damping-motor_inverted.svg
+[![spring-damping-motor_inverted.svg](mechanics/spring-damping-motor/spring-damping-motor_inverted.svg "spring-damping-motor_inverted.svg")](mechanics/spring-damping-motor/spring-damping-motor_inverted.svg) [[PDF]](mechanics/spring-damping-motor/spring-damping-motor_inverted.pdf) [[PNG]](mechanics/spring-damping-motor/spring-damping-motor_inverted.png) [[SVG]](mechanics/spring-damping-motor/spring-damping-motor_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    color=white,
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\tikzset{>=latex}
+\usetikzlibrary{patterns,decorations.pathmorphing}
+
+\begin{document}
+\begin{tikzpicture}[inverted,scale=2]
+  \pgfmathsetmacro{\basinh}{0.3}
+  \pgfmathsetmacro{\basinw}{0.1}
+  \pgfmathsetmacro{\wall}{0.2}
+  \draw[fill=cyan!20,very thick] (-1-\wall,1+\basinh) -- ++(0,-1-\wall-\basinh) -- ++(2+\wall,0) -- ++(0,1+\wall+\basinh);
+  \draw[->] (-0.8,1) -- (0.8,1) node[above] {$x$};
+  \draw (0,0.9) -- (0,1.1) node[above] {$0$};
+  \draw (-1.2,1) -- (-1,1) -- (-1,0) -- (1,0);
+  \pattern[pattern=north east lines,pattern color=black] (-1.2,1)--++(0.2,0)--++(0,-1)
+  --++(2,0)--++(0,-0.2)--++(-2,0)--++(-0.2,0)--cycle;
+  % motor
+  \draw[fill=gray!60] (-1,0) rectangle node {M} (-0.5,0.5);
+  \draw[decoration={aspect=0.3, segment length=2mm, amplitude=2mm,coil},decorate] (-0.5,0.25) -- (0.5,0.25);
+  \draw[red,fill] (0.5,0.25) circle (0.25);
+  \draw[->] (0.5,0.75) node[right]{$\vec{F}$} -- (0,0.75);
 \end{tikzpicture}
 \end{document}
 ~~~
