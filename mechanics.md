@@ -2495,7 +2495,7 @@
 \newcommand{\axisstyle}{%
   thick,
   width=8cm,
-  height=3cm,
+  height=2.5cm,
   domain=0:10,
   samples=50,
   axis y line=middle,
@@ -2510,6 +2510,8 @@
   samples=100,
   clip=false,%
 }
+
+\newcommand{\yshift}{-1.5cm}
 
 \begin{document}
 \begin{tikzpicture}
@@ -2526,7 +2528,7 @@
 %
 \begin{axis}[
   \axisstyle
-  at={(0,-2cm)},
+  at={(0,\yshift)},
   ]
   \addplot[black,smooth] { exp(-(x-4)^2) + exp(-(x-6)^2) };
   \addplot[red ,smooth, densely dashed] { exp(-(x-4)^2) };
@@ -2538,7 +2540,7 @@
 %
 \begin{axis}[
   \axisstyle
-  at={(0,-4cm)},
+  at={(0,2*\yshift)},
   ]
   \addplot[black,smooth] { exp(-(x-6)^2) + exp(-(x-4)^2) };
   \addplot[red ,smooth, densely dashed] { exp(-(x-6)^2) };
@@ -2550,7 +2552,7 @@
 %
 \begin{axis}[
   \axisstyle
-  at={(0,-6cm)},
+  at={(0,3*\yshift)},
   ]
   \addplot[black,smooth] { exp(-(x-8)^2) + exp(-(x-2)^2) };
   \addplot[red ,smooth, densely dashed] { exp(-(x-8)^2) };
@@ -5911,7 +5913,7 @@
 \newcommand{\axisstyle}{%
   thick,
   width=8cm,
-  height=3cm,
+  height=2.5cm,
   domain=0:10,
   samples=50,
   axis y line=middle,
@@ -5926,6 +5928,8 @@
   samples=100,
   clip=false,%
 }
+
+\newcommand{\yshift}{-1.5cm}
 
 \begin{document}
 \begin{tikzpicture}[inverted,inverted]
@@ -5942,7 +5946,7 @@
 %
 \begin{axis}[inverted,
   \axisstyle
-  at={(0,-2cm)},
+  at={(0,\yshift)},
   ]
   \addplot[black,smooth] { exp(-(x-4)^2) + exp(-(x-6)^2) };
   \addplot[red ,smooth, densely dashed] { exp(-(x-4)^2) };
@@ -5954,7 +5958,7 @@
 %
 \begin{axis}[inverted,
   \axisstyle
-  at={(0,-4cm)},
+  at={(0,2*\yshift)},
   ]
   \addplot[black,smooth] { exp(-(x-6)^2) + exp(-(x-4)^2) };
   \addplot[red ,smooth, densely dashed] { exp(-(x-6)^2) };
@@ -5966,7 +5970,7 @@
 %
 \begin{axis}[inverted,
   \axisstyle
-  at={(0,-6cm)},
+  at={(0,3*\yshift)},
   ]
   \addplot[black,smooth] { exp(-(x-8)^2) + exp(-(x-2)^2) };
   \addplot[red ,smooth, densely dashed] { exp(-(x-8)^2) };
