@@ -1370,6 +1370,65 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## oscillations-r-v-a.svg
+[![oscillations-r-v-a.svg](mechanics/oscillations-r-v-a/oscillations-r-v-a.svg "oscillations-r-v-a.svg")](mechanics/oscillations-r-v-a/oscillations-r-v-a.svg) [[PDF]](mechanics/oscillations-r-v-a/oscillations-r-v-a.pdf) [[PNG]](mechanics/oscillations-r-v-a/oscillations-r-v-a.png) [[SVG]](mechanics/oscillations-r-v-a/oscillations-r-v-a.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\usepackage{pgfplots}
+\tikzset{>=latex}
+\colorlet{green}{black!40!green}
+
+\pgfplotsset{
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=hardblack,
+      text=white
+    }
+  },
+  every non boxed x axis/.append style={
+    axis line style={-latex}
+  },
+  every non boxed y axis/.append style={
+    axis line style={-latex}
+  }
+}
+
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[
+  very thick,
+  width=7cm,
+  height=6cm,
+  domain={0}:{2*pi},
+  samples=50,
+  axis y line=middle,
+  axis x line=middle,
+  xlabel={$t$},
+  ylabel={$x$},
+  xlabel style={right},
+  ylabel style={above},
+  xmin=0, xmax={2.1*pi},
+  ymin=-1.1, ymax=1.5,
+  xtick={\empty},
+  xticklabels={\empty},
+  ytick={\empty},
+  yticklabels={\empty},
+  legend cell align={left},
+  legend style={at={(1,1)},anchor=north east},
+  legend columns=-1,
+  ]
+  \addplot[red,smooth] { sin(deg(x)) };
+  \addlegendentry{$x(t)$};
+  \addplot[blue,smooth,densely dashed] { 0.5*sin(deg(x+pi/2)) };
+  \addlegendentry{$\dot{x}(t)$};
+  \addplot[green,smooth,densely dotted] { 0.25*sin(deg(x+pi)) };
+  \addlegendentry{$\ddot{x}(t)$};
+\end{axis}
+\end{tikzpicture}
+\end{document}
+~~~
 ## resonance.svg
 [![resonance.svg](mechanics/resonance/resonance.svg "resonance.svg")](mechanics/resonance/resonance.svg) [[PDF]](mechanics/resonance/resonance.pdf) [[PNG]](mechanics/resonance/resonance.png) [[SVG]](mechanics/resonance/resonance.svg)
 ~~~.tex
@@ -4331,6 +4390,74 @@
   \addplot[brown,smooth,domain={3/2*pi}:{5/2*pi}] { +x/(pi/2)-4 };
   \addplot[brown,smooth,domain={5/2*pi}:{7/2*pi}] { -x/(pi/2)+6 };
   \addplot[brown,smooth,domain={7/2*pi}:{4*pi}  ] { +x/(pi/2)-8 };
+\end{axis}
+\end{tikzpicture}
+\end{document}
+~~~
+## oscillations-r-v-a_inverted.svg
+[![oscillations-r-v-a_inverted.svg](mechanics/oscillations-r-v-a/oscillations-r-v-a_inverted.svg "oscillations-r-v-a_inverted.svg")](mechanics/oscillations-r-v-a/oscillations-r-v-a_inverted.svg) [[PDF]](mechanics/oscillations-r-v-a/oscillations-r-v-a_inverted.pdf) [[PNG]](mechanics/oscillations-r-v-a/oscillations-r-v-a_inverted.png) [[SVG]](mechanics/oscillations-r-v-a/oscillations-r-v-a_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    color=white,
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\usepackage{pgfplots}
+\tikzset{>=latex}
+\colorlet{green}{green}
+
+\pgfplotsset{
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=black,
+      text=white
+    }
+  },
+  every non boxed x axis/.append style={
+    axis line style={-latex}
+  },
+  every non boxed y axis/.append style={
+    axis line style={-latex}
+  }
+}
+
+\begin{document}
+\begin{tikzpicture}[inverted,inverted]
+\begin{axis}[inverted,
+  very thick,
+  width=7cm,
+  height=6cm,
+  domain={0}:{2*pi},
+  samples=50,
+  axis y line=middle,
+  axis x line=middle,
+  xlabel={$t$},
+  ylabel={$x$},
+  xlabel style={right},
+  ylabel style={above},
+  xmin=0, xmax={2.1*pi},
+  ymin=-1.1, ymax=1.5,
+  xtick={\empty},
+  xticklabels={\empty},
+  ytick={\empty},
+  yticklabels={\empty},
+  legend cell align={left},
+  legend style={at={(1,1)},anchor=north east},
+  legend columns=-1,
+  ]
+  \addplot[red,smooth] { sin(deg(x)) };
+  \addlegendentry{$x(t)$};
+  \addplot[blue,smooth,densely dashed] { 0.5*sin(deg(x+pi/2)) };
+  \addlegendentry{$\dot{x}(t)$};
+  \addplot[green,smooth,densely dotted] { 0.25*sin(deg(x+pi)) };
+  \addlegendentry{$\ddot{x}(t)$};
 \end{axis}
 \end{tikzpicture}
 \end{document}

@@ -1,0 +1,55 @@
+\documentclass[crop,tikz]{standalone}
+
+\usepackage{pgfplots}
+\tikzset{>=latex}
+\colorlet{green}{black!40!green}
+
+\pgfplotsset{
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=hardblack,
+      text=white
+    }
+  },
+  every non boxed x axis/.append style={
+    axis line style={-latex}
+  },
+  every non boxed y axis/.append style={
+    axis line style={-latex}
+  }
+}
+
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[
+  very thick,
+  width=7cm,
+  height=6cm,
+  domain={0}:{2*pi},
+  samples=50,
+  axis y line=middle,
+  axis x line=middle,
+  xlabel={$t$},
+  ylabel={$x$},
+  xlabel style={right},
+  ylabel style={above},
+  xmin=0, xmax={2.1*pi},
+  ymin=-1.1, ymax=1.5,
+  xtick={\empty},
+  xticklabels={\empty},
+  ytick={\empty},
+  yticklabels={\empty},
+  legend cell align={left},
+  legend style={at={(1,1)},anchor=north east},
+  legend columns=-1,
+  ]
+  \addplot[red,smooth] { sin(deg(x)) };
+  \addlegendentry{$x(t)$};
+  \addplot[blue,smooth,densely dashed] { 0.5*sin(deg(x+pi/2)) };
+  \addlegendentry{$\dot{x}(t)$};
+  \addplot[green,smooth,densely dotted] { 0.25*sin(deg(x+pi)) };
+  \addlegendentry{$\ddot{x}(t)$};
+\end{axis}
+\end{tikzpicture}
+\end{document}
