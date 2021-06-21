@@ -18,7 +18,7 @@
 
 \begin{document}
 \begin{tikzpicture}[inverted,scale=1.5]
-  \pattern[pattern=north east lines,pattern color=black] (0,0)--++(3,0)--++(0,-0.2)--++(-3,0)--cycle;
+  \pattern[pattern=north east lines,pattern color=white] (0,0)--++(3,0)--++(0,-0.2)--++(-3,0)--cycle;
   \draw (0,0) -- (3,0);
   \draw[->,thick] (3,1) -- +(0.5,0) node[above]{$\F_\text{res}$};
   % Sigma
@@ -35,7 +35,7 @@
   \draw[->,thick] (sp) -- +(0,1) node[left] {$\Sigma'$};
   % r
   \coordinate (m) at (2,1);
-  \draw[fill,black] (m) circle (0.05);
+  \draw[fill,white] (m) circle (0.05);
   \draw[->,red,shorten >= 1]   (s)  -- node[above,xshift=5em] {$\place(t)$} ($(s)!0.98!(m)$);
   \draw[->,green,shorten >= 1] (sp) -- node[right,xshift=1em] {$\place^{\,\prime}(t)$} ($(sp)!0.98!(m)$);
   \draw[->,blue]  (s)  -- node[above,yshift=1em] {$\place_0(t)$} (sp);

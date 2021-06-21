@@ -5,7 +5,7 @@ output="$2"
 
 sed '
 s|black!40!green|green|g
-s|\wblack\w|white|g
+s|\bblack\b|white|g
 s|hardblack|black|g
 s|gray!20|gray!60|g
 s|{standalone}|{standalone}\n\\usetikzlibrary{backgrounds}\n\\colorlet{blue}{cyan}\n\\tikzset{\n  inverted/.style = {\n    color=white,\n    background rectangle/.style={fill},\n    show background rectangle\n  }\n}|

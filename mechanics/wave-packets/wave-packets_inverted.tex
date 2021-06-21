@@ -52,7 +52,7 @@
 \begin{axis}[inverted,
   \axisstyle
   ]
-  \addplot[black,smooth] { exp(-(x+\toz)^2) + exp(-(x+\ttz)^2) };
+  \addplot[white,smooth] { exp(-(x+\toz)^2) + exp(-(x+\ttz)^2) };
   \addplot[red  ,smooth, densely dashed] { exp(-(x+\toz)^2) };
   \addplot[blue ,smooth, densely dashed] { exp(-(x+\ttz)^2) };
   \node at (axis cs: 0,1) {$t$};
@@ -64,7 +64,7 @@
   \axisstyle
   at={(0,\yshift)},
   ]
-  \addplot[black,smooth] { exp(-(x+\toz+\dt)^2) + exp(-(x+\ttz-\dt)^2) };
+  \addplot[white,smooth] { exp(-(x+\toz+\dt)^2) + exp(-(x+\ttz-\dt)^2) };
   \addplot[red ,smooth, densely dashed] { exp(-(x+\toz+\dt)^2) };
   \addplot[blue,smooth, densely dashed] { exp(-(x+\ttz-\dt)^2) };
   \node at (axis cs: 0,1) {$2t$};
@@ -76,7 +76,7 @@
   \axisstyle
   at={(0,2*\yshift)},
   ]
-  \addplot[black,smooth] { exp(-(x+\toz+2*\dt)^2) + exp(-(x+\ttz-2*\dt)^2) };
+  \addplot[white,smooth] { exp(-(x+\toz+2*\dt)^2) + exp(-(x+\ttz-2*\dt)^2) };
   \addplot[red ,smooth, densely dashed] { exp(-(x+\toz+2*\dt)^2) };
   \addplot[blue,smooth, densely dashed] { exp(-(x+\ttz-2*\dt)^2) };
   \node at (axis cs: 0,1) {$3t$};
@@ -88,7 +88,7 @@
   \axisstyle
   at={(0,3*\yshift)},
   ]
-  \addplot[black,smooth] { exp(-(x+\toz+3*\dt)^2) + exp(-(x+\ttz-3*\dt)^2) };
+  \addplot[white,smooth] { exp(-(x+\toz+3*\dt)^2) + exp(-(x+\ttz-3*\dt)^2) };
   \addplot[red ,smooth, densely dashed] { exp(-(x+\toz+3*\dt)^2) };
   \addplot[blue,smooth, densely dashed] { exp(-(x+\ttz-3*\dt)^2) };
   \node at (axis cs: 0,1) {$4t$};
