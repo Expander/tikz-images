@@ -2220,7 +2220,7 @@
   --++(2,0)--++(0,-0.2)--++(-2,0)--++(-0.2,0)--cycle;
   \draw[decoration={aspect=0.3, segment length=2mm, amplitude=2mm,coil},decorate] (-1,0.25) -- (0.5,0.25);
   \draw[red,fill] (0.5,0.25) circle (0.25);
-  \draw[->] (0.5,0.75) node[right]{$\vec{F}$} -- (0,0.75);
+  \draw[->] (0.5,0.75) node[right]{$\vec{F}_\text{rück}$} -- (0,0.75);
 \end{tikzpicture}
 \end{document}
 ~~~
@@ -5574,7 +5574,7 @@
   --++(2,0)--++(0,-0.2)--++(-2,0)--++(-0.2,0)--cycle;
   \draw[decoration={aspect=0.3, segment length=2mm, amplitude=2mm,coil},decorate] (-1,0.25) -- (0.5,0.25);
   \draw[red,fill] (0.5,0.25) circle (0.25);
-  \draw[->] (0.5,0.75) node[right]{$\vec{F}$} -- (0,0.75);
+  \draw[->] (0.5,0.75) node[right]{$\vec{F}_\text{rück}$} -- (0,0.75);
 \end{tikzpicture}
 \end{document}
 ~~~
