@@ -1264,6 +1264,16 @@
 \tikzset{>=latex}
 \colorlet{green}{black!40!green}
 
+\pgfplotsset{
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=hardblack,
+      text=white
+    }
+  }
+}
+
 \begin{document}
 \begin{tikzpicture}
 \begin{axis}[
@@ -4391,6 +4401,16 @@
 \usepackage{pgfplots}
 \tikzset{>=latex}
 \colorlet{green}{green}
+
+\pgfplotsset{
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=black,
+      text=white
+    }
+  }
+}
 
 \begin{document}
 \begin{tikzpicture}[inverted,inverted]

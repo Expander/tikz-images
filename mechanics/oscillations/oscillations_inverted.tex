@@ -13,6 +13,16 @@
 \tikzset{>=latex}
 \colorlet{green}{green}
 
+\pgfplotsset{
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=black,
+      text=white
+    }
+  }
+}
+
 \begin{document}
 \begin{tikzpicture}[inverted,inverted]
 \begin{axis}[inverted,
