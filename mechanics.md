@@ -2492,9 +2492,7 @@
   }
 }
 
-\begin{document}
-\begin{tikzpicture}
-\begin{axis}[
+\newcommand{\axisstyle}{%
   thick,
   width=8cm,
   height=3cm,
@@ -2506,12 +2504,17 @@
   xlabel style={right},
   ylabel style={left},
   xmin=0, xmax=10,
-  xtick={\empty},
   xticklabels={\empty},
-  ytick={\empty},
   yticklabels={\empty},
+  tick style={draw=none},
   samples=100,
-  clip=false,
+  clip=false,%
+}
+
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[
+  \axisstyle
   ]
   \addplot[black,smooth] { exp(-(x-2)^2) + exp(-(x-8)^2) };
   \addplot[red  ,smooth, densely dashed] { exp(-(x-2)^2) };
@@ -2522,23 +2525,7 @@
 \end{axis}
 %
 \begin{axis}[
-  thick,
-  width=8cm,
-  height=3cm,
-  domain=0:10,
-  samples=50,
-  axis y line=middle,
-  axis x line=middle,
-  axis line style={draw=none},
-  xlabel style={right},
-  ylabel style={left},
-  xmin=0, xmax=10,
-  xtick={\empty},
-  xticklabels={\empty},
-  ytick={\empty},
-  yticklabels={\empty},
-  samples=100,
-  clip=false,
+  \axisstyle
   at={(0,-2cm)},
   ]
   \addplot[black,smooth] { exp(-(x-4)^2) + exp(-(x-6)^2) };
@@ -2550,23 +2537,7 @@
 \end{axis}
 %
 \begin{axis}[
-  thick,
-  width=8cm,
-  height=3cm,
-  domain=0:10,
-  samples=50,
-  axis y line=middle,
-  axis x line=middle,
-  axis line style={draw=none},
-  xlabel style={right},
-  ylabel style={left},
-  xmin=0, xmax=10,
-  xtick={\empty},
-  xticklabels={\empty},
-  ytick={\empty},
-  yticklabels={\empty},
-  samples=100,
-  clip=false,
+  \axisstyle
   at={(0,-4cm)},
   ]
   \addplot[black,smooth] { exp(-(x-6)^2) + exp(-(x-4)^2) };
@@ -2578,23 +2549,7 @@
 \end{axis}
 %
 \begin{axis}[
-  thick,
-  width=8cm,
-  height=3cm,
-  domain=0:10,
-  samples=50,
-  axis y line=middle,
-  axis x line=middle,
-  axis line style={draw=none},
-  xlabel style={right},
-  ylabel style={left},
-  xmin=0, xmax=10,
-  xtick={\empty},
-  xticklabels={\empty},
-  ytick={\empty},
-  yticklabels={\empty},
-  samples=100,
-  clip=false,
+  \axisstyle
   at={(0,-6cm)},
   ]
   \addplot[black,smooth] { exp(-(x-8)^2) + exp(-(x-2)^2) };
@@ -5953,9 +5908,7 @@
   }
 }
 
-\begin{document}
-\begin{tikzpicture}[inverted,inverted]
-\begin{axis}[inverted,
+\newcommand{\axisstyle}{%
   thick,
   width=8cm,
   height=3cm,
@@ -5967,12 +5920,17 @@
   xlabel style={right},
   ylabel style={left},
   xmin=0, xmax=10,
-  xtick={\empty},
   xticklabels={\empty},
-  ytick={\empty},
   yticklabels={\empty},
+  tick style={draw=none},
   samples=100,
-  clip=false,
+  clip=false,%
+}
+
+\begin{document}
+\begin{tikzpicture}[inverted,inverted]
+\begin{axis}[inverted,
+  \axisstyle
   ]
   \addplot[black,smooth] { exp(-(x-2)^2) + exp(-(x-8)^2) };
   \addplot[red  ,smooth, densely dashed] { exp(-(x-2)^2) };
@@ -5983,23 +5941,7 @@
 \end{axis}
 %
 \begin{axis}[inverted,
-  thick,
-  width=8cm,
-  height=3cm,
-  domain=0:10,
-  samples=50,
-  axis y line=middle,
-  axis x line=middle,
-  axis line style={draw=none},
-  xlabel style={right},
-  ylabel style={left},
-  xmin=0, xmax=10,
-  xtick={\empty},
-  xticklabels={\empty},
-  ytick={\empty},
-  yticklabels={\empty},
-  samples=100,
-  clip=false,
+  \axisstyle
   at={(0,-2cm)},
   ]
   \addplot[black,smooth] { exp(-(x-4)^2) + exp(-(x-6)^2) };
@@ -6011,23 +5953,7 @@
 \end{axis}
 %
 \begin{axis}[inverted,
-  thick,
-  width=8cm,
-  height=3cm,
-  domain=0:10,
-  samples=50,
-  axis y line=middle,
-  axis x line=middle,
-  axis line style={draw=none},
-  xlabel style={right},
-  ylabel style={left},
-  xmin=0, xmax=10,
-  xtick={\empty},
-  xticklabels={\empty},
-  ytick={\empty},
-  yticklabels={\empty},
-  samples=100,
-  clip=false,
+  \axisstyle
   at={(0,-4cm)},
   ]
   \addplot[black,smooth] { exp(-(x-6)^2) + exp(-(x-4)^2) };
@@ -6039,23 +5965,7 @@
 \end{axis}
 %
 \begin{axis}[inverted,
-  thick,
-  width=8cm,
-  height=3cm,
-  domain=0:10,
-  samples=50,
-  axis y line=middle,
-  axis x line=middle,
-  axis line style={draw=none},
-  xlabel style={right},
-  ylabel style={left},
-  xmin=0, xmax=10,
-  xtick={\empty},
-  xticklabels={\empty},
-  ytick={\empty},
-  yticklabels={\empty},
-  samples=100,
-  clip=false,
+  \axisstyle
   at={(0,-6cm)},
   ]
   \addplot[black,smooth] { exp(-(x-8)^2) + exp(-(x-2)^2) };
