@@ -2467,6 +2467,146 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## wave-packets.svg
+[![wave-packets.svg](mechanics/wave-packets/wave-packets.svg "wave-packets.svg")](mechanics/wave-packets/wave-packets.svg) [[PDF]](mechanics/wave-packets/wave-packets.pdf) [[PNG]](mechanics/wave-packets/wave-packets.png) [[SVG]](mechanics/wave-packets/wave-packets.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\usepackage{pgfplots}
+\tikzset{>=latex}
+\colorlet{green}{black!40!green}
+
+\pgfplotsset{
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=hardblack,
+      text=white
+    }
+  },
+  every non boxed x axis/.append style={
+    axis line style={-latex}
+  },
+  every non boxed y axis/.append style={
+    axis line style={-latex}
+  }
+}
+
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[
+  thick,
+  width=8cm,
+  height=3cm,
+  domain=0:10,
+  samples=50,
+  axis y line=middle,
+  axis x line=middle,
+  axis line style={draw=none},
+  xlabel style={right},
+  ylabel style={left},
+  xmin=0, xmax=10,
+  xtick={\empty},
+  xticklabels={\empty},
+  ytick={\empty},
+  yticklabels={\empty},
+  samples=100,
+  clip=false,
+  ]
+  \addplot[black,smooth] { exp(-(x-2)^2) + exp(-(x-8)^2) };
+  \addplot[red  ,smooth, densely dashed] { exp(-(x-2)^2) };
+  \addplot[blue ,smooth, densely dashed] { exp(-(x-8)^2) };
+  \node at (axis cs: 0,1) {$t$};
+  \draw[red ,->] (axis cs: 2,1.1) -- (axis cs: 3,1.1);
+  \draw[blue,->] (axis cs: 8,1.1) -- (axis cs: 7,1.1);
+\end{axis}
+%
+\begin{axis}[
+  thick,
+  width=8cm,
+  height=3cm,
+  domain=0:10,
+  samples=50,
+  axis y line=middle,
+  axis x line=middle,
+  axis line style={draw=none},
+  xlabel style={right},
+  ylabel style={left},
+  xmin=0, xmax=10,
+  xtick={\empty},
+  xticklabels={\empty},
+  ytick={\empty},
+  yticklabels={\empty},
+  samples=100,
+  clip=false,
+  at={(0,-2cm)},
+  ]
+  \addplot[black,smooth] { exp(-(x-4)^2) + exp(-(x-6)^2) };
+  \addplot[red ,smooth, densely dashed] { exp(-(x-4)^2) };
+  \addplot[blue,smooth, densely dashed] { exp(-(x-6)^2) };
+  \node at (axis cs: 0,1) {$2t$};
+  \draw[red ,->] (axis cs: 4,1.1) -- (axis cs: 5,1.1);
+  \draw[blue,->] (axis cs: 6,1.1) -- (axis cs: 5,1.1);
+\end{axis}
+%
+\begin{axis}[
+  thick,
+  width=8cm,
+  height=3cm,
+  domain=0:10,
+  samples=50,
+  axis y line=middle,
+  axis x line=middle,
+  axis line style={draw=none},
+  xlabel style={right},
+  ylabel style={left},
+  xmin=0, xmax=10,
+  xtick={\empty},
+  xticklabels={\empty},
+  ytick={\empty},
+  yticklabels={\empty},
+  samples=100,
+  clip=false,
+  at={(0,-4cm)},
+  ]
+  \addplot[black,smooth] { exp(-(x-6)^2) + exp(-(x-4)^2) };
+  \addplot[red ,smooth, densely dashed] { exp(-(x-6)^2) };
+  \addplot[blue,smooth, densely dashed] { exp(-(x-4)^2) };
+  \node at (axis cs: 0,1) {$3t$};
+  \draw[red ,->] (axis cs: 6,1.1) -- (axis cs: 7,1.1);
+  \draw[blue,->] (axis cs: 4,1.1) -- (axis cs: 3,1.1);
+\end{axis}
+%
+\begin{axis}[
+  thick,
+  width=8cm,
+  height=3cm,
+  domain=0:10,
+  samples=50,
+  axis y line=middle,
+  axis x line=middle,
+  axis line style={draw=none},
+  xlabel style={right},
+  ylabel style={left},
+  xmin=0, xmax=10,
+  xtick={\empty},
+  xticklabels={\empty},
+  ytick={\empty},
+  yticklabels={\empty},
+  samples=100,
+  clip=false,
+  at={(0,-6cm)},
+  ]
+  \addplot[black,smooth] { exp(-(x-8)^2) + exp(-(x-2)^2) };
+  \addplot[red ,smooth, densely dashed] { exp(-(x-8)^2) };
+  \addplot[blue,smooth, densely dashed] { exp(-(x-2)^2) };
+  \node at (axis cs: 0,1) {$4t$};
+  \draw[red ,->] (axis cs: 8,1.1) -- (axis cs: 9,1.1);
+  \draw[blue,->] (axis cs: 2,1.1) -- (axis cs: 1,1.1);
+\end{axis}
+\end{tikzpicture}
+\end{document}
+~~~
 ## wave.svg
 [![wave.svg](mechanics/wave/wave.svg "wave.svg")](mechanics/wave/wave.svg) [[PDF]](mechanics/wave/wave.pdf) [[PNG]](mechanics/wave/wave.png) [[SVG]](mechanics/wave/wave.svg)
 ~~~.tex
@@ -5776,6 +5916,155 @@
   \node[above] at (O) {$O$};
   \draw[->] (O) -- node[left] {$\ort_1$} (C);
   \draw[->] (O) -- node[right] {$\ort_2$} (Z);
+\end{tikzpicture}
+\end{document}
+~~~
+## wave-packets_inverted.svg
+[![wave-packets_inverted.svg](mechanics/wave-packets/wave-packets_inverted.svg "wave-packets_inverted.svg")](mechanics/wave-packets/wave-packets_inverted.svg) [[PDF]](mechanics/wave-packets/wave-packets_inverted.pdf) [[PNG]](mechanics/wave-packets/wave-packets_inverted.png) [[SVG]](mechanics/wave-packets/wave-packets_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    color=white,
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\usepackage{pgfplots}
+\tikzset{>=latex}
+\colorlet{green}{green}
+
+\pgfplotsset{
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=black,
+      text=white
+    }
+  },
+  every non boxed x axis/.append style={
+    axis line style={-latex}
+  },
+  every non boxed y axis/.append style={
+    axis line style={-latex}
+  }
+}
+
+\begin{document}
+\begin{tikzpicture}[inverted,inverted]
+\begin{axis}[inverted,
+  thick,
+  width=8cm,
+  height=3cm,
+  domain=0:10,
+  samples=50,
+  axis y line=middle,
+  axis x line=middle,
+  axis line style={draw=none},
+  xlabel style={right},
+  ylabel style={left},
+  xmin=0, xmax=10,
+  xtick={\empty},
+  xticklabels={\empty},
+  ytick={\empty},
+  yticklabels={\empty},
+  samples=100,
+  clip=false,
+  ]
+  \addplot[black,smooth] { exp(-(x-2)^2) + exp(-(x-8)^2) };
+  \addplot[red  ,smooth, densely dashed] { exp(-(x-2)^2) };
+  \addplot[blue ,smooth, densely dashed] { exp(-(x-8)^2) };
+  \node at (axis cs: 0,1) {$t$};
+  \draw[red ,->] (axis cs: 2,1.1) -- (axis cs: 3,1.1);
+  \draw[blue,->] (axis cs: 8,1.1) -- (axis cs: 7,1.1);
+\end{axis}
+%
+\begin{axis}[inverted,
+  thick,
+  width=8cm,
+  height=3cm,
+  domain=0:10,
+  samples=50,
+  axis y line=middle,
+  axis x line=middle,
+  axis line style={draw=none},
+  xlabel style={right},
+  ylabel style={left},
+  xmin=0, xmax=10,
+  xtick={\empty},
+  xticklabels={\empty},
+  ytick={\empty},
+  yticklabels={\empty},
+  samples=100,
+  clip=false,
+  at={(0,-2cm)},
+  ]
+  \addplot[black,smooth] { exp(-(x-4)^2) + exp(-(x-6)^2) };
+  \addplot[red ,smooth, densely dashed] { exp(-(x-4)^2) };
+  \addplot[blue,smooth, densely dashed] { exp(-(x-6)^2) };
+  \node at (axis cs: 0,1) {$2t$};
+  \draw[red ,->] (axis cs: 4,1.1) -- (axis cs: 5,1.1);
+  \draw[blue,->] (axis cs: 6,1.1) -- (axis cs: 5,1.1);
+\end{axis}
+%
+\begin{axis}[inverted,
+  thick,
+  width=8cm,
+  height=3cm,
+  domain=0:10,
+  samples=50,
+  axis y line=middle,
+  axis x line=middle,
+  axis line style={draw=none},
+  xlabel style={right},
+  ylabel style={left},
+  xmin=0, xmax=10,
+  xtick={\empty},
+  xticklabels={\empty},
+  ytick={\empty},
+  yticklabels={\empty},
+  samples=100,
+  clip=false,
+  at={(0,-4cm)},
+  ]
+  \addplot[black,smooth] { exp(-(x-6)^2) + exp(-(x-4)^2) };
+  \addplot[red ,smooth, densely dashed] { exp(-(x-6)^2) };
+  \addplot[blue,smooth, densely dashed] { exp(-(x-4)^2) };
+  \node at (axis cs: 0,1) {$3t$};
+  \draw[red ,->] (axis cs: 6,1.1) -- (axis cs: 7,1.1);
+  \draw[blue,->] (axis cs: 4,1.1) -- (axis cs: 3,1.1);
+\end{axis}
+%
+\begin{axis}[inverted,
+  thick,
+  width=8cm,
+  height=3cm,
+  domain=0:10,
+  samples=50,
+  axis y line=middle,
+  axis x line=middle,
+  axis line style={draw=none},
+  xlabel style={right},
+  ylabel style={left},
+  xmin=0, xmax=10,
+  xtick={\empty},
+  xticklabels={\empty},
+  ytick={\empty},
+  yticklabels={\empty},
+  samples=100,
+  clip=false,
+  at={(0,-6cm)},
+  ]
+  \addplot[black,smooth] { exp(-(x-8)^2) + exp(-(x-2)^2) };
+  \addplot[red ,smooth, densely dashed] { exp(-(x-8)^2) };
+  \addplot[blue,smooth, densely dashed] { exp(-(x-2)^2) };
+  \node at (axis cs: 0,1) {$4t$};
+  \draw[red ,->] (axis cs: 8,1.1) -- (axis cs: 9,1.1);
+  \draw[blue,->] (axis cs: 2,1.1) -- (axis cs: 1,1.1);
+\end{axis}
 \end{tikzpicture}
 \end{document}
 ~~~
