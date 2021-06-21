@@ -34,15 +34,18 @@
 }
 
 \newcommand{\yshift}{-1.5cm}
+\newcommand{\toz}{-2} % initical position of red wave packet
+\newcommand{\ttz}{-8} % initical position of blue wave packet
+\newcommand{\dt}{-2}  % time duration
 
 \begin{document}
 \begin{tikzpicture}
 \begin{axis}[
   \axisstyle
   ]
-  \addplot[black,smooth] { exp(-(x-2)^2) + exp(-(x-8)^2) };
-  \addplot[red  ,smooth, densely dashed] { exp(-(x-2)^2) };
-  \addplot[blue ,smooth, densely dashed] { exp(-(x-8)^2) };
+  \addplot[black,smooth] { exp(-(x+\toz)^2) + exp(-(x+\ttz)^2) };
+  \addplot[red  ,smooth, densely dashed] { exp(-(x+\toz)^2) };
+  \addplot[blue ,smooth, densely dashed] { exp(-(x+\ttz)^2) };
   \node at (axis cs: 0,1) {$t$};
   \draw[red ,->] (axis cs: 2,1.1) -- (axis cs: 3,1.1);
   \draw[blue,->] (axis cs: 8,1.1) -- (axis cs: 7,1.1);
@@ -52,9 +55,9 @@
   \axisstyle
   at={(0,\yshift)},
   ]
-  \addplot[black,smooth] { exp(-(x-4)^2) + exp(-(x-6)^2) };
-  \addplot[red ,smooth, densely dashed] { exp(-(x-4)^2) };
-  \addplot[blue,smooth, densely dashed] { exp(-(x-6)^2) };
+  \addplot[black,smooth] { exp(-(x+\toz+\dt)^2) + exp(-(x+\ttz-\dt)^2) };
+  \addplot[red ,smooth, densely dashed] { exp(-(x+\toz+\dt)^2) };
+  \addplot[blue,smooth, densely dashed] { exp(-(x+\ttz-\dt)^2) };
   \node at (axis cs: 0,1) {$2t$};
   \draw[red ,->] (axis cs: 4,1.1) -- (axis cs: 5,1.1);
   \draw[blue,->] (axis cs: 6,1.1) -- (axis cs: 5,1.1);
@@ -64,9 +67,9 @@
   \axisstyle
   at={(0,2*\yshift)},
   ]
-  \addplot[black,smooth] { exp(-(x-6)^2) + exp(-(x-4)^2) };
-  \addplot[red ,smooth, densely dashed] { exp(-(x-6)^2) };
-  \addplot[blue,smooth, densely dashed] { exp(-(x-4)^2) };
+  \addplot[black,smooth] { exp(-(x+\toz+2*\dt)^2) + exp(-(x+\ttz-2*\dt)^2) };
+  \addplot[red ,smooth, densely dashed] { exp(-(x+\toz+2*\dt)^2) };
+  \addplot[blue,smooth, densely dashed] { exp(-(x+\ttz-2*\dt)^2) };
   \node at (axis cs: 0,1) {$3t$};
   \draw[red ,->] (axis cs: 6,1.1) -- (axis cs: 7,1.1);
   \draw[blue,->] (axis cs: 4,1.1) -- (axis cs: 3,1.1);
@@ -76,9 +79,9 @@
   \axisstyle
   at={(0,3*\yshift)},
   ]
-  \addplot[black,smooth] { exp(-(x-8)^2) + exp(-(x-2)^2) };
-  \addplot[red ,smooth, densely dashed] { exp(-(x-8)^2) };
-  \addplot[blue,smooth, densely dashed] { exp(-(x-2)^2) };
+  \addplot[black,smooth] { exp(-(x+\toz+3*\dt)^2) + exp(-(x+\ttz-3*\dt)^2) };
+  \addplot[red ,smooth, densely dashed] { exp(-(x+\toz+3*\dt)^2) };
+  \addplot[blue,smooth, densely dashed] { exp(-(x+\ttz-3*\dt)^2) };
   \node at (axis cs: 0,1) {$4t$};
   \draw[red ,->] (axis cs: 8,1.1) -- (axis cs: 9,1.1);
   \draw[blue,->] (axis cs: 2,1.1) -- (axis cs: 1,1.1);
