@@ -2483,12 +2483,6 @@
       fill=hardblack,
       text=white
     }
-  },
-  every non boxed x axis/.append style={
-    axis line style={-latex}
-  },
-  every non boxed y axis/.append style={
-    axis line style={-latex}
   }
 }
 
@@ -5901,12 +5895,6 @@
       fill=black,
       text=white
     }
-  },
-  every non boxed x axis/.append style={
-    axis line style={-latex}
-  },
-  every non boxed y axis/.append style={
-    axis line style={-latex}
   }
 }
 
