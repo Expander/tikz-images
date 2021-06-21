@@ -711,6 +711,12 @@
       fill=hardblack,
       text=white
     }
+  },
+  every non boxed x axis/.append style={
+    axis line style={-latex}
+  },
+  every non boxed y axis/.append style={
+    axis line style={-latex}
   }
 }
 
@@ -732,7 +738,7 @@
   xlabel style={right},
   ylabel style={above},
   xmin=0, xmax={6.3*pi},
-  ymin=-1.1, ymax=1.1,
+  ymin=-1.1, ymax=1.2,
   xtick={\empty},
   xticklabels={\empty},
   ytick={\empty},
@@ -741,9 +747,9 @@
   legend style={at={(1,0)},anchor=south east}
   ]
   \addplot[red,smooth] { (\apar + \damp*x)*exp(-\damp*x) };
-  \addlegendentry{$(A + Bt) \mathrm{e}^{-\delta t}$};
+  \addlegendentry{aperiodischer Grenzfall};
   \addplot[blue,densely dashed,smooth] {exp(-0.2*x)*(1.07735*exp(sqrt(0.03)*x) - 0.0773503*exp(-sqrt(0.03)*x))};
-  \addlegendentry{$(A \mathrm{e}^{\kappa t} + B \mathrm{e}^{-\kappa t}) \mathrm{e}^{-\delta t}$};
+  \addlegendentry{Kriechfall};
 \end{axis}
 \end{tikzpicture}
 \end{document}
@@ -763,6 +769,12 @@
       fill=hardblack,
       text=white
     }
+  },
+  every non boxed x axis/.append style={
+    axis line style={-latex}
+  },
+  every non boxed y axis/.append style={
+    axis line style={-latex}
   }
 }
 
@@ -782,7 +794,7 @@
   xlabel style={right},
   ylabel style={above},
   xmin=0, xmax={6.3*pi},
-  ymin=-1.1, ymax=1.1,
+  ymin=-1.1, ymax=1.2,
   xtick={\empty},
   xticklabels={\empty},
   ytick={\empty},
@@ -791,10 +803,10 @@
   legend style={at={(1,1)},anchor=north east}
   ]
   \addplot[red,smooth] { exp(-\damp*x)*cos(deg(x)) };
-  \addlegendentry{$A \mathrm{e}^{-\delta t} \sin(\omega_0 t + \pi/2)$};
+  \addlegendentry{gedämpfte Schwingung};
   \addplot[smooth,densely dashed] { exp(-\damp*x) };
   \addplot[smooth,densely dashed] { -exp(-\damp*x) };
-  \addlegendentry{$\pm A \mathrm{e}^{-\delta t}$};
+  \addlegendentry{Einhüllende};
 \end{axis}
 \end{tikzpicture}
 \end{document}
@@ -3491,6 +3503,12 @@
       fill=black,
       text=white
     }
+  },
+  every non boxed x axis/.append style={
+    axis line style={-latex}
+  },
+  every non boxed y axis/.append style={
+    axis line style={-latex}
   }
 }
 
@@ -3512,7 +3530,7 @@
   xlabel style={right},
   ylabel style={above},
   xmin=0, xmax={6.3*pi},
-  ymin=-1.1, ymax=1.1,
+  ymin=-1.1, ymax=1.2,
   xtick={\empty},
   xticklabels={\empty},
   ytick={\empty},
@@ -3521,9 +3539,9 @@
   legend style={at={(1,0)},anchor=south east}
   ]
   \addplot[red,smooth] { (\apar + \damp*x)*exp(-\damp*x) };
-  \addlegendentry{$(A + Bt) \mathrm{e}^{-\delta t}$};
+  \addlegendentry{aperiodischer Grenzfall};
   \addplot[blue,densely dashed,smooth] {exp(-0.2*x)*(1.07735*exp(sqrt(0.03)*x) - 0.0773503*exp(-sqrt(0.03)*x))};
-  \addlegendentry{$(A \mathrm{e}^{\kappa t} + B \mathrm{e}^{-\kappa t}) \mathrm{e}^{-\delta t}$};
+  \addlegendentry{Kriechfall};
 \end{axis}
 \end{tikzpicture}
 \end{document}
@@ -3552,6 +3570,12 @@
       fill=black,
       text=white
     }
+  },
+  every non boxed x axis/.append style={
+    axis line style={-latex}
+  },
+  every non boxed y axis/.append style={
+    axis line style={-latex}
   }
 }
 
@@ -3571,7 +3595,7 @@
   xlabel style={right},
   ylabel style={above},
   xmin=0, xmax={6.3*pi},
-  ymin=-1.1, ymax=1.1,
+  ymin=-1.1, ymax=1.2,
   xtick={\empty},
   xticklabels={\empty},
   ytick={\empty},
@@ -3580,10 +3604,10 @@
   legend style={at={(1,1)},anchor=north east}
   ]
   \addplot[red,smooth] { exp(-\damp*x)*cos(deg(x)) };
-  \addlegendentry{$A \mathrm{e}^{-\delta t} \sin(\omega_0 t + \pi/2)$};
+  \addlegendentry{gedämpfte Schwingung};
   \addplot[smooth,densely dashed] { exp(-\damp*x) };
   \addplot[smooth,densely dashed] { -exp(-\damp*x) };
-  \addlegendentry{$\pm A \mathrm{e}^{-\delta t}$};
+  \addlegendentry{Einhüllende};
 \end{axis}
 \end{tikzpicture}
 \end{document}
