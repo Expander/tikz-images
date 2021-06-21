@@ -1975,6 +1975,16 @@
 \usepackage{pgfplots}
 \tikzset{>=latex}
 
+\pgfplotsset{
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=hardblack,
+      text=white
+    }
+  }
+}
+
 \begin{document}
 \begin{tikzpicture}
 \begin{axis}[
@@ -1996,7 +2006,7 @@
   ytick={\empty},
   yticklabels={\empty},
   legend cell align={right},
-  legend style={at={(1,1)},anchor=north east}
+  legend style={at={(1,1)},anchor=north east},
   ]
   \addplot[red,smooth] { sin(deg(x)) };
   \draw[<->] (axis cs:0,-2) -- node[above] {$T$} (axis cs:2*pi,-2);
@@ -5246,6 +5256,16 @@
 \usepackage{pgfplots}
 \tikzset{>=latex}
 
+\pgfplotsset{
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=black,
+      text=white
+    }
+  }
+}
+
 \begin{document}
 \begin{tikzpicture}[inverted,inverted]
 \begin{axis}[inverted,
@@ -5267,7 +5287,7 @@
   ytick={\empty},
   yticklabels={\empty},
   legend cell align={right},
-  legend style={at={(1,1)},anchor=north east}
+  legend style={at={(1,1)},anchor=north east},
   ]
   \addplot[red,smooth] { sin(deg(x)) };
   \draw[<->] (axis cs:0,-2) -- node[above] {$T$} (axis cs:2*pi,-2);
