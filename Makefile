@@ -1,3 +1,8 @@
+DID_MD    := didactics.md
+DID_TEX   := $(shell find didactics       -name '*.tex' -a ! -name '*_inverted.tex' -type f | sort)
+DID_TEX   := $(DID_TEX) $(patsubst %.tex,%_inverted.tex,$(DID_TEX))
+DID_SVG   := $(patsubst %.tex,%.svg,$(DID_TEX))
+
 EDY_MD    := electrodynamics.md
 EDY_TEX   := $(shell find electrodynamics -name '*.tex' -a ! -name '*_inverted.tex' -type f | sort)
 EDY_TEX   := $(EDY_TEX) $(patsubst %.tex,%_inverted.tex,$(EDY_TEX))
@@ -13,9 +18,9 @@ OPT_TEX   := $(shell find optics          -name '*.tex' -a ! -name '*_inverted.t
 OPT_TEX   := $(OPT_TEX) $(patsubst %.tex,%_inverted.tex,$(OPT_TEX))
 OPT_SVG   := $(patsubst %.tex,%.svg,$(OPT_TEX))
 
-MD_FILES  := $(EDY_MD)  $(MEC_MD)  $(OPT_MD)
-SVG_FILES := $(EDY_SVG) $(MEC_SVG) $(OPT_SVG)
-TEX_FILES := $(EDY_TEX) $(MEC_TEX) $(OPT_TEX)
+MD_FILES  := $(DID_MD)  $(EDY_MD)  $(MEC_MD)  $(OPT_MD)
+SVG_FILES := $(DID_SVG) $(EDY_SVG) $(MEC_SVG) $(OPT_SVG)
+TEX_FILES := $(DID_TEX) $(EDY_TEX) $(MEC_TEX) $(OPT_TEX)
 
 AUX_FILES := $(patsubst %.tex,%.aux,$(TEX_FILES))
 LOG_FILES := $(patsubst %.tex,%.log,$(TEX_FILES))
@@ -33,6 +38,9 @@ clean:
 
 distclean: clean
 	-rm -f $(PDF_FILES) $(PNG_FILES) $(SVG_FILES) $(MD_FILES)
+
+$(DID_MD): $(DID_SVG)
+	./generate-list Electrodynamics $^ > $@
 
 $(EDY_MD): $(EDY_SVG)
 	./generate-list Electrodynamics $^ > $@
