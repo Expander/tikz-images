@@ -40,7 +40,7 @@ distclean: clean
 	-rm -f $(PDF_FILES) $(PNG_FILES) $(SVG_FILES) $(MD_FILES)
 
 $(DID_MD): $(DID_SVG)
-	./generate-list Electrodynamics $^ > $@
+	./generate-list Didactics $^ > $@
 
 $(EDY_MD): $(EDY_SVG)
 	./generate-list Electrodynamics $^ > $@
