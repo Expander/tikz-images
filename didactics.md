@@ -1,4 +1,4 @@
-# Electrodynamics
+# Didactics
 ## black-box.svg
 [![black-box.svg](didactics/black-box/black-box.svg "black-box.svg")](didactics/black-box/black-box.svg) [[PDF]](didactics/black-box/black-box.pdf) [[PNG]](didactics/black-box/black-box.png) [[SVG]](didactics/black-box/black-box.svg)
 ~~~.tex
