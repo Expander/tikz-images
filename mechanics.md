@@ -1090,12 +1090,13 @@
 \documentclass[crop,tikz]{standalone}
 
 \tikzset{>=latex}
+\definecolor{orange}{RGB}{250,194,25}
 
 \begin{document}
-\begin{tikzpicture}[scale=2.5]
+\begin{tikzpicture}[scale=2.5,thick]
   \draw[->] (0,0) -- (1,0) node[right] {$t$};
   \draw[->] (0,-0.8) -- (0,0.2) node[left] {$a_z$};
-  \draw[red] (0,-0.5) -- (0.8,-0.5);
+  \draw[orange] (0,-0.5) -- (0.8,-0.5);
   \draw (-0.05,-0.5) node[left] {$-g$} -- (0.05,-0.5);
 \end{tikzpicture}
 \end{document}
@@ -1127,10 +1128,10 @@
 \tikzset{>=latex}
 
 \begin{document}
-\begin{tikzpicture}[scale=2.5]
+\begin{tikzpicture}[scale=2.5,thick]
   \draw[->] (0,0) -- (1,0) node[right] {$t$};
   \draw[->] (0,-0.8) -- (0,0.2) node[left] {$v_z$};
-  \draw[red] (0,0) -- (0.8,-0.8);
+  \draw[blue] (0,0) -- (0.8,-0.8);
 \end{tikzpicture}
 \end{document}
 ~~~
@@ -1142,7 +1143,7 @@
 \tikzset{>=latex}
 
 \begin{document}
-\begin{tikzpicture}[scale=2.5]
+\begin{tikzpicture}[scale=2.5,thick]
   \draw[->] (0,0) -- (1,0) node[right] {$t$};
   \draw[->] (0,0) -- (0,1) node[left] {$z$};
   \draw[red] (0,0.8) parabola bend (0,0.8) (0.8,0);
@@ -4147,12 +4148,13 @@
 }
 
 \tikzset{>=latex}
+\definecolor{orange}{RGB}{250,194,25}
 
 \begin{document}
-\begin{tikzpicture}[inverted,scale=2.5]
+\begin{tikzpicture}[inverted,scale=2.5,thick]
   \draw[->] (0,0) -- (1,0) node[right] {$t$};
   \draw[->] (0,-0.8) -- (0,0.2) node[left] {$a_z$};
-  \draw[red] (0,-0.5) -- (0.8,-0.5);
+  \draw[orange] (0,-0.5) -- (0.8,-0.5);
   \draw (-0.05,-0.5) node[left] {$-g$} -- (0.05,-0.5);
 \end{tikzpicture}
 \end{document}
@@ -4202,10 +4204,10 @@
 \tikzset{>=latex}
 
 \begin{document}
-\begin{tikzpicture}[inverted,scale=2.5]
+\begin{tikzpicture}[inverted,scale=2.5,thick]
   \draw[->] (0,0) -- (1,0) node[right] {$t$};
   \draw[->] (0,-0.8) -- (0,0.2) node[left] {$v_z$};
-  \draw[red] (0,0) -- (0.8,-0.8);
+  \draw[blue] (0,0) -- (0.8,-0.8);
 \end{tikzpicture}
 \end{document}
 ~~~
@@ -4226,7 +4228,7 @@
 \tikzset{>=latex}
 
 \begin{document}
-\begin{tikzpicture}[inverted,scale=2.5]
+\begin{tikzpicture}[inverted,scale=2.5,thick]
   \draw[->] (0,0) -- (1,0) node[right] {$t$};
   \draw[->] (0,0) -- (0,1) node[left] {$z$};
   \draw[red] (0,0.8) parabola bend (0,0.8) (0.8,0);
