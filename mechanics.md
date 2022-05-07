@@ -2026,6 +2026,38 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## solar-system-incorrect.svg
+[![solar-system-incorrect.svg](mechanics/solar-system-incorrect/solar-system-incorrect.svg "solar-system-incorrect.svg")](mechanics/solar-system-incorrect/solar-system-incorrect.svg) [[PDF]](mechanics/solar-system-incorrect/solar-system-incorrect.pdf) [[PNG]](mechanics/solar-system-incorrect/solar-system-incorrect.png) [[SVG]](mechanics/solar-system-incorrect/solar-system-incorrect.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\tikzset{>=latex}
+\usetikzlibrary{decorations.markings,calc}
+\colorlet{green}{black!40!green}
+
+\begin{document}
+\begin{tikzpicture}[scale=2,thick]
+  \pgfmathsetmacro{\ra}{2}
+  \pgfmathsetmacro{\rb}{1}
+  \coordinate (C) at (0,0); % center of ellipse
+  \coordinate (E) at (1,0); % Earth
+  \coordinate (S) at (-1,{\rb*sqrt(1 - (-1)^2/\ra^2)}); % Satellite
+  % Ellipse
+  \draw[decoration={markings, mark=at position 0.4 with {\arrow{>}}},
+        postaction={decorate}] (C) ellipse ({\ra} and {\rb});
+  % Earth
+  \draw[fill,blue] (E) circle (0.1) node[below=0.3cm,black] {Erde};
+  % Sattelite
+  \draw[fill] (S) circle (0.05) node[below=0.2cm,black] {Sonde};
+  % Gravity
+  \coordinate (FG) at ($(S)!0.3!(E)$);
+  \draw[->,red] (S) -- (FG) node[below] {$\vec{F}_G$};
+  % incorrect centrifugal force
+  \coordinate (FZ) at ($(S)+0.6*({\rb*((-1)/\ra^2)/sqrt(1 - (-1)^2/\ra^2)},1)$);
+  \draw[->,green] (S) -- (FZ) node[left] {$\vec{F}_{\rm Zf}$};
+\end{tikzpicture}
+\end{document}
+~~~
 ## solar-system-IS.svg
 [![solar-system-IS.svg](mechanics/solar-system-IS/solar-system-IS.svg "solar-system-IS.svg")](mechanics/solar-system-IS/solar-system-IS.svg) [[PDF]](mechanics/solar-system-IS/solar-system-IS.pdf) [[PNG]](mechanics/solar-system-IS/solar-system-IS.png) [[SVG]](mechanics/solar-system-IS/solar-system-IS.svg)
 ~~~.tex
@@ -5343,6 +5375,47 @@
   \draw[<->] (axis cs:0,-2) -- node[above] {$T$} (axis cs:2*pi,-2);
   \draw[<->,blue] (axis cs:pi/2,0) -- node[right] {$A$} (axis cs:pi/2,1);
 \end{axis}
+\end{tikzpicture}
+\end{document}
+~~~
+## solar-system-incorrect_inverted.svg
+[![solar-system-incorrect_inverted.svg](mechanics/solar-system-incorrect/solar-system-incorrect_inverted.svg "solar-system-incorrect_inverted.svg")](mechanics/solar-system-incorrect/solar-system-incorrect_inverted.svg) [[PDF]](mechanics/solar-system-incorrect/solar-system-incorrect_inverted.pdf) [[PNG]](mechanics/solar-system-incorrect/solar-system-incorrect_inverted.png) [[SVG]](mechanics/solar-system-incorrect/solar-system-incorrect_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    color=white,
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\tikzset{>=latex}
+\usetikzlibrary{decorations.markings,calc}
+\colorlet{green}{green}
+
+\begin{document}
+\begin{tikzpicture}[inverted,scale=2,thick]
+  \pgfmathsetmacro{\ra}{2}
+  \pgfmathsetmacro{\rb}{1}
+  \coordinate (C) at (0,0); % center of ellipse
+  \coordinate (E) at (1,0); % Earth
+  \coordinate (S) at (-1,{\rb*sqrt(1 - (-1)^2/\ra^2)}); % Satellite
+  % Ellipse
+  \draw[decoration={markings, mark=at position 0.4 with {\arrow{>}}},
+        postaction={decorate}] (C) ellipse ({\ra} and {\rb});
+  % Earth
+  \draw[fill,blue] (E) circle (0.1) node[below=0.3cm,white] {Erde};
+  % Sattelite
+  \draw[fill] (S) circle (0.05) node[below=0.2cm,white] {Sonde};
+  % Gravity
+  \coordinate (FG) at ($(S)!0.3!(E)$);
+  \draw[->,red] (S) -- (FG) node[below] {$\vec{F}_G$};
+  % incorrect centrifugal force
+  \coordinate (FZ) at ($(S)+0.6*({\rb*((-1)/\ra^2)/sqrt(1 - (-1)^2/\ra^2)},1)$);
+  \draw[->,green] (S) -- (FZ) node[left] {$\vec{F}_{\rm Zf}$};
 \end{tikzpicture}
 \end{document}
 ~~~
