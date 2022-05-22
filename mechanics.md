@@ -1256,6 +1256,84 @@
 \end{tikzpicture}%
 \end{document}
 ~~~
+## ISS-human.svg
+[![ISS-human.svg](mechanics/ISS-human/ISS-human.svg "ISS-human.svg")](mechanics/ISS-human/ISS-human.svg) [[PDF]](mechanics/ISS-human/ISS-human.pdf) [[PNG]](mechanics/ISS-human/ISS-human.png) [[SVG]](mechanics/ISS-human/ISS-human.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\usepackage{amsmath,marvosym}
+\tikzset{>=latex}
+\usetikzlibrary{decorations.markings,positioning,arrows}
+
+\begin{document}
+\begin{tikzpicture}[scale=2]
+  \draw[fill] (0,0) circle (0.05) node[below] {Erde};
+  \draw[thick,
+        decoration={markings, mark=at position 0.1 with {\arrow{>}}},
+        postaction={decorate}
+        ] (0,0) circle (1);
+  \coordinate (P) at (1,0);
+  \node at (P) {\LARGE\Gentsroom};
+  \draw[->,blue,thick] (P) -- ++(0,0.5) node[above] {$\vec{v}(t)$};
+  \draw[->,red,thick] (P) -- ++(-0.5,0) node[above] {$\vec{F}_\text{Zp}(t)$};
+\end{tikzpicture}
+\end{document}
+~~~
+## ISS-station-human.svg
+[![ISS-station-human.svg](mechanics/ISS-station-human/ISS-station-human.svg "ISS-station-human.svg")](mechanics/ISS-station-human/ISS-station-human.svg) [[PDF]](mechanics/ISS-station-human/ISS-station-human.pdf) [[PNG]](mechanics/ISS-station-human/ISS-station-human.png) [[SVG]](mechanics/ISS-station-human/ISS-station-human.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\usepackage{amsmath,marvosym}
+\tikzset{>=latex}
+\usetikzlibrary{decorations.markings,positioning,arrows}
+
+\begin{document}
+\begin{tikzpicture}[scale=2]
+  \draw[fill] (0,0) circle (0.05) node[below] {Erde};
+  \draw[thick,
+        decoration={markings, mark=at position 0.1 with {\arrow{>}}},
+        postaction={decorate}
+        ] (0,0) circle (1);
+  \pgfmathsetmacro{\cx}{1};
+  \pgfmathsetmacro{\cy}{0};
+  \pgfmathsetmacro{\cw}{0.2};
+  \pgfmathsetmacro{\ch}{0.3};
+  \coordinate (P) at (\cx,\cy);
+  \draw[fill=white,thick] (\cx-\cw/2,\cy-\ch/2) rectangle (\cx+\cw/2,\cy+\ch/2);
+  \node at (P) {\LARGE\Gentsroom};
+  \draw[->,blue,thick] (P) -- ++(0,0.5) node[above] {$\vec{v}(t)$};
+  \draw[->,red,thick] (P) -- ++(-0.5,0) node[above] {$\vec{F}_\text{Zp}(t)$};
+\end{tikzpicture}
+\end{document}
+~~~
+## ISS-station.svg
+[![ISS-station.svg](mechanics/ISS-station/ISS-station.svg "ISS-station.svg")](mechanics/ISS-station/ISS-station.svg) [[PDF]](mechanics/ISS-station/ISS-station.pdf) [[PNG]](mechanics/ISS-station/ISS-station.png) [[SVG]](mechanics/ISS-station/ISS-station.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\usepackage{amsmath}
+\tikzset{>=latex}
+\usetikzlibrary{decorations.markings,positioning,arrows}
+
+\begin{document}
+\begin{tikzpicture}[scale=2]
+  \draw[fill] (0,0) circle (0.05) node[below] {Erde};
+  \draw[thick,
+        decoration={markings, mark=at position 0.1 with {\arrow{>}}},
+        postaction={decorate}
+        ] (0,0) circle (1);
+  \pgfmathsetmacro{\cx}{1};
+  \pgfmathsetmacro{\cy}{0};
+  \pgfmathsetmacro{\cw}{0.2};
+  \pgfmathsetmacro{\ch}{0.3};
+  \coordinate (P) at (\cx,\cy);
+  \draw[fill=white,thick] (\cx-\cw/2,\cy-\ch/2) rectangle (\cx+\cw/2,\cy+\ch/2);
+  \draw[->,blue,thick] (P) -- ++(0,0.5) node[above] {$\vec{v}(t)$};
+  \draw[->,red,thick] (P) -- ++(-0.5,0) node[above] {$\vec{F}_\text{Zp}(t)$};
+\end{tikzpicture}
+\end{document}
+~~~
 ## oscillations.svg
 [![oscillations.svg](mechanics/oscillations/oscillations.svg "oscillations.svg")](mechanics/oscillations/oscillations.svg) [[PDF]](mechanics/oscillations/oscillations.pdf) [[PNG]](mechanics/oscillations/oscillations.png) [[SVG]](mechanics/oscillations/oscillations.svg)
 ~~~.tex
@@ -4499,6 +4577,111 @@
   % ball
   \draw[fill,red] (0,-\radius)+(0,\circleRadius) circle (\circleRadius);
 \end{tikzpicture}%
+\end{document}
+~~~
+## ISS-human_inverted.svg
+[![ISS-human_inverted.svg](mechanics/ISS-human/ISS-human_inverted.svg "ISS-human_inverted.svg")](mechanics/ISS-human/ISS-human_inverted.svg) [[PDF]](mechanics/ISS-human/ISS-human_inverted.pdf) [[PNG]](mechanics/ISS-human/ISS-human_inverted.png) [[SVG]](mechanics/ISS-human/ISS-human_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    color=white,
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\usepackage{amsmath,marvosym}
+\tikzset{>=latex}
+\usetikzlibrary{decorations.markings,positioning,arrows}
+
+\begin{document}
+\begin{tikzpicture}[inverted,scale=2]
+  \draw[fill] (0,0) circle (0.05) node[below] {Erde};
+  \draw[thick,
+        decoration={markings, mark=at position 0.1 with {\arrow{>}}},
+        postaction={decorate}
+        ] (0,0) circle (1);
+  \coordinate (P) at (1,0);
+  \node at (P) {\LARGE\Gentsroom};
+  \draw[->,blue,thick] (P) -- ++(0,0.5) node[above] {$\vec{v}(t)$};
+  \draw[->,red,thick] (P) -- ++(-0.5,0) node[above] {$\vec{F}_\text{Zp}(t)$};
+\end{tikzpicture}
+\end{document}
+~~~
+## ISS-station-human_inverted.svg
+[![ISS-station-human_inverted.svg](mechanics/ISS-station-human/ISS-station-human_inverted.svg "ISS-station-human_inverted.svg")](mechanics/ISS-station-human/ISS-station-human_inverted.svg) [[PDF]](mechanics/ISS-station-human/ISS-station-human_inverted.pdf) [[PNG]](mechanics/ISS-station-human/ISS-station-human_inverted.png) [[SVG]](mechanics/ISS-station-human/ISS-station-human_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    color=white,
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\usepackage{amsmath,marvosym}
+\tikzset{>=latex}
+\usetikzlibrary{decorations.markings,positioning,arrows}
+
+\begin{document}
+\begin{tikzpicture}[inverted,scale=2]
+  \draw[fill] (0,0) circle (0.05) node[below] {Erde};
+  \draw[thick,
+        decoration={markings, mark=at position 0.1 with {\arrow{>}}},
+        postaction={decorate}
+        ] (0,0) circle (1);
+  \pgfmathsetmacro{\cx}{1};
+  \pgfmathsetmacro{\cy}{0};
+  \pgfmathsetmacro{\cw}{0.2};
+  \pgfmathsetmacro{\ch}{0.3};
+  \coordinate (P) at (\cx,\cy);
+  \draw[fill=white,thick] (\cx-\cw/2,\cy-\ch/2) rectangle (\cx+\cw/2,\cy+\ch/2);
+  \node at (P) {\LARGE\Gentsroom};
+  \draw[->,blue,thick] (P) -- ++(0,0.5) node[above] {$\vec{v}(t)$};
+  \draw[->,red,thick] (P) -- ++(-0.5,0) node[above] {$\vec{F}_\text{Zp}(t)$};
+\end{tikzpicture}
+\end{document}
+~~~
+## ISS-station_inverted.svg
+[![ISS-station_inverted.svg](mechanics/ISS-station/ISS-station_inverted.svg "ISS-station_inverted.svg")](mechanics/ISS-station/ISS-station_inverted.svg) [[PDF]](mechanics/ISS-station/ISS-station_inverted.pdf) [[PNG]](mechanics/ISS-station/ISS-station_inverted.png) [[SVG]](mechanics/ISS-station/ISS-station_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    color=white,
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\usepackage{amsmath}
+\tikzset{>=latex}
+\usetikzlibrary{decorations.markings,positioning,arrows}
+
+\begin{document}
+\begin{tikzpicture}[inverted,scale=2]
+  \draw[fill] (0,0) circle (0.05) node[below] {Erde};
+  \draw[thick,
+        decoration={markings, mark=at position 0.1 with {\arrow{>}}},
+        postaction={decorate}
+        ] (0,0) circle (1);
+  \pgfmathsetmacro{\cx}{1};
+  \pgfmathsetmacro{\cy}{0};
+  \pgfmathsetmacro{\cw}{0.2};
+  \pgfmathsetmacro{\ch}{0.3};
+  \coordinate (P) at (\cx,\cy);
+  \draw[fill=white,thick] (\cx-\cw/2,\cy-\ch/2) rectangle (\cx+\cw/2,\cy+\ch/2);
+  \draw[->,blue,thick] (P) -- ++(0,0.5) node[above] {$\vec{v}(t)$};
+  \draw[->,red,thick] (P) -- ++(-0.5,0) node[above] {$\vec{F}_\text{Zp}(t)$};
+\end{tikzpicture}
 \end{document}
 ~~~
 ## oscillations_inverted.svg
