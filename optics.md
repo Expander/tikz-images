@@ -105,14 +105,47 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## huygens-double-slit-2.svg
+[![huygens-double-slit-2.svg](optics/huygens-double-slit-2/huygens-double-slit-2.svg "huygens-double-slit-2.svg")](optics/huygens-double-slit-2/huygens-double-slit-2.svg) [[PDF]](optics/huygens-double-slit-2/huygens-double-slit-2.pdf) [[PNG]](optics/huygens-double-slit-2/huygens-double-slit-2.png) [[SVG]](optics/huygens-double-slit-2/huygens-double-slit-2.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\tikzset{>=latex}
+
+\begin{document}
+\begin{tikzpicture}
+  % direction
+  \draw[->] (-3,0) -- +(0.7,0);
+  % coordinates of slits
+  \coordinate (a) at (0,0.2);
+  \coordinate (b) at (0,-0.2);
+  % plain waves
+  \foreach\X in {-2,-1.9,...,-0.1} {\draw(\X,-2)--(\X,2);}
+  % circular waves
+  \foreach \r in {0.1,0.3,...,1.8} {
+    \draw[blue] (a)+(-90:\r) arc (-90:90:\r);
+    \draw[blue] (b)+(-90:\r) arc (-90:90:\r);
+  }
+  \foreach \r in {0.2,0.4,...,1.8} {
+    \draw[orange] (a)+(-90:\r) arc (-90:90:\r);
+    \draw[orange] (b)+(-90:\r) arc (-90:90:\r);
+  }
+  % aperture
+  \draw[fill] (0.05,-2) rectangle (-0.05,-0.3);
+  \draw[fill] (0.05,-0.1) rectangle (-0.05,0.1);
+  \draw[fill] (0.05,2)  rectangle (-0.05,0.3);
+  % red dots
+  \draw[fill,red] (a) circle (0.05);
+  \draw[fill,red] (b) circle (0.05);
+\end{tikzpicture}
+\end{document}
+~~~
 ## huygens-double-slit.svg
 [![huygens-double-slit.svg](optics/huygens-double-slit/huygens-double-slit.svg "huygens-double-slit.svg")](optics/huygens-double-slit/huygens-double-slit.svg) [[PDF]](optics/huygens-double-slit/huygens-double-slit.pdf) [[PNG]](optics/huygens-double-slit/huygens-double-slit.png) [[SVG]](optics/huygens-double-slit/huygens-double-slit.svg)
 ~~~.tex
 \documentclass[crop,tikz]{standalone}
 
 \tikzset{>=latex}
-
-\usetikzlibrary{decorations.pathreplacing}
 
 \begin{document}
 \begin{tikzpicture}
@@ -131,8 +164,10 @@
   \draw[fill,red] (a) circle (0.05);
   \draw[fill,red] (b) circle (0.05);
   % circular waves
-  \draw[decoration={expanding waves,angle=90,segment length=0.1cm},decorate] (a) -- +(1.9,0);
-  \draw[decoration={expanding waves,angle=90,segment length=0.1cm},decorate] (b) -- +(1.9,0);
+  \foreach \r in {0.1,0.2,...,1.8} {
+    \draw (a)+(-90:\r) arc (-90:90:\r);
+    \draw (b)+(-90:\r) arc (-90:90:\r);
+  }
 \end{tikzpicture}
 \end{document}
 ~~~
@@ -583,6 +618,50 @@ color(75bp)=(violet); color(100bp)=(violet)}
 \end{tikzpicture}
 \end{document}
 ~~~
+## huygens-double-slit-2_inverted.svg
+[![huygens-double-slit-2_inverted.svg](optics/huygens-double-slit-2/huygens-double-slit-2_inverted.svg "huygens-double-slit-2_inverted.svg")](optics/huygens-double-slit-2/huygens-double-slit-2_inverted.svg) [[PDF]](optics/huygens-double-slit-2/huygens-double-slit-2_inverted.pdf) [[PNG]](optics/huygens-double-slit-2/huygens-double-slit-2_inverted.png) [[SVG]](optics/huygens-double-slit-2/huygens-double-slit-2_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    color=white,
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\tikzset{>=latex}
+
+\begin{document}
+\begin{tikzpicture}[inverted,inverted]
+  % direction
+  \draw[->] (-3,0) -- +(0.7,0);
+  % coordinates of slits
+  \coordinate (a) at (0,0.2);
+  \coordinate (b) at (0,-0.2);
+  % plain waves
+  \foreach\X in {-2,-1.9,...,-0.1} {\draw(\X,-2)--(\X,2);}
+  % circular waves
+  \foreach \r in {0.1,0.3,...,1.8} {
+    \draw[blue] (a)+(-90:\r) arc (-90:90:\r);
+    \draw[blue] (b)+(-90:\r) arc (-90:90:\r);
+  }
+  \foreach \r in {0.2,0.4,...,1.8} {
+    \draw[orange] (a)+(-90:\r) arc (-90:90:\r);
+    \draw[orange] (b)+(-90:\r) arc (-90:90:\r);
+  }
+  % aperture
+  \draw[fill] (0.05,-2) rectangle (-0.05,-0.3);
+  \draw[fill] (0.05,-0.1) rectangle (-0.05,0.1);
+  \draw[fill] (0.05,2)  rectangle (-0.05,0.3);
+  % red dots
+  \draw[fill,red] (a) circle (0.05);
+  \draw[fill,red] (b) circle (0.05);
+\end{tikzpicture}
+\end{document}
+~~~
 ## huygens-double-slit_inverted.svg
 [![huygens-double-slit_inverted.svg](optics/huygens-double-slit/huygens-double-slit_inverted.svg "huygens-double-slit_inverted.svg")](optics/huygens-double-slit/huygens-double-slit_inverted.svg) [[PDF]](optics/huygens-double-slit/huygens-double-slit_inverted.pdf) [[PNG]](optics/huygens-double-slit/huygens-double-slit_inverted.png) [[SVG]](optics/huygens-double-slit/huygens-double-slit_inverted.svg)
 ~~~.tex
@@ -598,8 +677,6 @@ color(75bp)=(violet); color(100bp)=(violet)}
 }
 
 \tikzset{>=latex}
-
-\usetikzlibrary{decorations.pathreplacing}
 
 \begin{document}
 \begin{tikzpicture}[inverted,inverted]
@@ -618,8 +695,10 @@ color(75bp)=(violet); color(100bp)=(violet)}
   \draw[fill,red] (a) circle (0.05);
   \draw[fill,red] (b) circle (0.05);
   % circular waves
-  \draw[decoration={expanding waves,angle=90,segment length=0.1cm},decorate] (a) -- +(1.9,0);
-  \draw[decoration={expanding waves,angle=90,segment length=0.1cm},decorate] (b) -- +(1.9,0);
+  \foreach \r in {0.1,0.2,...,1.8} {
+    \draw (a)+(-90:\r) arc (-90:90:\r);
+    \draw (b)+(-90:\r) arc (-90:90:\r);
+  }
 \end{tikzpicture}
 \end{document}
 ~~~

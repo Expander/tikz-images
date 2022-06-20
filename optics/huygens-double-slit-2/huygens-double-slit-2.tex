@@ -1,0 +1,31 @@
+\documentclass[crop,tikz]{standalone}
+
+\tikzset{>=latex}
+
+\begin{document}
+\begin{tikzpicture}
+  % direction
+  \draw[->] (-3,0) -- +(0.7,0);
+  % coordinates of slits
+  \coordinate (a) at (0,0.2);
+  \coordinate (b) at (0,-0.2);
+  % plain waves
+  \foreach\X in {-2,-1.9,...,-0.1} {\draw(\X,-2)--(\X,2);}
+  % circular waves
+  \foreach \r in {0.1,0.3,...,1.8} {
+    \draw[blue] (a)+(-90:\r) arc (-90:90:\r);
+    \draw[blue] (b)+(-90:\r) arc (-90:90:\r);
+  }
+  \foreach \r in {0.2,0.4,...,1.8} {
+    \draw[orange] (a)+(-90:\r) arc (-90:90:\r);
+    \draw[orange] (b)+(-90:\r) arc (-90:90:\r);
+  }
+  % aperture
+  \draw[fill] (0.05,-2) rectangle (-0.05,-0.3);
+  \draw[fill] (0.05,-0.1) rectangle (-0.05,0.1);
+  \draw[fill] (0.05,2)  rectangle (-0.05,0.3);
+  % red dots
+  \draw[fill,red] (a) circle (0.05);
+  \draw[fill,red] (b) circle (0.05);
+\end{tikzpicture}
+\end{document}
