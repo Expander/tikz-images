@@ -123,7 +123,10 @@
   \coordinate (a) at (0,\slitdistance/2);
   \coordinate (b) at (0,-\slitdistance/2);
   % plain waves
-  \foreach\X in {-2,-1.8,...,-0.2} {\draw(\X,-2)--(\X,2);}
+  \foreach \X in {-2,-1.8,...,-0.2} {
+    \draw[blue] (\X,-2) -- (\X,2);
+    \draw[orange] (\X + \wavelength/2,-2) -- (\X + \wavelength/2,2);
+  }
   % circular waves
   \foreach \r in {0.1,0.3,...,1.8} {
     \draw[blue] (a)+(-90:\r) arc (-90:90:\r);
@@ -656,7 +659,10 @@ color(75bp)=(violet); color(100bp)=(violet)}
   \coordinate (a) at (0,\slitdistance/2);
   \coordinate (b) at (0,-\slitdistance/2);
   % plain waves
-  \foreach\X in {-2,-1.8,...,-0.2} {\draw(\X,-2)--(\X,2);}
+  \foreach \X in {-2,-1.8,...,-0.2} {
+    \draw[blue] (\X,-2) -- (\X,2);
+    \draw[orange] (\X + \wavelength/2,-2) -- (\X + \wavelength/2,2);
+  }
   % circular waves
   \foreach \r in {0.1,0.3,...,1.8} {
     \draw[blue] (a)+(-90:\r) arc (-90:90:\r);
