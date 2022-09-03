@@ -28,6 +28,57 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## coulomb-force-pos.svg
+[![coulomb-force-pos.svg](electrodynamics/coulomb-force-pos/coulomb-force-pos.svg "coulomb-force-pos.svg")](electrodynamics/coulomb-force-pos/coulomb-force-pos.svg) [[PDF]](electrodynamics/coulomb-force-pos/coulomb-force-pos.pdf) [[PNG]](electrodynamics/coulomb-force-pos/coulomb-force-pos.png) [[SVG]](electrodynamics/coulomb-force-pos/coulomb-force-pos.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\usepackage{pgfplots}
+\tikzset{>=latex}
+\usetikzlibrary{calc}
+
+\colorlet{green}{black!40!green}
+
+\begin{document}
+\begin{tikzpicture}
+  \begin{axis}[
+    xmin = -2, xmax = 2,
+    ymin = -2, ymax = 2,
+    axis equal image,
+    xtick = {\empty},
+    xticklabels = {\empty},
+    ytick = {\empty},
+    yticklabels = {\empty},
+    view = {0}{90},
+    height=6cm,
+    samples = 10,
+    color = blue,
+    domain = -2:2,
+    hide axis,
+    clip = false,
+    ]
+    \addplot3[
+      point meta = {pow(x^2+y^2,-0.05)},
+      quiver = {
+        u = {x/(x^2+y^2)},
+        v = {y/(x^2+y^2)},
+        scale arrows = 0.3,
+        % every arrow/.append style={%
+        %    -{Latex[scale={max(0.1,\pgfplotspointmetatransformed/1000)}]},
+        % },
+      },
+      ->,
+    ] {0};
+    \coordinate (o) at (axis cs: 0,0);
+    \coordinate (r) at (axis cs: 1.5,0.5);
+    \draw[fill,orange] (axis cs: 0,0) circle[radius=2pt] node[below,black] {$q_1$};
+    \draw[fill,orange] (r) circle[radius=2pt] node[below,black] {$q_2$};
+    \draw[->,red,very thick] (r) -- ($(o)!1.7!(r)$) node[above] {$\vec{F}_E$};
+    \draw[->,green,very thick] (o) -- node[below]{$\vec{r}$} (r);
+  \end{axis}
+\end{tikzpicture}
+\end{document}
+~~~
 ## electric-field-neg.svg
 [![electric-field-neg.svg](electrodynamics/electric-field-neg/electric-field-neg.svg "electric-field-neg.svg")](electrodynamics/electric-field-neg/electric-field-neg.svg) [[PDF]](electrodynamics/electric-field-neg/electric-field-neg.pdf) [[PNG]](electrodynamics/electric-field-neg/electric-field-neg.png) [[SVG]](electrodynamics/electric-field-neg/electric-field-neg.svg)
 ~~~.tex
@@ -178,6 +229,66 @@
   % labels
   \node[blue,above right] at (0,1.2,0) {$\vec{E}$};
   \node[red,below] at (0,0,1) {$\vec{B}$};
+\end{tikzpicture}
+\end{document}
+~~~
+## coulomb-force-pos_inverted.svg
+[![coulomb-force-pos_inverted.svg](electrodynamics/coulomb-force-pos/coulomb-force-pos_inverted.svg "coulomb-force-pos_inverted.svg")](electrodynamics/coulomb-force-pos/coulomb-force-pos_inverted.svg) [[PDF]](electrodynamics/coulomb-force-pos/coulomb-force-pos_inverted.pdf) [[PNG]](electrodynamics/coulomb-force-pos/coulomb-force-pos_inverted.png) [[SVG]](electrodynamics/coulomb-force-pos/coulomb-force-pos_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    color=white,
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\usepackage{pgfplots}
+\tikzset{>=latex}
+\usetikzlibrary{calc}
+
+\colorlet{green}{green}
+
+\begin{document}
+\begin{tikzpicture}[inverted,inverted]
+  \begin{axis}[inverted,
+    xmin = -2, xmax = 2,
+    ymin = -2, ymax = 2,
+    axis equal image,
+    xtick = {\empty},
+    xticklabels = {\empty},
+    ytick = {\empty},
+    yticklabels = {\empty},
+    view = {0}{90},
+    height=6cm,
+    samples = 10,
+    color = blue,
+    domain = -2:2,
+    hide axis,
+    clip = false,
+    ]
+    \addplot3[
+      point meta = {pow(x^2+y^2,-0.05)},
+      quiver = {
+        u = {x/(x^2+y^2)},
+        v = {y/(x^2+y^2)},
+        scale arrows = 0.3,
+        % every arrow/.append style={%
+        %    -{Latex[scale={max(0.1,\pgfplotspointmetatransformed/1000)}]},
+        % },
+      },
+      ->,
+    ] {0};
+    \coordinate (o) at (axis cs: 0,0);
+    \coordinate (r) at (axis cs: 1.5,0.5);
+    \draw[fill,orange] (axis cs: 0,0) circle[radius=2pt] node[below,white] {$q_1$};
+    \draw[fill,orange] (r) circle[radius=2pt] node[below,white] {$q_2$};
+    \draw[->,red,very thick] (r) -- ($(o)!1.7!(r)$) node[above] {$\vec{F}_E$};
+    \draw[->,green,very thick] (o) -- node[below]{$\vec{r}$} (r);
+  \end{axis}
 \end{tikzpicture}
 \end{document}
 ~~~
