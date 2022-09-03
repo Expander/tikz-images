@@ -55,7 +55,7 @@ $(OPT_MD): $(OPT_SVG)
 	./invert_colors $< $@
 
 %.pdf: %.tex
-	cd $(dir $<) && pdflatex $(notdir $<)
+	cd $(dir $<) && pdflatex --shell-escape $(notdir $<)
 
 %.png: %.pdf
 	cd $(dir $<) && pdftoppm -singlefile -r 300 -png $(notdir $<) $(basename $(notdir $@))
