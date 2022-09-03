@@ -28,6 +28,49 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## electric-field-neg.svg
+[![electric-field-neg.svg](electrodynamics/electric-field-neg/electric-field-neg.svg "electric-field-neg.svg")](electrodynamics/electric-field-neg/electric-field-neg.svg) [[PDF]](electrodynamics/electric-field-neg/electric-field-neg.pdf) [[PNG]](electrodynamics/electric-field-neg/electric-field-neg.png) [[SVG]](electrodynamics/electric-field-neg/electric-field-neg.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\usepackage{pgfplots}
+\tikzset{>=latex}
+
+\begin{document}
+\begin{tikzpicture}
+  \begin{axis}[
+    xmin = -2, xmax = 2,
+    ymin = -2, ymax = 2,
+    axis equal image,
+    xtick = {\empty},
+    xticklabels = {\empty},
+    ytick = {\empty},
+    yticklabels = {\empty},
+    view = {0}{90},
+    height=6cm,
+    samples = 10,
+    color = blue,
+    domain = -2:2,
+    hide axis,
+    clip = false,
+    ]
+    \addplot3[
+      point meta = {pow(x^2+y^2,-0.1)},
+      quiver = {
+        u = {-x/(x^2+y^2)},
+        v = {-y/(x^2+y^2)},
+        scale arrows = 0.1,
+        every arrow/.append style={%
+           -{latex[scale={max(0.7,\pgfplotspointmetatransformed/1000)}]},
+        },
+      },
+      ->,
+    ] {0};
+    \draw[fill,orange] (axis cs: 0,0) circle[radius=2pt] node[below=0.5em,black] {$q_1$};
+  \end{axis}
+\end{tikzpicture}
+\end{document}
+~~~
 ## electric-field-pos.svg
 [![electric-field-pos.svg](electrodynamics/electric-field-pos/electric-field-pos.svg "electric-field-pos.svg")](electrodynamics/electric-field-pos/electric-field-pos.svg) [[PDF]](electrodynamics/electric-field-pos/electric-field-pos.pdf) [[PNG]](electrodynamics/electric-field-pos/electric-field-pos.png) [[SVG]](electrodynamics/electric-field-pos/electric-field-pos.svg)
 ~~~.tex
@@ -135,6 +178,58 @@
   % labels
   \node[blue,above right] at (0,1.2,0) {$\vec{E}$};
   \node[red,below] at (0,0,1) {$\vec{B}$};
+\end{tikzpicture}
+\end{document}
+~~~
+## electric-field-neg_inverted.svg
+[![electric-field-neg_inverted.svg](electrodynamics/electric-field-neg/electric-field-neg_inverted.svg "electric-field-neg_inverted.svg")](electrodynamics/electric-field-neg/electric-field-neg_inverted.svg) [[PDF]](electrodynamics/electric-field-neg/electric-field-neg_inverted.pdf) [[PNG]](electrodynamics/electric-field-neg/electric-field-neg_inverted.png) [[SVG]](electrodynamics/electric-field-neg/electric-field-neg_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    color=white,
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\usepackage{pgfplots}
+\tikzset{>=latex}
+
+\begin{document}
+\begin{tikzpicture}[inverted,inverted]
+  \begin{axis}[inverted,
+    xmin = -2, xmax = 2,
+    ymin = -2, ymax = 2,
+    axis equal image,
+    xtick = {\empty},
+    xticklabels = {\empty},
+    ytick = {\empty},
+    yticklabels = {\empty},
+    view = {0}{90},
+    height=6cm,
+    samples = 10,
+    color = blue,
+    domain = -2:2,
+    hide axis,
+    clip = false,
+    ]
+    \addplot3[
+      point meta = {pow(x^2+y^2,-0.1)},
+      quiver = {
+        u = {-x/(x^2+y^2)},
+        v = {-y/(x^2+y^2)},
+        scale arrows = 0.1,
+        every arrow/.append style={%
+           -{latex[scale={max(0.7,\pgfplotspointmetatransformed/1000)}]},
+        },
+      },
+      ->,
+    ] {0};
+    \draw[fill,orange] (axis cs: 0,0) circle[radius=2pt] node[below=0.5em,white] {$q_1$};
+  \end{axis}
 \end{tikzpicture}
 \end{document}
 ~~~
