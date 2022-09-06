@@ -247,8 +247,8 @@
 \end{tikzpicture}
 \end{document}
 ~~~
-## potential-pos.svg
-[![potential-pos.svg](electrodynamics/potential-pos/potential-pos.svg "potential-pos.svg")](electrodynamics/potential-pos/potential-pos.svg) [[PDF]](electrodynamics/potential-pos/potential-pos.pdf) [[PNG]](electrodynamics/potential-pos/potential-pos.png) [[SVG]](electrodynamics/potential-pos/potential-pos.svg)
+## potential-positive-positions.svg
+[![potential-positive-positions.svg](electrodynamics/potential-positive-positions/potential-positive-positions.svg "potential-positive-positions.svg")](electrodynamics/potential-positive-positions/potential-positive-positions.svg) [[PDF]](electrodynamics/potential-positive-positions/potential-positive-positions.pdf) [[PNG]](electrodynamics/potential-positive-positions/potential-positive-positions.png) [[SVG]](electrodynamics/potential-positive-positions/potential-positive-positions.svg)
 ~~~.tex
 \documentclass[crop,tikz]{standalone}
 
@@ -591,8 +591,8 @@
 \end{tikzpicture}
 \end{document}
 ~~~
-## potential-pos_inverted.svg
-[![potential-pos_inverted.svg](electrodynamics/potential-pos/potential-pos_inverted.svg "potential-pos_inverted.svg")](electrodynamics/potential-pos/potential-pos_inverted.svg) [[PDF]](electrodynamics/potential-pos/potential-pos_inverted.pdf) [[PNG]](electrodynamics/potential-pos/potential-pos_inverted.png) [[SVG]](electrodynamics/potential-pos/potential-pos_inverted.svg)
+## potential-positive-positions_inverted.svg
+[![potential-positive-positions_inverted.svg](electrodynamics/potential-positive-positions/potential-positive-positions_inverted.svg "potential-positive-positions_inverted.svg")](electrodynamics/potential-positive-positions/potential-positive-positions_inverted.svg) [[PDF]](electrodynamics/potential-positive-positions/potential-positive-positions_inverted.pdf) [[PNG]](electrodynamics/potential-positive-positions/potential-positive-positions_inverted.png) [[SVG]](electrodynamics/potential-positive-positions/potential-positive-positions_inverted.svg)
 ~~~.tex
 \documentclass[crop,tikz]{standalone}
 \usetikzlibrary{backgrounds}
