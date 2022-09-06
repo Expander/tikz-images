@@ -132,6 +132,29 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## drude.svg
+[![drude.svg](electrodynamics/drude/drude.svg "drude.svg")](electrodynamics/drude/drude.svg) [[PDF]](electrodynamics/drude/drude.pdf) [[PNG]](electrodynamics/drude/drude.png) [[SVG]](electrodynamics/drude/drude.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\tikzset{>=latex}
+\usetikzlibrary{shapes}
+
+\begin{document}
+\begin{tikzpicture}[thick]
+  \node (A) at (0,0) [cylinder, aspect=2, shape border rotate=0, draw, minimum height=4cm, minimum width=2cm] {};
+  \draw (-1.8,0) -- ++(-1,0) -- ++(0,-3) -- ++(+2.3,0) coordinate (p1);
+  \draw (+2,0)   -- ++(+1,0) -- ++(0,-3) -- ++(-2.5,0) coordinate (p2);
+  \draw[fill=white] (p1) circle (0.1) node[below] {$+$};
+  \draw[fill=white] (p2) circle (0.1) node[below] {$-$};
+  \node[below] at (0,-3) {$U$};
+  \foreach \x/\y in { -1/-0.4,-1/0.5,0/-0.2,1/0.3,1/-0.3 } {%
+    \draw[fill,red] (\x,\y)  circle (0.1) coordinate (t);
+    \draw[->] (t) -- ++(-0.6,0);
+  }
+\end{tikzpicture}
+\end{document}
+~~~
 ## electric-field-neg.svg
 [![electric-field-neg.svg](electrodynamics/electric-field-neg/electric-field-neg.svg "electric-field-neg.svg")](electrodynamics/electric-field-neg/electric-field-neg.svg) [[PDF]](electrodynamics/electric-field-neg/electric-field-neg.pdf) [[PNG]](electrodynamics/electric-field-neg/electric-field-neg.png) [[SVG]](electrodynamics/electric-field-neg/electric-field-neg.svg)
 ~~~.tex
@@ -519,6 +542,38 @@
     \draw[->,red,very thick] (r) -- ($(o)!1.7!(r)$) node[above] {$\vec{F}_E$};
     \draw[->,green,very thick] (o) -- node[below]{$\vec{r}$} (r);
   \end{axis}
+\end{tikzpicture}
+\end{document}
+~~~
+## drude_inverted.svg
+[![drude_inverted.svg](electrodynamics/drude/drude_inverted.svg "drude_inverted.svg")](electrodynamics/drude/drude_inverted.svg) [[PDF]](electrodynamics/drude/drude_inverted.pdf) [[PNG]](electrodynamics/drude/drude_inverted.png) [[SVG]](electrodynamics/drude/drude_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    color=white,
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\tikzset{>=latex}
+\usetikzlibrary{shapes}
+
+\begin{document}
+\begin{tikzpicture}[inverted,thick]
+  \node (A) at (0,0) [cylinder, aspect=2, shape border rotate=0, draw, minimum height=4cm, minimum width=2cm] {};
+  \draw (-1.8,0) -- ++(-1,0) -- ++(0,-3) -- ++(+2.3,0) coordinate (p1);
+  \draw (+2,0)   -- ++(+1,0) -- ++(0,-3) -- ++(-2.5,0) coordinate (p2);
+  \draw[fill=white] (p1) circle (0.1) node[below] {$+$};
+  \draw[fill=white] (p2) circle (0.1) node[below] {$-$};
+  \node[below] at (0,-3) {$U$};
+  \foreach \x/\y in { -1/-0.4,-1/0.5,0/-0.2,1/0.3,1/-0.3 } {%
+    \draw[fill,red] (\x,\y)  circle (0.1) coordinate (t);
+    \draw[->] (t) -- ++(-0.6,0);
+  }
 \end{tikzpicture}
 \end{document}
 ~~~
