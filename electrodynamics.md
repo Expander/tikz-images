@@ -254,7 +254,6 @@
 
 \usepackage{pgfplots}
 \tikzset{>=latex}
-\usetikzlibrary{calc}
 \usepgfplotslibrary{colormaps}
 
 \colorlet{green}{black!40!green}
@@ -281,6 +280,45 @@
     ]{ f(x,y) };
     \addplot3[only marks, mark=*, mark size=1pt] coordinates { (0.25, -0.25, { f(0.25, -0.25) }) } node[right] { $\vec{r}_1$ };
     \addplot3[only marks, mark=*, mark size=1pt] coordinates { (0.5, -0.5, { f(0.5, -0.5) }) } node[right] { $\vec{r}_2$ };
+    \node[above] at (axis cs: 0, 0, 4) { $\phi(\vec{r})$ };
+    \coordinate (O) at (axis cs: -3, -1, 0); % origin
+    \draw[->, white] (O) -- (axis cs: -1, -1, 0) node[right] { \small $x$ };
+    \draw[->, white] (O) -- (axis cs: -3, 1, 0) node[above right] { \small $y$ };
+  \end{axis}
+\end{tikzpicture}
+\end{document}
+~~~
+## potential-pos.svg
+[![potential-pos.svg](electrodynamics/potential-pos/potential-pos.svg "potential-pos.svg")](electrodynamics/potential-pos/potential-pos.svg) [[PDF]](electrodynamics/potential-pos/potential-pos.pdf) [[PNG]](electrodynamics/potential-pos/potential-pos.png) [[SVG]](electrodynamics/potential-pos/potential-pos.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\usepackage{pgfplots}
+\tikzset{>=latex}
+\usepgfplotslibrary{colormaps}
+
+\colorlet{green}{black!40!green}
+
+\begin{document}
+\begin{tikzpicture}
+  \begin{axis}[
+    width=6cm,
+    height=6cm,
+    domain=-3:3,
+    shader=interp,
+    colormap/hot,
+    point meta max=5,
+    point meta min=0,
+    hide axis,
+    zmin=0, zmax=4,
+    clip=false,
+    declare function = { f(\x,\y) = 1/sqrt(\x^2 + \y^2); },
+    ]
+    \addplot3[
+       restrict z to domain* = 0:4,
+       surf,
+       samples=70,
+    ]{ f(x,y) };
     \node[above] at (axis cs: 0, 0, 4) { $\phi(\vec{r})$ };
     \coordinate (O) at (axis cs: -3, -1, 0); % origin
     \draw[->, white] (O) -- (axis cs: -1, -1, 0) node[right] { \small $x$ };
@@ -607,7 +645,6 @@
 
 \usepackage{pgfplots}
 \tikzset{>=latex}
-\usetikzlibrary{calc}
 \usepgfplotslibrary{colormaps}
 
 \colorlet{green}{green}
@@ -634,6 +671,54 @@
     ]{ f(x,y) };
     \addplot3[only marks, mark=*, mark size=1pt] coordinates { (0.25, -0.25, { f(0.25, -0.25) }) } node[right] { $\vec{r}_1$ };
     \addplot3[only marks, mark=*, mark size=1pt] coordinates { (0.5, -0.5, { f(0.5, -0.5) }) } node[right] { $\vec{r}_2$ };
+    \node[above] at (axis cs: 0, 0, 4) { $\phi(\vec{r})$ };
+    \coordinate (O) at (axis cs: -3, -1, 0); % origin
+    \draw[->, white] (O) -- (axis cs: -1, -1, 0) node[right] { \small $x$ };
+    \draw[->, white] (O) -- (axis cs: -3, 1, 0) node[above right] { \small $y$ };
+  \end{axis}
+\end{tikzpicture}
+\end{document}
+~~~
+## potential-pos_inverted.svg
+[![potential-pos_inverted.svg](electrodynamics/potential-pos/potential-pos_inverted.svg "potential-pos_inverted.svg")](electrodynamics/potential-pos/potential-pos_inverted.svg) [[PDF]](electrodynamics/potential-pos/potential-pos_inverted.pdf) [[PNG]](electrodynamics/potential-pos/potential-pos_inverted.png) [[SVG]](electrodynamics/potential-pos/potential-pos_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    color=white,
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\usepackage{pgfplots}
+\tikzset{>=latex}
+\usepgfplotslibrary{colormaps}
+
+\colorlet{green}{green}
+
+\begin{document}
+\begin{tikzpicture}[inverted,inverted]
+  \begin{axis}[inverted,
+    width=6cm,
+    height=6cm,
+    domain=-3:3,
+    shader=interp,
+    colormap/hot,
+    point meta max=5,
+    point meta min=0,
+    hide axis,
+    zmin=0, zmax=4,
+    clip=false,
+    declare function = { f(\x,\y) = 1/sqrt(\x^2 + \y^2); },
+    ]
+    \addplot3[
+       restrict z to domain* = 0:4,
+       surf,
+       samples=70,
+    ]{ f(x,y) };
     \node[above] at (axis cs: 0, 0, 4) { $\phi(\vec{r})$ };
     \coordinate (O) at (axis cs: -3, -1, 0); % origin
     \draw[->, white] (O) -- (axis cs: -1, -1, 0) node[right] { \small $x$ };
