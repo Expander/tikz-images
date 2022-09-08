@@ -270,6 +270,43 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## potential-dipole.svg
+[![potential-dipole.svg](electrodynamics/potential-dipole/potential-dipole.svg "potential-dipole.svg")](electrodynamics/potential-dipole/potential-dipole.svg) [[PDF]](electrodynamics/potential-dipole/potential-dipole.pdf) [[PNG]](electrodynamics/potential-dipole/potential-dipole.png) [[SVG]](electrodynamics/potential-dipole/potential-dipole.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\usepackage{pgfplots}
+\tikzset{>=latex}
+\usepgfplotslibrary{colormaps}
+
+\begin{document}
+\begin{tikzpicture}
+  \begin{axis}[
+    width=8cm,
+    height=8cm,
+    domain=-4:4,
+    shader=interp,
+    colormap/hot,
+    point meta min=-4,
+    point meta max=4,
+    hide axis,
+    zmin=-4, zmax=4,
+    clip=false,
+    declare function = { f(\x,\y) = - 1/sqrt((\x+1)^2 + (\y+1)^2) + 1/sqrt((\x-1)^2 + (\y-1)^2); },
+    ]
+    \addplot3[
+       restrict z to domain* = -4:4,
+       surf,
+       samples=70,
+    ]{ f(x,y) };
+    \node at (axis cs: 3, 3, 0) { $\phi(\vec{r})$ };
+    \coordinate (O) at (axis cs: -3, -3.5, 0); % origin
+    \draw[->] (O) -- (axis cs: -1, -3.5, 0) node[right] { \small $x$ };
+    \draw[->] (O) -- (axis cs: -3, -0.5, 0) node[above right] { \small $y$ };
+  \end{axis}
+\end{tikzpicture}
+\end{document}
+~~~
 ## potential-neg.svg
 [![potential-neg.svg](electrodynamics/potential-neg/potential-neg.svg "potential-neg.svg")](electrodynamics/potential-neg/potential-neg.svg) [[PDF]](electrodynamics/potential-neg/potential-neg.pdf) [[PNG]](electrodynamics/potential-neg/potential-neg.png) [[SVG]](electrodynamics/potential-neg/potential-neg.svg)
 ~~~.tex
@@ -716,6 +753,52 @@
   % labels
   \node[blue,above right] at (0,1,0) {$\vec{E}$};
   \node[red,below] at (0,0,1) {$\vec{B}$};
+\end{tikzpicture}
+\end{document}
+~~~
+## potential-dipole_inverted.svg
+[![potential-dipole_inverted.svg](electrodynamics/potential-dipole/potential-dipole_inverted.svg "potential-dipole_inverted.svg")](electrodynamics/potential-dipole/potential-dipole_inverted.svg) [[PDF]](electrodynamics/potential-dipole/potential-dipole_inverted.pdf) [[PNG]](electrodynamics/potential-dipole/potential-dipole_inverted.png) [[SVG]](electrodynamics/potential-dipole/potential-dipole_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    color=white,
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\usepackage{pgfplots}
+\tikzset{>=latex}
+\usepgfplotslibrary{colormaps}
+
+\begin{document}
+\begin{tikzpicture}[inverted,inverted]
+  \begin{axis}[inverted,
+    width=8cm,
+    height=8cm,
+    domain=-4:4,
+    shader=interp,
+    colormap/hot,
+    point meta min=-4,
+    point meta max=4,
+    hide axis,
+    zmin=-4, zmax=4,
+    clip=false,
+    declare function = { f(\x,\y) = - 1/sqrt((\x+1)^2 + (\y+1)^2) + 1/sqrt((\x-1)^2 + (\y-1)^2); },
+    ]
+    \addplot3[
+       restrict z to domain* = -4:4,
+       surf,
+       samples=70,
+    ]{ f(x,y) };
+    \node at (axis cs: 3, 3, 0) { $\phi(\vec{r})$ };
+    \coordinate (O) at (axis cs: -3, -3.5, 0); % origin
+    \draw[->] (O) -- (axis cs: -1, -3.5, 0) node[right] { \small $x$ };
+    \draw[->] (O) -- (axis cs: -3, -0.5, 0) node[above right] { \small $y$ };
+  \end{axis}
 \end{tikzpicture}
 \end{document}
 ~~~
