@@ -287,15 +287,15 @@
     domain=-4:4,
     shader=interp,
     colormap/hot,
-    point meta min=-4,
-    point meta max=4,
+    point meta min=-3,
+    point meta max=3,
     hide axis,
-    zmin=-4, zmax=4,
+    zmin=-3, zmax=3,
     clip=false,
     declare function = { f(\x,\y) = - 1/sqrt((\x+1)^2 + (\y+1)^2) + 1/sqrt((\x-1)^2 + (\y-1)^2); },
     ]
     \addplot3[
-       restrict z to domain* = -4:4,
+       restrict z to domain* = -3:3,
        surf,
        samples=70,
     ]{ f(x,y) };
@@ -782,15 +782,15 @@
     domain=-4:4,
     shader=interp,
     colormap/hot,
-    point meta min=-4,
-    point meta max=4,
+    point meta min=-3,
+    point meta max=3,
     hide axis,
-    zmin=-4, zmax=4,
+    zmin=-3, zmax=3,
     clip=false,
     declare function = { f(\x,\y) = - 1/sqrt((\x+1)^2 + (\y+1)^2) + 1/sqrt((\x-1)^2 + (\y-1)^2); },
     ]
     \addplot3[
-       restrict z to domain* = -4:4,
+       restrict z to domain* = -3:3,
        surf,
        samples=70,
     ]{ f(x,y) };
