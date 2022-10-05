@@ -75,7 +75,7 @@
     \draw[fill,orange] (r) circle[radius=2pt] node[right,black] {$q_2$};
     \draw[->,green,very thick] (o) -- node[below]{$\vec{r}$} (r);
     \begin{scope}[shift={(-0.1,0.1)}]
-      \draw[->,red,very thick] (r) -- node[above] {$\vec{F}_E$} ($(o)!0.3!(r)$);
+      \draw[->,red,very thick] (r) -- node[above] {$\vec{F}_C$} ($(o)!0.3!(r)$);
     \end{scope}
   \end{axis}
 \end{tikzpicture}
@@ -126,7 +126,7 @@
     \coordinate (r) at (axis cs: 1.5,0.5);
     \draw[fill,orange] (axis cs: 0,0) circle[radius=2pt] node[below,black] {$q_1$};
     \draw[fill,orange] (r) circle[radius=2pt] node[below,black] {$q_2$};
-    \draw[->,red,very thick] (r) -- ($(o)!1.7!(r)$) node[above] {$\vec{F}_E$};
+    \draw[->,red,very thick] (r) -- ($(o)!1.7!(r)$) node[above] {$\vec{F}_C$};
     \draw[->,green,very thick] (o) -- node[below]{$\vec{r}$} (r);
   \end{axis}
 \end{tikzpicture}
@@ -516,7 +516,7 @@
     \draw[fill,orange] (r) circle[radius=2pt] node[right,white] {$q_2$};
     \draw[->,green,very thick] (o) -- node[below]{$\vec{r}$} (r);
     \begin{scope}[shift={(-0.1,0.1)}]
-      \draw[->,red,very thick] (r) -- node[above] {$\vec{F}_E$} ($(o)!0.3!(r)$);
+      \draw[->,red,very thick] (r) -- node[above] {$\vec{F}_C$} ($(o)!0.3!(r)$);
     \end{scope}
   \end{axis}
 \end{tikzpicture}
@@ -576,7 +576,7 @@
     \coordinate (r) at (axis cs: 1.5,0.5);
     \draw[fill,orange] (axis cs: 0,0) circle[radius=2pt] node[below,white] {$q_1$};
     \draw[fill,orange] (r) circle[radius=2pt] node[below,white] {$q_2$};
-    \draw[->,red,very thick] (r) -- ($(o)!1.7!(r)$) node[above] {$\vec{F}_E$};
+    \draw[->,red,very thick] (r) -- ($(o)!1.7!(r)$) node[above] {$\vec{F}_C$};
     \draw[->,green,very thick] (o) -- node[below]{$\vec{r}$} (r);
   \end{axis}
 \end{tikzpicture}
