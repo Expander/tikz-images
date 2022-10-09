@@ -8,4 +8,6 @@
 
 [Optics](optics.md)
 
+[Statistics](statistics.md)
+
 License: CC0
