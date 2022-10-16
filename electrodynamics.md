@@ -344,6 +344,43 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## potential-pos-flat.svg
+[![potential-pos-flat.svg](electrodynamics/potential-pos-flat/potential-pos-flat.svg "potential-pos-flat.svg")](electrodynamics/potential-pos-flat/potential-pos-flat.svg) [[PDF]](electrodynamics/potential-pos-flat/potential-pos-flat.pdf) [[PNG]](electrodynamics/potential-pos-flat/potential-pos-flat.png) [[SVG]](electrodynamics/potential-pos-flat/potential-pos-flat.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\usepackage{pgfplots}
+\tikzset{>=latex}
+\usepgfplotslibrary{colormaps}
+
+\begin{document}
+\begin{tikzpicture}
+  \begin{axis}[
+    width=6cm,
+    height=6cm,
+    domain=-3:3,
+    shader=interp,
+    colormap/hot,
+    point meta max=4,
+    point meta min=0,
+    hide axis,
+    zmin=0, zmax=4,
+    clip=false,
+    declare function = { f(\x,\y) = 1/sqrt(\x^2 + \y^2); },
+    ]
+    \addplot3[
+       restrict z to domain* = 0:4,
+       surf,
+       samples=70,
+    ]{ f(x,y) };
+    \node[above] at (axis cs: 0, 0, 4) { $\phi(\vec{r})$ };
+    \coordinate (O) at (axis cs: -3, -1, 0); % origin
+    \draw[->, white] (O) -- (axis cs: -1, -1, 0) node[right] { \small $x$ };
+    \draw[->, white] (O) -- (axis cs: -3, 1, 0) node[above right] { \small $y$ };
+  \end{axis}
+\end{tikzpicture}
+\end{document}
+~~~
 ## potential-positive-positions.svg
 [![potential-positive-positions.svg](electrodynamics/potential-positive-positions/potential-positive-positions.svg "potential-positive-positions.svg")](electrodynamics/potential-positive-positions/potential-positive-positions.svg) [[PDF]](electrodynamics/potential-positive-positions/potential-positive-positions.pdf) [[PNG]](electrodynamics/potential-positive-positions/potential-positive-positions.png) [[SVG]](electrodynamics/potential-positive-positions/potential-positive-positions.svg)
 ~~~.tex
@@ -391,8 +428,6 @@
 \usepackage{pgfplots}
 \tikzset{>=latex}
 \usepgfplotslibrary{colormaps}
-
-\colorlet{green}{black!40!green}
 
 \begin{document}
 \begin{tikzpicture}
@@ -848,6 +883,52 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## potential-pos-flat_inverted.svg
+[![potential-pos-flat_inverted.svg](electrodynamics/potential-pos-flat/potential-pos-flat_inverted.svg "potential-pos-flat_inverted.svg")](electrodynamics/potential-pos-flat/potential-pos-flat_inverted.svg) [[PDF]](electrodynamics/potential-pos-flat/potential-pos-flat_inverted.pdf) [[PNG]](electrodynamics/potential-pos-flat/potential-pos-flat_inverted.png) [[SVG]](electrodynamics/potential-pos-flat/potential-pos-flat_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    color=white,
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\usepackage{pgfplots}
+\tikzset{>=latex}
+\usepgfplotslibrary{colormaps}
+
+\begin{document}
+\begin{tikzpicture}[inverted,inverted]
+  \begin{axis}[inverted,
+    width=6cm,
+    height=6cm,
+    domain=-3:3,
+    shader=interp,
+    colormap/hot,
+    point meta max=4,
+    point meta min=0,
+    hide axis,
+    zmin=0, zmax=4,
+    clip=false,
+    declare function = { f(\x,\y) = 1/sqrt(\x^2 + \y^2); },
+    ]
+    \addplot3[
+       restrict z to domain* = 0:4,
+       surf,
+       samples=70,
+    ]{ f(x,y) };
+    \node[above] at (axis cs: 0, 0, 4) { $\phi(\vec{r})$ };
+    \coordinate (O) at (axis cs: -3, -1, 0); % origin
+    \draw[->, white] (O) -- (axis cs: -1, -1, 0) node[right] { \small $x$ };
+    \draw[->, white] (O) -- (axis cs: -3, 1, 0) node[above right] { \small $y$ };
+  \end{axis}
+\end{tikzpicture}
+\end{document}
+~~~
 ## potential-positive-positions_inverted.svg
 [![potential-positive-positions_inverted.svg](electrodynamics/potential-positive-positions/potential-positive-positions_inverted.svg "potential-positive-positions_inverted.svg")](electrodynamics/potential-positive-positions/potential-positive-positions_inverted.svg) [[PDF]](electrodynamics/potential-positive-positions/potential-positive-positions_inverted.pdf) [[PNG]](electrodynamics/potential-positive-positions/potential-positive-positions_inverted.png) [[SVG]](electrodynamics/potential-positive-positions/potential-positive-positions_inverted.svg)
 ~~~.tex
@@ -913,8 +994,6 @@
 \usepackage{pgfplots}
 \tikzset{>=latex}
 \usepgfplotslibrary{colormaps}
-
-\colorlet{green}{green}
 
 \begin{document}
 \begin{tikzpicture}[inverted,inverted]
