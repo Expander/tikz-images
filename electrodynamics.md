@@ -307,6 +307,62 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## potential-neg-1d.svg
+[![potential-neg-1d.svg](electrodynamics/potential-neg-1d/potential-neg-1d.svg "potential-neg-1d.svg")](electrodynamics/potential-neg-1d/potential-neg-1d.svg) [[PDF]](electrodynamics/potential-neg-1d/potential-neg-1d.pdf) [[PNG]](electrodynamics/potential-neg-1d/potential-neg-1d.png) [[SVG]](electrodynamics/potential-neg-1d/potential-neg-1d.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\usepackage{pgfplots}
+\tikzset{>=latex}
+\usepgfplotslibrary{colormaps}
+
+\pgfplotsset{
+  compat=1.16,
+  every non boxed x axis/.append style={
+    axis line style={-latex}
+  },
+  every non boxed y axis/.append style={
+    axis line style={-latex}
+  },
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=hardblack,
+      text=white
+    }
+  }
+}
+
+\begin{document}
+\begin{tikzpicture}
+  \begin{axis}[
+    width=6cm,
+    height=5cm,
+    colormap/hot,
+    point meta max=0,
+    point meta min=-10,
+    point meta=y,
+    xmin=-2, xmax=4,
+    ymin=-10, ymax=2,
+    axis x line=middle,
+    axis y line=middle,
+    xlabel={$x$},
+    ylabel={$\phi$},
+    xlabel style={right},
+    ylabel style={above},
+    xtick={\empty},
+    ytick={\empty},
+    declare function = { f(\x,\y,\xo,\yo) = -1/sqrt((\x-\xo)^2 + (\y-\yo)^2); },
+    samples=1000,
+    clip=false,
+    ]
+    \addplot[mesh,thick,domain=-2:0.9] { f(x,0,1,0) };
+    \addplot[mesh,thick,domain=1.1:4] { f(x,0,1,0) };
+    \draw[dashed] (axis cs: 1,0.3) node[above] {$x_0$} -- (axis cs: 1,-10);
+  \end{axis}
+\end{tikzpicture}
+\end{document}
+~~~
 ## potential-neg-flat.svg
 [![potential-neg-flat.svg](electrodynamics/potential-neg-flat/potential-neg-flat.svg "potential-neg-flat.svg")](electrodynamics/potential-neg-flat/potential-neg-flat.svg) [[PDF]](electrodynamics/potential-neg-flat/potential-neg-flat.pdf) [[PNG]](electrodynamics/potential-neg-flat/potential-neg-flat.png) [[SVG]](electrodynamics/potential-neg-flat/potential-neg-flat.svg)
 ~~~.tex
@@ -428,7 +484,7 @@
     xtick={\empty},
     ytick={\empty},
     declare function = { f(\x,\y,\xo,\yo) = 1/sqrt((\x-\xo)^2 + (\y-\yo)^2); },
-    samples=100,
+    samples=1000,
     clip=false,
     ]
     \addplot[mesh,thick,domain=-2:0.9] { f(x,0,1,0) };
@@ -932,6 +988,71 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## potential-neg-1d_inverted.svg
+[![potential-neg-1d_inverted.svg](electrodynamics/potential-neg-1d/potential-neg-1d_inverted.svg "potential-neg-1d_inverted.svg")](electrodynamics/potential-neg-1d/potential-neg-1d_inverted.svg) [[PDF]](electrodynamics/potential-neg-1d/potential-neg-1d_inverted.pdf) [[PNG]](electrodynamics/potential-neg-1d/potential-neg-1d_inverted.png) [[SVG]](electrodynamics/potential-neg-1d/potential-neg-1d_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    color=white,
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\usepackage{pgfplots}
+\tikzset{>=latex}
+\usepgfplotslibrary{colormaps}
+
+\pgfplotsset{
+  compat=1.16,
+  every non boxed x axis/.append style={
+    axis line style={-latex}
+  },
+  every non boxed y axis/.append style={
+    axis line style={-latex}
+  },
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=black,
+      text=white
+    }
+  }
+}
+
+\begin{document}
+\begin{tikzpicture}[inverted,inverted]
+  \begin{axis}[inverted,
+    width=6cm,
+    height=5cm,
+    colormap/hot,
+    point meta max=0,
+    point meta min=-10,
+    point meta=y,
+    xmin=-2, xmax=4,
+    ymin=-10, ymax=2,
+    axis x line=middle,
+    axis y line=middle,
+    xlabel={$x$},
+    ylabel={$\phi$},
+    xlabel style={right},
+    ylabel style={above},
+    xtick={\empty},
+    ytick={\empty},
+    declare function = { f(\x,\y,\xo,\yo) = -1/sqrt((\x-\xo)^2 + (\y-\yo)^2); },
+    samples=1000,
+    clip=false,
+    ]
+    \addplot[mesh,thick,domain=-2:0.9] { f(x,0,1,0) };
+    \addplot[mesh,thick,domain=1.1:4] { f(x,0,1,0) };
+    \draw[dashed] (axis cs: 1,0.3) node[above] {$x_0$} -- (axis cs: 1,-10);
+  \end{axis}
+\end{tikzpicture}
+\end{document}
+~~~
 ## potential-neg-flat_inverted.svg
 [![potential-neg-flat_inverted.svg](electrodynamics/potential-neg-flat/potential-neg-flat_inverted.svg "potential-neg-flat_inverted.svg")](electrodynamics/potential-neg-flat/potential-neg-flat_inverted.svg) [[PDF]](electrodynamics/potential-neg-flat/potential-neg-flat_inverted.pdf) [[PNG]](electrodynamics/potential-neg-flat/potential-neg-flat_inverted.png) [[SVG]](electrodynamics/potential-neg-flat/potential-neg-flat_inverted.svg)
 ~~~.tex
@@ -1080,7 +1201,7 @@
     xtick={\empty},
     ytick={\empty},
     declare function = { f(\x,\y,\xo,\yo) = 1/sqrt((\x-\xo)^2 + (\y-\yo)^2); },
-    samples=100,
+    samples=1000,
     clip=false,
     ]
     \addplot[mesh,thick,domain=-2:0.9] { f(x,0,1,0) };
