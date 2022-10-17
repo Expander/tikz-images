@@ -307,6 +307,44 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## potential-neg-flat.svg
+[![potential-neg-flat.svg](electrodynamics/potential-neg-flat/potential-neg-flat.svg "potential-neg-flat.svg")](electrodynamics/potential-neg-flat/potential-neg-flat.svg) [[PDF]](electrodynamics/potential-neg-flat/potential-neg-flat.pdf) [[PNG]](electrodynamics/potential-neg-flat/potential-neg-flat.png) [[SVG]](electrodynamics/potential-neg-flat/potential-neg-flat.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\usepackage{pgfplots}
+\tikzset{>=latex}
+\usepgfplotslibrary{colormaps}
+
+\begin{document}
+\begin{tikzpicture}
+  \begin{axis}[
+    width=6cm,
+    height=6cm,
+    domain=-3:3,
+    shader=interp,
+    colormap/hot,
+    point meta max=0,
+    point meta min=-4,
+    hide axis,
+    zmin=-4, zmax=0,
+    clip=false,
+    declare function = { f(\x,\y) = -1/sqrt(\x^2 + \y^2); },
+    view={0}{90},
+    ]
+    \addplot3[
+       restrict z to domain* = -4:0,
+       surf,
+       samples=70,
+    ]{ f(x,y) };
+    \addplot3[only marks, mark=*, mark size=1pt, white] coordinates { (0, 0, 4) } node[above right, xshift=0.4em, yshift=0.4em] { $\vec{r}_0$ };
+    \coordinate (O) at (axis cs: -2, -2, 0); % origin
+    \draw[->, white] (O) -- (axis cs: -1, -2, 0) node[right] { \small $x$ };
+    \draw[->, white] (O) -- (axis cs: -2, -1, 0) node[above] { \small $y$ };
+  \end{axis}
+\end{tikzpicture}
+\end{document}
+~~~
 ## potential-neg.svg
 [![potential-neg.svg](electrodynamics/potential-neg/potential-neg.svg "potential-neg.svg")](electrodynamics/potential-neg/potential-neg.svg) [[PDF]](electrodynamics/potential-neg/potential-neg.pdf) [[PNG]](electrodynamics/potential-neg/potential-neg.png) [[SVG]](electrodynamics/potential-neg/potential-neg.svg)
 ~~~.tex
@@ -367,16 +405,17 @@
     zmin=0, zmax=4,
     clip=false,
     declare function = { f(\x,\y) = 1/sqrt(\x^2 + \y^2); },
+    view={0}{90},
     ]
     \addplot3[
        restrict z to domain* = 0:4,
        surf,
        samples=70,
     ]{ f(x,y) };
-    \node[above] at (axis cs: 0, 0, 4) { $\phi(\vec{r})$ };
-    \coordinate (O) at (axis cs: -3, -1, 0); % origin
-    \draw[->, white] (O) -- (axis cs: -1, -1, 0) node[right] { \small $x$ };
-    \draw[->, white] (O) -- (axis cs: -3, 1, 0) node[above right] { \small $y$ };
+    \addplot3[only marks, mark=*, mark size=1pt] coordinates { (0, 0, 4) } node[right] { $\vec{r}_0$ };
+    \coordinate (O) at (axis cs: -2, -2, 0); % origin
+    \draw[->, white] (O) -- (axis cs: -1, -2, 0) node[right] { \small $x$ };
+    \draw[->, white] (O) -- (axis cs: -2, -1, 0) node[above] { \small $y$ };
   \end{axis}
 \end{tikzpicture}
 \end{document}
@@ -837,6 +876,53 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## potential-neg-flat_inverted.svg
+[![potential-neg-flat_inverted.svg](electrodynamics/potential-neg-flat/potential-neg-flat_inverted.svg "potential-neg-flat_inverted.svg")](electrodynamics/potential-neg-flat/potential-neg-flat_inverted.svg) [[PDF]](electrodynamics/potential-neg-flat/potential-neg-flat_inverted.pdf) [[PNG]](electrodynamics/potential-neg-flat/potential-neg-flat_inverted.png) [[SVG]](electrodynamics/potential-neg-flat/potential-neg-flat_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    color=white,
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\usepackage{pgfplots}
+\tikzset{>=latex}
+\usepgfplotslibrary{colormaps}
+
+\begin{document}
+\begin{tikzpicture}[inverted,inverted]
+  \begin{axis}[inverted,
+    width=6cm,
+    height=6cm,
+    domain=-3:3,
+    shader=interp,
+    colormap/hot,
+    point meta max=0,
+    point meta min=-4,
+    hide axis,
+    zmin=-4, zmax=0,
+    clip=false,
+    declare function = { f(\x,\y) = -1/sqrt(\x^2 + \y^2); },
+    view={0}{90},
+    ]
+    \addplot3[
+       restrict z to domain* = -4:0,
+       surf,
+       samples=70,
+    ]{ f(x,y) };
+    \addplot3[only marks, mark=*, mark size=1pt, white] coordinates { (0, 0, 4) } node[above right, xshift=0.4em, yshift=0.4em] { $\vec{r}_0$ };
+    \coordinate (O) at (axis cs: -2, -2, 0); % origin
+    \draw[->, white] (O) -- (axis cs: -1, -2, 0) node[right] { \small $x$ };
+    \draw[->, white] (O) -- (axis cs: -2, -1, 0) node[above] { \small $y$ };
+  \end{axis}
+\end{tikzpicture}
+\end{document}
+~~~
 ## potential-neg_inverted.svg
 [![potential-neg_inverted.svg](electrodynamics/potential-neg/potential-neg_inverted.svg "potential-neg_inverted.svg")](electrodynamics/potential-neg/potential-neg_inverted.svg) [[PDF]](electrodynamics/potential-neg/potential-neg_inverted.pdf) [[PNG]](electrodynamics/potential-neg/potential-neg_inverted.png) [[SVG]](electrodynamics/potential-neg/potential-neg_inverted.svg)
 ~~~.tex
@@ -915,16 +1001,17 @@
     zmin=0, zmax=4,
     clip=false,
     declare function = { f(\x,\y) = 1/sqrt(\x^2 + \y^2); },
+    view={0}{90},
     ]
     \addplot3[
        restrict z to domain* = 0:4,
        surf,
        samples=70,
     ]{ f(x,y) };
-    \node[above] at (axis cs: 0, 0, 4) { $\phi(\vec{r})$ };
-    \coordinate (O) at (axis cs: -3, -1, 0); % origin
-    \draw[->, white] (O) -- (axis cs: -1, -1, 0) node[right] { \small $x$ };
-    \draw[->, white] (O) -- (axis cs: -3, 1, 0) node[above right] { \small $y$ };
+    \addplot3[only marks, mark=*, mark size=1pt] coordinates { (0, 0, 4) } node[right] { $\vec{r}_0$ };
+    \coordinate (O) at (axis cs: -2, -2, 0); % origin
+    \draw[->, white] (O) -- (axis cs: -1, -2, 0) node[right] { \small $x$ };
+    \draw[->, white] (O) -- (axis cs: -2, -1, 0) node[above] { \small $y$ };
   \end{axis}
 \end{tikzpicture}
 \end{document}
