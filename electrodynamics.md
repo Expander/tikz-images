@@ -382,6 +382,62 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## potential-pos-1d.svg
+[![potential-pos-1d.svg](electrodynamics/potential-pos-1d/potential-pos-1d.svg "potential-pos-1d.svg")](electrodynamics/potential-pos-1d/potential-pos-1d.svg) [[PDF]](electrodynamics/potential-pos-1d/potential-pos-1d.pdf) [[PNG]](electrodynamics/potential-pos-1d/potential-pos-1d.png) [[SVG]](electrodynamics/potential-pos-1d/potential-pos-1d.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\usepackage{pgfplots}
+\tikzset{>=latex}
+\usepgfplotslibrary{colormaps}
+
+\pgfplotsset{
+  compat=1.16,
+  every non boxed x axis/.append style={
+    axis line style={-latex}
+  },
+  every non boxed y axis/.append style={
+    axis line style={-latex}
+  },
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=hardblack,
+      text=white
+    }
+  }
+}
+
+\begin{document}
+\begin{tikzpicture}
+  \begin{axis}[
+    width=6cm,
+    height=5cm,
+    colormap/hot,
+    point meta max=10,
+    point meta min=0,
+    point meta=y,
+    xmin=-2, xmax=4,
+    ymin=0, ymax=10,
+    axis x line=middle,
+    axis y line=middle,
+    xlabel={$x$},
+    ylabel={$\phi$},
+    xlabel style={right},
+    ylabel style={above},
+    xtick={\empty},
+    ytick={\empty},
+    declare function = { f(\x,\y,\xo,\yo) = 1/sqrt((\x-\xo)^2 + (\y-\yo)^2); },
+    samples=100,
+    clip=false,
+    ]
+    \addplot[mesh,thick,domain=-2:0.9] { f(x,0,1,0) };
+    \addplot[mesh,thick,domain=1.1:4] { f(x,0,1,0) };
+    \draw[dashed] (axis cs: 1,10) -- (axis cs: 1,-0.3) node[below] {$x_0$};
+  \end{axis}
+\end{tikzpicture}
+\end{document}
+~~~
 ## potential-pos-flat.svg
 [![potential-pos-flat.svg](electrodynamics/potential-pos-flat/potential-pos-flat.svg "potential-pos-flat.svg")](electrodynamics/potential-pos-flat/potential-pos-flat.svg) [[PDF]](electrodynamics/potential-pos-flat/potential-pos-flat.pdf) [[PNG]](electrodynamics/potential-pos-flat/potential-pos-flat.png) [[SVG]](electrodynamics/potential-pos-flat/potential-pos-flat.svg)
 ~~~.tex
@@ -965,6 +1021,71 @@
     \coordinate (O) at (axis cs: -2, -3, 0); % origin
     \draw[->, white] (O) -- (axis cs: 0, -3, 0) node[right] { \small $x$ };
     \draw[->, white] (O) -- (axis cs: -2, -1, 0) node[above right] { \small $y$ };
+  \end{axis}
+\end{tikzpicture}
+\end{document}
+~~~
+## potential-pos-1d_inverted.svg
+[![potential-pos-1d_inverted.svg](electrodynamics/potential-pos-1d/potential-pos-1d_inverted.svg "potential-pos-1d_inverted.svg")](electrodynamics/potential-pos-1d/potential-pos-1d_inverted.svg) [[PDF]](electrodynamics/potential-pos-1d/potential-pos-1d_inverted.pdf) [[PNG]](electrodynamics/potential-pos-1d/potential-pos-1d_inverted.png) [[SVG]](electrodynamics/potential-pos-1d/potential-pos-1d_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    color=white,
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\usepackage{pgfplots}
+\tikzset{>=latex}
+\usepgfplotslibrary{colormaps}
+
+\pgfplotsset{
+  compat=1.16,
+  every non boxed x axis/.append style={
+    axis line style={-latex}
+  },
+  every non boxed y axis/.append style={
+    axis line style={-latex}
+  },
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=black,
+      text=white
+    }
+  }
+}
+
+\begin{document}
+\begin{tikzpicture}[inverted,inverted]
+  \begin{axis}[inverted,
+    width=6cm,
+    height=5cm,
+    colormap/hot,
+    point meta max=10,
+    point meta min=0,
+    point meta=y,
+    xmin=-2, xmax=4,
+    ymin=0, ymax=10,
+    axis x line=middle,
+    axis y line=middle,
+    xlabel={$x$},
+    ylabel={$\phi$},
+    xlabel style={right},
+    ylabel style={above},
+    xtick={\empty},
+    ytick={\empty},
+    declare function = { f(\x,\y,\xo,\yo) = 1/sqrt((\x-\xo)^2 + (\y-\yo)^2); },
+    samples=100,
+    clip=false,
+    ]
+    \addplot[mesh,thick,domain=-2:0.9] { f(x,0,1,0) };
+    \addplot[mesh,thick,domain=1.1:4] { f(x,0,1,0) };
+    \draw[dashed] (axis cs: 1,10) -- (axis cs: 1,-0.3) node[below] {$x_0$};
   \end{axis}
 \end{tikzpicture}
 \end{document}
