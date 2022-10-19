@@ -1,4 +1,22 @@
 # Electrodynamics
+## circuit-series.svg
+[![circuit-series.svg](electrodynamics/circuit-series/circuit-series.svg "circuit-series.svg")](electrodynamics/circuit-series/circuit-series.svg) [[PDF]](electrodynamics/circuit-series/circuit-series.pdf) [[PNG]](electrodynamics/circuit-series/circuit-series.png) [[SVG]](electrodynamics/circuit-series/circuit-series.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\usepackage[european]{circuitikz}
+
+\begin{document}
+\begin{tikzpicture}
+  \draw (-3,0)
+    to[battery2,i_>=$I$] ++(6,0)
+    to[short,i_>=$I$] ++(0,2)
+    to[R,i_>=$I$] ++(-3,0)
+    to[R] ++(-3,0)
+    to[short,i_>=$I$] ++(0,-2);
+\end{tikzpicture}
+\end{document}
+~~~
 ## circular-polarized-wave.svg
 [![circular-polarized-wave.svg](electrodynamics/circular-polarized-wave/circular-polarized-wave.svg "circular-polarized-wave.svg")](electrodynamics/circular-polarized-wave/circular-polarized-wave.svg) [[PDF]](electrodynamics/circular-polarized-wave/circular-polarized-wave.pdf) [[PNG]](electrodynamics/circular-polarized-wave/circular-polarized-wave.png) [[SVG]](electrodynamics/circular-polarized-wave/circular-polarized-wave.svg)
 ~~~.tex
@@ -679,6 +697,33 @@
     \draw[->, white] (O) -- (axis cs: -1, -1, 0) node[right] { \small $x$ };
     \draw[->, white] (O) -- (axis cs: -3, 1, 0) node[above right] { \small $y$ };
   \end{axis}
+\end{tikzpicture}
+\end{document}
+~~~
+## circuit-series_inverted.svg
+[![circuit-series_inverted.svg](electrodynamics/circuit-series/circuit-series_inverted.svg "circuit-series_inverted.svg")](electrodynamics/circuit-series/circuit-series_inverted.svg) [[PDF]](electrodynamics/circuit-series/circuit-series_inverted.pdf) [[PNG]](electrodynamics/circuit-series/circuit-series_inverted.png) [[SVG]](electrodynamics/circuit-series/circuit-series_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    color=white,
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\usepackage[european]{circuitikz}
+
+\begin{document}
+\begin{tikzpicture}[inverted,inverted]
+  \draw (-3,0)
+    to[battery2,i_>=$I$] ++(6,0)
+    to[short,i_>=$I$] ++(0,2)
+    to[R,i_>=$I$] ++(-3,0)
+    to[R] ++(-3,0)
+    to[short,i_>=$I$] ++(0,-2);
 \end{tikzpicture}
 \end{document}
 ~~~
