@@ -1,0 +1,26 @@
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    color=white,
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\usepackage[european]{circuitikz}
+
+\begin{document}
+\begin{tikzpicture}[inverted,inverted]
+  \draw (-2,0)
+    to[battery2] ++(4,0)
+    to[short,-*] ++(0,2)
+    to[R] ++(-4,0)
+    to[R,*-] ++(0,-2);
+  \draw (2,2)
+    to ++(0,2)
+    to[R] ++(-4,0)
+    to ++(0,-2);
+\end{tikzpicture}
+\end{document}

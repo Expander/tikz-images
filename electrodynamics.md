@@ -1,4 +1,25 @@
 # Electrodynamics
+## circuit-mixed.svg
+[![circuit-mixed.svg](electrodynamics/circuit-mixed/circuit-mixed.svg "circuit-mixed.svg")](electrodynamics/circuit-mixed/circuit-mixed.svg) [[PDF]](electrodynamics/circuit-mixed/circuit-mixed.pdf) [[PNG]](electrodynamics/circuit-mixed/circuit-mixed.png) [[SVG]](electrodynamics/circuit-mixed/circuit-mixed.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\usepackage[european]{circuitikz}
+
+\begin{document}
+\begin{tikzpicture}
+  \draw (-2,0)
+    to[battery2] ++(4,0)
+    to[short,-*] ++(0,2)
+    to[R] ++(-4,0)
+    to[R,*-] ++(0,-2);
+  \draw (2,2)
+    to ++(0,2)
+    to[R] ++(-4,0)
+    to ++(0,-2);
+\end{tikzpicture}
+\end{document}
+~~~
 ## circuit-parallel.svg
 [![circuit-parallel.svg](electrodynamics/circuit-parallel/circuit-parallel.svg "circuit-parallel.svg")](electrodynamics/circuit-parallel/circuit-parallel.svg) [[PDF]](electrodynamics/circuit-parallel/circuit-parallel.pdf) [[PNG]](electrodynamics/circuit-parallel/circuit-parallel.png) [[SVG]](electrodynamics/circuit-parallel/circuit-parallel.svg)
 ~~~.tex
@@ -718,6 +739,36 @@
     \draw[->, white] (O) -- (axis cs: -1, -1, 0) node[right] { \small $x$ };
     \draw[->, white] (O) -- (axis cs: -3, 1, 0) node[above right] { \small $y$ };
   \end{axis}
+\end{tikzpicture}
+\end{document}
+~~~
+## circuit-mixed_inverted.svg
+[![circuit-mixed_inverted.svg](electrodynamics/circuit-mixed/circuit-mixed_inverted.svg "circuit-mixed_inverted.svg")](electrodynamics/circuit-mixed/circuit-mixed_inverted.svg) [[PDF]](electrodynamics/circuit-mixed/circuit-mixed_inverted.pdf) [[PNG]](electrodynamics/circuit-mixed/circuit-mixed_inverted.png) [[SVG]](electrodynamics/circuit-mixed/circuit-mixed_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    color=white,
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\usepackage[european]{circuitikz}
+
+\begin{document}
+\begin{tikzpicture}[inverted,inverted]
+  \draw (-2,0)
+    to[battery2] ++(4,0)
+    to[short,-*] ++(0,2)
+    to[R] ++(-4,0)
+    to[R,*-] ++(0,-2);
+  \draw (2,2)
+    to ++(0,2)
+    to[R] ++(-4,0)
+    to ++(0,-2);
 \end{tikzpicture}
 \end{document}
 ~~~
