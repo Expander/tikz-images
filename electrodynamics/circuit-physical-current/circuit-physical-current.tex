@@ -1,0 +1,16 @@
+\documentclass[crop,tikz]{standalone}
+
+\usepackage[european]{circuitikz}
+
+\tikzset{>=latex}
+
+\begin{document}
+\begin{tikzpicture}
+  \draw (0,-1) to[battery2] ++(0,2)
+    to[short,i>=$I$] ++(2,0)
+    to[short,i>=$I$] ++(0,-2)
+    to[short,i>=$I$] ++(-2,0);
+  \node at (-0.2,-0.3) { \footnotesize $+$};
+  \node at (-0.2,+0.3) { \footnotesize $-$};
+\end{tikzpicture}
+\end{document}

@@ -74,6 +74,26 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## circuit-physical-current.svg
+[![circuit-physical-current.svg](electrodynamics/circuit-physical-current/circuit-physical-current.svg "circuit-physical-current.svg")](electrodynamics/circuit-physical-current/circuit-physical-current.svg) [[PDF]](electrodynamics/circuit-physical-current/circuit-physical-current.pdf) [[PNG]](electrodynamics/circuit-physical-current/circuit-physical-current.png) [[SVG]](electrodynamics/circuit-physical-current/circuit-physical-current.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\usepackage[european]{circuitikz}
+
+\tikzset{>=latex}
+
+\begin{document}
+\begin{tikzpicture}
+  \draw (0,-1) to[battery2] ++(0,2)
+    to[short,i>=$I$] ++(2,0)
+    to[short,i>=$I$] ++(0,-2)
+    to[short,i>=$I$] ++(-2,0);
+  \node at (-0.2,-0.3) { \footnotesize $+$};
+  \node at (-0.2,+0.3) { \footnotesize $-$};
+\end{tikzpicture}
+\end{document}
+~~~
 ## circuit-series.svg
 [![circuit-series.svg](electrodynamics/circuit-series/circuit-series.svg "circuit-series.svg")](electrodynamics/circuit-series/circuit-series.svg) [[PDF]](electrodynamics/circuit-series/circuit-series.pdf) [[PNG]](electrodynamics/circuit-series/circuit-series.png) [[SVG]](electrodynamics/circuit-series/circuit-series.svg)
 ~~~.tex
@@ -89,6 +109,26 @@
     to[R,i_>=$I$] ++(-3,0)
     to[R] ++(-3,0)
     to[short,i_>=$I$] ++(0,-2);
+\end{tikzpicture}
+\end{document}
+~~~
+## circuit-technical-current.svg
+[![circuit-technical-current.svg](electrodynamics/circuit-technical-current/circuit-technical-current.svg "circuit-technical-current.svg")](electrodynamics/circuit-technical-current/circuit-technical-current.svg) [[PDF]](electrodynamics/circuit-technical-current/circuit-technical-current.pdf) [[PNG]](electrodynamics/circuit-technical-current/circuit-technical-current.png) [[SVG]](electrodynamics/circuit-technical-current/circuit-technical-current.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\usepackage[european]{circuitikz}
+
+\tikzset{>=latex}
+
+\begin{document}
+\begin{tikzpicture}
+  \draw (0,-1) to[battery2] ++(0,2)
+    to[short,i<=$I$] ++(2,0)
+    to[short,i<=$I$] ++(0,-2)
+    to[short,i<=$I$] ++(-2,0);
+  \node at (-0.2,-0.3) { \footnotesize $+$};
+  \node at (-0.2,+0.3) { \footnotesize $-$};
 \end{tikzpicture}
 \end{document}
 ~~~
@@ -891,6 +931,35 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## circuit-physical-current_inverted.svg
+[![circuit-physical-current_inverted.svg](electrodynamics/circuit-physical-current/circuit-physical-current_inverted.svg "circuit-physical-current_inverted.svg")](electrodynamics/circuit-physical-current/circuit-physical-current_inverted.svg) [[PDF]](electrodynamics/circuit-physical-current/circuit-physical-current_inverted.pdf) [[PNG]](electrodynamics/circuit-physical-current/circuit-physical-current_inverted.png) [[SVG]](electrodynamics/circuit-physical-current/circuit-physical-current_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    color=white,
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\usepackage[european]{circuitikz}
+
+\tikzset{>=latex}
+
+\begin{document}
+\begin{tikzpicture}[inverted,inverted]
+  \draw (0,-1) to[battery2] ++(0,2)
+    to[short,i>=$I$] ++(2,0)
+    to[short,i>=$I$] ++(0,-2)
+    to[short,i>=$I$] ++(-2,0);
+  \node at (-0.2,-0.3) { \footnotesize $+$};
+  \node at (-0.2,+0.3) { \footnotesize $-$};
+\end{tikzpicture}
+\end{document}
+~~~
 ## circuit-series_inverted.svg
 [![circuit-series_inverted.svg](electrodynamics/circuit-series/circuit-series_inverted.svg "circuit-series_inverted.svg")](electrodynamics/circuit-series/circuit-series_inverted.svg) [[PDF]](electrodynamics/circuit-series/circuit-series_inverted.pdf) [[PNG]](electrodynamics/circuit-series/circuit-series_inverted.png) [[SVG]](electrodynamics/circuit-series/circuit-series_inverted.svg)
 ~~~.tex
@@ -915,6 +984,35 @@
     to[R,i_>=$I$] ++(-3,0)
     to[R] ++(-3,0)
     to[short,i_>=$I$] ++(0,-2);
+\end{tikzpicture}
+\end{document}
+~~~
+## circuit-technical-current_inverted.svg
+[![circuit-technical-current_inverted.svg](electrodynamics/circuit-technical-current/circuit-technical-current_inverted.svg "circuit-technical-current_inverted.svg")](electrodynamics/circuit-technical-current/circuit-technical-current_inverted.svg) [[PDF]](electrodynamics/circuit-technical-current/circuit-technical-current_inverted.pdf) [[PNG]](electrodynamics/circuit-technical-current/circuit-technical-current_inverted.png) [[SVG]](electrodynamics/circuit-technical-current/circuit-technical-current_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    color=white,
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\usepackage[european]{circuitikz}
+
+\tikzset{>=latex}
+
+\begin{document}
+\begin{tikzpicture}[inverted,inverted]
+  \draw (0,-1) to[battery2] ++(0,2)
+    to[short,i<=$I$] ++(2,0)
+    to[short,i<=$I$] ++(0,-2)
+    to[short,i<=$I$] ++(-2,0);
+  \node at (-0.2,-0.3) { \footnotesize $+$};
+  \node at (-0.2,+0.3) { \footnotesize $-$};
 \end{tikzpicture}
 \end{document}
 ~~~
