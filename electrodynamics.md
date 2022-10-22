@@ -105,6 +105,111 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## characteristic-resistor.svg
+[![characteristic-resistor.svg](electrodynamics/characteristic-resistor/characteristic-resistor.svg "characteristic-resistor.svg")](electrodynamics/characteristic-resistor/characteristic-resistor.svg) [[PDF]](electrodynamics/characteristic-resistor/characteristic-resistor.pdf) [[PNG]](electrodynamics/characteristic-resistor/characteristic-resistor.png) [[SVG]](electrodynamics/characteristic-resistor/characteristic-resistor.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\usepackage{pgfplots}
+\usepackage{siunitx}
+\tikzset{>=latex}
+
+\pgfplotsset{
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=hardblack,
+      text=white
+    }
+  },
+  every non boxed x axis/.append style={
+    axis line style={-latex}
+  },
+  every non boxed y axis/.append style={
+    axis line style={-latex}
+  }
+}
+
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[
+  width=6cm,
+  height=5cm,
+  domain=0:6,
+  samples=200,
+  axis y line=middle,
+  axis x line=middle,
+  xlabel={$U/\si{\V}$},
+  ylabel={$I/\si{\milli\A}$},
+  xlabel style={right},
+  ylabel style={above},
+  extra x ticks={0},
+  extra x tick style={grid=none},
+  extra y ticks={0},
+  extra y tick style={grid=none},
+  xmin=0, xmax=6.6,
+  ymin=0, ymax=66,
+  grid,
+  thick,
+  smooth
+  ]
+  \addplot[red] { 10*x };
+\end{axis}
+\end{tikzpicture}
+\end{document}
+~~~
+## characteristic-resistor-R.svg
+[![characteristic-resistor-R.svg](electrodynamics/characteristic-resistor-R/characteristic-resistor-R.svg "characteristic-resistor-R.svg")](electrodynamics/characteristic-resistor-R/characteristic-resistor-R.svg) [[PDF]](electrodynamics/characteristic-resistor-R/characteristic-resistor-R.pdf) [[PNG]](electrodynamics/characteristic-resistor-R/characteristic-resistor-R.png) [[SVG]](electrodynamics/characteristic-resistor-R/characteristic-resistor-R.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\usepackage{pgfplots}
+\usepackage{siunitx}
+\tikzset{>=latex}
+
+\pgfplotsset{
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=hardblack,
+      text=white
+    }
+  },
+  every non boxed x axis/.append style={
+    axis line style={-latex}
+  },
+  every non boxed y axis/.append style={
+    axis line style={-latex}
+  }
+}
+
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[
+  width=6cm,
+  height=5cm,
+  domain=0:6,
+  samples=10,
+  axis y line=middle,
+  axis x line=middle,
+  xlabel={$U/\si{\V}$},
+  ylabel={$R/\si{\ohm}$},
+  xlabel style={right},
+  ylabel style={above},
+  extra x ticks={0},
+  extra x tick style={grid=none},
+  extra y ticks={0},
+  extra y tick style={grid=none},
+  xmin=0, xmax=6.6,
+  ymin=0, ymax=170,
+  grid,
+  thick,
+  ]
+  \addplot[blue] { 100 };
+\end{axis}
+\end{tikzpicture}
+\end{document}
+~~~
 ## circuit-complex.svg
 [![circuit-complex.svg](electrodynamics/circuit-complex/circuit-complex.svg "circuit-complex.svg")](electrodynamics/circuit-complex/circuit-complex.svg) [[PDF]](electrodynamics/circuit-complex/circuit-complex.pdf) [[PNG]](electrodynamics/circuit-complex/circuit-complex.png) [[SVG]](electrodynamics/circuit-complex/circuit-complex.svg)
 ~~~.tex
@@ -1055,6 +1160,129 @@
   smooth
   ]
   \addplot[blue] { 50*x^(3/5) };
+\end{axis}
+\end{tikzpicture}
+\end{document}
+~~~
+## characteristic-resistor_inverted.svg
+[![characteristic-resistor_inverted.svg](electrodynamics/characteristic-resistor/characteristic-resistor_inverted.svg "characteristic-resistor_inverted.svg")](electrodynamics/characteristic-resistor/characteristic-resistor_inverted.svg) [[PDF]](electrodynamics/characteristic-resistor/characteristic-resistor_inverted.pdf) [[PNG]](electrodynamics/characteristic-resistor/characteristic-resistor_inverted.png) [[SVG]](electrodynamics/characteristic-resistor/characteristic-resistor_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    color=white,
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\usepackage{pgfplots}
+\usepackage{siunitx}
+\tikzset{>=latex}
+
+\pgfplotsset{
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=black,
+      text=white
+    }
+  },
+  every non boxed x axis/.append style={
+    axis line style={-latex}
+  },
+  every non boxed y axis/.append style={
+    axis line style={-latex}
+  }
+}
+
+\begin{document}
+\begin{tikzpicture}[inverted,inverted]
+\begin{axis}[inverted,
+  width=6cm,
+  height=5cm,
+  domain=0:6,
+  samples=200,
+  axis y line=middle,
+  axis x line=middle,
+  xlabel={$U/\si{\V}$},
+  ylabel={$I/\si{\milli\A}$},
+  xlabel style={right},
+  ylabel style={above},
+  extra x ticks={0},
+  extra x tick style={grid=none},
+  extra y ticks={0},
+  extra y tick style={grid=none},
+  xmin=0, xmax=6.6,
+  ymin=0, ymax=66,
+  grid,
+  thick,
+  smooth
+  ]
+  \addplot[red] { 10*x };
+\end{axis}
+\end{tikzpicture}
+\end{document}
+~~~
+## characteristic-resistor-R_inverted.svg
+[![characteristic-resistor-R_inverted.svg](electrodynamics/characteristic-resistor-R/characteristic-resistor-R_inverted.svg "characteristic-resistor-R_inverted.svg")](electrodynamics/characteristic-resistor-R/characteristic-resistor-R_inverted.svg) [[PDF]](electrodynamics/characteristic-resistor-R/characteristic-resistor-R_inverted.pdf) [[PNG]](electrodynamics/characteristic-resistor-R/characteristic-resistor-R_inverted.png) [[SVG]](electrodynamics/characteristic-resistor-R/characteristic-resistor-R_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    color=white,
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\usepackage{pgfplots}
+\usepackage{siunitx}
+\tikzset{>=latex}
+
+\pgfplotsset{
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=black,
+      text=white
+    }
+  },
+  every non boxed x axis/.append style={
+    axis line style={-latex}
+  },
+  every non boxed y axis/.append style={
+    axis line style={-latex}
+  }
+}
+
+\begin{document}
+\begin{tikzpicture}[inverted,inverted]
+\begin{axis}[inverted,
+  width=6cm,
+  height=5cm,
+  domain=0:6,
+  samples=10,
+  axis y line=middle,
+  axis x line=middle,
+  xlabel={$U/\si{\V}$},
+  ylabel={$R/\si{\ohm}$},
+  xlabel style={right},
+  ylabel style={above},
+  extra x ticks={0},
+  extra x tick style={grid=none},
+  extra y ticks={0},
+  extra y tick style={grid=none},
+  xmin=0, xmax=6.6,
+  ymin=0, ymax=170,
+  grid,
+  thick,
+  ]
+  \addplot[blue] { 100 };
 \end{axis}
 \end{tikzpicture}
 \end{document}

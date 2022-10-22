@@ -1,0 +1,49 @@
+\documentclass[crop,tikz]{standalone}
+
+\usepackage{pgfplots}
+\usepackage{siunitx}
+\tikzset{>=latex}
+
+\pgfplotsset{
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=hardblack,
+      text=white
+    }
+  },
+  every non boxed x axis/.append style={
+    axis line style={-latex}
+  },
+  every non boxed y axis/.append style={
+    axis line style={-latex}
+  }
+}
+
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[
+  width=6cm,
+  height=5cm,
+  domain=0:6,
+  samples=200,
+  axis y line=middle,
+  axis x line=middle,
+  xlabel={$U/\si{\V}$},
+  ylabel={$I/\si{\milli\A}$},
+  xlabel style={right},
+  ylabel style={above},
+  extra x ticks={0},
+  extra x tick style={grid=none},
+  extra y ticks={0},
+  extra y tick style={grid=none},
+  xmin=0, xmax=6.6,
+  ymin=0, ymax=66,
+  grid,
+  thick,
+  smooth
+  ]
+  \addplot[red] { 10*x };
+\end{axis}
+\end{tikzpicture}
+\end{document}
