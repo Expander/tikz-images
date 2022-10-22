@@ -387,7 +387,7 @@
     extra y ticks={0},
     extra y tick style={grid=none},
     xmin=0, xmax=5.6,
-    ymin=0, ymax=10.9,
+    ymin=0, ymax=11.2,
     clip=false,
     grid
     ]
@@ -1610,7 +1610,7 @@
     extra y ticks={0},
     extra y tick style={grid=none},
     xmin=0, xmax=5.6,
-    ymin=0, ymax=10.9,
+    ymin=0, ymax=11.2,
     clip=false,
     grid
     ]
