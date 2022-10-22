@@ -85,12 +85,12 @@
 
 \begin{document}
 \begin{tikzpicture}
-  \draw (0,-1) to[battery2] ++(0,2)
-    to[short,i>=$I$] ++(2,0)
-    to[short,i>=$I$] ++(0,-2)
-    to[short,i>=$I$] ++(-2,0);
-  \node at (-0.2,-0.3) { \footnotesize $+$};
-  \node at (-0.2,+0.3) { \footnotesize $-$};
+  \draw (0,1) to[battery2] ++(0,-2)
+    to[short,i>_=$I$] ++(2,0)
+    to[short,i>_=$I$] ++(0,2)
+    to[short,i>_=$I$] ++(-2,0);
+  \node at (-0.2,-0.3) { \footnotesize $-$};
+  \node at (-0.2,+0.3) { \footnotesize $+$};
 \end{tikzpicture}
 \end{document}
 ~~~
@@ -123,12 +123,12 @@
 
 \begin{document}
 \begin{tikzpicture}
-  \draw (0,-1) to[battery2] ++(0,2)
-    to[short,i<=$I$] ++(2,0)
-    to[short,i<=$I$] ++(0,-2)
-    to[short,i<=$I$] ++(-2,0);
-  \node at (-0.2,-0.3) { \footnotesize $+$};
-  \node at (-0.2,+0.3) { \footnotesize $-$};
+  \draw (0,1) to[battery2] ++(0,-2)
+    to[short,i<_=$I$] ++(2,0)
+    to[short,i<_=$I$] ++(0,2)
+    to[short,i<_=$I$] ++(-2,0);
+  \node at (-0.2,-0.3) { \footnotesize $-$};
+  \node at (-0.2,+0.3) { \footnotesize $+$};
 \end{tikzpicture}
 \end{document}
 ~~~
@@ -951,12 +951,12 @@
 
 \begin{document}
 \begin{tikzpicture}[inverted,inverted]
-  \draw (0,-1) to[battery2] ++(0,2)
-    to[short,i>=$I$] ++(2,0)
-    to[short,i>=$I$] ++(0,-2)
-    to[short,i>=$I$] ++(-2,0);
-  \node at (-0.2,-0.3) { \footnotesize $+$};
-  \node at (-0.2,+0.3) { \footnotesize $-$};
+  \draw (0,1) to[battery2] ++(0,-2)
+    to[short,i>_=$I$] ++(2,0)
+    to[short,i>_=$I$] ++(0,2)
+    to[short,i>_=$I$] ++(-2,0);
+  \node at (-0.2,-0.3) { \footnotesize $-$};
+  \node at (-0.2,+0.3) { \footnotesize $+$};
 \end{tikzpicture}
 \end{document}
 ~~~
@@ -1007,12 +1007,12 @@
 
 \begin{document}
 \begin{tikzpicture}[inverted,inverted]
-  \draw (0,-1) to[battery2] ++(0,2)
-    to[short,i<=$I$] ++(2,0)
-    to[short,i<=$I$] ++(0,-2)
-    to[short,i<=$I$] ++(-2,0);
-  \node at (-0.2,-0.3) { \footnotesize $+$};
-  \node at (-0.2,+0.3) { \footnotesize $-$};
+  \draw (0,1) to[battery2] ++(0,-2)
+    to[short,i<_=$I$] ++(2,0)
+    to[short,i<_=$I$] ++(0,2)
+    to[short,i<_=$I$] ++(-2,0);
+  \node at (-0.2,-0.3) { \footnotesize $-$};
+  \node at (-0.2,+0.3) { \footnotesize $+$};
 \end{tikzpicture}
 \end{document}
 ~~~
