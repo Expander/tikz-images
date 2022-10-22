@@ -1,4 +1,102 @@
 # Electrodynamics
+## characteristic-lamp.svg
+[![characteristic-lamp.svg](electrodynamics/characteristic-lamp/characteristic-lamp.svg "characteristic-lamp.svg")](electrodynamics/characteristic-lamp/characteristic-lamp.svg) [[PDF]](electrodynamics/characteristic-lamp/characteristic-lamp.pdf) [[PNG]](electrodynamics/characteristic-lamp/characteristic-lamp.png) [[SVG]](electrodynamics/characteristic-lamp/characteristic-lamp.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\usepackage{pgfplots}
+\usepackage{siunitx}
+\tikzset{>=latex}
+
+\pgfplotsset{
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=hardblack,
+      text=white
+    }
+  },
+  every non boxed x axis/.append style={
+    axis line style={-latex}
+  },
+  every non boxed y axis/.append style={
+    axis line style={-latex}
+  }
+}
+
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[
+  width=6cm,
+  height=5cm,
+  domain=0:6,
+  samples=100,
+  axis y line=middle,
+  axis x line=middle,
+  xlabel={$U/\si{\V}$},
+  ylabel={$I/\si{\milli\A}$},
+  xlabel style={right},
+  ylabel style={above},
+  xmin=0, xmax=6.6,
+  ymin=0, ymax=44,
+  grid,
+  thick,
+  smooth
+  ]
+  \addplot[red] { 20*x^(2/5) };
+\end{axis}
+\end{tikzpicture}
+\end{document}
+~~~
+## characteristic-lamp-R.svg
+[![characteristic-lamp-R.svg](electrodynamics/characteristic-lamp-R/characteristic-lamp-R.svg "characteristic-lamp-R.svg")](electrodynamics/characteristic-lamp-R/characteristic-lamp-R.svg) [[PDF]](electrodynamics/characteristic-lamp-R/characteristic-lamp-R.pdf) [[PNG]](electrodynamics/characteristic-lamp-R/characteristic-lamp-R.png) [[SVG]](electrodynamics/characteristic-lamp-R/characteristic-lamp-R.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\usepackage{pgfplots}
+\usepackage{siunitx}
+\tikzset{>=latex}
+
+\pgfplotsset{
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=hardblack,
+      text=white
+    }
+  },
+  every non boxed x axis/.append style={
+    axis line style={-latex}
+  },
+  every non boxed y axis/.append style={
+    axis line style={-latex}
+  }
+}
+
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[
+  width=6cm,
+  height=5cm,
+  domain=0:6,
+  samples=100,
+  axis y line=middle,
+  axis x line=middle,
+  xlabel={$U/\si{\V}$},
+  ylabel={$R/\si{\ohm}$},
+  xlabel style={right},
+  ylabel style={above},
+  xmin=0, xmax=6.6,
+  ymin=0, ymax=170,
+  grid,
+  thick,
+  smooth
+  ]
+  \addplot[blue] { 50*x^(3/5) };
+\end{axis}
+\end{tikzpicture}
+\end{document}
+~~~
 ## circuit-complex.svg
 [![circuit-complex.svg](electrodynamics/circuit-complex/circuit-complex.svg "circuit-complex.svg")](electrodynamics/circuit-complex/circuit-complex.svg) [[PDF]](electrodynamics/circuit-complex/circuit-complex.pdf) [[PNG]](electrodynamics/circuit-complex/circuit-complex.png) [[SVG]](electrodynamics/circuit-complex/circuit-complex.svg)
 ~~~.tex
@@ -826,6 +924,122 @@
     \draw[->, white] (O) -- (axis cs: -1, -1, 0) node[right] { \small $x$ };
     \draw[->, white] (O) -- (axis cs: -3, 1, 0) node[above right] { \small $y$ };
   \end{axis}
+\end{tikzpicture}
+\end{document}
+~~~
+## characteristic-lamp_inverted.svg
+[![characteristic-lamp_inverted.svg](electrodynamics/characteristic-lamp/characteristic-lamp_inverted.svg "characteristic-lamp_inverted.svg")](electrodynamics/characteristic-lamp/characteristic-lamp_inverted.svg) [[PDF]](electrodynamics/characteristic-lamp/characteristic-lamp_inverted.pdf) [[PNG]](electrodynamics/characteristic-lamp/characteristic-lamp_inverted.png) [[SVG]](electrodynamics/characteristic-lamp/characteristic-lamp_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    color=white,
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\usepackage{pgfplots}
+\usepackage{siunitx}
+\tikzset{>=latex}
+
+\pgfplotsset{
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=black,
+      text=white
+    }
+  },
+  every non boxed x axis/.append style={
+    axis line style={-latex}
+  },
+  every non boxed y axis/.append style={
+    axis line style={-latex}
+  }
+}
+
+\begin{document}
+\begin{tikzpicture}[inverted,inverted]
+\begin{axis}[inverted,
+  width=6cm,
+  height=5cm,
+  domain=0:6,
+  samples=100,
+  axis y line=middle,
+  axis x line=middle,
+  xlabel={$U/\si{\V}$},
+  ylabel={$I/\si{\milli\A}$},
+  xlabel style={right},
+  ylabel style={above},
+  xmin=0, xmax=6.6,
+  ymin=0, ymax=44,
+  grid,
+  thick,
+  smooth
+  ]
+  \addplot[red] { 20*x^(2/5) };
+\end{axis}
+\end{tikzpicture}
+\end{document}
+~~~
+## characteristic-lamp-R_inverted.svg
+[![characteristic-lamp-R_inverted.svg](electrodynamics/characteristic-lamp-R/characteristic-lamp-R_inverted.svg "characteristic-lamp-R_inverted.svg")](electrodynamics/characteristic-lamp-R/characteristic-lamp-R_inverted.svg) [[PDF]](electrodynamics/characteristic-lamp-R/characteristic-lamp-R_inverted.pdf) [[PNG]](electrodynamics/characteristic-lamp-R/characteristic-lamp-R_inverted.png) [[SVG]](electrodynamics/characteristic-lamp-R/characteristic-lamp-R_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    color=white,
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\usepackage{pgfplots}
+\usepackage{siunitx}
+\tikzset{>=latex}
+
+\pgfplotsset{
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=black,
+      text=white
+    }
+  },
+  every non boxed x axis/.append style={
+    axis line style={-latex}
+  },
+  every non boxed y axis/.append style={
+    axis line style={-latex}
+  }
+}
+
+\begin{document}
+\begin{tikzpicture}[inverted,inverted]
+\begin{axis}[inverted,
+  width=6cm,
+  height=5cm,
+  domain=0:6,
+  samples=100,
+  axis y line=middle,
+  axis x line=middle,
+  xlabel={$U/\si{\V}$},
+  ylabel={$R/\si{\ohm}$},
+  xlabel style={right},
+  ylabel style={above},
+  xmin=0, xmax=6.6,
+  ymin=0, ymax=170,
+  grid,
+  thick,
+  smooth
+  ]
+  \addplot[blue] { 50*x^(3/5) };
+\end{axis}
 \end{tikzpicture}
 \end{document}
 ~~~
