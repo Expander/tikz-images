@@ -323,6 +323,89 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## circuit-series-positions.svg
+[![circuit-series-positions.svg](electrodynamics/circuit-series-positions/circuit-series-positions.svg "circuit-series-positions.svg")](electrodynamics/circuit-series-positions/circuit-series-positions.svg) [[PDF]](electrodynamics/circuit-series-positions/circuit-series-positions.pdf) [[PNG]](electrodynamics/circuit-series-positions/circuit-series-positions.png) [[SVG]](electrodynamics/circuit-series-positions/circuit-series-positions.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\usepackage[european]{circuitikz}
+\usepackage{siunitx}
+
+\begin{document}
+\begin{tikzpicture}
+  \draw (0,1.5)
+    to[battery2,v_={$\SI{10}{\V}$}] ++(0,-3) node[below left,blue] {4}
+    to[R,v<={$U_3=\SI{2}{\V}$}] ++(3,0) node[below right,blue] {3}
+    to[R,v<={$U_2=\SI{3}{\V}$}] ++(0,3) node[above right,blue] {2}
+    to[R,v<={$U_1=\SI{5}{\V}$}] ++(-3,0) node[above left,blue] {1};
+  \node[above left,blue] at (0,0) {0};
+  \node[below left,blue] at (0,0) {5};
+\end{tikzpicture}
+\end{document}
+~~~
+## circuit-series-potential.svg
+[![circuit-series-potential.svg](electrodynamics/circuit-series-potential/circuit-series-potential.svg "circuit-series-potential.svg")](electrodynamics/circuit-series-potential/circuit-series-potential.svg) [[PDF]](electrodynamics/circuit-series-potential/circuit-series-potential.pdf) [[PNG]](electrodynamics/circuit-series-potential/circuit-series-potential.png) [[SVG]](electrodynamics/circuit-series-potential/circuit-series-potential.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\usepackage{pgfplots}
+\usepackage{siunitx}
+\tikzset{>=latex}
+
+\pgfplotsset{
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=hardblack,
+      text=white
+    }
+  },
+  every non boxed x axis/.append style={
+    axis line style={-latex}
+  },
+  every non boxed y axis/.append style={
+    axis line style={-latex}
+  }
+}
+
+\begin{document}
+\begin{tikzpicture}
+  \begin{axis}[
+    thick,
+    width={6cm},
+    height={6cm},
+    axis y line=middle,
+    axis x line=middle,
+    xlabel={$x/\si{\cm}$},
+    ylabel={$\phi/\si{\V}$},
+    x label style={right},
+    y label style={above},
+    xtick distance=1,
+    ytick distance=2,
+    extra x ticks={0},
+    extra x tick style={grid=none},
+    extra y ticks={0},
+    extra y tick style={grid=none},
+    xmin=0, xmax=5.6,
+    ymin=0, ymax=10.9,
+    clip=false,
+    grid
+    ]
+    \addplot[blue, thick, mark=*] plot coordinates {
+      (0, 10)
+      (1, 10)
+      (2,  5)
+      (3,  2)
+      (4,  0)
+      (5,  0)
+    };
+    \draw[decorate, decoration = {brace, amplitude=5pt}] (axis cs:4.1,10) -- ++(axis cs:0,-5) node[right,xshift=0.5em,midway] {$U_1=\SI{5}{\V}$};
+    \draw[decorate, decoration = {brace, amplitude=5pt}] (axis cs:4.1,5)  -- ++(axis cs:0,-3) node[right,xshift=0.5em,midway] {$U_2=\SI{3}{\V}$};
+    \draw[decorate, decoration = {brace, amplitude=5pt}] (axis cs:4.1,2)  -- ++(axis cs:0,-2) node[right,xshift=0.5em,midway] {$U_3=\SI{2}{\V}$};
+  \end{axis}
+\end{tikzpicture}
+\end{document}
+~~~
 ## circuit-technical-current.svg
 [![circuit-technical-current.svg](electrodynamics/circuit-technical-current/circuit-technical-current.svg "circuit-technical-current.svg")](electrodynamics/circuit-technical-current/circuit-technical-current.svg) [[PDF]](electrodynamics/circuit-technical-current/circuit-technical-current.pdf) [[PNG]](electrodynamics/circuit-technical-current/circuit-technical-current.png) [[SVG]](electrodynamics/circuit-technical-current/circuit-technical-current.svg)
 ~~~.tex
@@ -1442,6 +1525,107 @@
     to[R,i_>=$I$] ++(-3,0)
     to[R] ++(-3,0)
     to[short,i_>=$I$] ++(0,-2);
+\end{tikzpicture}
+\end{document}
+~~~
+## circuit-series-positions_inverted.svg
+[![circuit-series-positions_inverted.svg](electrodynamics/circuit-series-positions/circuit-series-positions_inverted.svg "circuit-series-positions_inverted.svg")](electrodynamics/circuit-series-positions/circuit-series-positions_inverted.svg) [[PDF]](electrodynamics/circuit-series-positions/circuit-series-positions_inverted.pdf) [[PNG]](electrodynamics/circuit-series-positions/circuit-series-positions_inverted.png) [[SVG]](electrodynamics/circuit-series-positions/circuit-series-positions_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    color=white,
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\usepackage[european]{circuitikz}
+\usepackage{siunitx}
+
+\begin{document}
+\begin{tikzpicture}[inverted,inverted]
+  \draw (0,1.5)
+    to[battery2,v_={$\SI{10}{\V}$}] ++(0,-3) node[below left,blue] {4}
+    to[R,v<={$U_3=\SI{2}{\V}$}] ++(3,0) node[below right,blue] {3}
+    to[R,v<={$U_2=\SI{3}{\V}$}] ++(0,3) node[above right,blue] {2}
+    to[R,v<={$U_1=\SI{5}{\V}$}] ++(-3,0) node[above left,blue] {1};
+  \node[above left,blue] at (0,0) {0};
+  \node[below left,blue] at (0,0) {5};
+\end{tikzpicture}
+\end{document}
+~~~
+## circuit-series-potential_inverted.svg
+[![circuit-series-potential_inverted.svg](electrodynamics/circuit-series-potential/circuit-series-potential_inverted.svg "circuit-series-potential_inverted.svg")](electrodynamics/circuit-series-potential/circuit-series-potential_inverted.svg) [[PDF]](electrodynamics/circuit-series-potential/circuit-series-potential_inverted.pdf) [[PNG]](electrodynamics/circuit-series-potential/circuit-series-potential_inverted.png) [[SVG]](electrodynamics/circuit-series-potential/circuit-series-potential_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    color=white,
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\usepackage{pgfplots}
+\usepackage{siunitx}
+\tikzset{>=latex}
+
+\pgfplotsset{
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=black,
+      text=white
+    }
+  },
+  every non boxed x axis/.append style={
+    axis line style={-latex}
+  },
+  every non boxed y axis/.append style={
+    axis line style={-latex}
+  }
+}
+
+\begin{document}
+\begin{tikzpicture}[inverted,inverted]
+  \begin{axis}[inverted,
+    thick,
+    width={6cm},
+    height={6cm},
+    axis y line=middle,
+    axis x line=middle,
+    xlabel={$x/\si{\cm}$},
+    ylabel={$\phi/\si{\V}$},
+    x label style={right},
+    y label style={above},
+    xtick distance=1,
+    ytick distance=2,
+    extra x ticks={0},
+    extra x tick style={grid=none},
+    extra y ticks={0},
+    extra y tick style={grid=none},
+    xmin=0, xmax=5.6,
+    ymin=0, ymax=10.9,
+    clip=false,
+    grid
+    ]
+    \addplot[blue, thick, mark=*] plot coordinates {
+      (0, 10)
+      (1, 10)
+      (2,  5)
+      (3,  2)
+      (4,  0)
+      (5,  0)
+    };
+    \draw[decorate, decoration = {brace, amplitude=5pt}] (axis cs:4.1,10) -- ++(axis cs:0,-5) node[right,xshift=0.5em,midway] {$U_1=\SI{5}{\V}$};
+    \draw[decorate, decoration = {brace, amplitude=5pt}] (axis cs:4.1,5)  -- ++(axis cs:0,-3) node[right,xshift=0.5em,midway] {$U_2=\SI{3}{\V}$};
+    \draw[decorate, decoration = {brace, amplitude=5pt}] (axis cs:4.1,2)  -- ++(axis cs:0,-2) node[right,xshift=0.5em,midway] {$U_3=\SI{2}{\V}$};
+  \end{axis}
 \end{tikzpicture}
 \end{document}
 ~~~
