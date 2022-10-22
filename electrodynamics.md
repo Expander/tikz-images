@@ -740,10 +740,10 @@
        surf,
        samples=70,
     ]{ f(x,y) };
-    \node[white] at (axis cs: 4.2, 1.8, 0) { $\phi(\vec{r})$ };
+    \node at (axis cs: 4.2, 1.8, 0) { $\phi(\vec{r})$ };
     \coordinate (O) at (axis cs: -3, -5.5, 0); % origin
-    \draw[->, white] (O) -- (axis cs: -1, -5.5, 0) node[right] { \small $x$ };
-    \draw[->, white] (O) -- (axis cs: -3, -2.5, 0) node[above right] { \small $y$ };
+    \draw[->] (O) -- (axis cs: -1, -5.5, 0) node[right] { \small $x$ };
+    \draw[->] (O) -- (axis cs: -3, -2.5, 0) node[above right] { \small $y$ };
   \end{axis}
 \end{tikzpicture}
 \end{document}
@@ -908,10 +908,10 @@
        surf,
        samples=70,
     ]{ f(x,y) };
-    \addplot3[only marks, mark=*, mark size=1pt, white] coordinates { (0, 0, 4) } node[above right, xshift=0.4em, yshift=0.4em] { $\vec{r}_0$ };
+    \addplot3[only marks, mark=*, mark size=1pt] coordinates { (0, 0, 4) } node[above right, xshift=0.4em, yshift=0.4em] { $\vec{r}_0$ };
     \coordinate (O) at (axis cs: -2, -2, 0); % origin
-    \draw[->, white] (O) -- (axis cs: -1, -2, 0) node[right] { \small $x$ };
-    \draw[->, white] (O) -- (axis cs: -2, -1, 0) node[above] { \small $y$ };
+    \draw[->] (O) -- (axis cs: -1, -2, 0) node[right] { \small $x$ };
+    \draw[->] (O) -- (axis cs: -2, -1, 0) node[above] { \small $y$ };
   \end{axis}
 \end{tikzpicture}
 \end{document}
@@ -947,8 +947,8 @@
     ]{ f(x,y) };
     \node[below] at (axis cs: 0, 0, -4) { $\phi(\vec{r})$ };
     \coordinate (O) at (axis cs: -2, -3, 0); % origin
-    \draw[->, white] (O) -- (axis cs: 0, -3, 0) node[right] { \small $x$ };
-    \draw[->, white] (O) -- (axis cs: -2, -1, 0) node[above right] { \small $y$ };
+    \draw[->] (O) -- (axis cs: 0, -3, 0) node[right] { \small $x$ };
+    \draw[->] (O) -- (axis cs: -2, -1, 0) node[above right] { \small $y$ };
   \end{axis}
 \end{tikzpicture}
 \end{document}
@@ -2044,10 +2044,10 @@
        surf,
        samples=70,
     ]{ f(x,y) };
-    \node[white] at (axis cs: 4.2, 1.8, 0) { $\phi(\vec{r})$ };
+    \node at (axis cs: 4.2, 1.8, 0) { $\phi(\vec{r})$ };
     \coordinate (O) at (axis cs: -3, -5.5, 0); % origin
-    \draw[->, white] (O) -- (axis cs: -1, -5.5, 0) node[right] { \small $x$ };
-    \draw[->, white] (O) -- (axis cs: -3, -2.5, 0) node[above right] { \small $y$ };
+    \draw[->] (O) -- (axis cs: -1, -5.5, 0) node[right] { \small $x$ };
+    \draw[->] (O) -- (axis cs: -3, -2.5, 0) node[above right] { \small $y$ };
   \end{axis}
 \end{tikzpicture}
 \end{document}
@@ -2248,10 +2248,10 @@
        surf,
        samples=70,
     ]{ f(x,y) };
-    \addplot3[only marks, mark=*, mark size=1pt, white] coordinates { (0, 0, 4) } node[above right, xshift=0.4em, yshift=0.4em] { $\vec{r}_0$ };
+    \addplot3[only marks, mark=*, mark size=1pt] coordinates { (0, 0, 4) } node[above right, xshift=0.4em, yshift=0.4em] { $\vec{r}_0$ };
     \coordinate (O) at (axis cs: -2, -2, 0); % origin
-    \draw[->, white] (O) -- (axis cs: -1, -2, 0) node[right] { \small $x$ };
-    \draw[->, white] (O) -- (axis cs: -2, -1, 0) node[above] { \small $y$ };
+    \draw[->] (O) -- (axis cs: -1, -2, 0) node[right] { \small $x$ };
+    \draw[->] (O) -- (axis cs: -2, -1, 0) node[above] { \small $y$ };
   \end{axis}
 \end{tikzpicture}
 \end{document}
@@ -2296,8 +2296,8 @@
     ]{ f(x,y) };
     \node[below] at (axis cs: 0, 0, -4) { $\phi(\vec{r})$ };
     \coordinate (O) at (axis cs: -2, -3, 0); % origin
-    \draw[->, white] (O) -- (axis cs: 0, -3, 0) node[right] { \small $x$ };
-    \draw[->, white] (O) -- (axis cs: -2, -1, 0) node[above right] { \small $y$ };
+    \draw[->] (O) -- (axis cs: 0, -3, 0) node[right] { \small $x$ };
+    \draw[->] (O) -- (axis cs: -2, -1, 0) node[above right] { \small $y$ };
   \end{axis}
 \end{tikzpicture}
 \end{document}

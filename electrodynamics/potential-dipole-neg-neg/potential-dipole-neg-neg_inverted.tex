@@ -33,10 +33,10 @@
        surf,
        samples=70,
     ]{ f(x,y) };
-    \node[white] at (axis cs: 4.2, 1.8, 0) { $\phi(\vec{r})$ };
+    \node at (axis cs: 4.2, 1.8, 0) { $\phi(\vec{r})$ };
     \coordinate (O) at (axis cs: -3, -5.5, 0); % origin
-    \draw[->, white] (O) -- (axis cs: -1, -5.5, 0) node[right] { \small $x$ };
-    \draw[->, white] (O) -- (axis cs: -3, -2.5, 0) node[above right] { \small $y$ };
+    \draw[->] (O) -- (axis cs: -1, -5.5, 0) node[right] { \small $x$ };
+    \draw[->] (O) -- (axis cs: -3, -2.5, 0) node[above right] { \small $y$ };
   \end{axis}
 \end{tikzpicture}
 \end{document}
