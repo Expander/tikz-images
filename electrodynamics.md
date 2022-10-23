@@ -1123,6 +1123,25 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## solid-dipole.svg
+[![solid-dipole.svg](electrodynamics/solid-dipole/solid-dipole.svg "solid-dipole.svg")](electrodynamics/solid-dipole/solid-dipole.svg) [[PDF]](electrodynamics/solid-dipole/solid-dipole.pdf) [[PNG]](electrodynamics/solid-dipole/solid-dipole.png) [[SVG]](electrodynamics/solid-dipole/solid-dipole.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\tikzset{>=latex}
+
+\begin{document}
+\begin{tikzpicture}
+  \pgfmathsetmacro{\xmax}{10}
+  \foreach \x in { 0,...,\xmax } {%
+    \foreach \y in { 0,...,4 } {%
+      \draw[fill,red] (\x,\y) circle (0.2) node[black] {$+$};
+      \draw[fill,blue] ({\xmax*(1-abs(rand)^3)},\y)++(rand*180:0.4) circle (0.1) node[white] {$-$};
+    }
+  }
+\end{tikzpicture}
+\end{document}
+~~~
 ## solid.svg
 [![solid.svg](electrodynamics/solid/solid.svg "solid.svg")](electrodynamics/solid/solid.svg) [[PDF]](electrodynamics/solid/solid.pdf) [[PNG]](electrodynamics/solid/solid.png) [[SVG]](electrodynamics/solid/solid.svg)
 ~~~.tex
@@ -2523,6 +2542,34 @@
     \draw[->, white] (O) -- (axis cs: -1, -1, 0) node[right] { \small $x$ };
     \draw[->, white] (O) -- (axis cs: -3, 1, 0) node[above right] { \small $y$ };
   \end{axis}
+\end{tikzpicture}
+\end{document}
+~~~
+## solid-dipole_inverted.svg
+[![solid-dipole_inverted.svg](electrodynamics/solid-dipole/solid-dipole_inverted.svg "solid-dipole_inverted.svg")](electrodynamics/solid-dipole/solid-dipole_inverted.svg) [[PDF]](electrodynamics/solid-dipole/solid-dipole_inverted.pdf) [[PNG]](electrodynamics/solid-dipole/solid-dipole_inverted.png) [[SVG]](electrodynamics/solid-dipole/solid-dipole_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    color=white,
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\tikzset{>=latex}
+
+\begin{document}
+\begin{tikzpicture}[inverted,inverted]
+  \pgfmathsetmacro{\xmax}{10}
+  \foreach \x in { 0,...,\xmax } {%
+    \foreach \y in { 0,...,4 } {%
+      \draw[fill,red] (\x,\y) circle (0.2) node[white] {$+$};
+      \draw[fill,blue] ({\xmax*(1-abs(rand)^3)},\y)++(rand*180:0.4) circle (0.1) node[white] {$-$};
+    }
+  }
 \end{tikzpicture}
 \end{document}
 ~~~

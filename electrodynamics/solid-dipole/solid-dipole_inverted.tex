@@ -1,0 +1,24 @@
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    color=white,
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\tikzset{>=latex}
+
+\begin{document}
+\begin{tikzpicture}[inverted,inverted]
+  \pgfmathsetmacro{\xmax}{10}
+  \foreach \x in { 0,...,\xmax } {%
+    \foreach \y in { 0,...,4 } {%
+      \draw[fill,red] (\x,\y) circle (0.2) node[white] {$+$};
+      \draw[fill,blue] ({\xmax*(1-abs(rand)^3)},\y)++(rand*180:0.4) circle (0.1) node[white] {$-$};
+    }
+  }
+\end{tikzpicture}
+\end{document}
