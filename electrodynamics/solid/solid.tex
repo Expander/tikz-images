@@ -1,0 +1,14 @@
+\documentclass[crop,tikz]{standalone}
+
+\tikzset{>=latex}
+
+\begin{document}
+\begin{tikzpicture}
+  \foreach \x in { 0,...,10 } {%
+    \foreach \y in { 0,...,4 } {%
+      \draw[fill,red] (\x,\y) circle (0.2) coordinate (t) node[black] {$+$};
+      \draw[fill,blue!50] (t)++(rand*180:0.4) circle (0.1) node[black] {$-$};
+    }
+  }
+\end{tikzpicture}
+\end{document}
