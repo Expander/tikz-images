@@ -1135,7 +1135,7 @@
   \foreach \x in { 0,...,10 } {%
     \foreach \y in { 0,...,4 } {%
       \draw[fill,red] (\x,\y) circle (0.2) coordinate (t) node[black] {$+$};
-      \draw[fill,blue!50] (t)++(rand*180:0.4) circle (0.1) node[black] {$-$};
+      \draw[fill,blue] (t)++(rand*180:0.4) circle (0.1) node[white] {$-$};
     }
   }
 \end{tikzpicture}
@@ -2547,7 +2547,7 @@
   \foreach \x in { 0,...,10 } {%
     \foreach \y in { 0,...,4 } {%
       \draw[fill,red] (\x,\y) circle (0.2) coordinate (t) node[white] {$+$};
-      \draw[fill,blue!50] (t)++(rand*180:0.4) circle (0.1) node[white] {$-$};
+      \draw[fill,blue] (t)++(rand*180:0.4) circle (0.1) node[white] {$-$};
     }
   }
 \end{tikzpicture}
