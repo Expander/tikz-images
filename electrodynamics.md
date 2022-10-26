@@ -334,12 +334,12 @@
 \begin{document}
 \begin{tikzpicture}
   \draw (0,1.5)
-    to[battery2,v_={$\SI{10}{\V}$}] ++(0,-3) node[below left,blue] {4}
-    to[R,v<={$U_3=\SI{2}{\V}$}] ++(3,0) node[below right,blue] {3}
-    to[R,v<={$U_2=\SI{3}{\V}$}] ++(0,3) node[above right,blue] {2}
-    to[R,v<={$U_1=\SI{5}{\V}$}] ++(-3,0) node[above left,blue] {1};
-  \node[above left,blue] at (0,0) {0};
-  \node[below left,blue] at (0,0) {5};
+    to[battery2,v_={$\SI{10}{\V}$}] ++(0,-3) node[below left,red] {4}
+    to[R,v<={$U_3=\SI{2}{\V}$}] ++(3,0) node[below right,red] {3}
+    to[R,v<={$U_2=\SI{3}{\V}$}] ++(0,3) node[above right,red] {2}
+    to[R,v<={$U_1=\SI{5}{\V}$}] ++(-3,0) node[above left,red] {1};
+  \node[above left,red] at (0,0) {0};
+  \node[below left,red] at (0,0) {5};
 \end{tikzpicture}
 \end{document}
 ~~~
@@ -380,6 +380,7 @@
     ylabel={$\phi/\si{\V}$},
     x label style={right},
     y label style={above},
+    x tick label style={red},
     xtick distance=1,
     ytick distance=2,
     extra x ticks={0},
@@ -1585,12 +1586,12 @@
 \begin{document}
 \begin{tikzpicture}[inverted,inverted]
   \draw (0,1.5)
-    to[battery2,v_={$\SI{10}{\V}$}] ++(0,-3) node[below left,blue] {4}
-    to[R,v<={$U_3=\SI{2}{\V}$}] ++(3,0) node[below right,blue] {3}
-    to[R,v<={$U_2=\SI{3}{\V}$}] ++(0,3) node[above right,blue] {2}
-    to[R,v<={$U_1=\SI{5}{\V}$}] ++(-3,0) node[above left,blue] {1};
-  \node[above left,blue] at (0,0) {0};
-  \node[below left,blue] at (0,0) {5};
+    to[battery2,v_={$\SI{10}{\V}$}] ++(0,-3) node[below left,red] {4}
+    to[R,v<={$U_3=\SI{2}{\V}$}] ++(3,0) node[below right,red] {3}
+    to[R,v<={$U_2=\SI{3}{\V}$}] ++(0,3) node[above right,red] {2}
+    to[R,v<={$U_1=\SI{5}{\V}$}] ++(-3,0) node[above left,red] {1};
+  \node[above left,red] at (0,0) {0};
+  \node[below left,red] at (0,0) {5};
 \end{tikzpicture}
 \end{document}
 ~~~
@@ -1640,6 +1641,7 @@
     ylabel={$\phi/\si{\V}$},
     x label style={right},
     y label style={above},
+    x tick label style={red},
     xtick distance=1,
     ytick distance=2,
     extra x ticks={0},

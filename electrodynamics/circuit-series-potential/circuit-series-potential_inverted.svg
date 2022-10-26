@@ -86,19 +86,19 @@
 <path style=" stroke:none;fill-rule:nonzero;fill:rgb(100%,100%,100%);fill-opacity:1;" d="M 148.664062 146.5625 C 147.28125 146.304688 145.035156 145.527344 143.480469 144.621094 L 143.480469 148.503906 C 145.035156 147.597656 147.28125 146.820312 148.664062 146.5625 "/>
 <path style="fill:none;stroke-width:0.79701;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(100%,100%,100%);stroke-opacity:1;stroke-miterlimit:10;" d="M -0.00003125 0.0005 L -0.00003125 120.586437 " transform="matrix(1,0,0,-1,23.418,146.563)"/>
 <path style=" stroke:none;fill-rule:nonzero;fill:rgb(100%,100%,100%);fill-opacity:1;" d="M 23.417969 21.316406 C 23.160156 22.695312 22.382812 24.941406 21.476562 26.496094 L 25.359375 26.496094 C 24.453125 24.941406 23.675781 22.695312 23.417969 21.316406 "/>
-<g style="fill:rgb(100%,100%,100%);fill-opacity:1;">
+<g style="fill:rgb(100%,0%,0%);fill-opacity:1;">
   <use xlink:href="#glyph0-1" x="43.292" y="158.829"/>
 </g>
-<g style="fill:rgb(100%,100%,100%);fill-opacity:1;">
+<g style="fill:rgb(100%,0%,0%);fill-opacity:1;">
   <use xlink:href="#glyph0-2" x="65.657" y="158.829"/>
 </g>
-<g style="fill:rgb(100%,100%,100%);fill-opacity:1;">
+<g style="fill:rgb(100%,0%,0%);fill-opacity:1;">
   <use xlink:href="#glyph0-3" x="88.022" y="158.829"/>
 </g>
-<g style="fill:rgb(100%,100%,100%);fill-opacity:1;">
+<g style="fill:rgb(100%,0%,0%);fill-opacity:1;">
   <use xlink:href="#glyph0-4" x="110.386" y="158.829"/>
 </g>
-<g style="fill:rgb(100%,100%,100%);fill-opacity:1;">
+<g style="fill:rgb(100%,0%,0%);fill-opacity:1;">
   <use xlink:href="#glyph0-5" x="132.751" y="158.829"/>
 </g>
 <g style="fill:rgb(100%,100%,100%);fill-opacity:1;">
@@ -118,7 +118,7 @@
   <use xlink:href="#glyph0-8" x="12.5913" y="37.946"/>
 </g>
 <path style="fill:none;stroke-width:0.19925;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(50%,50%,50%);stroke-opacity:1;stroke-miterlimit:10;" d="M -0.00003125 -2.1245 L -0.00003125 2.1255 " transform="matrix(1,0,0,-1,23.418,146.563)"/>
-<g style="fill:rgb(100%,100%,100%);fill-opacity:1;">
+<g style="fill:rgb(100%,0%,0%);fill-opacity:1;">
   <use xlink:href="#glyph0-8" x="20.927" y="158.829"/>
 </g>
 <path style="fill:none;stroke-width:0.19925;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(50%,50%,50%);stroke-opacity:1;stroke-miterlimit:10;" d="M -2.125031 0.0005 L 2.124969 0.0005 " transform="matrix(1,0,0,-1,23.418,146.563)"/>
