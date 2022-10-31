@@ -11,15 +11,15 @@
 
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.16}
-\usepgfplotslibrary{colormaps}
 \tikzset{>=latex}
 
 \newcommand{\field}[1]{%
   \addplot3[
+    blue,
     point meta = {sqrt(x^2+y^2)},
     quiver = {
-      u = {-y/sqrt(x^2+y^2)},
-      v = {+x/sqrt(x^2+y^2)},
+      u = {-y/(x^2+y^2)},
+      v = {+x/(x^2+y^2)},
       scale arrows = 0.25,
       every arrow/.append style={
         -{latex[scale={max(0.7,\pgfplotspointmetatransformed/1000)}]},
@@ -27,7 +27,6 @@
    },
    domain = -2:2,
    domain y = -2:2,
-   quiver/colored = {mapped color},
   ] (x,y,#1);
 }
 
@@ -40,7 +39,6 @@
   axis equal image,
   height=7cm,
   view = {90}{20},
-  colormap/viridis,
   xtick={\empty},
   ytick={\empty},
   hide axis,

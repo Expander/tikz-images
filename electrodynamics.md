@@ -842,6 +842,56 @@
 
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.16}
+\tikzset{>=latex}
+
+\newcommand{\field}[1]{%
+  \addplot3[
+    blue,
+    point meta = {sqrt(x^2+y^2)},
+    quiver = {
+      u = {-y/(x^2+y^2)},
+      v = {+x/(x^2+y^2)},
+      scale arrows = 0.25,
+      every arrow/.append style={
+        -{latex[scale={max(0.7,\pgfplotspointmetatransformed/1000)}]},
+      },
+   },
+   domain = -2:2,
+   domain y = -2:2,
+  ] (x,y,#1);
+}
+
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[
+  xmin = -2, xmax = 2,
+  ymin = -2, ymax = 2,
+  zmin = 0, zmax = 1,
+  axis equal image,
+  height=7cm,
+  view = {90}{20},
+  xtick={\empty},
+  ytick={\empty},
+  hide axis,
+  samples = 12,
+  clip=false,
+  ]
+  \draw[->,red,ultra thick] (axis cs: 0,0,-2) -- (axis cs: 0,0,5) node[above,black] {$\vec{v}$} node[below left,black] {$q>0$};
+  \node[below] at (axis cs: 2,1,0) {$\vec{B}(\vec{r})$};
+  \node[below] at (axis cs: 2,1,3) {$\vec{B}(\vec{r})$};
+  \field{0}
+  \field{3}
+\end{axis}
+\end{tikzpicture}
+\end{document}
+~~~
+## magnetic-field-curl-3d-scaled.svg
+[![magnetic-field-curl-3d-scaled.svg](electrodynamics/magnetic-field-curl-3d-scaled/magnetic-field-curl-3d-scaled.svg "magnetic-field-curl-3d-scaled.svg")](electrodynamics/magnetic-field-curl-3d-scaled/magnetic-field-curl-3d-scaled.svg) [[PDF]](electrodynamics/magnetic-field-curl-3d-scaled/magnetic-field-curl-3d-scaled.pdf) [[PNG]](electrodynamics/magnetic-field-curl-3d-scaled/magnetic-field-curl-3d-scaled.png) [[SVG]](electrodynamics/magnetic-field-curl-3d-scaled/magnetic-field-curl-3d-scaled.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.16}
 \usepgfplotslibrary{colormaps}
 \tikzset{>=latex}
 
@@ -2411,6 +2461,65 @@
 ~~~
 ## magnetic-field-curl-3d_inverted.svg
 [![magnetic-field-curl-3d_inverted.svg](electrodynamics/magnetic-field-curl-3d/magnetic-field-curl-3d_inverted.svg "magnetic-field-curl-3d_inverted.svg")](electrodynamics/magnetic-field-curl-3d/magnetic-field-curl-3d_inverted.svg) [[PDF]](electrodynamics/magnetic-field-curl-3d/magnetic-field-curl-3d_inverted.pdf) [[PNG]](electrodynamics/magnetic-field-curl-3d/magnetic-field-curl-3d_inverted.png) [[SVG]](electrodynamics/magnetic-field-curl-3d/magnetic-field-curl-3d_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    color=white,
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.16}
+\tikzset{>=latex}
+
+\newcommand{\field}[1]{%
+  \addplot3[
+    blue,
+    point meta = {sqrt(x^2+y^2)},
+    quiver = {
+      u = {-y/(x^2+y^2)},
+      v = {+x/(x^2+y^2)},
+      scale arrows = 0.25,
+      every arrow/.append style={
+        -{latex[scale={max(0.7,\pgfplotspointmetatransformed/1000)}]},
+      },
+   },
+   domain = -2:2,
+   domain y = -2:2,
+  ] (x,y,#1);
+}
+
+\begin{document}
+\begin{tikzpicture}[inverted,inverted]
+\begin{axis}[inverted,
+  xmin = -2, xmax = 2,
+  ymin = -2, ymax = 2,
+  zmin = 0, zmax = 1,
+  axis equal image,
+  height=7cm,
+  view = {90}{20},
+  xtick={\empty},
+  ytick={\empty},
+  hide axis,
+  samples = 12,
+  clip=false,
+  ]
+  \draw[->,red,ultra thick] (axis cs: 0,0,-2) -- (axis cs: 0,0,5) node[above,white] {$\vec{v}$} node[below left,white] {$q>0$};
+  \node[below] at (axis cs: 2,1,0) {$\vec{B}(\vec{r})$};
+  \node[below] at (axis cs: 2,1,3) {$\vec{B}(\vec{r})$};
+  \field{0}
+  \field{3}
+\end{axis}
+\end{tikzpicture}
+\end{document}
+~~~
+## magnetic-field-curl-3d-scaled_inverted.svg
+[![magnetic-field-curl-3d-scaled_inverted.svg](electrodynamics/magnetic-field-curl-3d-scaled/magnetic-field-curl-3d-scaled_inverted.svg "magnetic-field-curl-3d-scaled_inverted.svg")](electrodynamics/magnetic-field-curl-3d-scaled/magnetic-field-curl-3d-scaled_inverted.svg) [[PDF]](electrodynamics/magnetic-field-curl-3d-scaled/magnetic-field-curl-3d-scaled_inverted.pdf) [[PNG]](electrodynamics/magnetic-field-curl-3d-scaled/magnetic-field-curl-3d-scaled_inverted.png) [[SVG]](electrodynamics/magnetic-field-curl-3d-scaled/magnetic-field-curl-3d-scaled_inverted.svg)
 ~~~.tex
 \documentclass[crop,tikz]{standalone}
 \usetikzlibrary{backgrounds}
