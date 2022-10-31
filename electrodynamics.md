@@ -1,4 +1,147 @@
 # Electrodynamics
+## capacity-bodies.svg
+[![capacity-bodies.svg](electrodynamics/capacity-bodies/capacity-bodies.svg "capacity-bodies.svg")](electrodynamics/capacity-bodies/capacity-bodies.svg) [[PDF]](electrodynamics/capacity-bodies/capacity-bodies.pdf) [[PNG]](electrodynamics/capacity-bodies/capacity-bodies.png) [[SVG]](electrodynamics/capacity-bodies/capacity-bodies.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.13}
+
+% Based on the work of Izaak Neutelings (July 2018)
+% https://tikz.net/electric_fieldlines2/
+
+\usetikzlibrary{decorations.markings,intersections,calc}
+\usepackage{ifthen}
+\usepackage{xcolor}
+\colorlet{EcolFL}{blue}
+\tikzstyle{EcolEP}=[orange]
+\tikzstyle{charge+}=[fill=gray!25!white]
+\tikzstyle{charge-}=[fill=gray!25!white]
+\tikzset{>=latex}
+\tikzset{
+   EFielLineArrow/.style args = {#1}{EcolFL,decoration={markings,
+          mark=at position 0.5 with {\arrow[rotate=#1]{latex}}},
+          postaction={decorate}}
+}
+
+\makeatletter
+  \newcommand{\xy}[3]{% % FIND X, Y
+    \tikz@scan@one@point\pgfutil@firstofone#1\relax
+    \edef#2{\the\pgf@x}%
+    \edef#3{\the\pgf@y}%
+  }
+\makeatother
+
+\newcommand{\EFielLineArrow}[2]{ % ELECTRIC FIELD LINE ARROW
+  \pgfkeys{/pgf/fpu,/pgf/fpu/output format=fixed} % for calculation between -1*10^324 and +1*10^324
+  \pgfmathsetmacro{\x}{#1/28.45pt}
+  \pgfmathsetmacro{\y}{#2/28.45pt}
+  \pgfmathsetmacro{\U}{\Q*((\x+\a)^2+(\y)^2)^(3/2)}
+  \pgfmathsetmacro{\V}{\q*((\x-\a)^2+(\y)^2)^(3/2)}
+  \pgfkeys{/pgf/fpu=false}
+  \pgfmathparse{
+    atan2(((\y)*\V + (\y)*\U),((\x+\a)*\V + (\x-\a)*\U))
+  }
+  \edef\angle{\pgfmathresult}
+  \pgfmathsetmacro{\D}{int(1000*\q*(\x+\a)/sqrt((\x+\a)^2+\y*\y) + 1000*\Q*(\x-\a)/sqrt((\x-\a)^2+\y*\y))/1000}
+  \draw[EFielLineArrow={\angle}] (\xpt,\ypt);
+}
+
+\newcommand{\EFieldLines}{ % ELECTRIC FIELD LINES
+  \message{^^JField lines (\q,\Q) with contours range ^^J\range^^J}
+  
+  % PATHS for intersections
+  \path[name path=ellipse1] (-\a,0) ellipse ({0.90*\R} and {1.5*\R});
+  \path[name path=ellipse2] (+\a,0) ellipse ({0.75*\R} and {1.5*\R});
+  \path[name path=ellipse3] (  0,0) ellipse ({\a+\R} and 1.5*\R);
+  
+  % FIELD LINES
+  \draw[EcolFL,name path=Elines] plot[id=plot, raw gnuplot, smooth]
+    function{
+       f(x,y) = \q*(x+\a)/sqrt((x+\a)**2+y**2) + \Q*(x-\a)/sqrt((x-\a)**2+y**2);
+       set xrange [\xmin:\xmax];
+       set yrange [-\ymax:\ymax];
+       set view 0,0;
+       set isosample 400,400;
+       set cont base;
+       set cntrparam levels discrete \range;
+       unset surface;
+       splot f(x,y)
+    };
+  
+  % ELLIPSE INTERSECTIONS
+  \pgfmathsetmacro{\oppositesign}{\q*\Q<0 ? 1 : 0}
+  \ifthenelse{\oppositesign>0}{
+    % OPPOSITE SIGN
+    \foreach \c in {1,2}{
+      \message{Intersections \c...}
+      \path[name intersections={of=Elines and ellipse\c,total=\t}]
+        \pgfextra{\xdef\Nb{\t}};
+      \message{ found \Nb ^^J}
+      \foreach \i in {1,...,\Nb}{
+        \message{  \i}
+        \xy{(intersection-\i)}{\xpt}{\ypt}
+        \EFielLineArrow{\xpt}{\ypt}
+        \message{ (\D,\x,\y)^^J}
+      }
+    }
+  }{
+    % SAME SIGN
+    \message{Intersections...}
+    \path[name intersections={of=Elines and ellipse3,total=\t}]
+        \pgfextra{\xdef\Nb{\t}}; 
+    \message{ found \Nb ^^J}
+    \foreach \i in {1,...,\Nb}{
+      \message{  \i}
+      \xy{(intersection-\i)}{\xpt}{\ypt}
+      \EFielLineArrow{\xpt}{\ypt}
+      \message{ (\D,\x,\y)^^J}
+    }
+  }
+}
+
+\newcommand{\EEquipot}{ % EQUIPOTENTIAL SURFACE
+  \message{^^JEquipotential surface (\q,\Q) with contours range ^^J\rangeEP}
+  
+  % FIELD LINES
+  \draw[EcolEP] plot[id=plot, raw gnuplot, smooth] %,dashed
+    function{
+       f(x,y) = \q/sqrt((x+\a)**2+y**2) + \Q/sqrt((x-\a)**2+y**2);
+       set xrange [\xmin:\xmax];
+       set yrange [-\ymax:\ymax];
+       set view 0,0;
+       set isosample 400,400;
+       set cont base;
+       set cntrparam levels discrete \rangeEP;
+       unset surface;
+       splot f(x,y)
+    };
+}
+
+\begin{document}
+\begin{tikzpicture}
+  \def\xmin{-3}
+  \def\xmax{3}
+  \def\ymax{3}
+  \def\a{1}
+  \def\q{+1}
+  \def\Q{-1}
+  \def\R{1.0}
+  \def\range{0.05,0.2,0.6,1.0,1.4,1.8,1.98}
+  \def\rangeEP{-1.8,-1.4,-1.0,-0.6,-0.2,0.0,0.2,0.6,1.0,1.4,1.8}
+  % LINES
+  \EFieldLines
+  % \EEquipot
+  % CHARGES
+  \def\radius{0.5cm}
+  \draw[charge+] (-\a,0) circle (\radius) node[red ,scale=1.0] {$q$};
+  \draw[charge-] (+\a,0) circle (\radius) node[blue,scale=1.0] {$-q$};
+  \foreach \angl in {0,20,...,340} {
+    \node[scale=0.5,red]  at ([shift={(-\a,0)}]\angl:{\radius-0.1cm}) {$+$};
+    \node[scale=0.5,blue] at ([shift={(+\a,0)}]\angl:{\radius-0.1cm}) {$-$};
+  }
+\end{tikzpicture}
+\end{document}
+~~~
 ## capacity-parallel.svg
 [![capacity-parallel.svg](electrodynamics/capacity-parallel/capacity-parallel.svg "capacity-parallel.svg")](electrodynamics/capacity-parallel/capacity-parallel.svg) [[PDF]](electrodynamics/capacity-parallel/capacity-parallel.pdf) [[PNG]](electrodynamics/capacity-parallel/capacity-parallel.png) [[SVG]](electrodynamics/capacity-parallel/capacity-parallel.svg)
 ~~~.tex
@@ -1412,6 +1555,158 @@
       \draw[fill,red] (\x,\y) circle (0.2) coordinate (t) node[black] {$+$};
       \draw[fill,blue] (t)++(rand*180:0.4) circle (0.1) node[white] {$-$};
     }
+  }
+\end{tikzpicture}
+\end{document}
+~~~
+## capacity-bodies_inverted.svg
+[![capacity-bodies_inverted.svg](electrodynamics/capacity-bodies/capacity-bodies_inverted.svg "capacity-bodies_inverted.svg")](electrodynamics/capacity-bodies/capacity-bodies_inverted.svg) [[PDF]](electrodynamics/capacity-bodies/capacity-bodies_inverted.pdf) [[PNG]](electrodynamics/capacity-bodies/capacity-bodies_inverted.png) [[SVG]](electrodynamics/capacity-bodies/capacity-bodies_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    color=white,
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.13}
+
+% Based on the work of Izaak Neutelings (July 2018)
+% https://tikz.net/electric_fieldlines2/
+
+\usetikzlibrary{decorations.markings,intersections,calc}
+\usepackage{ifthen}
+\usepackage{xcolor}
+\colorlet{EcolFL}{blue}
+\tikzstyle{EcolEP}=[orange]
+\tikzstyle{charge+}=[fill=gray!25!white]
+\tikzstyle{charge-}=[fill=gray!25!white]
+\tikzset{>=latex}
+\tikzset{
+   EFielLineArrow/.style args = {#1}{EcolFL,decoration={markings,
+          mark=at position 0.5 with {\arrow[rotate=#1]{latex}}},
+          postaction={decorate}}
+}
+
+\makeatletter
+  \newcommand{\xy}[3]{% % FIND X, Y
+    \tikz@scan@one@point\pgfutil@firstofone#1\relax
+    \edef#2{\the\pgf@x}%
+    \edef#3{\the\pgf@y}%
+  }
+\makeatother
+
+\newcommand{\EFielLineArrow}[2]{ % ELECTRIC FIELD LINE ARROW
+  \pgfkeys{/pgf/fpu,/pgf/fpu/output format=fixed} % for calculation between -1*10^324 and +1*10^324
+  \pgfmathsetmacro{\x}{#1/28.45pt}
+  \pgfmathsetmacro{\y}{#2/28.45pt}
+  \pgfmathsetmacro{\U}{\Q*((\x+\a)^2+(\y)^2)^(3/2)}
+  \pgfmathsetmacro{\V}{\q*((\x-\a)^2+(\y)^2)^(3/2)}
+  \pgfkeys{/pgf/fpu=false}
+  \pgfmathparse{
+    atan2(((\y)*\V + (\y)*\U),((\x+\a)*\V + (\x-\a)*\U))
+  }
+  \edef\angle{\pgfmathresult}
+  \pgfmathsetmacro{\D}{int(1000*\q*(\x+\a)/sqrt((\x+\a)^2+\y*\y) + 1000*\Q*(\x-\a)/sqrt((\x-\a)^2+\y*\y))/1000}
+  \draw[EFielLineArrow={\angle}] (\xpt,\ypt);
+}
+
+\newcommand{\EFieldLines}{ % ELECTRIC FIELD LINES
+  \message{^^JField lines (\q,\Q) with contours range ^^J\range^^J}
+  
+  % PATHS for intersections
+  \path[name path=ellipse1] (-\a,0) ellipse ({0.90*\R} and {1.5*\R});
+  \path[name path=ellipse2] (+\a,0) ellipse ({0.75*\R} and {1.5*\R});
+  \path[name path=ellipse3] (  0,0) ellipse ({\a+\R} and 1.5*\R);
+  
+  % FIELD LINES
+  \draw[EcolFL,name path=Elines] plot[id=plot, raw gnuplot, smooth]
+    function{
+       f(x,y) = \q*(x+\a)/sqrt((x+\a)**2+y**2) + \Q*(x-\a)/sqrt((x-\a)**2+y**2);
+       set xrange [\xmin:\xmax];
+       set yrange [-\ymax:\ymax];
+       set view 0,0;
+       set isosample 400,400;
+       set cont base;
+       set cntrparam levels discrete \range;
+       unset surface;
+       splot f(x,y)
+    };
+  
+  % ELLIPSE INTERSECTIONS
+  \pgfmathsetmacro{\oppositesign}{\q*\Q<0 ? 1 : 0}
+  \ifthenelse{\oppositesign>0}{
+    % OPPOSITE SIGN
+    \foreach \c in {1,2}{
+      \message{Intersections \c...}
+      \path[name intersections={of=Elines and ellipse\c,total=\t}]
+        \pgfextra{\xdef\Nb{\t}};
+      \message{ found \Nb ^^J}
+      \foreach \i in {1,...,\Nb}{
+        \message{  \i}
+        \xy{(intersection-\i)}{\xpt}{\ypt}
+        \EFielLineArrow{\xpt}{\ypt}
+        \message{ (\D,\x,\y)^^J}
+      }
+    }
+  }{
+    % SAME SIGN
+    \message{Intersections...}
+    \path[name intersections={of=Elines and ellipse3,total=\t}]
+        \pgfextra{\xdef\Nb{\t}}; 
+    \message{ found \Nb ^^J}
+    \foreach \i in {1,...,\Nb}{
+      \message{  \i}
+      \xy{(intersection-\i)}{\xpt}{\ypt}
+      \EFielLineArrow{\xpt}{\ypt}
+      \message{ (\D,\x,\y)^^J}
+    }
+  }
+}
+
+\newcommand{\EEquipot}{ % EQUIPOTENTIAL SURFACE
+  \message{^^JEquipotential surface (\q,\Q) with contours range ^^J\rangeEP}
+  
+  % FIELD LINES
+  \draw[EcolEP] plot[id=plot, raw gnuplot, smooth] %,dashed
+    function{
+       f(x,y) = \q/sqrt((x+\a)**2+y**2) + \Q/sqrt((x-\a)**2+y**2);
+       set xrange [\xmin:\xmax];
+       set yrange [-\ymax:\ymax];
+       set view 0,0;
+       set isosample 400,400;
+       set cont base;
+       set cntrparam levels discrete \rangeEP;
+       unset surface;
+       splot f(x,y)
+    };
+}
+
+\begin{document}
+\begin{tikzpicture}[inverted,inverted]
+  \def\xmin{-3}
+  \def\xmax{3}
+  \def\ymax{3}
+  \def\a{1}
+  \def\q{+1}
+  \def\Q{-1}
+  \def\R{1.0}
+  \def\range{0.05,0.2,0.6,1.0,1.4,1.8,1.98}
+  \def\rangeEP{-1.8,-1.4,-1.0,-0.6,-0.2,0.0,0.2,0.6,1.0,1.4,1.8}
+  % LINES
+  \EFieldLines
+  % \EEquipot
+  % CHARGES
+  \def\radius{0.5cm}
+  \draw[charge+] (-\a,0) circle (\radius) node[red ,scale=1.0] {$q$};
+  \draw[charge-] (+\a,0) circle (\radius) node[blue,scale=1.0] {$-q$};
+  \foreach \angl in {0,20,...,340} {
+    \node[scale=0.5,red]  at ([shift={(-\a,0)}]\angl:{\radius-0.1cm}) {$+$};
+    \node[scale=0.5,blue] at ([shift={(+\a,0)}]\angl:{\radius-0.1cm}) {$-$};
   }
 \end{tikzpicture}
 \end{document}
