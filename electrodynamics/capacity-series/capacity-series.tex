@@ -1,0 +1,14 @@
+\documentclass[crop,tikz]{standalone}
+
+\usepackage[european]{circuitikz}
+
+\begin{document}
+\begin{tikzpicture}
+  \draw (0,-2)
+    to[V,v=$U_0$] ++(0,4)
+    to[short] ++(2,0)
+    to[C,v^<=$U_2$] ++(0,-2)
+    to[C,v^<=$U_1$] ++(0,-2)
+    to[short] ++(-2,0);
+\end{tikzpicture}
+\end{document}

@@ -1,4 +1,22 @@
 # Electrodynamics
+## capacity-series.svg
+[![capacity-series.svg](electrodynamics/capacity-series/capacity-series.svg "capacity-series.svg")](electrodynamics/capacity-series/capacity-series.svg) [[PDF]](electrodynamics/capacity-series/capacity-series.pdf) [[PNG]](electrodynamics/capacity-series/capacity-series.png) [[SVG]](electrodynamics/capacity-series/capacity-series.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\usepackage[european]{circuitikz}
+
+\begin{document}
+\begin{tikzpicture}
+  \draw (0,-2)
+    to[V,v=$U_0$] ++(0,4)
+    to[short] ++(2,0)
+    to[C,v^<=$U_2$] ++(0,-2)
+    to[C,v^<=$U_1$] ++(0,-2)
+    to[short] ++(-2,0);
+\end{tikzpicture}
+\end{document}
+~~~
 ## characteristic-lamp.svg
 [![characteristic-lamp.svg](electrodynamics/characteristic-lamp/characteristic-lamp.svg "characteristic-lamp.svg")](electrodynamics/characteristic-lamp/characteristic-lamp.svg) [[PDF]](electrodynamics/characteristic-lamp/characteristic-lamp.pdf) [[PNG]](electrodynamics/characteristic-lamp/characteristic-lamp.png) [[SVG]](electrodynamics/characteristic-lamp/characteristic-lamp.svg)
 ~~~.tex
@@ -1158,6 +1176,33 @@
       \draw[fill,blue] (t)++(rand*180:0.4) circle (0.1) node[white] {$-$};
     }
   }
+\end{tikzpicture}
+\end{document}
+~~~
+## capacity-series_inverted.svg
+[![capacity-series_inverted.svg](electrodynamics/capacity-series/capacity-series_inverted.svg "capacity-series_inverted.svg")](electrodynamics/capacity-series/capacity-series_inverted.svg) [[PDF]](electrodynamics/capacity-series/capacity-series_inverted.pdf) [[PNG]](electrodynamics/capacity-series/capacity-series_inverted.png) [[SVG]](electrodynamics/capacity-series/capacity-series_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    color=white,
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\usepackage[european]{circuitikz}
+
+\begin{document}
+\begin{tikzpicture}[inverted,inverted]
+  \draw (0,-2)
+    to[V,v=$U_0$] ++(0,4)
+    to[short] ++(2,0)
+    to[C,v^<=$U_2$] ++(0,-2)
+    to[C,v^<=$U_1$] ++(0,-2)
+    to[short] ++(-2,0);
 \end{tikzpicture}
 \end{document}
 ~~~
