@@ -1,4 +1,25 @@
 # Electrodynamics
+## capacity-parallel.svg
+[![capacity-parallel.svg](electrodynamics/capacity-parallel/capacity-parallel.svg "capacity-parallel.svg")](electrodynamics/capacity-parallel/capacity-parallel.svg) [[PDF]](electrodynamics/capacity-parallel/capacity-parallel.pdf) [[PNG]](electrodynamics/capacity-parallel/capacity-parallel.png) [[SVG]](electrodynamics/capacity-parallel/capacity-parallel.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\usepackage[european]{circuitikz}
+
+\begin{document}
+\begin{tikzpicture}
+  \draw (-1.5,0)
+    to[V,v_<=$U_0$] ++(3,0)
+    to[short,-*] ++(0,2)
+    to[C,v=$U_1$] ++(-3,0)
+    to[short,*-] ++(0,-2);
+  \draw (1.5,2)
+    to ++(0,2)
+    to[C,v=$U_2$] ++(-3,0)
+    to ++(0,-2);
+\end{tikzpicture}
+\end{document}
+~~~
 ## capacity-series.svg
 [![capacity-series.svg](electrodynamics/capacity-series/capacity-series.svg "capacity-series.svg")](electrodynamics/capacity-series/capacity-series.svg) [[PDF]](electrodynamics/capacity-series/capacity-series.pdf) [[PNG]](electrodynamics/capacity-series/capacity-series.png) [[SVG]](electrodynamics/capacity-series/capacity-series.svg)
 ~~~.tex
@@ -1176,6 +1197,36 @@
       \draw[fill,blue] (t)++(rand*180:0.4) circle (0.1) node[white] {$-$};
     }
   }
+\end{tikzpicture}
+\end{document}
+~~~
+## capacity-parallel_inverted.svg
+[![capacity-parallel_inverted.svg](electrodynamics/capacity-parallel/capacity-parallel_inverted.svg "capacity-parallel_inverted.svg")](electrodynamics/capacity-parallel/capacity-parallel_inverted.svg) [[PDF]](electrodynamics/capacity-parallel/capacity-parallel_inverted.pdf) [[PNG]](electrodynamics/capacity-parallel/capacity-parallel_inverted.png) [[SVG]](electrodynamics/capacity-parallel/capacity-parallel_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    color=white,
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\usepackage[european]{circuitikz}
+
+\begin{document}
+\begin{tikzpicture}[inverted,inverted]
+  \draw (-1.5,0)
+    to[V,v_<=$U_0$] ++(3,0)
+    to[short,-*] ++(0,2)
+    to[C,v=$U_1$] ++(-3,0)
+    to[short,*-] ++(0,-2);
+  \draw (1.5,2)
+    to ++(0,2)
+    to[C,v=$U_2$] ++(-3,0)
+    to ++(0,-2);
 \end{tikzpicture}
 \end{document}
 ~~~
