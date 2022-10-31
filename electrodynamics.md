@@ -751,6 +751,172 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## magnetic-field-curl-2d.svg
+[![magnetic-field-curl-2d.svg](electrodynamics/magnetic-field-curl-2d/magnetic-field-curl-2d.svg "magnetic-field-curl-2d.svg")](electrodynamics/magnetic-field-curl-2d/magnetic-field-curl-2d.svg) [[PDF]](electrodynamics/magnetic-field-curl-2d/magnetic-field-curl-2d.pdf) [[PNG]](electrodynamics/magnetic-field-curl-2d/magnetic-field-curl-2d.png) [[SVG]](electrodynamics/magnetic-field-curl-2d/magnetic-field-curl-2d.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.16}
+ 
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[
+  xmin = -2, xmax = 2,
+  ymin = -2, ymax = 2,
+  zmin = 0, zmax = 1,
+  axis equal image,
+  height=7cm,
+  view = {0}{90},
+  color=blue,
+  xtick={\empty},
+  ytick={\empty},
+  hide axis,
+  samples = 16,
+  clip=false,
+  ]
+  \addplot3[
+    point meta = {sqrt(x^2+y^2)},
+    quiver = {
+      u = {-y/(x^2+y^2)},
+      v = {x/(x^2+y^2)},
+      scale arrows = 0.25,
+      every arrow/.append style={
+        -{latex[scale={max(0.7,\pgfplotspointmetatransformed/1000)}]},
+      },
+   },
+   domain = -2:2,
+   domain y = -2:2,
+  ] {0};
+\end{axis}
+\end{tikzpicture}
+\end{document}
+~~~
+## magnetic-field-curl-2d-scaled.svg
+[![magnetic-field-curl-2d-scaled.svg](electrodynamics/magnetic-field-curl-2d-scaled/magnetic-field-curl-2d-scaled.svg "magnetic-field-curl-2d-scaled.svg")](electrodynamics/magnetic-field-curl-2d-scaled/magnetic-field-curl-2d-scaled.svg) [[PDF]](electrodynamics/magnetic-field-curl-2d-scaled/magnetic-field-curl-2d-scaled.pdf) [[PNG]](electrodynamics/magnetic-field-curl-2d-scaled/magnetic-field-curl-2d-scaled.png) [[SVG]](electrodynamics/magnetic-field-curl-2d-scaled/magnetic-field-curl-2d-scaled.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.16}
+\usepgfplotslibrary{colormaps}
+ 
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[
+  xmin = -2, xmax = 2,
+  ymin = -2, ymax = 2,
+  zmin = 0, zmax = 1,
+  axis equal image,
+  height=7cm,
+  view = {0}{90},
+  colormap/viridis,
+  xtick={\empty},
+  ytick={\empty},
+  hide axis,
+  samples = 16,
+  clip=false,
+  ]
+  \addplot3[
+    point meta = {sqrt(x^2+y^2)},
+    quiver = {
+      u = {-y/sqrt(x^2+y^2)},
+      v = {x/sqrt(x^2+y^2)},
+      scale arrows = 0.25,
+      every arrow/.append style={
+        -{latex[scale={max(0.7,\pgfplotspointmetatransformed/1000)}]},
+      },
+   },
+   domain = -2:2,
+   domain y = -2:2,
+   quiver/colored = {mapped color},
+  ] {0};
+\end{axis}
+\end{tikzpicture}
+\end{document}
+~~~
+## magnetic-field-curl-3d.svg
+[![magnetic-field-curl-3d.svg](electrodynamics/magnetic-field-curl-3d/magnetic-field-curl-3d.svg "magnetic-field-curl-3d.svg")](electrodynamics/magnetic-field-curl-3d/magnetic-field-curl-3d.svg) [[PDF]](electrodynamics/magnetic-field-curl-3d/magnetic-field-curl-3d.pdf) [[PNG]](electrodynamics/magnetic-field-curl-3d/magnetic-field-curl-3d.png) [[SVG]](electrodynamics/magnetic-field-curl-3d/magnetic-field-curl-3d.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.16}
+\usepgfplotslibrary{colormaps}
+\tikzset{>=latex}
+
+\newcommand{\field}[1]{%
+  \addplot3[
+    point meta = {sqrt(x^2+y^2)},
+    quiver = {
+      u = {-y/sqrt(x^2+y^2)},
+      v = {+x/sqrt(x^2+y^2)},
+      scale arrows = 0.25,
+      every arrow/.append style={
+        -{latex[scale={max(0.7,\pgfplotspointmetatransformed/1000)}]},
+      },
+   },
+   domain = -2:2,
+   domain y = -2:2,
+   quiver/colored = {mapped color},
+  ] (x,y,#1);
+}
+
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[
+  xmin = -2, xmax = 2,
+  ymin = -2, ymax = 2,
+  zmin = 0, zmax = 1,
+  axis equal image,
+  height=7cm,
+  view = {90}{20},
+  colormap/viridis,
+  xtick={\empty},
+  ytick={\empty},
+  hide axis,
+  samples = 12,
+  clip=false,
+  ]
+  \draw[->,red,ultra thick] (axis cs: 0,0,-2) -- (axis cs: 0,0,5) node[above,black] {$\vec{v}$} node[below left,black] {$q>0$};
+  \node[below] at (axis cs: 2,1,0) {$\vec{B}(\vec{r})$};
+  \node[below] at (axis cs: 2,1,3) {$\vec{B}(\vec{r})$};
+  \field{0}
+  \field{3}
+\end{axis}
+\end{tikzpicture}
+\end{document}
+~~~
+## magnetic-fieldlines-3d.svg
+[![magnetic-fieldlines-3d.svg](electrodynamics/magnetic-fieldlines-3d/magnetic-fieldlines-3d.svg "magnetic-fieldlines-3d.svg")](electrodynamics/magnetic-fieldlines-3d/magnetic-fieldlines-3d.svg) [[PDF]](electrodynamics/magnetic-fieldlines-3d/magnetic-fieldlines-3d.pdf) [[PNG]](electrodynamics/magnetic-fieldlines-3d/magnetic-fieldlines-3d.png) [[SVG]](electrodynamics/magnetic-fieldlines-3d/magnetic-fieldlines-3d.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\usepackage{tikz-3dplot}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.16}
+\tikzset{>=latex}
+
+\newcommand{\fieldlines}[1]{%
+  \begin{scope}[shift={(0,0,#1)}]
+    \foreach \R in {0.5,1,...,3} {
+      \draw[->,blue] (95:\R) arc (95:315:\R);
+      \draw[blue] (315:\R) arc (315:{360+85}:\R);
+    }
+  \end{scope}
+}
+
+\begin{document}
+\tdplotsetmaincoords{70}{0}
+\begin{tikzpicture}[tdplot_main_coords]
+  \draw[->,red,ultra thick] (0,0,-4) -- (0,0,6) node[above,black] {$\vec{v}$} node[below left,black] {$q>0$};
+  \node[below] at (2.5,-2,-2) {$\vec{B}(\vec{r})$};
+  \node[below] at (2.5,-2,3) {$\vec{B}(\vec{r})$};
+  \fieldlines{-2}
+  \fieldlines{3}
+\end{tikzpicture}
+\end{document}
+~~~
 ## potential-dipole-neg-neg.svg
 [![potential-dipole-neg-neg.svg](electrodynamics/potential-dipole-neg-neg/potential-dipole-neg-neg.svg "potential-dipole-neg-neg.svg")](electrodynamics/potential-dipole-neg-neg/potential-dipole-neg-neg.svg) [[PDF]](electrodynamics/potential-dipole-neg-neg/potential-dipole-neg-neg.pdf) [[PNG]](electrodynamics/potential-dipole-neg-neg/potential-dipole-neg-neg.png) [[SVG]](electrodynamics/potential-dipole-neg-neg/potential-dipole-neg-neg.svg)
 ~~~.tex
@@ -2138,6 +2304,208 @@
   % labels
   \node[blue,above right] at (0,1,0) {$\vec{E}$};
   \node[red,below] at (0,0,1) {$\vec{B}$};
+\end{tikzpicture}
+\end{document}
+~~~
+## magnetic-field-curl-2d_inverted.svg
+[![magnetic-field-curl-2d_inverted.svg](electrodynamics/magnetic-field-curl-2d/magnetic-field-curl-2d_inverted.svg "magnetic-field-curl-2d_inverted.svg")](electrodynamics/magnetic-field-curl-2d/magnetic-field-curl-2d_inverted.svg) [[PDF]](electrodynamics/magnetic-field-curl-2d/magnetic-field-curl-2d_inverted.pdf) [[PNG]](electrodynamics/magnetic-field-curl-2d/magnetic-field-curl-2d_inverted.png) [[SVG]](electrodynamics/magnetic-field-curl-2d/magnetic-field-curl-2d_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    color=white,
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.16}
+ 
+\begin{document}
+\begin{tikzpicture}[inverted,inverted]
+\begin{axis}[inverted,
+  xmin = -2, xmax = 2,
+  ymin = -2, ymax = 2,
+  zmin = 0, zmax = 1,
+  axis equal image,
+  height=7cm,
+  view = {0}{90},
+  color=blue,
+  xtick={\empty},
+  ytick={\empty},
+  hide axis,
+  samples = 16,
+  clip=false,
+  ]
+  \addplot3[
+    point meta = {sqrt(x^2+y^2)},
+    quiver = {
+      u = {-y/(x^2+y^2)},
+      v = {x/(x^2+y^2)},
+      scale arrows = 0.25,
+      every arrow/.append style={
+        -{latex[scale={max(0.7,\pgfplotspointmetatransformed/1000)}]},
+      },
+   },
+   domain = -2:2,
+   domain y = -2:2,
+  ] {0};
+\end{axis}
+\end{tikzpicture}
+\end{document}
+~~~
+## magnetic-field-curl-2d-scaled_inverted.svg
+[![magnetic-field-curl-2d-scaled_inverted.svg](electrodynamics/magnetic-field-curl-2d-scaled/magnetic-field-curl-2d-scaled_inverted.svg "magnetic-field-curl-2d-scaled_inverted.svg")](electrodynamics/magnetic-field-curl-2d-scaled/magnetic-field-curl-2d-scaled_inverted.svg) [[PDF]](electrodynamics/magnetic-field-curl-2d-scaled/magnetic-field-curl-2d-scaled_inverted.pdf) [[PNG]](electrodynamics/magnetic-field-curl-2d-scaled/magnetic-field-curl-2d-scaled_inverted.png) [[SVG]](electrodynamics/magnetic-field-curl-2d-scaled/magnetic-field-curl-2d-scaled_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    color=white,
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.16}
+\usepgfplotslibrary{colormaps}
+ 
+\begin{document}
+\begin{tikzpicture}[inverted,inverted]
+\begin{axis}[inverted,
+  xmin = -2, xmax = 2,
+  ymin = -2, ymax = 2,
+  zmin = 0, zmax = 1,
+  axis equal image,
+  height=7cm,
+  view = {0}{90},
+  colormap/viridis,
+  xtick={\empty},
+  ytick={\empty},
+  hide axis,
+  samples = 16,
+  clip=false,
+  ]
+  \addplot3[
+    point meta = {sqrt(x^2+y^2)},
+    quiver = {
+      u = {-y/sqrt(x^2+y^2)},
+      v = {x/sqrt(x^2+y^2)},
+      scale arrows = 0.25,
+      every arrow/.append style={
+        -{latex[scale={max(0.7,\pgfplotspointmetatransformed/1000)}]},
+      },
+   },
+   domain = -2:2,
+   domain y = -2:2,
+   quiver/colored = {mapped color},
+  ] {0};
+\end{axis}
+\end{tikzpicture}
+\end{document}
+~~~
+## magnetic-field-curl-3d_inverted.svg
+[![magnetic-field-curl-3d_inverted.svg](electrodynamics/magnetic-field-curl-3d/magnetic-field-curl-3d_inverted.svg "magnetic-field-curl-3d_inverted.svg")](electrodynamics/magnetic-field-curl-3d/magnetic-field-curl-3d_inverted.svg) [[PDF]](electrodynamics/magnetic-field-curl-3d/magnetic-field-curl-3d_inverted.pdf) [[PNG]](electrodynamics/magnetic-field-curl-3d/magnetic-field-curl-3d_inverted.png) [[SVG]](electrodynamics/magnetic-field-curl-3d/magnetic-field-curl-3d_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    color=white,
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.16}
+\usepgfplotslibrary{colormaps}
+\tikzset{>=latex}
+
+\newcommand{\field}[1]{%
+  \addplot3[
+    point meta = {sqrt(x^2+y^2)},
+    quiver = {
+      u = {-y/sqrt(x^2+y^2)},
+      v = {+x/sqrt(x^2+y^2)},
+      scale arrows = 0.25,
+      every arrow/.append style={
+        -{latex[scale={max(0.7,\pgfplotspointmetatransformed/1000)}]},
+      },
+   },
+   domain = -2:2,
+   domain y = -2:2,
+   quiver/colored = {mapped color},
+  ] (x,y,#1);
+}
+
+\begin{document}
+\begin{tikzpicture}[inverted,inverted]
+\begin{axis}[inverted,
+  xmin = -2, xmax = 2,
+  ymin = -2, ymax = 2,
+  zmin = 0, zmax = 1,
+  axis equal image,
+  height=7cm,
+  view = {90}{20},
+  colormap/viridis,
+  xtick={\empty},
+  ytick={\empty},
+  hide axis,
+  samples = 12,
+  clip=false,
+  ]
+  \draw[->,red,ultra thick] (axis cs: 0,0,-2) -- (axis cs: 0,0,5) node[above,white] {$\vec{v}$} node[below left,white] {$q>0$};
+  \node[below] at (axis cs: 2,1,0) {$\vec{B}(\vec{r})$};
+  \node[below] at (axis cs: 2,1,3) {$\vec{B}(\vec{r})$};
+  \field{0}
+  \field{3}
+\end{axis}
+\end{tikzpicture}
+\end{document}
+~~~
+## magnetic-fieldlines-3d_inverted.svg
+[![magnetic-fieldlines-3d_inverted.svg](electrodynamics/magnetic-fieldlines-3d/magnetic-fieldlines-3d_inverted.svg "magnetic-fieldlines-3d_inverted.svg")](electrodynamics/magnetic-fieldlines-3d/magnetic-fieldlines-3d_inverted.svg) [[PDF]](electrodynamics/magnetic-fieldlines-3d/magnetic-fieldlines-3d_inverted.pdf) [[PNG]](electrodynamics/magnetic-fieldlines-3d/magnetic-fieldlines-3d_inverted.png) [[SVG]](electrodynamics/magnetic-fieldlines-3d/magnetic-fieldlines-3d_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    color=white,
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\usepackage{tikz-3dplot}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.16}
+\tikzset{>=latex}
+
+\newcommand{\fieldlines}[1]{%
+  \begin{scope}[shift={(0,0,#1)}]
+    \foreach \R in {0.5,1,...,3} {
+      \draw[->,blue] (95:\R) arc (95:315:\R);
+      \draw[blue] (315:\R) arc (315:{360+85}:\R);
+    }
+  \end{scope}
+}
+
+\begin{document}
+\tdplotsetmaincoords{70}{0}
+\begin{tikzpicture}[inverted,tdplot_main_coords]
+  \draw[->,red,ultra thick] (0,0,-4) -- (0,0,6) node[above,white] {$\vec{v}$} node[below left,white] {$q>0$};
+  \node[below] at (2.5,-2,-2) {$\vec{B}(\vec{r})$};
+  \node[below] at (2.5,-2,3) {$\vec{B}(\vec{r})$};
+  \fieldlines{-2}
+  \fieldlines{3}
 \end{tikzpicture}
 \end{document}
 ~~~

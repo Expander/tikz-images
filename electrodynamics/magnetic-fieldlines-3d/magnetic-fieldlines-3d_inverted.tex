@@ -1,0 +1,35 @@
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    color=white,
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\usepackage{tikz-3dplot}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.16}
+\tikzset{>=latex}
+
+\newcommand{\fieldlines}[1]{%
+  \begin{scope}[shift={(0,0,#1)}]
+    \foreach \R in {0.5,1,...,3} {
+      \draw[->,blue] (95:\R) arc (95:315:\R);
+      \draw[blue] (315:\R) arc (315:{360+85}:\R);
+    }
+  \end{scope}
+}
+
+\begin{document}
+\tdplotsetmaincoords{70}{0}
+\begin{tikzpicture}[inverted,tdplot_main_coords]
+  \draw[->,red,ultra thick] (0,0,-4) -- (0,0,6) node[above,white] {$\vec{v}$} node[below left,white] {$q>0$};
+  \node[below] at (2.5,-2,-2) {$\vec{B}(\vec{r})$};
+  \node[below] at (2.5,-2,3) {$\vec{B}(\vec{r})$};
+  \fieldlines{-2}
+  \fieldlines{3}
+\end{tikzpicture}
+\end{document}
