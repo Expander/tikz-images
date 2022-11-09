@@ -496,13 +496,7 @@
 
 \begin{document}
 \begin{tikzpicture}
-    \draw (0,0) to[sinusoidal voltage source] (-3,0) to[R] ++(0,2) to[L] ++(3,0) to[C] ++(0,-2);
-%  \draw (-3,0)
-%    to[battery2,i_>=$I$] ++(6,0)
-%    to[short,i_>=$I$] ++(0,2)
-%    to[R,i_>=$I$] ++(-3,0)
-%    to[R] ++(-3,0)
-%    to[short,i_>=$I$] ++(0,-2);
+  \draw (0,0) to[sinusoidal voltage source] (-3,0) to[R] ++(0,2) to[L] ++(3,0) to[C] ++(0,-2);
 \end{tikzpicture}
 \end{document}
 ~~~
@@ -2184,13 +2178,7 @@
 
 \begin{document}
 \begin{tikzpicture}[inverted,inverted]
-    \draw (0,0) to[sinusoidal voltage source] (-3,0) to[R] ++(0,2) to[L] ++(3,0) to[C] ++(0,-2);
-%  \draw (-3,0)
-%    to[battery2,i_>=$I$] ++(6,0)
-%    to[short,i_>=$I$] ++(0,2)
-%    to[R,i_>=$I$] ++(-3,0)
-%    to[R] ++(-3,0)
-%    to[short,i_>=$I$] ++(0,-2);
+  \draw (0,0) to[sinusoidal voltage source] (-3,0) to[R] ++(0,2) to[L] ++(3,0) to[C] ++(0,-2);
 \end{tikzpicture}
 \end{document}
 ~~~
