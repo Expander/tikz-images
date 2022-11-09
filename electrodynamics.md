@@ -487,6 +487,25 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## circuit-resonant.svg
+[![circuit-resonant.svg](electrodynamics/circuit-resonant/circuit-resonant.svg "circuit-resonant.svg")](electrodynamics/circuit-resonant/circuit-resonant.svg) [[PDF]](electrodynamics/circuit-resonant/circuit-resonant.pdf) [[PNG]](electrodynamics/circuit-resonant/circuit-resonant.png) [[SVG]](electrodynamics/circuit-resonant/circuit-resonant.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\usepackage[european,americaninductors]{circuitikz}
+
+\begin{document}
+\begin{tikzpicture}
+    \draw (0,0) to[sinusoidal voltage source] (-3,0) to[R] ++(0,2) to[L] ++(3,0) to[C] ++(0,-2);
+%  \draw (-3,0)
+%    to[battery2,i_>=$I$] ++(6,0)
+%    to[short,i_>=$I$] ++(0,2)
+%    to[R,i_>=$I$] ++(-3,0)
+%    to[R] ++(-3,0)
+%    to[short,i_>=$I$] ++(0,-2);
+\end{tikzpicture}
+\end{document}
+~~~
 ## circuit-series.svg
 [![circuit-series.svg](electrodynamics/circuit-series/circuit-series.svg "circuit-series.svg")](electrodynamics/circuit-series/circuit-series.svg) [[PDF]](electrodynamics/circuit-series/circuit-series.pdf) [[PNG]](electrodynamics/circuit-series/circuit-series.png) [[SVG]](electrodynamics/circuit-series/circuit-series.svg)
 ~~~.tex
@@ -2144,6 +2163,34 @@
     to[short,i>_=$I$] ++(-2,0);
   \node at (-0.2,-0.3) { \footnotesize $-$};
   \node at (-0.2,+0.3) { \footnotesize $+$};
+\end{tikzpicture}
+\end{document}
+~~~
+## circuit-resonant_inverted.svg
+[![circuit-resonant_inverted.svg](electrodynamics/circuit-resonant/circuit-resonant_inverted.svg "circuit-resonant_inverted.svg")](electrodynamics/circuit-resonant/circuit-resonant_inverted.svg) [[PDF]](electrodynamics/circuit-resonant/circuit-resonant_inverted.pdf) [[PNG]](electrodynamics/circuit-resonant/circuit-resonant_inverted.png) [[SVG]](electrodynamics/circuit-resonant/circuit-resonant_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    color=white,
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\usepackage[european,americaninductors]{circuitikz}
+
+\begin{document}
+\begin{tikzpicture}[inverted,inverted]
+    \draw (0,0) to[sinusoidal voltage source] (-3,0) to[R] ++(0,2) to[L] ++(3,0) to[C] ++(0,-2);
+%  \draw (-3,0)
+%    to[battery2,i_>=$I$] ++(6,0)
+%    to[short,i_>=$I$] ++(0,2)
+%    to[R,i_>=$I$] ++(-3,0)
+%    to[R] ++(-3,0)
+%    to[short,i_>=$I$] ++(0,-2);
 \end{tikzpicture}
 \end{document}
 ~~~
