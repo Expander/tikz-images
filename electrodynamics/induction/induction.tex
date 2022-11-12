@@ -1,0 +1,29 @@
+\documentclass[crop,tikz]{standalone}
+
+\usepackage{amsmath}
+\usepackage[european,americaninductors]{circuitikz}
+\usetikzlibrary{patterns}
+\tikzset{>=latex}
+
+\begin{document}
+\begin{tikzpicture}
+  \draw[fill=orange!10] (-4,-4) rectangle ++ (4,4);
+  \draw[pattern=north east lines, pattern color=green] (-2,-3) rectangle ++ (2,2);
+  \node[green!40!black,left,xshift=-0.1em] at (0,-2) {$A$};
+  \foreach \X in {-3.5,...,-0.5} {
+    \foreach \Y in {-3.5,...,-0.5} {
+      \draw[fill] (\X,\Y) circle (1pt);
+      \draw[] (\X,\Y) circle (5pt);
+    }    
+  }
+  \node[] at (-3,-0.5) {$\vec{B}$};
+  \draw[very thick,red!80!black,->] (-2,-2) coordinate (v) -- ++(-1,0) node[left] {$\vec{v}$};
+  \draw[very thick,blue!80!black,->] (v) node[right] {$\vec{F}_L$} -- ++(0,0.6);
+  \draw[] (3,-3)
+    to[] ++(-5,0) node [below] {\textbf{2}}
+    to[] ++(0,2) node [above] {\textbf{1}}
+    to[] ++(2,0)
+    to[rmeter={$U_{\text{ind}}\neq 0$},t=V] ++(3,0)
+    to[] ++(0,-2);
+\end{tikzpicture}
+\end{document}

@@ -895,6 +895,39 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## induction.svg
+[![induction.svg](electrodynamics/induction/induction.svg "induction.svg")](electrodynamics/induction/induction.svg) [[PDF]](electrodynamics/induction/induction.pdf) [[PNG]](electrodynamics/induction/induction.png) [[SVG]](electrodynamics/induction/induction.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\usepackage{amsmath}
+\usepackage[european,americaninductors]{circuitikz}
+\usetikzlibrary{patterns}
+\tikzset{>=latex}
+
+\begin{document}
+\begin{tikzpicture}
+  \draw[fill=orange!10] (-4,-4) rectangle ++ (4,4);
+  \draw[pattern=north east lines, pattern color=green] (-2,-3) rectangle ++ (2,2);
+  \node[green!40!black,left,xshift=-0.1em] at (0,-2) {$A$};
+  \foreach \X in {-3.5,...,-0.5} {
+    \foreach \Y in {-3.5,...,-0.5} {
+      \draw[fill] (\X,\Y) circle (1pt);
+      \draw[] (\X,\Y) circle (5pt);
+    }    
+  }
+  \node[] at (-3,-0.5) {$\vec{B}$};
+  \draw[very thick,red!80!black,->] (-2,-2) coordinate (v) -- ++(-1,0) node[left] {$\vec{v}$};
+  \draw[very thick,blue!80!black,->] (v) node[right] {$\vec{F}_L$} -- ++(0,0.6);
+  \draw[] (3,-3)
+    to[] ++(-5,0) node [below] {\textbf{2}}
+    to[] ++(0,2) node [above] {\textbf{1}}
+    to[] ++(2,0)
+    to[rmeter={$U_{\text{ind}}\neq 0$},t=V] ++(3,0)
+    to[] ++(0,-2);
+\end{tikzpicture}
+\end{document}
+~~~
 ## linear-polarized-wave.svg
 [![linear-polarized-wave.svg](electrodynamics/linear-polarized-wave/linear-polarized-wave.svg "linear-polarized-wave.svg")](electrodynamics/linear-polarized-wave/linear-polarized-wave.svg) [[PDF]](electrodynamics/linear-polarized-wave/linear-polarized-wave.pdf) [[PNG]](electrodynamics/linear-polarized-wave/linear-polarized-wave.png) [[SVG]](electrodynamics/linear-polarized-wave/linear-polarized-wave.svg)
 ~~~.tex
@@ -2748,6 +2781,48 @@
     ] {0};
     \draw[fill,orange] (axis cs: 0,0) circle[radius=2pt] node[below,white] {$q_1$};
   \end{axis}
+\end{tikzpicture}
+\end{document}
+~~~
+## induction_inverted.svg
+[![induction_inverted.svg](electrodynamics/induction/induction_inverted.svg "induction_inverted.svg")](electrodynamics/induction/induction_inverted.svg) [[PDF]](electrodynamics/induction/induction_inverted.pdf) [[PNG]](electrodynamics/induction/induction_inverted.png) [[SVG]](electrodynamics/induction/induction_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    color=white,
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\usepackage{amsmath}
+\usepackage[european,americaninductors]{circuitikz}
+\usetikzlibrary{patterns}
+\tikzset{>=latex}
+
+\begin{document}
+\begin{tikzpicture}[inverted,inverted]
+  \draw[fill=orange!10] (-4,-4) rectangle ++ (4,4);
+  \draw[pattern=north east lines, pattern color=green] (-2,-3) rectangle ++ (2,2);
+  \node[green!40!white,left,xshift=-0.1em] at (0,-2) {$A$};
+  \foreach \X in {-3.5,...,-0.5} {
+    \foreach \Y in {-3.5,...,-0.5} {
+      \draw[fill] (\X,\Y) circle (1pt);
+      \draw[] (\X,\Y) circle (5pt);
+    }    
+  }
+  \node[] at (-3,-0.5) {$\vec{B}$};
+  \draw[very thick,red!80!white,->] (-2,-2) coordinate (v) -- ++(-1,0) node[left] {$\vec{v}$};
+  \draw[very thick,blue!80!white,->] (v) node[right] {$\vec{F}_L$} -- ++(0,0.6);
+  \draw[] (3,-3)
+    to[] ++(-5,0) node [below] {\textbf{2}}
+    to[] ++(0,2) node [above] {\textbf{1}}
+    to[] ++(2,0)
+    to[rmeter={$U_{\text{ind}}\neq 0$},t=V] ++(3,0)
+    to[] ++(0,-2);
 \end{tikzpicture}
 \end{document}
 ~~~
