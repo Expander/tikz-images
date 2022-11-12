@@ -1,0 +1,22 @@
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    color=white,
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\usepackage[european,americaninductors]{circuitikz}
+
+\begin{document}
+\begin{tikzpicture}[inverted,inverted]
+  \draw (1,0)
+    to[battery2] ++(-2,0)
+    to[short,i^<=$I$] ++(0,2)
+    to[L,invert] ++(2,0)
+    to[short] ++(0,-2);
+\end{tikzpicture}
+\end{document}

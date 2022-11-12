@@ -425,6 +425,23 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## circuit-inductivity.svg
+[![circuit-inductivity.svg](electrodynamics/circuit-inductivity/circuit-inductivity.svg "circuit-inductivity.svg")](electrodynamics/circuit-inductivity/circuit-inductivity.svg) [[PDF]](electrodynamics/circuit-inductivity/circuit-inductivity.pdf) [[PNG]](electrodynamics/circuit-inductivity/circuit-inductivity.png) [[SVG]](electrodynamics/circuit-inductivity/circuit-inductivity.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\usepackage[european,americaninductors]{circuitikz}
+
+\begin{document}
+\begin{tikzpicture}
+  \draw (1,0)
+    to[battery2] ++(-2,0)
+    to[short,i^<=$I$] ++(0,2)
+    to[L,invert] ++(2,0)
+    to[short] ++(0,-2);
+\end{tikzpicture}
+\end{document}
+~~~
 ## circuit-mixed.svg
 [![circuit-mixed.svg](electrodynamics/circuit-mixed/circuit-mixed.svg "circuit-mixed.svg")](electrodynamics/circuit-mixed/circuit-mixed.svg) [[PDF]](electrodynamics/circuit-mixed/circuit-mixed.pdf) [[PNG]](electrodynamics/circuit-mixed/circuit-mixed.png) [[SVG]](electrodynamics/circuit-mixed/circuit-mixed.svg)
 ~~~.tex
@@ -2126,6 +2143,32 @@
     (5,3) to[C,*-] (6,3) to[V] (6,0)
     (mos1.S)--(mos2.S)
     ;
+\end{tikzpicture}
+\end{document}
+~~~
+## circuit-inductivity_inverted.svg
+[![circuit-inductivity_inverted.svg](electrodynamics/circuit-inductivity/circuit-inductivity_inverted.svg "circuit-inductivity_inverted.svg")](electrodynamics/circuit-inductivity/circuit-inductivity_inverted.svg) [[PDF]](electrodynamics/circuit-inductivity/circuit-inductivity_inverted.pdf) [[PNG]](electrodynamics/circuit-inductivity/circuit-inductivity_inverted.png) [[SVG]](electrodynamics/circuit-inductivity/circuit-inductivity_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    color=white,
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\usepackage[european,americaninductors]{circuitikz}
+
+\begin{document}
+\begin{tikzpicture}[inverted,inverted]
+  \draw (1,0)
+    to[battery2] ++(-2,0)
+    to[short,i^<=$I$] ++(0,2)
+    to[L,invert] ++(2,0)
+    to[short] ++(0,-2);
 \end{tikzpicture}
 \end{document}
 ~~~

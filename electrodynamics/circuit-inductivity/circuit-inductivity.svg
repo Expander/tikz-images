@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="68.894pt" height="75.189pt" viewBox="0 0 68.894 75.189" version="1.1">
+<defs>
+<g>
+<symbol overflow="visible" id="glyph0-0">
+<path style="stroke:none;" d=""/>
+</symbol>
+<symbol overflow="visible" id="glyph0-1">
+<path style="stroke:none;" d="M 3.734375 -6.046875 C 3.8125 -6.40625 3.84375 -6.5 4.640625 -6.5 C 4.875 -6.5 4.953125 -6.5 4.953125 -6.6875 C 4.953125 -6.8125 4.84375 -6.8125 4.8125 -6.8125 C 4.515625 -6.8125 3.78125 -6.78125 3.484375 -6.78125 C 3.1875 -6.78125 2.46875 -6.8125 2.15625 -6.8125 C 2.09375 -6.8125 1.96875 -6.8125 1.96875 -6.609375 C 1.96875 -6.5 2.046875 -6.5 2.25 -6.5 C 2.65625 -6.5 2.9375 -6.5 2.9375 -6.3125 C 2.9375 -6.265625 2.9375 -6.234375 2.90625 -6.15625 L 1.5625 -0.78125 C 1.46875 -0.40625 1.453125 -0.3125 0.65625 -0.3125 C 0.421875 -0.3125 0.34375 -0.3125 0.34375 -0.109375 C 0.34375 0 0.453125 0 0.484375 0 C 0.78125 0 1.5 -0.03125 1.796875 -0.03125 C 2.09375 -0.03125 2.828125 0 3.125 0 C 3.203125 0 3.328125 0 3.328125 -0.1875 C 3.328125 -0.3125 3.25 -0.3125 3.03125 -0.3125 C 2.84375 -0.3125 2.796875 -0.3125 2.609375 -0.328125 C 2.390625 -0.34375 2.359375 -0.390625 2.359375 -0.5 C 2.359375 -0.578125 2.375 -0.65625 2.390625 -0.734375 Z M 3.734375 -6.046875 "/>
+</symbol>
+</g>
+<clipPath id="clip1">
+  <path d="M 11 5 L 68.894531 5 L 68.894531 64 L 11 64 Z M 11 5 "/>
+</clipPath>
+<clipPath id="clip2">
+  <path d="M 41 50 L 43 50 L 43 75.1875 L 41 75.1875 Z M 41 50 "/>
+</clipPath>
+</defs>
+<g id="surface1">
+<g clip-path="url(#clip1)" clip-rule="nonzero">
+<path style="fill:none;stroke-width:0.3985;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;" d="M 28.347313 -0.00171875 L 5.952781 -0.00171875 M -5.953469 -0.00171875 L -28.348 -0.00171875 L -28.348 28.345937 M -28.348 28.345937 L -28.348 56.693594 L -15.875344 56.693594 M 15.874656 56.693594 L 28.347313 56.693594 L 28.347313 28.345937 M 28.347313 28.345937 L 28.347313 -0.00171875 " transform="matrix(1,0,0,-1,40.348,62.885)"/>
+</g>
+<path style="fill:none;stroke-width:0.3985;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;" d="M -1.965187 -0.00171875 L -5.953469 -0.00171875 M 1.9645 -0.00171875 L 5.952781 -0.00171875 " transform="matrix(1,0,0,-1,40.348,62.885)"/>
+<g clip-path="url(#clip2)" clip-rule="nonzero">
+<path style="fill:none;stroke-width:0.797;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;" d="M 1.9645 -11.904063 L 1.9645 11.904531 " transform="matrix(1,0,0,-1,40.348,62.885)"/>
+</g>
+<path style="fill:none;stroke-width:2.39102;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;" d="M -1.965187 -5.950938 L -1.965187 5.951406 " transform="matrix(1,0,0,-1,40.348,62.885)"/>
+<path style="fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;stroke-width:0.3985;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;" d="M -28.348 30.084219 L -30.332375 30.084219 L -28.348 25.865469 L -26.363625 30.084219 L -28.348 30.084219 " transform="matrix(1,0,0,-1,40.348,62.885)"/>
+<g style="fill:rgb(0%,0%,0%);fill-opacity:1;">
+  <use xlink:href="#glyph0-1" x="3.321" y="37.942"/>
+</g>
+<path style="fill:none;stroke-width:0.797;stroke-linecap:butt;stroke-linejoin:bevel;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;" d="M 16.273094 56.533437 C 16.273094 59.8225 14.452781 62.486562 12.202781 62.486562 C 9.956688 62.486562 8.136375 59.8225 8.136375 56.533437 C 8.136375 59.8225 6.316063 62.486562 4.069969 62.486562 C 1.819969 62.486562 -0.00034375 59.8225 -0.00034375 56.533437 C -0.00034375 59.8225 -1.820656 62.486562 -4.06675 62.486562 C -6.31675 62.486562 -8.137062 59.8225 -8.137062 56.533437 C -8.137062 59.8225 -9.957375 62.486562 -12.203469 62.486562 C -14.449562 62.486562 -16.273781 59.8225 -16.273781 56.533437 " transform="matrix(1,0,0,-1,40.348,62.885)"/>
+</g>
+</svg>
