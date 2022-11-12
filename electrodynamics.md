@@ -1124,6 +1124,64 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## magnetic-flux-voltage.svg
+[![magnetic-flux-voltage.svg](electrodynamics/magnetic-flux-voltage/magnetic-flux-voltage.svg "magnetic-flux-voltage.svg")](electrodynamics/magnetic-flux-voltage/magnetic-flux-voltage.svg) [[PDF]](electrodynamics/magnetic-flux-voltage/magnetic-flux-voltage.pdf) [[PNG]](electrodynamics/magnetic-flux-voltage/magnetic-flux-voltage.png) [[SVG]](electrodynamics/magnetic-flux-voltage/magnetic-flux-voltage.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\usepackage{amsmath}
+\usepackage{pgfplots}
+\tikzset{>=latex}
+
+\pgfplotsset{
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=hardblack,
+      text=white
+    }
+  },
+  compat=1.16,
+  every non boxed x axis/.append style={
+    axis line style={-latex}
+  },
+  every non boxed y axis/.append style={
+    axis line style={-latex}
+  }
+}
+
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[
+  thick,
+  width=6cm,
+  height=6cm,
+  domain={0}:{4*pi},
+  samples=50,
+  axis y line=middle,
+  axis x line=middle,
+  xlabel={$t$},
+  ylabel={$\hphantom{x}$},
+  xlabel style={right},
+  ylabel style={above},
+  xmin=0, xmax={4.2*pi},
+  ymin=-1.5, ymax=2.5,
+  xtick={\empty},
+  xticklabels={\empty},
+  ytick={\empty},
+  yticklabels={\empty},
+  legend cell align={left},
+  legend style={at={(1,1)},anchor=north east},
+  clip=false
+  ]
+  \addplot[blue,smooth,densely dashed] { sin(1.5*deg(x)) };
+  \addlegendentry{$\Phi_{\text{mag}}(t)$};
+  \addplot[red,smooth] { -1.5*cos(1.5*deg(x)) };
+  \addlegendentry{$U_{\text{ind}}(t)$};
+\end{axis}
+\end{tikzpicture}
+\end{document}
+~~~
 ## potential-dipole-neg-neg.svg
 [![potential-dipole-neg-neg.svg](electrodynamics/potential-dipole-neg-neg/potential-dipole-neg-neg.svg "potential-dipole-neg-neg.svg")](electrodynamics/potential-dipole-neg-neg/potential-dipole-neg-neg.svg) [[PDF]](electrodynamics/potential-dipole-neg-neg/potential-dipole-neg-neg.pdf) [[PNG]](electrodynamics/potential-dipole-neg-neg/potential-dipole-neg-neg.png) [[SVG]](electrodynamics/potential-dipole-neg-neg/potential-dipole-neg-neg.svg)
 ~~~.tex
@@ -2947,6 +3005,73 @@
   \node[below] at (2.5,-2,3) {$\vec{B}(\vec{r})$};
   \fieldlines{-2}
   \fieldlines{3}
+\end{tikzpicture}
+\end{document}
+~~~
+## magnetic-flux-voltage_inverted.svg
+[![magnetic-flux-voltage_inverted.svg](electrodynamics/magnetic-flux-voltage/magnetic-flux-voltage_inverted.svg "magnetic-flux-voltage_inverted.svg")](electrodynamics/magnetic-flux-voltage/magnetic-flux-voltage_inverted.svg) [[PDF]](electrodynamics/magnetic-flux-voltage/magnetic-flux-voltage_inverted.pdf) [[PNG]](electrodynamics/magnetic-flux-voltage/magnetic-flux-voltage_inverted.png) [[SVG]](electrodynamics/magnetic-flux-voltage/magnetic-flux-voltage_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    color=white,
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\usepackage{amsmath}
+\usepackage{pgfplots}
+\tikzset{>=latex}
+
+\pgfplotsset{
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=black,
+      text=white
+    }
+  },
+  compat=1.16,
+  every non boxed x axis/.append style={
+    axis line style={-latex}
+  },
+  every non boxed y axis/.append style={
+    axis line style={-latex}
+  }
+}
+
+\begin{document}
+\begin{tikzpicture}[inverted,inverted]
+\begin{axis}[inverted,
+  thick,
+  width=6cm,
+  height=6cm,
+  domain={0}:{4*pi},
+  samples=50,
+  axis y line=middle,
+  axis x line=middle,
+  xlabel={$t$},
+  ylabel={$\hphantom{x}$},
+  xlabel style={right},
+  ylabel style={above},
+  xmin=0, xmax={4.2*pi},
+  ymin=-1.5, ymax=2.5,
+  xtick={\empty},
+  xticklabels={\empty},
+  ytick={\empty},
+  yticklabels={\empty},
+  legend cell align={left},
+  legend style={at={(1,1)},anchor=north east},
+  clip=false
+  ]
+  \addplot[blue,smooth,densely dashed] { sin(1.5*deg(x)) };
+  \addlegendentry{$\Phi_{\text{mag}}(t)$};
+  \addplot[red,smooth] { -1.5*cos(1.5*deg(x)) };
+  \addlegendentry{$U_{\text{ind}}(t)$};
+\end{axis}
 \end{tikzpicture}
 \end{document}
 ~~~
