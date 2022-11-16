@@ -904,21 +904,29 @@
 \usepackage[european,americaninductors]{circuitikz}
 \usetikzlibrary{patterns}
 \tikzset{>=latex}
+\colorlet{green}{black!40!green}
+\colorlet{red}{red!80!black}
+\colorlet{lightgray}{gray!50!white}
+\colorlet{darkgray}{gray!80!black}
 
 \begin{document}
 \begin{tikzpicture}
   \draw[fill=orange!10] (-4,-4) rectangle ++ (4,4);
-  \draw[pattern=north east lines, pattern color=green] (-3,-4) rectangle ++ (2,2);
-  \node[green!40!black,above] at (-2,-4) {$A$};
+  \draw[pattern=north east lines,pattern color=lightgray] (-3,-4) rectangle ++ (2,2);
+  \node[darkgray,above] at (-2,-4) {$A$};
+  % magnetic field
   \foreach \X in {-3.5,...,-0.5} {
     \foreach \Y in {-3.5,...,-0.5} {
-      \draw[fill] (\X,\Y) circle (1pt);
-      \draw[] (\X,\Y) circle (5pt);
+      \draw[fill,blue] (\X,\Y) circle (1pt);
+      \draw[blue] (\X,\Y) circle (5pt);
     }    
   }
-  \node[] at (-3,-0.5) {$\vec{B}$};
-  \draw[very thick,red!80!black,->] (-2,-2) coordinate (v) -- ++(0,1) node[above] {$\vec{v}$};
-  \draw[very thick,blue!80!black,->] (v) node[below] {$\vec{F}_L$} -- ++(0.6,0);
+  \node[blue] at (-3,-0.5) {$\vec{B}$};
+  % velocity
+  \draw[very thick,green,->] (-2,-2) coordinate (v) -- ++(0,1) node[above] {$\vec{v}$};
+  % Lorentz force
+  \draw[very thick,red,->] (v) node[below] {$\vec{F}_L$} -- ++(0.6,0);
+  % circuit
   \draw[] (-3,-2) node [left] {\textbf{2}}
     to[] ++(2,0) node [right] {\textbf{1}}
     to[] ++(0,-3)
@@ -2841,21 +2849,29 @@
 \usepackage[european,americaninductors]{circuitikz}
 \usetikzlibrary{patterns}
 \tikzset{>=latex}
+\colorlet{green}{green}
+\colorlet{red}{red!80!white}
+\colorlet{lightgray}{gray!50!white}
+\colorlet{darkgray}{gray!80!white}
 
 \begin{document}
 \begin{tikzpicture}[inverted,inverted]
   \draw[fill=orange!10] (-4,-4) rectangle ++ (4,4);
-  \draw[pattern=north east lines, pattern color=green] (-3,-4) rectangle ++ (2,2);
-  \node[green!40!white,above] at (-2,-4) {$A$};
+  \draw[pattern=north east lines,pattern color=lightgray] (-3,-4) rectangle ++ (2,2);
+  \node[darkgray,above] at (-2,-4) {$A$};
+  % magnetic field
   \foreach \X in {-3.5,...,-0.5} {
     \foreach \Y in {-3.5,...,-0.5} {
-      \draw[fill] (\X,\Y) circle (1pt);
-      \draw[] (\X,\Y) circle (5pt);
+      \draw[fill,blue] (\X,\Y) circle (1pt);
+      \draw[blue] (\X,\Y) circle (5pt);
     }    
   }
-  \node[] at (-3,-0.5) {$\vec{B}$};
-  \draw[very thick,red!80!white,->] (-2,-2) coordinate (v) -- ++(0,1) node[above] {$\vec{v}$};
-  \draw[very thick,blue!80!white,->] (v) node[below] {$\vec{F}_L$} -- ++(0.6,0);
+  \node[blue] at (-3,-0.5) {$\vec{B}$};
+  % velocity
+  \draw[very thick,green,->] (-2,-2) coordinate (v) -- ++(0,1) node[above] {$\vec{v}$};
+  % Lorentz force
+  \draw[very thick,red,->] (v) node[below] {$\vec{F}_L$} -- ++(0.6,0);
+  % circuit
   \draw[] (-3,-2) node [left] {\textbf{2}}
     to[] ++(2,0) node [right] {\textbf{1}}
     to[] ++(0,-3)
