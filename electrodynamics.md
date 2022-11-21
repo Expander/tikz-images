@@ -553,6 +553,30 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## circuit-resonant-transformation.svg
+[![circuit-resonant-transformation.svg](electrodynamics/circuit-resonant-transformation/circuit-resonant-transformation.svg "circuit-resonant-transformation.svg")](electrodynamics/circuit-resonant-transformation/circuit-resonant-transformation.svg) [[PDF]](electrodynamics/circuit-resonant-transformation/circuit-resonant-transformation.pdf) [[PNG]](electrodynamics/circuit-resonant-transformation/circuit-resonant-transformation.png) [[SVG]](electrodynamics/circuit-resonant-transformation/circuit-resonant-transformation.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\usepackage[european,americaninductors]{circuitikz}
+\tikzset{>=latex}
+
+\begin{document}
+\begin{tikzpicture}[thick]
+  \draw (0,0) to ++(-1,0) to[L] ++(0,2) to ++(1,0) to[C] ++(0,-2);
+  %
+  \draw[->] (1,1) to ++(0.5,0);
+  %
+  \draw (2,-1) to ++(0,1) to[L] ++(0,2) to ++(0,1);
+  \draw (1.75,-1) to ++(0.5,0);
+  \draw (1.75,3) to ++(0.5,0);
+  %
+  \draw[->] (3,1) to ++(0.5,0);
+  %
+  \draw (4,-1) to ++(0,4);
+\end{tikzpicture}
+\end{document}
+~~~
 ## circuit-series.svg
 [![circuit-series.svg](electrodynamics/circuit-series/circuit-series.svg "circuit-series.svg")](electrodynamics/circuit-series/circuit-series.svg) [[PDF]](electrodynamics/circuit-series/circuit-series.pdf) [[PNG]](electrodynamics/circuit-series/circuit-series.png) [[SVG]](electrodynamics/circuit-series/circuit-series.svg)
 ~~~.tex
@@ -2450,6 +2474,39 @@
   %
   \draw (0,-3) to ++(-1,0) to[L] ++(0,2) to[short,i<={$I$}] ++(1,0) to[C] ++(0,-2);
   \draw[green,->] (-1.3,-2.5) -- node[left] {$\vec{B}$} ++(0,1);
+\end{tikzpicture}
+\end{document}
+~~~
+## circuit-resonant-transformation_inverted.svg
+[![circuit-resonant-transformation_inverted.svg](electrodynamics/circuit-resonant-transformation/circuit-resonant-transformation_inverted.svg "circuit-resonant-transformation_inverted.svg")](electrodynamics/circuit-resonant-transformation/circuit-resonant-transformation_inverted.svg) [[PDF]](electrodynamics/circuit-resonant-transformation/circuit-resonant-transformation_inverted.pdf) [[PNG]](electrodynamics/circuit-resonant-transformation/circuit-resonant-transformation_inverted.png) [[SVG]](electrodynamics/circuit-resonant-transformation/circuit-resonant-transformation_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    color=white,
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\usepackage[european,americaninductors]{circuitikz}
+\tikzset{>=latex}
+
+\begin{document}
+\begin{tikzpicture}[inverted,thick]
+  \draw (0,0) to ++(-1,0) to[L] ++(0,2) to ++(1,0) to[C] ++(0,-2);
+  %
+  \draw[->] (1,1) to ++(0.5,0);
+  %
+  \draw (2,-1) to ++(0,1) to[L] ++(0,2) to ++(0,1);
+  \draw (1.75,-1) to ++(0.5,0);
+  \draw (1.75,3) to ++(0.5,0);
+  %
+  \draw[->] (3,1) to ++(0.5,0);
+  %
+  \draw (4,-1) to ++(0,4);
 \end{tikzpicture}
 \end{document}
 ~~~
