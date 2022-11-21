@@ -530,6 +530,29 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## circuit-resonant-steps.svg
+[![circuit-resonant-steps.svg](electrodynamics/circuit-resonant-steps/circuit-resonant-steps.svg "circuit-resonant-steps.svg")](electrodynamics/circuit-resonant-steps/circuit-resonant-steps.svg) [[PDF]](electrodynamics/circuit-resonant-steps/circuit-resonant-steps.pdf) [[PNG]](electrodynamics/circuit-resonant-steps/circuit-resonant-steps.png) [[SVG]](electrodynamics/circuit-resonant-steps/circuit-resonant-steps.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\usepackage[european,americaninductors]{circuitikz}
+\tikzset{>=latex}
+\colorlet{green}{black!40!green}
+
+\begin{document}
+\begin{tikzpicture}
+  \draw (0,0) to ++(-1,0) to[L] ++(0,2) to ++(1,0) to[C] ++(0,-2);
+  \node[red]  at (+0.3,1.3) {$+$};
+  \node[red]  at (-0.3,1.3) {$+$};
+  \node[blue] at (+0.3,0.7) {$-$};
+  \node[blue] at (-0.3,0.7) {$-$};
+  \draw[green,->] (0.5,1.2) -- node[right] {$\vec{E}$} ++(0,-0.4);
+  %
+  \draw (0,-3) to ++(-1,0) to[L] ++(0,2) to[short,i<={$I$}] ++(1,0) to[C] ++(0,-2);
+  \draw[green,->] (-1.3,-2.5) -- node[left] {$\vec{B}$} ++(0,1);
+\end{tikzpicture}
+\end{document}
+~~~
 ## circuit-series.svg
 [![circuit-series.svg](electrodynamics/circuit-series/circuit-series.svg "circuit-series.svg")](electrodynamics/circuit-series/circuit-series.svg) [[PDF]](electrodynamics/circuit-series/circuit-series.pdf) [[PNG]](electrodynamics/circuit-series/circuit-series.png) [[SVG]](electrodynamics/circuit-series/circuit-series.svg)
 ~~~.tex
@@ -2395,6 +2418,38 @@
 \begin{document}
 \begin{tikzpicture}[inverted,inverted]
   \draw (0,0) to[R={$R$}] (-2,0) to[L={$L$}] ++(0,2) to[sinusoidal voltage source={$U(t)$}] ++(2,0) to[C={$C$}] ++(0,-2);
+\end{tikzpicture}
+\end{document}
+~~~
+## circuit-resonant-steps_inverted.svg
+[![circuit-resonant-steps_inverted.svg](electrodynamics/circuit-resonant-steps/circuit-resonant-steps_inverted.svg "circuit-resonant-steps_inverted.svg")](electrodynamics/circuit-resonant-steps/circuit-resonant-steps_inverted.svg) [[PDF]](electrodynamics/circuit-resonant-steps/circuit-resonant-steps_inverted.pdf) [[PNG]](electrodynamics/circuit-resonant-steps/circuit-resonant-steps_inverted.png) [[SVG]](electrodynamics/circuit-resonant-steps/circuit-resonant-steps_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    color=white,
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\usepackage[european,americaninductors]{circuitikz}
+\tikzset{>=latex}
+\colorlet{green}{green}
+
+\begin{document}
+\begin{tikzpicture}[inverted,inverted]
+  \draw (0,0) to ++(-1,0) to[L] ++(0,2) to ++(1,0) to[C] ++(0,-2);
+  \node[red]  at (+0.3,1.3) {$+$};
+  \node[red]  at (-0.3,1.3) {$+$};
+  \node[blue] at (+0.3,0.7) {$-$};
+  \node[blue] at (-0.3,0.7) {$-$};
+  \draw[green,->] (0.5,1.2) -- node[right] {$\vec{E}$} ++(0,-0.4);
+  %
+  \draw (0,-3) to ++(-1,0) to[L] ++(0,2) to[short,i<={$I$}] ++(1,0) to[C] ++(0,-2);
+  \draw[green,->] (-1.3,-2.5) -- node[left] {$\vec{B}$} ++(0,1);
 \end{tikzpicture}
 \end{document}
 ~~~
