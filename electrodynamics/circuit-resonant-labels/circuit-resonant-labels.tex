@@ -1,0 +1,9 @@
+\documentclass[crop,tikz]{standalone}
+
+\usepackage[european,americaninductors]{circuitikz}
+
+\begin{document}
+\begin{tikzpicture}
+  \draw (0,0) to[R={$R$}] (-2,0) to[L={$L$}] ++(0,2) to[sinusoidal voltage source={$U(t)$}] ++(2,0) to[C={$C$}] ++(0,-2);
+\end{tikzpicture}
+\end{document}

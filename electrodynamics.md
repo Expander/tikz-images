@@ -517,6 +517,19 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## circuit-resonant-labels.svg
+[![circuit-resonant-labels.svg](electrodynamics/circuit-resonant-labels/circuit-resonant-labels.svg "circuit-resonant-labels.svg")](electrodynamics/circuit-resonant-labels/circuit-resonant-labels.svg) [[PDF]](electrodynamics/circuit-resonant-labels/circuit-resonant-labels.pdf) [[PNG]](electrodynamics/circuit-resonant-labels/circuit-resonant-labels.png) [[SVG]](electrodynamics/circuit-resonant-labels/circuit-resonant-labels.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\usepackage[european,americaninductors]{circuitikz}
+
+\begin{document}
+\begin{tikzpicture}
+  \draw (0,0) to[R={$R$}] (-2,0) to[L={$L$}] ++(0,2) to[sinusoidal voltage source={$U(t)$}] ++(2,0) to[C={$C$}] ++(0,-2);
+\end{tikzpicture}
+\end{document}
+~~~
 ## circuit-series.svg
 [![circuit-series.svg](electrodynamics/circuit-series/circuit-series.svg "circuit-series.svg")](electrodynamics/circuit-series/circuit-series.svg) [[PDF]](electrodynamics/circuit-series/circuit-series.pdf) [[PNG]](electrodynamics/circuit-series/circuit-series.png) [[SVG]](electrodynamics/circuit-series/circuit-series.svg)
 ~~~.tex
@@ -2360,6 +2373,28 @@
 \begin{document}
 \begin{tikzpicture}[inverted,inverted]
   \draw (0,0) to[sinusoidal voltage source] (-3,0) to[R] ++(0,2) to[L] ++(3,0) to[C] ++(0,-2);
+\end{tikzpicture}
+\end{document}
+~~~
+## circuit-resonant-labels_inverted.svg
+[![circuit-resonant-labels_inverted.svg](electrodynamics/circuit-resonant-labels/circuit-resonant-labels_inverted.svg "circuit-resonant-labels_inverted.svg")](electrodynamics/circuit-resonant-labels/circuit-resonant-labels_inverted.svg) [[PDF]](electrodynamics/circuit-resonant-labels/circuit-resonant-labels_inverted.pdf) [[PNG]](electrodynamics/circuit-resonant-labels/circuit-resonant-labels_inverted.png) [[SVG]](electrodynamics/circuit-resonant-labels/circuit-resonant-labels_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    color=white,
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\usepackage[european,americaninductors]{circuitikz}
+
+\begin{document}
+\begin{tikzpicture}[inverted,inverted]
+  \draw (0,0) to[R={$R$}] (-2,0) to[L={$L$}] ++(0,2) to[sinusoidal voltage source={$U(t)$}] ++(2,0) to[C={$C$}] ++(0,-2);
 \end{tikzpicture}
 \end{document}
 ~~~
