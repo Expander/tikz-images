@@ -4,6 +4,8 @@
 
 [Electrodynamics](electrodynamics.md)
 
+[Mathematics](mathematics.md)
+
 [Mechanics](mechanics.md)
 
 [Optics](optics.md)
