@@ -1,4 +1,66 @@
 # Mathematics
+## differentiation_parametric.svg
+[![differentiation_parametric.svg](mathematics/differentiation_parametric/differentiation_parametric.svg "differentiation_parametric.svg")](mathematics/differentiation_parametric/differentiation_parametric.svg) [[PDF]](mathematics/differentiation_parametric/differentiation_parametric.pdf) [[PNG]](mathematics/differentiation_parametric/differentiation_parametric.png) [[SVG]](mathematics/differentiation_parametric/differentiation_parametric.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\usetikzlibrary{decorations.markings}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+\tikzset{>=latex}
+
+\pgfplotsset{
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=hardblack,
+      text=white
+    }
+  },
+  every non boxed x axis/.append style={
+    axis line style={-latex}
+  },
+  every non boxed y axis/.append style={
+    axis line style={-latex}
+  },
+}
+
+
+\begin{document}
+\begin{tikzpicture}
+  \pgfmathsetmacro{\px}{pi/2}; % start x coordinate
+  \pgfmathsetmacro{\py}{pi/2}; % start y coordinate
+  \pgfmathsetmacro{\qx}{3*pi/2}; % end x coordinate
+  \pgfmathsetmacro{\qy}{3*pi/2}; % end y coordinate
+  \begin{axis}[
+    view={0}{90},
+    xlabel={$x$},
+    ylabel={$y$},
+    axis equal image,
+    xtick=\empty,
+    ytick=\empty,
+    xmin=0,xmax={2*pi},
+    ymin=0,ymax={2*pi},
+    declare function = {
+      f(\x,\y) = sin(deg(x))*sin(deg(y));
+    },
+    samples=40, samples y=40,
+    domain=0:{2*pi}, domain y=0:{2*pi},
+    ]
+    \addplot3[surf,colormap/blackwhite] { f(x, y) };
+    \addplot[red,
+      very thick,
+      domain={-pi/2}:{0},
+      samples=50,
+      decoration={markings, mark=at position 0.5 with {\arrow{>}}},
+      postaction={decorate}] ({\px+pi*cos(deg(x))},{\qx+pi*sin(deg(x))});
+    % marks
+    \addplot[only marks, mark=*, mark size=1pt, red] coordinates { ({\px}, {\py}) } node[below] { $(x_0, y_0)$ };
+    \addplot[only marks, mark=*, mark size=1pt, red] coordinates { ({\qx}, {\qy}) } node[above] { $(x_1, y_1)$ };
+  \end{axis}
+\end{tikzpicture}
+\end{document}
+~~~
 ## total_differential.svg
 [![total_differential.svg](mathematics/total_differential/total_differential.svg "total_differential.svg")](mathematics/total_differential/total_differential.svg) [[PDF]](mathematics/total_differential/total_differential.pdf) [[PNG]](mathematics/total_differential/total_differential.png) [[SVG]](mathematics/total_differential/total_differential.svg)
 ~~~.tex
@@ -95,6 +157,77 @@
     \draw[decorate, decoration = {brace, amplitude=3pt}] ([xshift=0.2em]{\px+\dx}, {\py+\dy}, {t(\px+\dx, \py)}) -- ([xshift=0.2em]{\px+\dx}, {\py+\dy}, {f(\px, \py)}) coordinate (a) node[right,xshift=0.5em,midway] {$\pdv{f(x_0, y_0)}{x}\dd{x}$};
     \draw[decorate, decoration = {brace, amplitude=3pt}] ([xshift=0.2em]{\px+\dx}, {\py+\dy}, {t(\px+\dx, \py+\dy)}) -- ([xshift=0.2em]{\px+\dx}, {\py+\dy}, {t(\px+\dx, \py)}) node[right,xshift=0.5em,midway] {$\pdv{f(x_0, y_0)}{y}\dd{y}$};
     \draw[decorate, decoration = {brace, amplitude=3pt}] ([xshift=7em]{\px+\dx}, {\py+\dy}, {t(\px+\dx, \py+\dy)}) -- ([xshift=7em]{\px+\dx}, {\py+\dy}, {f(\px, \py)}) node[right,xshift=0.5em,midway] {$\dd{f(x_0, y_0)}$};
+  \end{axis}
+\end{tikzpicture}
+\end{document}
+~~~
+## differentiation_parametric_inverted.svg
+[![differentiation_parametric_inverted.svg](mathematics/differentiation_parametric/differentiation_parametric_inverted.svg "differentiation_parametric_inverted.svg")](mathematics/differentiation_parametric/differentiation_parametric_inverted.svg) [[PDF]](mathematics/differentiation_parametric/differentiation_parametric_inverted.pdf) [[PNG]](mathematics/differentiation_parametric/differentiation_parametric_inverted.png) [[SVG]](mathematics/differentiation_parametric/differentiation_parametric_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    color=white,
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\usetikzlibrary{decorations.markings}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+\tikzset{>=latex}
+
+\pgfplotsset{
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=black,
+      text=white
+    }
+  },
+  every non boxed x axis/.append style={
+    axis line style={-latex}
+  },
+  every non boxed y axis/.append style={
+    axis line style={-latex}
+  },
+}
+
+
+\begin{document}
+\begin{tikzpicture}[inverted,inverted]
+  \pgfmathsetmacro{\px}{pi/2}; % start x coordinate
+  \pgfmathsetmacro{\py}{pi/2}; % start y coordinate
+  \pgfmathsetmacro{\qx}{3*pi/2}; % end x coordinate
+  \pgfmathsetmacro{\qy}{3*pi/2}; % end y coordinate
+  \begin{axis}[inverted,
+    view={0}{90},
+    xlabel={$x$},
+    ylabel={$y$},
+    axis equal image,
+    xtick=\empty,
+    ytick=\empty,
+    xmin=0,xmax={2*pi},
+    ymin=0,ymax={2*pi},
+    declare function = {
+      f(\x,\y) = sin(deg(x))*sin(deg(y));
+    },
+    samples=40, samples y=40,
+    domain=0:{2*pi}, domain y=0:{2*pi},
+    ]
+    \addplot3[surf,colormap/blackwhite] { f(x, y) };
+    \addplot[red,
+      very thick,
+      domain={-pi/2}:{0},
+      samples=50,
+      decoration={markings, mark=at position 0.5 with {\arrow{>}}},
+      postaction={decorate}] ({\px+pi*cos(deg(x))},{\qx+pi*sin(deg(x))});
+    % marks
+    \addplot[only marks, mark=*, mark size=1pt, red] coordinates { ({\px}, {\py}) } node[below] { $(x_0, y_0)$ };
+    \addplot[only marks, mark=*, mark size=1pt, red] coordinates { ({\qx}, {\qy}) } node[above] { $(x_1, y_1)$ };
   \end{axis}
 \end{tikzpicture}
 \end{document}
