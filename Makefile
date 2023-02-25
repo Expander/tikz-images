@@ -8,6 +8,11 @@ EDY_TEX   := $(shell find electrodynamics -name '*.tex' -a ! -name '*_inverted.t
 EDY_TEX   := $(EDY_TEX) $(patsubst %.tex,%_inverted.tex,$(EDY_TEX))
 EDY_SVG   := $(patsubst %.tex,%.svg,$(EDY_TEX))
 
+MAT_MD    := mathematics.md
+MAT_TEX   := $(shell find mathematics     -name '*.tex' -a ! -name '*_inverted.tex' -type f | sort)
+MAT_TEX   := $(MAT_TEX) $(patsubst %.tex,%_inverted.tex,$(MAT_TEX))
+MAT_SVG   := $(patsubst %.tex,%.svg,$(MAT_TEX))
+
 MEC_MD    := mechanics.md
 MEC_TEX   := $(shell find mechanics       -name '*.tex' -a ! -name '*_inverted.tex' -type f | sort)
 MEC_TEX   := $(MEC_TEX) $(patsubst %.tex,%_inverted.tex,$(MEC_TEX))
@@ -23,9 +28,9 @@ STA_TEX   := $(shell find statistics      -name '*.tex' -a ! -name '*_inverted.t
 STA_TEX   := $(STA_TEX) $(patsubst %.tex,%_inverted.tex,$(STA_TEX))
 STA_SVG   := $(patsubst %.tex,%.svg,$(STA_TEX))
 
-MD_FILES  := $(DID_MD)  $(EDY_MD)  $(MEC_MD)  $(OPT_MD)  $(STA_MD)
-SVG_FILES := $(DID_SVG) $(EDY_SVG) $(MEC_SVG) $(OPT_SVG) $(STA_SVG)
-TEX_FILES := $(DID_TEX) $(EDY_TEX) $(MEC_TEX) $(OPT_TEX) $(STA_TEX)
+MD_FILES  := $(DID_MD)  $(EDY_MD)  $(MAT_MD)  $(MEC_MD)  $(OPT_MD)  $(STA_MD)
+SVG_FILES := $(DID_SVG) $(EDY_SVG) $(MAT_SVG) $(MEC_SVG) $(OPT_SVG) $(STA_SVG)
+TEX_FILES := $(DID_TEX) $(EDY_TEX) $(MAT_TEX) $(MEC_TEX) $(OPT_TEX) $(STA_TEX)
 
 AUX_FILES := $(patsubst %.tex,%.aux,$(TEX_FILES))
 LOG_FILES := $(patsubst %.tex,%.log,$(TEX_FILES))
@@ -49,6 +54,9 @@ $(DID_MD): $(DID_SVG)
 
 $(EDY_MD): $(EDY_SVG)
 	./generate-list Electrodynamics $^ > $@
+
+$(MAT_MD): $(MAT_SVG)
+	./generate-list Mathematics $^ > $@
 
 $(MEC_MD): $(MEC_SVG)
 	./generate-list Mechanics $^ > $@
