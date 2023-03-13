@@ -202,6 +202,52 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## sqr.svg
+[![sqr.svg](mathematics/sqr/sqr.svg "sqr.svg")](mathematics/sqr/sqr.svg) [[PDF]](mathematics/sqr/sqr.pdf) [[PNG]](mathematics/sqr/sqr.png) [[SVG]](mathematics/sqr/sqr.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\usepackage{pgfplots}
+\tikzset{>=latex}
+
+\pgfplotsset{
+  every non boxed x axis/.append style={
+    axis line style={-latex}
+  },
+  every non boxed y axis/.append style={
+    axis line style={-latex}
+  },
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=black,
+      text=white
+    }
+  }
+}
+
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[
+  thick,
+  width=7cm,
+  height=5cm,
+  domain={0}:{4},
+  samples=50,
+  axis y line=middle,
+  axis x line=middle,
+  xlabel={$x$},
+  ylabel={$y$},
+  xlabel style={right},
+  ylabel style={above},
+  xmin=0, xmax={4.4},
+  ymin=0, ymax=17,
+  ]
+  \addplot[red,smooth] { x^2 };
+\end{axis}
+\end{tikzpicture}
+\end{document}
+~~~
 ## sqrt.svg
 [![sqrt.svg](mathematics/sqrt/sqrt.svg "sqrt.svg")](mathematics/sqrt/sqrt.svg) [[PDF]](mathematics/sqrt/sqrt.pdf) [[PNG]](mathematics/sqrt/sqrt.png) [[SVG]](mathematics/sqrt/sqrt.svg)
 ~~~.tex
@@ -243,7 +289,7 @@
   xmin=0, xmax={5.5},
   ymin=0,
   ]
-  \addplot[red,smooth] (x^2, x); % { sqrt(x) };
+  \addplot[red,smooth] (x^2, x);
 \end{axis}
 \end{tikzpicture}
 \end{document}
@@ -587,6 +633,61 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## sqr_inverted.svg
+[![sqr_inverted.svg](mathematics/sqr/sqr_inverted.svg "sqr_inverted.svg")](mathematics/sqr/sqr_inverted.svg) [[PDF]](mathematics/sqr/sqr_inverted.pdf) [[PNG]](mathematics/sqr/sqr_inverted.png) [[SVG]](mathematics/sqr/sqr_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    color=white,
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\usepackage{pgfplots}
+\tikzset{>=latex}
+
+\pgfplotsset{
+  every non boxed x axis/.append style={
+    axis line style={-latex}
+  },
+  every non boxed y axis/.append style={
+    axis line style={-latex}
+  },
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=white,
+      text=white
+    }
+  }
+}
+
+\begin{document}
+\begin{tikzpicture}[inverted,inverted]
+\begin{axis}[inverted,
+  thick,
+  width=7cm,
+  height=5cm,
+  domain={0}:{4},
+  samples=50,
+  axis y line=middle,
+  axis x line=middle,
+  xlabel={$x$},
+  ylabel={$y$},
+  xlabel style={right},
+  ylabel style={above},
+  xmin=0, xmax={4.4},
+  ymin=0, ymax=17,
+  ]
+  \addplot[red,smooth] { x^2 };
+\end{axis}
+\end{tikzpicture}
+\end{document}
+~~~
 ## sqrt_inverted.svg
 [![sqrt_inverted.svg](mathematics/sqrt/sqrt_inverted.svg "sqrt_inverted.svg")](mathematics/sqrt/sqrt_inverted.svg) [[PDF]](mathematics/sqrt/sqrt_inverted.pdf) [[PNG]](mathematics/sqrt/sqrt_inverted.png) [[SVG]](mathematics/sqrt/sqrt_inverted.svg)
 ~~~.tex
@@ -637,7 +738,7 @@
   xmin=0, xmax={5.5},
   ymin=0,
   ]
-  \addplot[red,smooth] (x^2, x); % { sqrt(x) };
+  \addplot[red,smooth] (x^2, x);
 \end{axis}
 \end{tikzpicture}
 \end{document}
