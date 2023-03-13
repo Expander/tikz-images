@@ -61,6 +61,55 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## sin.svg
+[![sin.svg](mathematics/sin/sin.svg "sin.svg")](mathematics/sin/sin.svg) [[PDF]](mathematics/sin/sin.pdf) [[PNG]](mathematics/sin/sin.png) [[SVG]](mathematics/sin/sin.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\usepackage{pgfplots}
+\tikzset{>=latex}
+
+\pgfplotsset{
+  every non boxed x axis/.append style={
+    axis line style={-latex}
+  },
+  every non boxed y axis/.append style={
+    axis line style={-latex}
+  },
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=black,
+      text=white
+    }
+  }
+}
+
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[
+  thick,
+  width=7cm,
+  height=5cm,
+  domain={0}:{4*pi},
+  samples=50,
+  axis y line=middle,
+  axis x line=middle,
+  xlabel={$x$},
+  ylabel={$y$},
+  xlabel style={right},
+  ylabel style={above},
+  xmin=0, xmax={4.2*pi},
+  ymin=-1, ymax=1.2,
+  xtick={0, pi, 2*pi, 3*pi, 4*pi},
+  xticklabels={$0$, $\pi$, $2\pi$, $3\pi$, $4\pi$},
+  ytick={-1, 0, 1},
+  ]
+  \addplot[red,smooth] { sin(deg(x)) };
+\end{axis}
+\end{tikzpicture}
+\end{document}
+~~~
 ## total_differential.svg
 [![total_differential.svg](mathematics/total_differential/total_differential.svg "total_differential.svg")](mathematics/total_differential/total_differential.svg) [[PDF]](mathematics/total_differential/total_differential.pdf) [[PNG]](mathematics/total_differential/total_differential.png) [[SVG]](mathematics/total_differential/total_differential.svg)
 ~~~.tex
@@ -229,6 +278,64 @@
     \addplot[only marks, mark=*, mark size=1pt, red] coordinates { ({\px}, {\py}) } node[below] { $(x_0, y_0)$ };
     \addplot[only marks, mark=*, mark size=1pt, red] coordinates { ({\qx}, {\qy}) } node[above] { $(x_1, y_1)$ };
   \end{axis}
+\end{tikzpicture}
+\end{document}
+~~~
+## sin_inverted.svg
+[![sin_inverted.svg](mathematics/sin/sin_inverted.svg "sin_inverted.svg")](mathematics/sin/sin_inverted.svg) [[PDF]](mathematics/sin/sin_inverted.pdf) [[PNG]](mathematics/sin/sin_inverted.png) [[SVG]](mathematics/sin/sin_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    color=white,
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\usepackage{pgfplots}
+\tikzset{>=latex}
+
+\pgfplotsset{
+  every non boxed x axis/.append style={
+    axis line style={-latex}
+  },
+  every non boxed y axis/.append style={
+    axis line style={-latex}
+  },
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=white,
+      text=white
+    }
+  }
+}
+
+\begin{document}
+\begin{tikzpicture}[inverted,inverted]
+\begin{axis}[inverted,
+  thick,
+  width=7cm,
+  height=5cm,
+  domain={0}:{4*pi},
+  samples=50,
+  axis y line=middle,
+  axis x line=middle,
+  xlabel={$x$},
+  ylabel={$y$},
+  xlabel style={right},
+  ylabel style={above},
+  xmin=0, xmax={4.2*pi},
+  ymin=-1, ymax=1.2,
+  xtick={0, pi, 2*pi, 3*pi, 4*pi},
+  xticklabels={$0$, $\pi$, $2\pi$, $3\pi$, $4\pi$},
+  ytick={-1, 0, 1},
+  ]
+  \addplot[red,smooth] { sin(deg(x)) };
+\end{axis}
 \end{tikzpicture}
 \end{document}
 ~~~
