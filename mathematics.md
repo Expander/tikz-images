@@ -61,6 +61,52 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## exp2.svg
+[![exp2.svg](mathematics/exp2/exp2.svg "exp2.svg")](mathematics/exp2/exp2.svg) [[PDF]](mathematics/exp2/exp2.pdf) [[PNG]](mathematics/exp2/exp2.png) [[SVG]](mathematics/exp2/exp2.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\usepackage{pgfplots}
+\tikzset{>=latex}
+
+\pgfplotsset{
+  every non boxed x axis/.append style={
+    axis line style={-latex}
+  },
+  every non boxed y axis/.append style={
+    axis line style={-latex}
+  },
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=black,
+      text=white
+    }
+  }
+}
+
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[
+  thick,
+  width=7cm,
+  height=5cm,
+  domain={0}:{5},
+  samples=50,
+  axis y line=middle,
+  axis x line=middle,
+  xlabel={$x$},
+  ylabel={$y$},
+  xlabel style={right},
+  ylabel style={above},
+  xmin=0, xmax={5.5},
+  ymin=0, ymax=1.2
+  ]
+  \addplot[red,smooth] { exp(-x) };
+\end{axis}
+\end{tikzpicture}
+\end{document}
+~~~
 ## exp.svg
 [![exp.svg](mathematics/exp/exp.svg "exp.svg")](mathematics/exp/exp.svg) [[PDF]](mathematics/exp/exp.pdf) [[PNG]](mathematics/exp/exp.png) [[SVG]](mathematics/exp/exp.svg)
 ~~~.tex
@@ -462,6 +508,61 @@
     \addplot[only marks, mark=*, mark size=1pt, red] coordinates { ({\px}, {\py}) } node[below] { $(x_0, y_0)$ };
     \addplot[only marks, mark=*, mark size=1pt, red] coordinates { ({\qx}, {\qy}) } node[above] { $(x_1, y_1)$ };
   \end{axis}
+\end{tikzpicture}
+\end{document}
+~~~
+## exp2_inverted.svg
+[![exp2_inverted.svg](mathematics/exp2/exp2_inverted.svg "exp2_inverted.svg")](mathematics/exp2/exp2_inverted.svg) [[PDF]](mathematics/exp2/exp2_inverted.pdf) [[PNG]](mathematics/exp2/exp2_inverted.png) [[SVG]](mathematics/exp2/exp2_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    color=white,
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\usepackage{pgfplots}
+\tikzset{>=latex}
+
+\pgfplotsset{
+  every non boxed x axis/.append style={
+    axis line style={-latex}
+  },
+  every non boxed y axis/.append style={
+    axis line style={-latex}
+  },
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=white,
+      text=white
+    }
+  }
+}
+
+\begin{document}
+\begin{tikzpicture}[inverted,inverted]
+\begin{axis}[inverted,
+  thick,
+  width=7cm,
+  height=5cm,
+  domain={0}:{5},
+  samples=50,
+  axis y line=middle,
+  axis x line=middle,
+  xlabel={$x$},
+  ylabel={$y$},
+  xlabel style={right},
+  ylabel style={above},
+  xmin=0, xmax={5.5},
+  ymin=0, ymax=1.2
+  ]
+  \addplot[red,smooth] { exp(-x) };
+\end{axis}
 \end{tikzpicture}
 \end{document}
 ~~~
