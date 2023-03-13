@@ -153,6 +153,52 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## hyperbel.svg
+[![hyperbel.svg](mathematics/hyperbel/hyperbel.svg "hyperbel.svg")](mathematics/hyperbel/hyperbel.svg) [[PDF]](mathematics/hyperbel/hyperbel.pdf) [[PNG]](mathematics/hyperbel/hyperbel.png) [[SVG]](mathematics/hyperbel/hyperbel.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\usepackage{pgfplots}
+\tikzset{>=latex}
+
+\pgfplotsset{
+  every non boxed x axis/.append style={
+    axis line style={-latex}
+  },
+  every non boxed y axis/.append style={
+    axis line style={-latex}
+  },
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=black,
+      text=white
+    }
+  }
+}
+
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[
+  thick,
+  width=7cm,
+  height=5cm,
+  domain={0.1}:{5},
+  samples=50,
+  axis y line=middle,
+  axis x line=middle,
+  xlabel={$x$},
+  ylabel={$y$},
+  xlabel style={right},
+  ylabel style={above},
+  xmin=0, xmax={5.5},
+  ymin=0, ymax={5.5}
+  ]
+  \addplot[red,smooth] { 1/x };
+\end{axis}
+\end{tikzpicture}
+\end{document}
+~~~
 ## ln.svg
 [![ln.svg](mathematics/ln/ln.svg "ln.svg")](mathematics/ln/ln.svg) [[PDF]](mathematics/ln/ln.pdf) [[PNG]](mathematics/ln/ln.png) [[SVG]](mathematics/ln/ln.svg)
 ~~~.tex
@@ -617,6 +663,61 @@
   ymin=0,
   ]
   \addplot[red,smooth] { exp(x) };
+\end{axis}
+\end{tikzpicture}
+\end{document}
+~~~
+## hyperbel_inverted.svg
+[![hyperbel_inverted.svg](mathematics/hyperbel/hyperbel_inverted.svg "hyperbel_inverted.svg")](mathematics/hyperbel/hyperbel_inverted.svg) [[PDF]](mathematics/hyperbel/hyperbel_inverted.pdf) [[PNG]](mathematics/hyperbel/hyperbel_inverted.png) [[SVG]](mathematics/hyperbel/hyperbel_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    color=white,
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\usepackage{pgfplots}
+\tikzset{>=latex}
+
+\pgfplotsset{
+  every non boxed x axis/.append style={
+    axis line style={-latex}
+  },
+  every non boxed y axis/.append style={
+    axis line style={-latex}
+  },
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=white,
+      text=white
+    }
+  }
+}
+
+\begin{document}
+\begin{tikzpicture}[inverted,inverted]
+\begin{axis}[inverted,
+  thick,
+  width=7cm,
+  height=5cm,
+  domain={0.1}:{5},
+  samples=50,
+  axis y line=middle,
+  axis x line=middle,
+  xlabel={$x$},
+  ylabel={$y$},
+  xlabel style={right},
+  ylabel style={above},
+  xmin=0, xmax={5.5},
+  ymin=0, ymax={5.5}
+  ]
+  \addplot[red,smooth] { 1/x };
 \end{axis}
 \end{tikzpicture}
 \end{document}
