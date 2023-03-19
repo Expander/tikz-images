@@ -245,6 +245,123 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## regression-minmax.svg
+[![regression-minmax.svg](mathematics/regression-minmax/regression-minmax.svg "regression-minmax.svg")](mathematics/regression-minmax/regression-minmax.svg) [[PDF]](mathematics/regression-minmax/regression-minmax.pdf) [[PNG]](mathematics/regression-minmax/regression-minmax.png) [[SVG]](mathematics/regression-minmax/regression-minmax.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\usepackage{pgfplots,siunitx}
+\pgfplotsset{compat=1.17}
+\colorlet{green}{black!40!green}
+
+\tikzset{>=latex}
+
+\pgfplotsset{
+  every non boxed x axis/.append style={
+    axis line style={-latex}
+  },
+  every non boxed y axis/.append style={
+    axis line style={-latex}
+  },
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=hardblack,
+      text=white
+    }
+  }
+}
+
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[
+  width={0.7\textwidth},
+  height={0.6\textwidth},
+  domain=0:11,
+  xmin=0,xmax=12,
+  ymin=0,ymax=6,
+  xlabel={$I/\si{\A}$},
+  ylabel={$U/\si{\V}$},
+  grid,
+  legend cell align = {left},
+  legend style = {font=\small},
+  legend pos = {south east},
+  ]
+  \addplot[blue, thick] { 0.5014*x };
+  \addlegendentry{$U = \SI{0.5014}{\ohm}\cdot I$};
+  \addplot[red  , dashed, thick, domain = 0:10] { 0.5579*x };
+  \addlegendentry{$U = \SI{0.5579}{\ohm}\cdot I$};
+  \addplot[green, dashed, thick] { 0.4393*x };
+  \addlegendentry{$U = \SI{0.4393}{\ohm}\cdot I$};
+  \fill[opacity=0.3,blue] ( 1.6-0.6, 1-0.3) rectangle ( 1.6+0.6, 1+0.3);
+  \fill[opacity=0.3,blue] ( 3.9-0.6, 2-0.3) rectangle ( 3.9+0.6, 2+0.3);
+  \fill[opacity=0.3,blue] ( 5.6-0.6, 3-0.3) rectangle ( 5.6+0.6, 3+0.3);
+  \fill[opacity=0.3,blue] ( 8.2-0.6, 4-0.3) rectangle ( 8.2+0.6, 4+0.3);
+  \fill[opacity=0.3,blue] (10.1-0.6, 5-0.3) rectangle (10.1+0.6, 5+0.3);
+  \addplot[only marks, error bars/.cd, x dir=both, y dir=both, x explicit, y explicit] coordinates {
+    ( 1.6, 1) +- (0.6, 0.3)
+    ( 3.9, 2) +- (0.6, 0.3)
+    ( 5.6, 3) +- (0.6, 0.3)
+    ( 8.2, 4) +- (0.6, 0.3)
+    (10.1, 5) +- (0.6, 0.3)
+  };
+\end{axis}
+\end{tikzpicture}
+\end{document}
+~~~
+## regression.svg
+[![regression.svg](mathematics/regression/regression.svg "regression.svg")](mathematics/regression/regression.svg) [[PDF]](mathematics/regression/regression.pdf) [[PNG]](mathematics/regression/regression.png) [[SVG]](mathematics/regression/regression.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\usepackage{pgfplots,siunitx}
+\pgfplotsset{compat=1.17}
+\tikzset{>=latex}
+
+\pgfplotsset{
+  every non boxed x axis/.append style={
+    axis line style={-latex}
+  },
+  every non boxed y axis/.append style={
+    axis line style={-latex}
+  },
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=hardblack,
+      text=white
+    }
+  }
+}
+
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[
+  width={0.7\textwidth},
+  height={0.6\textwidth},
+  domain=0:11,
+  xmin=0,xmax=12,
+  ymin=0,ymax=6,
+  xlabel={$I/\si{\A}$},
+  ylabel={$U/\si{\V}$},
+  grid,
+  legend cell align = {left},
+  legend style = {font=\small},
+  legend pos = {south east},
+  ]
+  \addplot[blue, thick] { 0.5014*x };
+  \addlegendentry{$U = \SI{0.5014}{\ohm}\cdot I$};
+  \addplot[only marks, error bars/.cd, x dir=both, y dir=both, x explicit, y explicit] coordinates {
+    ( 1.6, 1) +- (0.6, 0.3)
+    ( 3.9, 2) +- (0.6, 0.3)
+    ( 5.6, 3) +- (0.6, 0.3)
+    ( 8.2, 4) +- (0.6, 0.3)
+    (10.1, 5) +- (0.6, 0.3)
+  };
+\end{axis}
+\end{tikzpicture}
+\end{document}
+~~~
 ## sin.svg
 [![sin.svg](mathematics/sin/sin.svg "sin.svg")](mathematics/sin/sin.svg) [[PDF]](mathematics/sin/sin.pdf) [[PNG]](mathematics/sin/sin.png) [[SVG]](mathematics/sin/sin.svg)
 ~~~.tex
@@ -773,6 +890,141 @@
   % ymin=0,
   ]
   \addplot[red,smooth] { ln(x) };
+\end{axis}
+\end{tikzpicture}
+\end{document}
+~~~
+## regression-minmax_inverted.svg
+[![regression-minmax_inverted.svg](mathematics/regression-minmax/regression-minmax_inverted.svg "regression-minmax_inverted.svg")](mathematics/regression-minmax/regression-minmax_inverted.svg) [[PDF]](mathematics/regression-minmax/regression-minmax_inverted.pdf) [[PNG]](mathematics/regression-minmax/regression-minmax_inverted.png) [[SVG]](mathematics/regression-minmax/regression-minmax_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    color=white,
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\usepackage{pgfplots,siunitx}
+\pgfplotsset{compat=1.17}
+\colorlet{green}{green}
+
+\tikzset{>=latex}
+
+\pgfplotsset{
+  every non boxed x axis/.append style={
+    axis line style={-latex}
+  },
+  every non boxed y axis/.append style={
+    axis line style={-latex}
+  },
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=black,
+      text=white
+    }
+  }
+}
+
+\begin{document}
+\begin{tikzpicture}[inverted,inverted]
+\begin{axis}[inverted,
+  width={0.7\textwidth},
+  height={0.6\textwidth},
+  domain=0:11,
+  xmin=0,xmax=12,
+  ymin=0,ymax=6,
+  xlabel={$I/\si{\A}$},
+  ylabel={$U/\si{\V}$},
+  grid,
+  legend cell align = {left},
+  legend style = {font=\small},
+  legend pos = {south east},
+  ]
+  \addplot[blue, thick] { 0.5014*x };
+  \addlegendentry{$U = \SI{0.5014}{\ohm}\cdot I$};
+  \addplot[red  , dashed, thick, domain = 0:10] { 0.5579*x };
+  \addlegendentry{$U = \SI{0.5579}{\ohm}\cdot I$};
+  \addplot[green, dashed, thick] { 0.4393*x };
+  \addlegendentry{$U = \SI{0.4393}{\ohm}\cdot I$};
+  \fill[opacity=0.3,blue] ( 1.6-0.6, 1-0.3) rectangle ( 1.6+0.6, 1+0.3);
+  \fill[opacity=0.3,blue] ( 3.9-0.6, 2-0.3) rectangle ( 3.9+0.6, 2+0.3);
+  \fill[opacity=0.3,blue] ( 5.6-0.6, 3-0.3) rectangle ( 5.6+0.6, 3+0.3);
+  \fill[opacity=0.3,blue] ( 8.2-0.6, 4-0.3) rectangle ( 8.2+0.6, 4+0.3);
+  \fill[opacity=0.3,blue] (10.1-0.6, 5-0.3) rectangle (10.1+0.6, 5+0.3);
+  \addplot[only marks, error bars/.cd, x dir=both, y dir=both, x explicit, y explicit] coordinates {
+    ( 1.6, 1) +- (0.6, 0.3)
+    ( 3.9, 2) +- (0.6, 0.3)
+    ( 5.6, 3) +- (0.6, 0.3)
+    ( 8.2, 4) +- (0.6, 0.3)
+    (10.1, 5) +- (0.6, 0.3)
+  };
+\end{axis}
+\end{tikzpicture}
+\end{document}
+~~~
+## regression_inverted.svg
+[![regression_inverted.svg](mathematics/regression/regression_inverted.svg "regression_inverted.svg")](mathematics/regression/regression_inverted.svg) [[PDF]](mathematics/regression/regression_inverted.pdf) [[PNG]](mathematics/regression/regression_inverted.png) [[SVG]](mathematics/regression/regression_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    color=white,
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\usepackage{pgfplots,siunitx}
+\pgfplotsset{compat=1.17}
+\tikzset{>=latex}
+
+\pgfplotsset{
+  every non boxed x axis/.append style={
+    axis line style={-latex}
+  },
+  every non boxed y axis/.append style={
+    axis line style={-latex}
+  },
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=black,
+      text=white
+    }
+  }
+}
+
+\begin{document}
+\begin{tikzpicture}[inverted,inverted]
+\begin{axis}[inverted,
+  width={0.7\textwidth},
+  height={0.6\textwidth},
+  domain=0:11,
+  xmin=0,xmax=12,
+  ymin=0,ymax=6,
+  xlabel={$I/\si{\A}$},
+  ylabel={$U/\si{\V}$},
+  grid,
+  legend cell align = {left},
+  legend style = {font=\small},
+  legend pos = {south east},
+  ]
+  \addplot[blue, thick] { 0.5014*x };
+  \addlegendentry{$U = \SI{0.5014}{\ohm}\cdot I$};
+  \addplot[only marks, error bars/.cd, x dir=both, y dir=both, x explicit, y explicit] coordinates {
+    ( 1.6, 1) +- (0.6, 0.3)
+    ( 3.9, 2) +- (0.6, 0.3)
+    ( 5.6, 3) +- (0.6, 0.3)
+    ( 8.2, 4) +- (0.6, 0.3)
+    (10.1, 5) +- (0.6, 0.3)
+  };
 \end{axis}
 \end{tikzpicture}
 \end{document}
