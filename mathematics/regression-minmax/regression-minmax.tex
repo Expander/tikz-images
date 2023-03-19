@@ -1,8 +1,9 @@
 \documentclass[crop,tikz]{standalone}
 
-\usepackage{pgfplots,siunitx}
+\usepackage{pgfplots}
+\usepackage[locale=DE]{siunitx}
+
 \pgfplotsset{compat=1.17}
-\colorlet{green}{black!40!green}
 
 \tikzset{>=latex}
 
@@ -21,6 +22,8 @@
     }
   }
 }
+
+\colorlet{green}{black!40!green}
 
 \begin{document}
 \begin{tikzpicture}

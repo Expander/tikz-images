@@ -250,9 +250,10 @@
 ~~~.tex
 \documentclass[crop,tikz]{standalone}
 
-\usepackage{pgfplots,siunitx}
+\usepackage{pgfplots}
+\usepackage[locale=DE]{siunitx}
+
 \pgfplotsset{compat=1.17}
-\colorlet{green}{black!40!green}
 
 \tikzset{>=latex}
 
@@ -271,6 +272,8 @@
     }
   }
 }
+
+\colorlet{green}{black!40!green}
 
 \begin{document}
 \begin{tikzpicture}
@@ -314,8 +317,11 @@
 ~~~.tex
 \documentclass[crop,tikz]{standalone}
 
-\usepackage{pgfplots,siunitx}
+\usepackage{pgfplots}
+\usepackage[locale=DE]{siunitx}
+
 \pgfplotsset{compat=1.17}
+
 \tikzset{>=latex}
 
 \pgfplotsset{
@@ -908,9 +914,10 @@
   }
 }
 
-\usepackage{pgfplots,siunitx}
+\usepackage{pgfplots}
+\usepackage[locale=DE]{siunitx}
+
 \pgfplotsset{compat=1.17}
-\colorlet{green}{green}
 
 \tikzset{>=latex}
 
@@ -929,6 +936,8 @@
     }
   }
 }
+
+\colorlet{green}{green}
 
 \begin{document}
 \begin{tikzpicture}[inverted,inverted]
@@ -981,8 +990,11 @@
   }
 }
 
-\usepackage{pgfplots,siunitx}
+\usepackage{pgfplots}
+\usepackage[locale=DE]{siunitx}
+
 \pgfplotsset{compat=1.17}
+
 \tikzset{>=latex}
 
 \pgfplotsset{
