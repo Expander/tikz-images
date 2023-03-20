@@ -1,6 +1,6 @@
 # Statistics
 ## standarddeviation.svg
-[![standarddeviation.svg](statistics/standarddeviation.svg "standarddeviation.svg")](statistics/standarddeviation.svg) [[PDF]](statistics/standarddeviation.pdf) [[PNG]](statistics/standarddeviation.png) [[SVG]](statistics/standarddeviation.svg)
+[![standarddeviation.svg](statistics/standarddeviation/standarddeviation.svg "standarddeviation.svg")](statistics/standarddeviation/standarddeviation.svg) [[PDF]](statistics/standarddeviation/standarddeviation.pdf) [[PNG]](statistics/standarddeviation/standarddeviation.png) [[SVG]](statistics/standarddeviation/standarddeviation.svg)
 ~~~.tex
 \documentclass[crop,tikz]{standalone}
 
@@ -96,7 +96,7 @@
 \end{document}
 ~~~
 ## standarddeviation_inverted.svg
-[![standarddeviation_inverted.svg](statistics/standarddeviation_inverted.svg "standarddeviation_inverted.svg")](statistics/standarddeviation_inverted.svg) [[PDF]](statistics/standarddeviation_inverted.pdf) [[PNG]](statistics/standarddeviation_inverted.png) [[SVG]](statistics/standarddeviation_inverted.svg)
+[![standarddeviation_inverted.svg](statistics/standarddeviation/standarddeviation_inverted.svg "standarddeviation_inverted.svg")](statistics/standarddeviation/standarddeviation_inverted.svg) [[PDF]](statistics/standarddeviation/standarddeviation_inverted.pdf) [[PNG]](statistics/standarddeviation/standarddeviation_inverted.png) [[SVG]](statistics/standarddeviation/standarddeviation_inverted.svg)
 ~~~.tex
 \documentclass[crop,tikz]{standalone}
 \usetikzlibrary{backgrounds}
