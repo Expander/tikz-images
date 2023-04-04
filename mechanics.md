@@ -1102,7 +1102,7 @@
 \end{document}
 ~~~
 ## free-fall.svg
-[![free-fall.svg](mechanics/free-fall-v/free-fall/free-fall.svg "free-fall.svg")](mechanics/free-fall-v/free-fall/free-fall.svg) [[PDF]](mechanics/free-fall-v/free-fall/free-fall.pdf) [[PNG]](mechanics/free-fall-v/free-fall/free-fall.png) [[SVG]](mechanics/free-fall-v/free-fall/free-fall.svg)
+[![free-fall.svg](mechanics/free-fall/free-fall.svg "free-fall.svg")](mechanics/free-fall/free-fall.svg) [[PDF]](mechanics/free-fall/free-fall.pdf) [[PNG]](mechanics/free-fall/free-fall.png) [[SVG]](mechanics/free-fall/free-fall.svg)
 ~~~.tex
 \documentclass[crop,tikz]{standalone}
 
@@ -1113,6 +1113,7 @@
 \begin{tikzpicture}[scale=1.5]
   \draw[->] (1,0) -- (1,2) node[left] {$z$};
   \coordinate (r) at (1.1,1.5);
+  \draw[] (r) -- ++(-0.2,0) node[left] {$h$};
   \draw[red,->] (r) -- ++(0,-1);
   \draw[red,fill] (r) circle (0.05);
   \draw (0,0) -- (2,0);
@@ -4402,7 +4403,7 @@
 \end{document}
 ~~~
 ## free-fall_inverted.svg
-[![free-fall_inverted.svg](mechanics/free-fall-v/free-fall/free-fall_inverted.svg "free-fall_inverted.svg")](mechanics/free-fall-v/free-fall/free-fall_inverted.svg) [[PDF]](mechanics/free-fall-v/free-fall/free-fall_inverted.pdf) [[PNG]](mechanics/free-fall-v/free-fall/free-fall_inverted.png) [[SVG]](mechanics/free-fall-v/free-fall/free-fall_inverted.svg)
+[![free-fall_inverted.svg](mechanics/free-fall/free-fall_inverted.svg "free-fall_inverted.svg")](mechanics/free-fall/free-fall_inverted.svg) [[PDF]](mechanics/free-fall/free-fall_inverted.pdf) [[PNG]](mechanics/free-fall/free-fall_inverted.png) [[SVG]](mechanics/free-fall/free-fall_inverted.svg)
 ~~~.tex
 \documentclass[crop,tikz]{standalone}
 \usetikzlibrary{backgrounds}
@@ -4422,6 +4423,7 @@
 \begin{tikzpicture}[inverted,scale=1.5]
   \draw[->] (1,0) -- (1,2) node[left] {$z$};
   \coordinate (r) at (1.1,1.5);
+  \draw[] (r) -- ++(-0.2,0) node[left] {$h$};
   \draw[red,->] (r) -- ++(0,-1);
   \draw[red,fill] (r) circle (0.05);
   \draw (0,0) -- (2,0);
