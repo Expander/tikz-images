@@ -509,6 +509,62 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## surface-element.svg
+[![surface-element.svg](mathematics/surface-element/surface-element.svg "surface-element.svg")](mathematics/surface-element/surface-element.svg) [[PDF]](mathematics/surface-element/surface-element.pdf) [[PNG]](mathematics/surface-element/surface-element.png) [[SVG]](mathematics/surface-element/surface-element.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\usepackage{amsmath,amssymb}
+\usepackage{physics}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.16}
+\tikzset{>=latex}
+
+\pgfplotsset{
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=black,
+      text=white
+    }
+  }
+}
+
+\begin{document}
+\begin{tikzpicture}
+  \pgfmathsetmacro{\px}{2.7};
+  \pgfmathsetmacro{\py}{2};
+  \begin{axis}[
+    width=10cm,
+    height=10cm,
+    axis equal image,
+    xlabel={$x$},
+    ylabel={$y$},
+    zlabel={$z$},
+    xmin=0,xmax=4,
+    ymin=0,ymax=4,
+    zmin=0, zmax=2,
+    declare function = {
+      f(\x,\y) = 2 - (\x - 2)^2 - (\y - 2)^2;
+      dx(\x,\y) = 2*(\x - 2);
+      dy(\x,\y) = 2*(\y - 2);
+      dz(\x,\y) = 1;
+    },
+    samples=10, samples y=10,
+    domain=1:3, domain y=1:3,
+    z buffer=sort,
+    ]
+    \addplot3[surf,fill opacity=0.2,shader=flat,draw=black,draw opacity=0,colormap/blackwhite] (x,y,0);
+    \addplot3[surf,colormap/hot] (x,y,{f(x,y)});
+    % surface element
+    \draw[->] (axis cs: {\px},{\py},{f(\px,\py)}) -- ++ (axis direction cs: {dx(\px,\py)},{dy(\px,\py)},{dz(\px,\py)}) node[above right] { $\dd{\vec{\sigma}}$ };
+    % labels
+    \node[above] at (axis cs: 2,1,0) { $B_2$ };
+    \node[above,yshift=0.5em] at (axis cs: 2,2,{f(2,2)}) { $\mathcal{F}$ };
+  \end{axis}
+\end{tikzpicture}
+\end{document}
+~~~
 ## total_differential.svg
 [![total_differential.svg](mathematics/total_differential/total_differential.svg "total_differential.svg")](mathematics/total_differential/total_differential.svg) [[PDF]](mathematics/total_differential/total_differential.pdf) [[PNG]](mathematics/total_differential/total_differential.png) [[SVG]](mathematics/total_differential/total_differential.svg)
 ~~~.tex
@@ -1206,6 +1262,71 @@
   ]
   \addplot[red,smooth] (x^2, x);
 \end{axis}
+\end{tikzpicture}
+\end{document}
+~~~
+## surface-element_inverted.svg
+[![surface-element_inverted.svg](mathematics/surface-element/surface-element_inverted.svg "surface-element_inverted.svg")](mathematics/surface-element/surface-element_inverted.svg) [[PDF]](mathematics/surface-element/surface-element_inverted.pdf) [[PNG]](mathematics/surface-element/surface-element_inverted.png) [[SVG]](mathematics/surface-element/surface-element_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    color=white,
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\usepackage{amsmath,amssymb}
+\usepackage{physics}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.16}
+\tikzset{>=latex}
+
+\pgfplotsset{
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=white,
+      text=white
+    }
+  }
+}
+
+\begin{document}
+\begin{tikzpicture}[inverted,inverted]
+  \pgfmathsetmacro{\px}{2.7};
+  \pgfmathsetmacro{\py}{2};
+  \begin{axis}[inverted,
+    width=10cm,
+    height=10cm,
+    axis equal image,
+    xlabel={$x$},
+    ylabel={$y$},
+    zlabel={$z$},
+    xmin=0,xmax=4,
+    ymin=0,ymax=4,
+    zmin=0, zmax=2,
+    declare function = {
+      f(\x,\y) = 2 - (\x - 2)^2 - (\y - 2)^2;
+      dx(\x,\y) = 2*(\x - 2);
+      dy(\x,\y) = 2*(\y - 2);
+      dz(\x,\y) = 1;
+    },
+    samples=10, samples y=10,
+    domain=1:3, domain y=1:3,
+    z buffer=sort,
+    ]
+    \addplot3[surf,fill opacity=0.2,shader=flat,draw=white,draw opacity=0,colormap/blackwhite] (x,y,0);
+    \addplot3[surf,colormap/hot] (x,y,{f(x,y)});
+    % surface element
+    \draw[->] (axis cs: {\px},{\py},{f(\px,\py)}) -- ++ (axis direction cs: {dx(\px,\py)},{dy(\px,\py)},{dz(\px,\py)}) node[above right] { $\dd{\vec{\sigma}}$ };
+    % labels
+    \node[above] at (axis cs: 2,1,0) { $B_2$ };
+    \node[above,yshift=0.5em] at (axis cs: 2,2,{f(2,2)}) { $\mathcal{F}$ };
+  \end{axis}
 \end{tikzpicture}
 \end{document}
 ~~~
