@@ -1,4 +1,13 @@
 \documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    color=white,
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
 
 \usepackage{amsmath,amssymb}
 \usepackage{physics}
@@ -10,17 +19,17 @@
   inverted/.style = {
     every axis legend/.append style={
       draw=white,
-      fill=black,
+      fill=white,
       text=white
     }
   }
 }
 
 \begin{document}
-\begin{tikzpicture}
+\begin{tikzpicture}[inverted,inverted]
   \pgfmathsetmacro{\px}{0.05};
   \pgfmathsetmacro{\py}{0.85};
-  \begin{axis}[
+  \begin{axis}[inverted,
     width=10cm,
     height=10cm,
     axis equal image,
@@ -42,8 +51,21 @@
     z buffer=sort,
     clip=false,
     ]
-    \addplot3[surf,fill opacity=0.2,shader=flat,draw=black,draw opacity=0,colormap/blackwhite] (x,y,0);
+    \addplot3[surf,fill opacity=0.2,shader=flat,draw=white,draw opacity=0,colormap/blackwhite] (x,y,0);
     \addplot3[surf,colormap/hot] (x,y,{f(x,y)});
+    % vector field
+    \addplot3[blue,
+      quiver = {
+        u = {0},
+        v = {0},
+        w = {1},
+        scale arrows = 0.25,
+        every arrow/.append style={-latex},
+      },
+      samples=9, samples y=9,
+      domain = 0.05:0.95,
+      domain y = 0.05:0.95,
+    ] (x,y,{f(x,y)});
     % surface element
     \draw[->,red] (axis cs: {\px},{\py},{f(\px,\py)}) -- ++ (axis direction cs: {dx(\px,\py)},{dy(\px,\py)},{dz(\px,\py)}) node[above] { $\dd{\vec{\sigma}}$ };
     % labels
