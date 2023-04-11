@@ -634,6 +634,7 @@
     % labels
     \node[above] at (axis cs: 1,0.5,0) { $B_2$ };
     \node[right] at (axis cs: 0,1,{f(0,1)}) { $\mathcal{F}$ };
+    \node[above,blue,yshift=0.5em] at (axis cs: 0,0,{f(0,0)}) { $\vec{F}$ };
   \end{axis}
 \end{tikzpicture}
 \end{document}
@@ -1481,6 +1482,7 @@
     % labels
     \node[above] at (axis cs: 1,0.5,0) { $B_2$ };
     \node[right] at (axis cs: 0,1,{f(0,1)}) { $\mathcal{F}$ };
+    \node[above,blue,yshift=0.5em] at (axis cs: 0,0,{f(0,0)}) { $\vec{F}$ };
   \end{axis}
 \end{tikzpicture}
 \end{document}
