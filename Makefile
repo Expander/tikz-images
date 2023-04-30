@@ -70,7 +70,7 @@ $(OPT_MD): $(OPT_SVG)
 	./generate-list Optics $^ > $@
 
 $(QUA_MD): $(QUA_SVG)
-	./generate-list Statistics $^ > $@
+	./generate-list 'Quantum Mechanics' $^ > $@
 
 $(STA_MD): $(STA_SVG)
 	./generate-list Statistics $^ > $@

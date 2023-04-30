@@ -1,4 +1,4 @@
-# Statistics
+# Quantum Mechanics
 ## absorption.svg
 [![absorption.svg](quantum/absorption/absorption.svg "absorption.svg")](quantum/absorption/absorption.svg) [[PDF]](quantum/absorption/absorption.pdf) [[PNG]](quantum/absorption/absorption.png) [[SVG]](quantum/absorption/absorption.svg)
 ~~~.tex
