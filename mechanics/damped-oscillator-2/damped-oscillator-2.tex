@@ -1,23 +1,15 @@
 \documentclass[crop,tikz]{standalone}
-\usetikzlibrary{backgrounds}
-\colorlet{blue}{cyan}
-\tikzset{
-  inverted/.style = {
-    color=white,
-    background rectangle/.style={fill},
-    show background rectangle
-  }
-}
 
+\usepackage{amsmath}
 \usepackage{pgfplots}
-\usepackage{siunitx}
+\usepackage[locale=DE]{siunitx}
 \tikzset{>=latex}
 
 \pgfplotsset{
   inverted/.style = {
     every axis legend/.append style={
       draw=white,
-      fill=black,
+      fill=hardblack,
       text=white
     }
   },
@@ -30,8 +22,9 @@
 }
 
 \begin{document}
-\begin{tikzpicture}[inverted,inverted]
-\begin{axis}[inverted,
+\begin{tikzpicture}
+\pgfmathsetmacro{\damp}{0.2}
+\begin{axis}[
   thick,
   width=7cm,
   height=6cm,
@@ -47,11 +40,14 @@
   xmin=0, xmax={6.3*pi},
   ymin=-2.2, ymax=2.4,
   extra y ticks={0},
-  legend cell align={right},
-  legend style={at={(1,0)},anchor=north east}
+  legend cell align={left},
+  legend style={at={(1.1,0)},anchor=north east}
   ]
-  \addplot[red] { 2*cos(deg(x)) };
-  \addlegendentry{$x(t)=\SI{2}{\m}\cos(\SI{1}{\per\s} t)$};
+  \addplot[red] { 2*exp(-\damp*x)*cos(deg(x)) };
+  \addlegendentry{$x(t)=\SI{2}{\m}\operatorname{e}^{-\SI{\damp}{\per\s} t}\sin(\SI{1}{\per\s} t)$};
+  \addplot[blue,densely dashed] { 2*exp(-\damp*x) };
+  \addlegendentry{$x(t)=\pm\SI{2}{\m}\operatorname{e}^{-\SI{\damp}{\per\s} t}$};
+  \addplot[blue,densely dashed] { -2*exp(-\damp*x) };
 \end{axis}
 \end{tikzpicture}
 \end{document}

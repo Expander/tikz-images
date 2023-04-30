@@ -754,6 +754,63 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## damped-oscillator-2.svg
+[![damped-oscillator-2.svg](mechanics/damped-oscillator-2/damped-oscillator-2.svg "damped-oscillator-2.svg")](mechanics/damped-oscillator-2/damped-oscillator-2.svg) [[PDF]](mechanics/damped-oscillator-2/damped-oscillator-2.pdf) [[PNG]](mechanics/damped-oscillator-2/damped-oscillator-2.png) [[SVG]](mechanics/damped-oscillator-2/damped-oscillator-2.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\usepackage{amsmath}
+\usepackage{pgfplots}
+\usepackage[locale=DE]{siunitx}
+\tikzset{>=latex}
+
+\pgfplotsset{
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=hardblack,
+      text=white
+    }
+  },
+  every non boxed x axis/.append style={
+    axis line style={-latex}
+  },
+  every non boxed y axis/.append style={
+    axis line style={-latex}
+  }
+}
+
+\begin{document}
+\begin{tikzpicture}
+\pgfmathsetmacro{\damp}{0.2}
+\begin{axis}[
+  thick,
+  width=7cm,
+  height=6cm,
+  domain={0}:{6*pi},
+  samples=100,
+  smooth,
+  axis y line=middle,
+  axis x line=middle,
+  xlabel={$t/\si{\s}$},
+  ylabel={$x/\si{\m}$},
+  xlabel style={right},
+  ylabel style={above},
+  xmin=0, xmax={6.3*pi},
+  ymin=-2.2, ymax=2.4,
+  extra y ticks={0},
+  legend cell align={left},
+  legend style={at={(1.1,0)},anchor=north east}
+  ]
+  \addplot[red] { 2*exp(-\damp*x)*cos(deg(x)) };
+  \addlegendentry{$x(t)=\SI{2}{\m}\operatorname{e}^{-\SI{\damp}{\per\s} t}\sin(\SI{1}{\per\s} t)$};
+  \addplot[blue,densely dashed] { 2*exp(-\damp*x) };
+  \addlegendentry{$x(t)=\pm\SI{2}{\m}\operatorname{e}^{-\SI{\damp}{\per\s} t}$};
+  \addplot[blue,densely dashed] { -2*exp(-\damp*x) };
+\end{axis}
+\end{tikzpicture}
+\end{document}
+~~~
 ## damped-oscillator.svg
 [![damped-oscillator.svg](mechanics/damped-oscillator/damped-oscillator.svg "damped-oscillator.svg")](mechanics/damped-oscillator/damped-oscillator.svg) [[PDF]](mechanics/damped-oscillator/damped-oscillator.pdf) [[PNG]](mechanics/damped-oscillator/damped-oscillator.png) [[SVG]](mechanics/damped-oscillator/damped-oscillator.svg)
 ~~~.tex
@@ -1303,8 +1360,8 @@
   legend cell align={right},
   legend style={at={(1,0)},anchor=north east}
   ]
-  \addplot[red] { 2*sin(deg(x)) };
-  \addlegendentry{$x(t)=\SI{2}{\m}\sin(\SI{1}{\per\s} t)$};
+  \addplot[red] { 2*cos(deg(x)) };
+  \addlegendentry{$x(t)=\SI{2}{\m}\cos(\SI{1}{\per\s} t)$};
 \end{axis}
 \end{tikzpicture}
 \end{document}
@@ -4017,6 +4074,72 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## damped-oscillator-2_inverted.svg
+[![damped-oscillator-2_inverted.svg](mechanics/damped-oscillator-2/damped-oscillator-2_inverted.svg "damped-oscillator-2_inverted.svg")](mechanics/damped-oscillator-2/damped-oscillator-2_inverted.svg) [[PDF]](mechanics/damped-oscillator-2/damped-oscillator-2_inverted.pdf) [[PNG]](mechanics/damped-oscillator-2/damped-oscillator-2_inverted.png) [[SVG]](mechanics/damped-oscillator-2/damped-oscillator-2_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    color=white,
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\usepackage{amsmath}
+\usepackage{pgfplots}
+\usepackage[locale=DE]{siunitx}
+\tikzset{>=latex}
+
+\pgfplotsset{
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=black,
+      text=white
+    }
+  },
+  every non boxed x axis/.append style={
+    axis line style={-latex}
+  },
+  every non boxed y axis/.append style={
+    axis line style={-latex}
+  }
+}
+
+\begin{document}
+\begin{tikzpicture}[inverted,inverted]
+\pgfmathsetmacro{\damp}{0.2}
+\begin{axis}[inverted,
+  thick,
+  width=7cm,
+  height=6cm,
+  domain={0}:{6*pi},
+  samples=100,
+  smooth,
+  axis y line=middle,
+  axis x line=middle,
+  xlabel={$t/\si{\s}$},
+  ylabel={$x/\si{\m}$},
+  xlabel style={right},
+  ylabel style={above},
+  xmin=0, xmax={6.3*pi},
+  ymin=-2.2, ymax=2.4,
+  extra y ticks={0},
+  legend cell align={left},
+  legend style={at={(1.1,0)},anchor=north east}
+  ]
+  \addplot[red] { 2*exp(-\damp*x)*cos(deg(x)) };
+  \addlegendentry{$x(t)=\SI{2}{\m}\operatorname{e}^{-\SI{\damp}{\per\s} t}\sin(\SI{1}{\per\s} t)$};
+  \addplot[blue,densely dashed] { 2*exp(-\damp*x) };
+  \addlegendentry{$x(t)=\pm\SI{2}{\m}\operatorname{e}^{-\SI{\damp}{\per\s} t}$};
+  \addplot[blue,densely dashed] { -2*exp(-\damp*x) };
+\end{axis}
+\end{tikzpicture}
+\end{document}
+~~~
 ## damped-oscillator_inverted.svg
 [![damped-oscillator_inverted.svg](mechanics/damped-oscillator/damped-oscillator_inverted.svg "damped-oscillator_inverted.svg")](mechanics/damped-oscillator/damped-oscillator_inverted.svg) [[PDF]](mechanics/damped-oscillator/damped-oscillator_inverted.pdf) [[PNG]](mechanics/damped-oscillator/damped-oscillator_inverted.png) [[SVG]](mechanics/damped-oscillator/damped-oscillator_inverted.svg)
 ~~~.tex
@@ -4737,8 +4860,8 @@
   legend cell align={right},
   legend style={at={(1,0)},anchor=north east}
   ]
-  \addplot[red] { 2*sin(deg(x)) };
-  \addlegendentry{$x(t)=\SI{2}{\m}\sin(\SI{1}{\per\s} t)$};
+  \addplot[red] { 2*cos(deg(x)) };
+  \addlegendentry{$x(t)=\SI{2}{\m}\cos(\SI{1}{\per\s} t)$};
 \end{axis}
 \end{tikzpicture}
 \end{document}
