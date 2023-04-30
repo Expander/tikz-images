@@ -581,6 +581,53 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## ln-2.svg
+[![ln-2.svg](mathematics/ln-2/ln-2.svg "ln-2.svg")](mathematics/ln-2/ln-2.svg) [[PDF]](mathematics/ln-2/ln-2.pdf) [[PNG]](mathematics/ln-2/ln-2.png) [[SVG]](mathematics/ln-2/ln-2.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\usepackage{pgfplots}
+\tikzset{>=latex}
+
+\pgfplotsset{
+  every non boxed x axis/.append style={
+    axis line style={-latex}
+  },
+  every non boxed y axis/.append style={
+    axis line style={-latex}
+  },
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=black,
+      text=white
+    }
+  }
+}
+
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[
+  thick,
+  width=6cm,
+  height=6cm,
+  domain=0.05:4,
+  samples=100,
+  axis y line=middle,
+  axis x line=middle,
+  xlabel={$x$},
+  ylabel={$y$},
+  xlabel style={right},
+  ylabel style={above},
+  xmin=-2, xmax=4.5,
+  ymin=-4, ymax=2.5,
+  clip=false
+  ]
+  \addplot[red,smooth] { ln(x) } node[above] {$f(x)=\ln(x)$};
+\end{axis}
+\end{tikzpicture}
+\end{document}
+~~~
 ## ln.svg
 [![ln.svg](mathematics/ln/ln.svg "ln.svg")](mathematics/ln/ln.svg) [[PDF]](mathematics/ln/ln.pdf) [[PNG]](mathematics/ln/ln.png) [[SVG]](mathematics/ln/ln.svg)
 ~~~.tex
@@ -1894,6 +1941,62 @@
   \addplot[red, domain=-2:2] {3*x} node[above,xshift=1em] {$f(x)=3x$};
   \addplot[blue, domain=-6:6] {x} node[right] {$f(x)=x$};
   \addplot[green, domain=-6:6] {-x/5} node[below] {$f(x)=-\frac{1}{5}x$};
+\end{axis}
+\end{tikzpicture}
+\end{document}
+~~~
+## ln-2_inverted.svg
+[![ln-2_inverted.svg](mathematics/ln-2/ln-2_inverted.svg "ln-2_inverted.svg")](mathematics/ln-2/ln-2_inverted.svg) [[PDF]](mathematics/ln-2/ln-2_inverted.pdf) [[PNG]](mathematics/ln-2/ln-2_inverted.png) [[SVG]](mathematics/ln-2/ln-2_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    color=white,
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\usepackage{pgfplots}
+\tikzset{>=latex}
+
+\pgfplotsset{
+  every non boxed x axis/.append style={
+    axis line style={-latex}
+  },
+  every non boxed y axis/.append style={
+    axis line style={-latex}
+  },
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=white,
+      text=white
+    }
+  }
+}
+
+\begin{document}
+\begin{tikzpicture}[inverted,inverted]
+\begin{axis}[inverted,
+  thick,
+  width=6cm,
+  height=6cm,
+  domain=0.05:4,
+  samples=100,
+  axis y line=middle,
+  axis x line=middle,
+  xlabel={$x$},
+  ylabel={$y$},
+  xlabel style={right},
+  ylabel style={above},
+  xmin=-2, xmax=4.5,
+  ymin=-4, ymax=2.5,
+  clip=false
+  ]
+  \addplot[red,smooth] { ln(x) } node[above] {$f(x)=\ln(x)$};
 \end{axis}
 \end{tikzpicture}
 \end{document}
