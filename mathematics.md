@@ -376,6 +376,58 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## linear.svg
+[![linear.svg](mathematics/linear/linear.svg "linear.svg")](mathematics/linear/linear.svg) [[PDF]](mathematics/linear/linear.pdf) [[PNG]](mathematics/linear/linear.png) [[SVG]](mathematics/linear/linear.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\usepackage{pgfplots}
+\tikzset{>=latex}
+\colorlet{green}{black!40!green}
+
+\pgfplotsset{
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=hardblack,
+      text=white
+    }
+  },
+  every non boxed x axis/.append style={
+    axis line style={-latex}
+  },
+  every non boxed y axis/.append style={
+    axis line style={-latex}
+  }
+}
+
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[
+  thick,
+  width=6cm,
+  height=6cm,
+  xlabel={$x$},
+  ylabel={$y$},
+  xmin = -7, xmax = 7,
+  ymin = -6, ymax = 7,
+  axis y line=middle,
+  axis x line=middle,
+  xlabel style={at=(current axis.right of origin), anchor=west},
+  ylabel style={at=(current axis.above origin), anchor=south},
+  xtick distance=2,
+  ytick distance=2,
+  samples=10,
+  smooth,
+  clip=false,
+  ]
+  \addplot[red, domain=-2:2] {3*x} node[above,xshift=1em] {$f(x)=3x$};
+  \addplot[blue, domain=-6:6] {x} node[right] {$f(x)=x$};
+  \addplot[green, domain=-6:6] {-x/5} node[below] {$f(x)=-\frac{1}{5}x$};
+\end{axis}
+\end{tikzpicture}
+\end{document}
+~~~
 ## ln.svg
 [![ln.svg](mathematics/ln/ln.svg "ln.svg")](mathematics/ln/ln.svg) [[PDF]](mathematics/ln/ln.pdf) [[PNG]](mathematics/ln/ln.png) [[SVG]](mathematics/ln/ln.svg)
 ~~~.tex
@@ -1398,6 +1450,67 @@
   ymin=0, ymax={5.5}
   ]
   \addplot[red,smooth] { 1/x };
+\end{axis}
+\end{tikzpicture}
+\end{document}
+~~~
+## linear_inverted.svg
+[![linear_inverted.svg](mathematics/linear/linear_inverted.svg "linear_inverted.svg")](mathematics/linear/linear_inverted.svg) [[PDF]](mathematics/linear/linear_inverted.pdf) [[PNG]](mathematics/linear/linear_inverted.png) [[SVG]](mathematics/linear/linear_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    color=white,
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\usepackage{pgfplots}
+\tikzset{>=latex}
+\colorlet{green}{green}
+
+\pgfplotsset{
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=black,
+      text=white
+    }
+  },
+  every non boxed x axis/.append style={
+    axis line style={-latex}
+  },
+  every non boxed y axis/.append style={
+    axis line style={-latex}
+  }
+}
+
+\begin{document}
+\begin{tikzpicture}[inverted,inverted]
+\begin{axis}[inverted,
+  thick,
+  width=6cm,
+  height=6cm,
+  xlabel={$x$},
+  ylabel={$y$},
+  xmin = -7, xmax = 7,
+  ymin = -6, ymax = 7,
+  axis y line=middle,
+  axis x line=middle,
+  xlabel style={at=(current axis.right of origin), anchor=west},
+  ylabel style={at=(current axis.above origin), anchor=south},
+  xtick distance=2,
+  ytick distance=2,
+  samples=10,
+  smooth,
+  clip=false,
+  ]
+  \addplot[red, domain=-2:2] {3*x} node[above,xshift=1em] {$f(x)=3x$};
+  \addplot[blue, domain=-6:6] {x} node[right] {$f(x)=x$};
+  \addplot[green, domain=-6:6] {-x/5} node[below] {$f(x)=-\frac{1}{5}x$};
 \end{axis}
 \end{tikzpicture}
 \end{document}
