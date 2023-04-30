@@ -674,6 +674,59 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## logarithms.svg
+[![logarithms.svg](mathematics/logarithms/logarithms.svg "logarithms.svg")](mathematics/logarithms/logarithms.svg) [[PDF]](mathematics/logarithms/logarithms.pdf) [[PNG]](mathematics/logarithms/logarithms.png) [[SVG]](mathematics/logarithms/logarithms.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\usepackage{pgfplots}
+\colorlet{green}{black!40!green}
+
+\tikzset{>=latex}
+
+\pgfplotsset{
+  every non boxed x axis/.append style={
+    axis line style={-latex}
+  },
+  every non boxed y axis/.append style={
+    axis line style={-latex}
+  },
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=black,
+      text=white
+    }
+  }
+}
+
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[
+  thick,
+  width=6cm,
+  height=6cm,
+  domain=0.05:4,
+  samples=100,
+  smooth,
+  axis y line=middle,
+  axis x line=middle,
+  xlabel={$x$},
+  ylabel={$y$},
+  xlabel style={right},
+  ylabel style={above},
+  xmin=-2, xmax=9,
+  ymin=-4, ymax=2.5,
+  clip=false
+  ]
+  \addplot[red] { ln(x) } node[right] {$f(x)=\ln(x)$};
+  \addplot[blue] { log10(x) } node[right] {$f(x)=\log_{10}(x)$};
+  \addplot[green,domain=0.1:4] { log2(x) } node[right] {$f(x)=\log_{2}(x)$};
+  \addplot[orange,domain=0.2:4] { -log2(x) } node[right] {$f(x)=\log_{1/2}(x)$};
+\end{axis}
+\end{tikzpicture}
+\end{document}
+~~~
 ## polynom.svg
 [![polynom.svg](mathematics/polynom/polynom.svg "polynom.svg")](mathematics/polynom/polynom.svg) [[PDF]](mathematics/polynom/polynom.pdf) [[PNG]](mathematics/polynom/polynom.png) [[SVG]](mathematics/polynom/polynom.svg)
 ~~~.tex
@@ -2052,6 +2105,68 @@
   % ymin=0,
   ]
   \addplot[red,smooth] { ln(x) };
+\end{axis}
+\end{tikzpicture}
+\end{document}
+~~~
+## logarithms_inverted.svg
+[![logarithms_inverted.svg](mathematics/logarithms/logarithms_inverted.svg "logarithms_inverted.svg")](mathematics/logarithms/logarithms_inverted.svg) [[PDF]](mathematics/logarithms/logarithms_inverted.pdf) [[PNG]](mathematics/logarithms/logarithms_inverted.png) [[SVG]](mathematics/logarithms/logarithms_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    color=white,
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\usepackage{pgfplots}
+\colorlet{green}{green}
+
+\tikzset{>=latex}
+
+\pgfplotsset{
+  every non boxed x axis/.append style={
+    axis line style={-latex}
+  },
+  every non boxed y axis/.append style={
+    axis line style={-latex}
+  },
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=white,
+      text=white
+    }
+  }
+}
+
+\begin{document}
+\begin{tikzpicture}[inverted,inverted]
+\begin{axis}[inverted,
+  thick,
+  width=6cm,
+  height=6cm,
+  domain=0.05:4,
+  samples=100,
+  smooth,
+  axis y line=middle,
+  axis x line=middle,
+  xlabel={$x$},
+  ylabel={$y$},
+  xlabel style={right},
+  ylabel style={above},
+  xmin=-2, xmax=9,
+  ymin=-4, ymax=2.5,
+  clip=false
+  ]
+  \addplot[red] { ln(x) } node[right] {$f(x)=\ln(x)$};
+  \addplot[blue] { log10(x) } node[right] {$f(x)=\log_{10}(x)$};
+  \addplot[green,domain=0.1:4] { log2(x) } node[right] {$f(x)=\log_{2}(x)$};
+  \addplot[orange,domain=0.2:4] { -log2(x) } node[right] {$f(x)=\log_{1/2}(x)$};
 \end{axis}
 \end{tikzpicture}
 \end{document}
