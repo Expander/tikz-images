@@ -520,6 +520,56 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## quadratic.svg
+[![quadratic.svg](mathematics/quadratic/quadratic.svg "quadratic.svg")](mathematics/quadratic/quadratic.svg) [[PDF]](mathematics/quadratic/quadratic.pdf) [[PNG]](mathematics/quadratic/quadratic.png) [[SVG]](mathematics/quadratic/quadratic.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\usepackage{pgfplots}
+\tikzset{>=latex}
+
+\pgfplotsset{
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=hardblack,
+      text=white
+    }
+  },
+  every non boxed x axis/.append style={
+    axis line style={-latex}
+  },
+  every non boxed y axis/.append style={
+    axis line style={-latex}
+  }
+}
+
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[
+  thick,
+  width=6cm,
+  height=6cm,
+  xlabel={$x$},
+  ylabel={$y$},
+  xmin = -2, xmax = 2.9,
+  ymin = -4, ymax = 4.5,
+  axis y line=middle,
+  axis x line=middle,
+  xlabel style={at=(current axis.right of origin), anchor=west},
+  ylabel style={at=(current axis.above origin), anchor=south},
+  xtick distance=1,
+  ytick distance=2,
+  samples=100,
+  smooth,
+  clip=false,
+  ]
+  \addplot[red, domain=-2:2] {x^2} node[above,xshift=1em] {$f(x)=x^2$};
+  \addplot[blue, domain=-0.7:2.5] {-2*x^2+4*x} node[below] {$f(x)=-2x^2+4x$};
+\end{axis}
+\end{tikzpicture}
+\end{document}
+~~~
 ## regression-minmax.svg
 [![regression-minmax.svg](mathematics/regression-minmax/regression-minmax.svg "regression-minmax.svg")](mathematics/regression-minmax/regression-minmax.svg) [[PDF]](mathematics/regression-minmax/regression-minmax.pdf) [[PNG]](mathematics/regression-minmax/regression-minmax.png) [[SVG]](mathematics/regression-minmax/regression-minmax.svg)
 ~~~.tex
@@ -1621,6 +1671,65 @@
   smooth,
   ]
   \addplot[red, domain=-6:6] {x - x^3/6 + x^5/120 - x^7/5040 + x^9/362880};
+\end{axis}
+\end{tikzpicture}
+\end{document}
+~~~
+## quadratic_inverted.svg
+[![quadratic_inverted.svg](mathematics/quadratic/quadratic_inverted.svg "quadratic_inverted.svg")](mathematics/quadratic/quadratic_inverted.svg) [[PDF]](mathematics/quadratic/quadratic_inverted.pdf) [[PNG]](mathematics/quadratic/quadratic_inverted.png) [[SVG]](mathematics/quadratic/quadratic_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    color=white,
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\usepackage{pgfplots}
+\tikzset{>=latex}
+
+\pgfplotsset{
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=black,
+      text=white
+    }
+  },
+  every non boxed x axis/.append style={
+    axis line style={-latex}
+  },
+  every non boxed y axis/.append style={
+    axis line style={-latex}
+  }
+}
+
+\begin{document}
+\begin{tikzpicture}[inverted,inverted]
+\begin{axis}[inverted,
+  thick,
+  width=6cm,
+  height=6cm,
+  xlabel={$x$},
+  ylabel={$y$},
+  xmin = -2, xmax = 2.9,
+  ymin = -4, ymax = 4.5,
+  axis y line=middle,
+  axis x line=middle,
+  xlabel style={at=(current axis.right of origin), anchor=west},
+  ylabel style={at=(current axis.above origin), anchor=south},
+  xtick distance=1,
+  ytick distance=2,
+  samples=100,
+  smooth,
+  clip=false,
+  ]
+  \addplot[red, domain=-2:2] {x^2} node[above,xshift=1em] {$f(x)=x^2$};
+  \addplot[blue, domain=-0.7:2.5] {-2*x^2+4*x} node[below] {$f(x)=-2x^2+4x$};
 \end{axis}
 \end{tikzpicture}
 \end{document}

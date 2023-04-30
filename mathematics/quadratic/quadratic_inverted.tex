@@ -1,0 +1,55 @@
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    color=white,
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\usepackage{pgfplots}
+\tikzset{>=latex}
+
+\pgfplotsset{
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=black,
+      text=white
+    }
+  },
+  every non boxed x axis/.append style={
+    axis line style={-latex}
+  },
+  every non boxed y axis/.append style={
+    axis line style={-latex}
+  }
+}
+
+\begin{document}
+\begin{tikzpicture}[inverted,inverted]
+\begin{axis}[inverted,
+  thick,
+  width=6cm,
+  height=6cm,
+  xlabel={$x$},
+  ylabel={$y$},
+  xmin = -2, xmax = 2.9,
+  ymin = -4, ymax = 4.5,
+  axis y line=middle,
+  axis x line=middle,
+  xlabel style={at=(current axis.right of origin), anchor=west},
+  ylabel style={at=(current axis.above origin), anchor=south},
+  xtick distance=1,
+  ytick distance=2,
+  samples=100,
+  smooth,
+  clip=false,
+  ]
+  \addplot[red, domain=-2:2] {x^2} node[above,xshift=1em] {$f(x)=x^2$};
+  \addplot[blue, domain=-0.7:2.5] {-2*x^2+4*x} node[below] {$f(x)=-2x^2+4x$};
+\end{axis}
+\end{tikzpicture}
+\end{document}
