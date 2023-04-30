@@ -477,6 +477,55 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## inverse-function.svg
+[![inverse-function.svg](mathematics/inverse-function/inverse-function.svg "inverse-function.svg")](mathematics/inverse-function/inverse-function.svg) [[PDF]](mathematics/inverse-function/inverse-function.pdf) [[PNG]](mathematics/inverse-function/inverse-function.png) [[SVG]](mathematics/inverse-function/inverse-function.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\usepackage{pgfplots}
+\colorlet{green}{black!40!green}
+
+\tikzset{>=latex}
+
+\pgfplotsset{
+  every non boxed x axis/.append style={
+    axis line style={-latex}
+  },
+  every non boxed y axis/.append style={
+    axis line style={-latex}
+  },
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=black,
+      text=white
+    }
+  }
+}
+
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[
+  width=6cm,
+  height=6cm,
+  xlabel={$x$},          % default put x on x-axis
+  ylabel={$y$},          % default put y on y-axis
+  xmin = -2, xmax = 7,
+  ymin = -2, ymax = 7,
+  axis y line=middle,
+  axis x line=middle,
+  xlabel style={at=(current axis.right of origin), anchor=west},
+  ylabel style={at=(current axis.above origin), anchor=south},
+  samples=100,
+  smooth,
+  ]
+  \addplot[blue, domain=0:{sqrt(6)}, thick] ({x^2-1},x) node[right] {$f(x)$};
+  \addplot[red, domain=0:{sqrt(6)}, thick] {x^2-1} node[above] {$f^{-1}(x)$};
+  \addplot[dashed, domain=-1:5, thick] {x};
+\end{axis}
+\end{tikzpicture}
+\end{document}
+~~~
 ## linear-2.svg
 [![linear-2.svg](mathematics/linear-2/linear-2.svg "linear-2.svg")](mathematics/linear-2/linear-2.svg) [[PDF]](mathematics/linear-2/linear-2.pdf) [[PNG]](mathematics/linear-2/linear-2.png) [[SVG]](mathematics/linear-2/linear-2.svg)
 ~~~.tex
@@ -1872,6 +1921,64 @@
   ymin=0, ymax={5.5}
   ]
   \addplot[red,smooth] { 1/x };
+\end{axis}
+\end{tikzpicture}
+\end{document}
+~~~
+## inverse-function_inverted.svg
+[![inverse-function_inverted.svg](mathematics/inverse-function/inverse-function_inverted.svg "inverse-function_inverted.svg")](mathematics/inverse-function/inverse-function_inverted.svg) [[PDF]](mathematics/inverse-function/inverse-function_inverted.pdf) [[PNG]](mathematics/inverse-function/inverse-function_inverted.png) [[SVG]](mathematics/inverse-function/inverse-function_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    color=white,
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\usepackage{pgfplots}
+\colorlet{green}{green}
+
+\tikzset{>=latex}
+
+\pgfplotsset{
+  every non boxed x axis/.append style={
+    axis line style={-latex}
+  },
+  every non boxed y axis/.append style={
+    axis line style={-latex}
+  },
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=white,
+      text=white
+    }
+  }
+}
+
+\begin{document}
+\begin{tikzpicture}[inverted,inverted]
+\begin{axis}[inverted,
+  width=6cm,
+  height=6cm,
+  xlabel={$x$},          % default put x on x-axis
+  ylabel={$y$},          % default put y on y-axis
+  xmin = -2, xmax = 7,
+  ymin = -2, ymax = 7,
+  axis y line=middle,
+  axis x line=middle,
+  xlabel style={at=(current axis.right of origin), anchor=west},
+  ylabel style={at=(current axis.above origin), anchor=south},
+  samples=100,
+  smooth,
+  ]
+  \addplot[blue, domain=0:{sqrt(6)}, thick] ({x^2-1},x) node[right] {$f(x)$};
+  \addplot[red, domain=0:{sqrt(6)}, thick] {x^2-1} node[above] {$f^{-1}(x)$};
+  \addplot[dashed, domain=-1:5, thick] {x};
 \end{axis}
 \end{tikzpicture}
 \end{document}
