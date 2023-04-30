@@ -10,6 +10,8 @@
 
 [Optics](optics.md)
 
+[Quantum Mechanics](quantum.md)
+
 [Statistics](statistics.md)
 
 License: CC0
