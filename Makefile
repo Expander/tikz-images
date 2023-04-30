@@ -23,14 +23,19 @@ OPT_TEX   := $(shell find optics          -name '*.tex' -a ! -name '*_inverted.t
 OPT_TEX   := $(OPT_TEX) $(patsubst %.tex,%_inverted.tex,$(OPT_TEX))
 OPT_SVG   := $(patsubst %.tex,%.svg,$(OPT_TEX))
 
+QUA_MD    := quantum.md
+QUA_TEX   := $(shell find quantum         -name '*.tex' -a ! -name '*_inverted.tex' -type f | sort)
+QUA_TEX   := $(QUA_TEX) $(patsubst %.tex,%_inverted.tex,$(QUA_TEX))
+QUA_SVG   := $(patsubst %.tex,%.svg,$(QUA_TEX))
+
 STA_MD    := statistics.md
 STA_TEX   := $(shell find statistics      -name '*.tex' -a ! -name '*_inverted.tex' -type f | sort)
 STA_TEX   := $(STA_TEX) $(patsubst %.tex,%_inverted.tex,$(STA_TEX))
 STA_SVG   := $(patsubst %.tex,%.svg,$(STA_TEX))
 
-MD_FILES  := $(DID_MD)  $(EDY_MD)  $(MAT_MD)  $(MEC_MD)  $(OPT_MD)  $(STA_MD)
-SVG_FILES := $(DID_SVG) $(EDY_SVG) $(MAT_SVG) $(MEC_SVG) $(OPT_SVG) $(STA_SVG)
-TEX_FILES := $(DID_TEX) $(EDY_TEX) $(MAT_TEX) $(MEC_TEX) $(OPT_TEX) $(STA_TEX)
+MD_FILES  := $(DID_MD)  $(EDY_MD)  $(MAT_MD)  $(MEC_MD)  $(OPT_MD)  $(QUA_MD)  $(STA_MD) 
+SVG_FILES := $(DID_SVG) $(EDY_SVG) $(MAT_SVG) $(MEC_SVG) $(OPT_SVG) $(QUA_SVG) $(STA_SVG)
+TEX_FILES := $(DID_TEX) $(EDY_TEX) $(MAT_TEX) $(MEC_TEX) $(OPT_TEX) $(QUA_TEX) $(STA_TEX)
 
 AUX_FILES := $(patsubst %.tex,%.aux,$(TEX_FILES))
 LOG_FILES := $(patsubst %.tex,%.log,$(TEX_FILES))
@@ -63,6 +68,9 @@ $(MEC_MD): $(MEC_SVG)
 
 $(OPT_MD): $(OPT_SVG)
 	./generate-list Optics $^ > $@
+
+$(QUA_MD): $(QUA_SVG)
+	./generate-list Statistics $^ > $@
 
 $(STA_MD): $(STA_SVG)
 	./generate-list Statistics $^ > $@
