@@ -1134,26 +1134,8 @@
 ~~~.tex
 \documentclass[crop,tikz]{standalone}
 
-\usepackage{pgfplots}
 \usetikzlibrary{angles}
-
 \tikzset{>=latex}
-
-\pgfplotsset{
-  every non boxed x axis/.append style={
-    axis line style={-latex}
-  },
-  every non boxed y axis/.append style={
-    axis line style={-latex}
-  },
-  inverted/.style = {
-    every axis legend/.append style={
-      draw=white,
-      fill=black,
-      text=white
-    }
-  }
-}
 
 \begin{document}
 \begin{tikzpicture}[scale=2]
@@ -3006,26 +2988,8 @@
   }
 }
 
-\usepackage{pgfplots}
 \usetikzlibrary{angles}
-
 \tikzset{>=latex}
-
-\pgfplotsset{
-  every non boxed x axis/.append style={
-    axis line style={-latex}
-  },
-  every non boxed y axis/.append style={
-    axis line style={-latex}
-  },
-  inverted/.style = {
-    every axis legend/.append style={
-      draw=white,
-      fill=white,
-      text=white
-    }
-  }
-}
 
 \begin{document}
 \begin{tikzpicture}[inverted,scale=2]
