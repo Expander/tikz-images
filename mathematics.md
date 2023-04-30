@@ -1054,6 +1054,64 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## sin-cos.svg
+[![sin-cos.svg](mathematics/sin-cos/sin-cos.svg "sin-cos.svg")](mathematics/sin-cos/sin-cos.svg) [[PDF]](mathematics/sin-cos/sin-cos.pdf) [[PNG]](mathematics/sin-cos/sin-cos.png) [[SVG]](mathematics/sin-cos/sin-cos.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\usepackage{pgfplots}
+\colorlet{green}{black!40!green}
+
+\tikzset{>=latex}
+
+\pgfplotsset{
+  every non boxed x axis/.append style={
+    axis line style={-latex}
+  },
+  every non boxed y axis/.append style={
+    axis line style={-latex}
+  },
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=black,
+      text=white
+    }
+  }
+}
+
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[
+  thick,
+  width=7cm,
+  height=5cm,
+  domain={0}:{4*pi},
+  samples=100,
+  smooth,
+  axis y line=middle,
+  axis x line=middle,
+  xlabel={$x$},
+  ylabel={$y$},
+  xlabel style={right},
+  ylabel style={above},
+  xmin=0, xmax={4.2*pi},
+  ymin=-1, ymax=2.4,
+  xtick={0, pi, 2*pi, 3*pi, 4*pi},
+  xticklabels={$0$, $\pi$, $2\pi$, $3\pi$, $4\pi$},
+  ytick distance=1,
+  extra y ticks={0},
+  legend cell align={left},
+  legend style={at={(1,1)},anchor=north east},
+  ]
+  \addplot[red] { sin(deg(x)) };
+  \addlegendentry{$\sin(x)$};
+  \addplot[blue,densely dotted] { cos(deg(x)) };
+  \addlegendentry{$\cos(x)$};
+\end{axis}
+\end{tikzpicture}
+\end{document}
+~~~
 ## sin-frequency.svg
 [![sin-frequency.svg](mathematics/sin-frequency/sin-frequency.svg "sin-frequency.svg")](mathematics/sin-frequency/sin-frequency.svg) [[PDF]](mathematics/sin-frequency/sin-frequency.pdf) [[PNG]](mathematics/sin-frequency/sin-frequency.png) [[SVG]](mathematics/sin-frequency/sin-frequency.svg)
 ~~~.tex
@@ -2776,6 +2834,73 @@
   \addlegendentry{$2\sin(x)$};
   \addplot[green,densely dashed] { 0.5*sin(deg(x)) };
   \addlegendentry{$\frac{1}{2}\sin(x)$};
+\end{axis}
+\end{tikzpicture}
+\end{document}
+~~~
+## sin-cos_inverted.svg
+[![sin-cos_inverted.svg](mathematics/sin-cos/sin-cos_inverted.svg "sin-cos_inverted.svg")](mathematics/sin-cos/sin-cos_inverted.svg) [[PDF]](mathematics/sin-cos/sin-cos_inverted.pdf) [[PNG]](mathematics/sin-cos/sin-cos_inverted.png) [[SVG]](mathematics/sin-cos/sin-cos_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    color=white,
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\usepackage{pgfplots}
+\colorlet{green}{green}
+
+\tikzset{>=latex}
+
+\pgfplotsset{
+  every non boxed x axis/.append style={
+    axis line style={-latex}
+  },
+  every non boxed y axis/.append style={
+    axis line style={-latex}
+  },
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=white,
+      text=white
+    }
+  }
+}
+
+\begin{document}
+\begin{tikzpicture}[inverted,inverted]
+\begin{axis}[inverted,
+  thick,
+  width=7cm,
+  height=5cm,
+  domain={0}:{4*pi},
+  samples=100,
+  smooth,
+  axis y line=middle,
+  axis x line=middle,
+  xlabel={$x$},
+  ylabel={$y$},
+  xlabel style={right},
+  ylabel style={above},
+  xmin=0, xmax={4.2*pi},
+  ymin=-1, ymax=2.4,
+  xtick={0, pi, 2*pi, 3*pi, 4*pi},
+  xticklabels={$0$, $\pi$, $2\pi$, $3\pi$, $4\pi$},
+  ytick distance=1,
+  extra y ticks={0},
+  legend cell align={left},
+  legend style={at={(1,1)},anchor=north east},
+  ]
+  \addplot[red] { sin(deg(x)) };
+  \addlegendentry{$\sin(x)$};
+  \addplot[blue,densely dotted] { cos(deg(x)) };
+  \addlegendentry{$\cos(x)$};
 \end{axis}
 \end{tikzpicture}
 \end{document}
