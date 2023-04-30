@@ -994,6 +994,23 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## right-angle-triangle.svg
+[![right-angle-triangle.svg](mathematics/right-angle-triangle/right-angle-triangle.svg "right-angle-triangle.svg")](mathematics/right-angle-triangle/right-angle-triangle.svg) [[PDF]](mathematics/right-angle-triangle/right-angle-triangle.pdf) [[PNG]](mathematics/right-angle-triangle/right-angle-triangle.png) [[SVG]](mathematics/right-angle-triangle/right-angle-triangle.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\usetikzlibrary{angles}
+
+\begin{document}
+\begin{tikzpicture}[thick]
+  \draw (0,0) coordinate (a) -- node[below] {$b$}
+        (4,0) coordinate (c) -- node[right] {$a$}
+        (4,4) coordinate (b) -- node[above left] {$c$} cycle;
+  \pic[draw, angle eccentricity=0.6, angle radius=1cm, pic text={$\alpha$}] {angle = c--a--b};
+  \pic[draw, angle eccentricity=0.5, angle radius=0.7cm, pic text=.] {right angle = b--c--a};
+\end{tikzpicture}
+\end{document}
+~~~
 ## sin-amplitude.svg
 [![sin-amplitude.svg](mathematics/sin-amplitude/sin-amplitude.svg "sin-amplitude.svg")](mathematics/sin-amplitude/sin-amplitude.svg) [[PDF]](mathematics/sin-amplitude/sin-amplitude.pdf) [[PNG]](mathematics/sin-amplitude/sin-amplitude.png) [[SVG]](mathematics/sin-amplitude/sin-amplitude.svg)
 ~~~.tex
@@ -2810,6 +2827,32 @@
     (10.1, 5) +- (0.6, 0.3)
   };
 \end{axis}
+\end{tikzpicture}
+\end{document}
+~~~
+## right-angle-triangle_inverted.svg
+[![right-angle-triangle_inverted.svg](mathematics/right-angle-triangle/right-angle-triangle_inverted.svg "right-angle-triangle_inverted.svg")](mathematics/right-angle-triangle/right-angle-triangle_inverted.svg) [[PDF]](mathematics/right-angle-triangle/right-angle-triangle_inverted.pdf) [[PNG]](mathematics/right-angle-triangle/right-angle-triangle_inverted.png) [[SVG]](mathematics/right-angle-triangle/right-angle-triangle_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    color=white,
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\usetikzlibrary{angles}
+
+\begin{document}
+\begin{tikzpicture}[inverted,thick]
+  \draw (0,0) coordinate (a) -- node[below] {$b$}
+        (4,0) coordinate (c) -- node[right] {$a$}
+        (4,4) coordinate (b) -- node[above left] {$c$} cycle;
+  \pic[draw, angle eccentricity=0.6, angle radius=1cm, pic text={$\alpha$}] {angle = c--a--b};
+  \pic[draw, angle eccentricity=0.5, angle radius=0.7cm, pic text=.] {right angle = b--c--a};
 \end{tikzpicture}
 \end{document}
 ~~~
