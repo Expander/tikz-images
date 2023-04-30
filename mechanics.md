@@ -1257,6 +1257,58 @@
 \end{tikzpicture}%
 \end{document}
 ~~~
+## harmonic-oscillator.svg
+[![harmonic-oscillator.svg](mechanics/harmonic-oscillator/harmonic-oscillator.svg "harmonic-oscillator.svg")](mechanics/harmonic-oscillator/harmonic-oscillator.svg) [[PDF]](mechanics/harmonic-oscillator/harmonic-oscillator.pdf) [[PNG]](mechanics/harmonic-oscillator/harmonic-oscillator.png) [[SVG]](mechanics/harmonic-oscillator/harmonic-oscillator.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\usepackage{pgfplots}
+\usepackage{siunitx}
+\tikzset{>=latex}
+
+\pgfplotsset{
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=hardblack,
+      text=white
+    }
+  },
+  every non boxed x axis/.append style={
+    axis line style={-latex}
+  },
+  every non boxed y axis/.append style={
+    axis line style={-latex}
+  }
+}
+
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[
+  thick,
+  width=7cm,
+  height=6cm,
+  domain={0}:{6*pi},
+  samples=100,
+  smooth,
+  axis y line=middle,
+  axis x line=middle,
+  xlabel={$t/\si{\s}$},
+  ylabel={$x/\si{\m}$},
+  xlabel style={right},
+  ylabel style={above},
+  xmin=0, xmax={6.3*pi},
+  ymin=-2.2, ymax=2.4,
+  extra y ticks={0},
+  legend cell align={right},
+  legend style={at={(1,0)},anchor=north east}
+  ]
+  \addplot[red] { 2*sin(deg(x)) };
+  \addlegendentry{$x(t)=\SI{2}{\m}\sin(\SI{1}{\per\s} t)$};
+\end{axis}
+\end{tikzpicture}
+\end{document}
+~~~
 ## ISS-human.svg
 [![ISS-human.svg](mechanics/ISS-human/ISS-human.svg "ISS-human.svg")](mechanics/ISS-human/ISS-human.svg) [[PDF]](mechanics/ISS-human/ISS-human.pdf) [[PNG]](mechanics/ISS-human/ISS-human.png) [[SVG]](mechanics/ISS-human/ISS-human.svg)
 ~~~.tex
@@ -4628,6 +4680,67 @@
   % ball
   \draw[fill,red] (0,-\radius)+(0,\circleRadius) circle (\circleRadius);
 \end{tikzpicture}%
+\end{document}
+~~~
+## harmonic-oscillator_inverted.svg
+[![harmonic-oscillator_inverted.svg](mechanics/harmonic-oscillator/harmonic-oscillator_inverted.svg "harmonic-oscillator_inverted.svg")](mechanics/harmonic-oscillator/harmonic-oscillator_inverted.svg) [[PDF]](mechanics/harmonic-oscillator/harmonic-oscillator_inverted.pdf) [[PNG]](mechanics/harmonic-oscillator/harmonic-oscillator_inverted.png) [[SVG]](mechanics/harmonic-oscillator/harmonic-oscillator_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    color=white,
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\usepackage{pgfplots}
+\usepackage{siunitx}
+\tikzset{>=latex}
+
+\pgfplotsset{
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=black,
+      text=white
+    }
+  },
+  every non boxed x axis/.append style={
+    axis line style={-latex}
+  },
+  every non boxed y axis/.append style={
+    axis line style={-latex}
+  }
+}
+
+\begin{document}
+\begin{tikzpicture}[inverted,inverted]
+\begin{axis}[inverted,
+  thick,
+  width=7cm,
+  height=6cm,
+  domain={0}:{6*pi},
+  samples=100,
+  smooth,
+  axis y line=middle,
+  axis x line=middle,
+  xlabel={$t/\si{\s}$},
+  ylabel={$x/\si{\m}$},
+  xlabel style={right},
+  ylabel style={above},
+  xmin=0, xmax={6.3*pi},
+  ymin=-2.2, ymax=2.4,
+  extra y ticks={0},
+  legend cell align={right},
+  legend style={at={(1,0)},anchor=north east}
+  ]
+  \addplot[red] { 2*sin(deg(x)) };
+  \addlegendentry{$x(t)=\SI{2}{\m}\sin(\SI{1}{\per\s} t)$};
+\end{axis}
+\end{tikzpicture}
 \end{document}
 ~~~
 ## ISS-human_inverted.svg
