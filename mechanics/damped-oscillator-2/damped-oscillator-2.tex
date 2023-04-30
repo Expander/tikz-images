@@ -44,7 +44,7 @@
   legend style={at={(1.1,0)},anchor=north east}
   ]
   \addplot[red] { 2*exp(-\damp*x)*cos(deg(x)) };
-  \addlegendentry{$x(t)=\SI{2}{\m}\operatorname{e}^{-\SI{\damp}{\per\s} t}\sin(\SI{1}{\per\s} t)$};
+  \addlegendentry{$x(t)=\SI{2}{\m}\operatorname{e}^{-\SI{\damp}{\per\s} t}\cos(\SI{1}{\per\s} t)$};
   \addplot[blue,densely dashed] { 2*exp(-\damp*x) };
   \addlegendentry{$x(t)=\pm\SI{2}{\m}\operatorname{e}^{-\SI{\damp}{\per\s} t}$};
   \addplot[blue,densely dashed] { -2*exp(-\damp*x) };
