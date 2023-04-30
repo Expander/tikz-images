@@ -1114,6 +1114,66 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## sin-phase.svg
+[![sin-phase.svg](mathematics/sin-phase/sin-phase.svg "sin-phase.svg")](mathematics/sin-phase/sin-phase.svg) [[PDF]](mathematics/sin-phase/sin-phase.pdf) [[PNG]](mathematics/sin-phase/sin-phase.png) [[SVG]](mathematics/sin-phase/sin-phase.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\usepackage{pgfplots}
+\colorlet{green}{black!40!green}
+
+\tikzset{>=latex}
+
+\pgfplotsset{
+  every non boxed x axis/.append style={
+    axis line style={-latex}
+  },
+  every non boxed y axis/.append style={
+    axis line style={-latex}
+  },
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=black,
+      text=white
+    }
+  }
+}
+
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[
+  thick,
+  width=7cm,
+  height=5cm,
+  domain={0}:{4*pi},
+  samples=100,
+  smooth,
+  axis y line=middle,
+  axis x line=middle,
+  xlabel={$x$},
+  ylabel={$y$},
+  xlabel style={right},
+  ylabel style={above},
+  xmin=0, xmax={4.2*pi},
+  ymin=-1, ymax=2.4,
+  xtick={0, pi, 2*pi, 3*pi, 4*pi},
+  xticklabels={$0$, $\pi$, $2\pi$, $3\pi$, $4\pi$},
+  ytick distance=1,
+  extra y ticks={0},
+  legend cell align={left},
+  legend style={at={(1,1)},anchor=north east,legend columns=2},
+  ]
+  \addplot[red] { sin(deg(x)) };
+  \addlegendentry{$\sin(x)$};
+  \addplot[blue,densely dotted] { sin(deg(x+pi/2)) };
+  \addlegendentry{$\sin(x+\frac{\pi}{2})$};
+  \addplot[green,densely dashed] { sin(deg(x+pi)) };
+  \addlegendentry{$\sin(x+\pi)$};
+\end{axis}
+\end{tikzpicture}
+\end{document}
+~~~
 ## sin.svg
 [![sin.svg](mathematics/sin/sin.svg "sin.svg")](mathematics/sin/sin.svg) [[PDF]](mathematics/sin/sin.pdf) [[PNG]](mathematics/sin/sin.png) [[SVG]](mathematics/sin/sin.svg)
 ~~~.tex
@@ -2785,6 +2845,75 @@
   \addlegendentry{$\sin(2x)$};
   \addplot[green,densely dashed] { sin(0.5*deg(x)) };
   \addlegendentry{$\sin(\frac{1}{2}x)$};
+\end{axis}
+\end{tikzpicture}
+\end{document}
+~~~
+## sin-phase_inverted.svg
+[![sin-phase_inverted.svg](mathematics/sin-phase/sin-phase_inverted.svg "sin-phase_inverted.svg")](mathematics/sin-phase/sin-phase_inverted.svg) [[PDF]](mathematics/sin-phase/sin-phase_inverted.pdf) [[PNG]](mathematics/sin-phase/sin-phase_inverted.png) [[SVG]](mathematics/sin-phase/sin-phase_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    color=white,
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\usepackage{pgfplots}
+\colorlet{green}{green}
+
+\tikzset{>=latex}
+
+\pgfplotsset{
+  every non boxed x axis/.append style={
+    axis line style={-latex}
+  },
+  every non boxed y axis/.append style={
+    axis line style={-latex}
+  },
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=white,
+      text=white
+    }
+  }
+}
+
+\begin{document}
+\begin{tikzpicture}[inverted,inverted]
+\begin{axis}[inverted,
+  thick,
+  width=7cm,
+  height=5cm,
+  domain={0}:{4*pi},
+  samples=100,
+  smooth,
+  axis y line=middle,
+  axis x line=middle,
+  xlabel={$x$},
+  ylabel={$y$},
+  xlabel style={right},
+  ylabel style={above},
+  xmin=0, xmax={4.2*pi},
+  ymin=-1, ymax=2.4,
+  xtick={0, pi, 2*pi, 3*pi, 4*pi},
+  xticklabels={$0$, $\pi$, $2\pi$, $3\pi$, $4\pi$},
+  ytick distance=1,
+  extra y ticks={0},
+  legend cell align={left},
+  legend style={at={(1,1)},anchor=north east,legend columns=2},
+  ]
+  \addplot[red] { sin(deg(x)) };
+  \addlegendentry{$\sin(x)$};
+  \addplot[blue,densely dotted] { sin(deg(x+pi/2)) };
+  \addlegendentry{$\sin(x+\frac{\pi}{2})$};
+  \addplot[green,densely dashed] { sin(deg(x+pi)) };
+  \addlegendentry{$\sin(x+\pi)$};
 \end{axis}
 \end{tikzpicture}
 \end{document}
