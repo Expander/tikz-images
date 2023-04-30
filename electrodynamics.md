@@ -1339,6 +1339,61 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## ohms-law.svg
+[![ohms-law.svg](electrodynamics/ohms-law/ohms-law.svg "ohms-law.svg")](electrodynamics/ohms-law/ohms-law.svg) [[PDF]](electrodynamics/ohms-law/ohms-law.pdf) [[PNG]](electrodynamics/ohms-law/ohms-law.png) [[SVG]](electrodynamics/ohms-law/ohms-law.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\usepackage{amsmath}
+\usepackage{pgfplots}
+\usepackage[locale=DE]{siunitx}
+\tikzset{>=latex}
+
+\pgfplotsset{
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=hardblack,
+      text=white
+    }
+  },
+  every non boxed x axis/.append style={
+    axis line style={-latex}
+  },
+  every non boxed y axis/.append style={
+    axis line style={-latex}
+  }
+}
+
+\begin{document}
+\begin{tikzpicture}
+\pgfmathsetmacro{\resistance}{10}
+\begin{axis}[
+  thick,
+  width=7cm,
+  height=6cm,
+  domain={0}:{4},
+  samples=100,
+  smooth,
+  axis y line=middle,
+  axis x line=middle,
+  xlabel={$I/\si{\A}$},
+  ylabel={$U/\si{\V}$},
+  xlabel style={right},
+  ylabel style={above},
+  xmin=0, xmax=4.4,
+  ymin=0, ymax=48,
+  extra x ticks={0},
+  extra y ticks={0},
+  legend cell align={left},
+  legend style={at={(1,1)},anchor=north east}
+  ]
+  \addplot[red] { \resistance*x };
+  \addlegendentry{$U(I)=\SI{\resistance}{\ohm}I$};
+\end{axis}
+\end{tikzpicture}
+\end{document}
+~~~
 ## potential-dipole-neg-neg.svg
 [![potential-dipole-neg-neg.svg](electrodynamics/potential-dipole-neg-neg/potential-dipole-neg-neg.svg "potential-dipole-neg-neg.svg")](electrodynamics/potential-dipole-neg-neg/potential-dipole-neg-neg.svg) [[PDF]](electrodynamics/potential-dipole-neg-neg/potential-dipole-neg-neg.pdf) [[PNG]](electrodynamics/potential-dipole-neg-neg/potential-dipole-neg-neg.png) [[SVG]](electrodynamics/potential-dipole-neg-neg/potential-dipole-neg-neg.svg)
 ~~~.tex
@@ -3440,6 +3495,70 @@
     \draw[fill=red] (\angl:\brad) circle (\crad);
     \node at (\angl:\brad) {\textbf{+}};
   }
+\end{tikzpicture}
+\end{document}
+~~~
+## ohms-law_inverted.svg
+[![ohms-law_inverted.svg](electrodynamics/ohms-law/ohms-law_inverted.svg "ohms-law_inverted.svg")](electrodynamics/ohms-law/ohms-law_inverted.svg) [[PDF]](electrodynamics/ohms-law/ohms-law_inverted.pdf) [[PNG]](electrodynamics/ohms-law/ohms-law_inverted.png) [[SVG]](electrodynamics/ohms-law/ohms-law_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    color=white,
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\usepackage{amsmath}
+\usepackage{pgfplots}
+\usepackage[locale=DE]{siunitx}
+\tikzset{>=latex}
+
+\pgfplotsset{
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=black,
+      text=white
+    }
+  },
+  every non boxed x axis/.append style={
+    axis line style={-latex}
+  },
+  every non boxed y axis/.append style={
+    axis line style={-latex}
+  }
+}
+
+\begin{document}
+\begin{tikzpicture}[inverted,inverted]
+\pgfmathsetmacro{\resistance}{10}
+\begin{axis}[inverted,
+  thick,
+  width=7cm,
+  height=6cm,
+  domain={0}:{4},
+  samples=100,
+  smooth,
+  axis y line=middle,
+  axis x line=middle,
+  xlabel={$I/\si{\A}$},
+  ylabel={$U/\si{\V}$},
+  xlabel style={right},
+  ylabel style={above},
+  xmin=0, xmax=4.4,
+  ymin=0, ymax=48,
+  extra x ticks={0},
+  extra y ticks={0},
+  legend cell align={left},
+  legend style={at={(1,1)},anchor=north east}
+  ]
+  \addplot[red] { \resistance*x };
+  \addlegendentry{$U(I)=\SI{\resistance}{\ohm}I$};
+\end{axis}
 \end{tikzpicture}
 \end{document}
 ~~~
