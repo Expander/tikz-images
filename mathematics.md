@@ -370,6 +370,52 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## polynom.svg
+[![polynom.svg](mathematics/polynom/polynom.svg "polynom.svg")](mathematics/polynom/polynom.svg) [[PDF]](mathematics/polynom/polynom.pdf) [[PNG]](mathematics/polynom/polynom.png) [[SVG]](mathematics/polynom/polynom.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\usepackage{pgfplots}
+\tikzset{>=latex}
+
+\pgfplotsset{
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=hardblack,
+      text=white
+    }
+  },
+  every non boxed x axis/.append style={
+    axis line style={-latex}
+  },
+  every non boxed y axis/.append style={
+    axis line style={-latex}
+  }
+}
+
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[
+  thick,
+  width=6cm,
+  height=6cm,
+  xlabel={$x$},
+  ylabel={$y$},
+  xmin = -7, xmax = 7,
+  ymin = -2, ymax = 2.5,
+  axis y line=middle,
+  axis x line=middle,
+  xlabel style={at=(current axis.right of origin), anchor=west},
+  ylabel style={at=(current axis.above origin), anchor=south},
+  samples=100,
+  smooth,
+  ]
+  \addplot[red, domain=-6:6] {x - x^3/6 + x^5/120 - x^7/5040 + x^9/362880};
+\end{axis}
+\end{tikzpicture}
+\end{document}
+~~~
 ## regression-minmax.svg
 [![regression-minmax.svg](mathematics/regression-minmax/regression-minmax.svg "regression-minmax.svg")](mathematics/regression-minmax/regression-minmax.svg) [[PDF]](mathematics/regression-minmax/regression-minmax.pdf) [[PNG]](mathematics/regression-minmax/regression-minmax.png) [[SVG]](mathematics/regression-minmax/regression-minmax.svg)
 ~~~.tex
@@ -1294,6 +1340,61 @@
   % ymin=0,
   ]
   \addplot[red,smooth] { ln(x) };
+\end{axis}
+\end{tikzpicture}
+\end{document}
+~~~
+## polynom_inverted.svg
+[![polynom_inverted.svg](mathematics/polynom/polynom_inverted.svg "polynom_inverted.svg")](mathematics/polynom/polynom_inverted.svg) [[PDF]](mathematics/polynom/polynom_inverted.pdf) [[PNG]](mathematics/polynom/polynom_inverted.png) [[SVG]](mathematics/polynom/polynom_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    color=white,
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\usepackage{pgfplots}
+\tikzset{>=latex}
+
+\pgfplotsset{
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=black,
+      text=white
+    }
+  },
+  every non boxed x axis/.append style={
+    axis line style={-latex}
+  },
+  every non boxed y axis/.append style={
+    axis line style={-latex}
+  }
+}
+
+\begin{document}
+\begin{tikzpicture}[inverted,inverted]
+\begin{axis}[inverted,
+  thick,
+  width=6cm,
+  height=6cm,
+  xlabel={$x$},
+  ylabel={$y$},
+  xmin = -7, xmax = 7,
+  ymin = -2, ymax = 2.5,
+  axis y line=middle,
+  axis x line=middle,
+  xlabel style={at=(current axis.right of origin), anchor=west},
+  ylabel style={at=(current axis.above origin), anchor=south},
+  samples=100,
+  smooth,
+  ]
+  \addplot[red, domain=-6:6] {x - x^3/6 + x^5/120 - x^7/5040 + x^9/362880};
 \end{axis}
 \end{tikzpicture}
 \end{document}
