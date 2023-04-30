@@ -1,4 +1,56 @@
 # Mathematics
+## constant.svg
+[![constant.svg](mathematics/constant/constant.svg "constant.svg")](mathematics/constant/constant.svg) [[PDF]](mathematics/constant/constant.pdf) [[PNG]](mathematics/constant/constant.png) [[SVG]](mathematics/constant/constant.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\usepackage{pgfplots}
+\tikzset{>=latex}
+\colorlet{green}{black!40!green}
+
+\pgfplotsset{
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=hardblack,
+      text=white
+    }
+  },
+  every non boxed x axis/.append style={
+    axis line style={-latex}
+  },
+  every non boxed y axis/.append style={
+    axis line style={-latex}
+  }
+}
+
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[
+  thick,
+  width=6cm,
+  height=6cm,
+  xlabel={$x$},
+  ylabel={$y$},
+  xmin = -7, xmax = 7,
+  ymin = -2, ymax = 2.5,
+  axis y line=middle,
+  axis x line=middle,
+  xlabel style={at=(current axis.right of origin), anchor=west},
+  ylabel style={at=(current axis.above origin), anchor=south},
+  ytick distance=1,
+  samples=10,
+  domain=-6:6,
+  smooth,
+  clip=false,
+  ]
+  \addplot[red] {-1.5} node[right] {$f(x)=-\frac{3}{2}$};
+  \addplot[blue] {0.5} node[right] {$f(x)=\frac{1}{2}$};
+  \addplot[green] {1.5} node[right] {$f(x)=\frac{3}{2}$};
+\end{axis}
+\end{tikzpicture}
+\end{document}
+~~~
 ## derivative.svg
 [![derivative.svg](mathematics/derivative/derivative.svg "derivative.svg")](mathematics/derivative/derivative.svg) [[PDF]](mathematics/derivative/derivative.pdf) [[PNG]](mathematics/derivative/derivative.png) [[SVG]](mathematics/derivative/derivative.svg)
 ~~~.tex
@@ -907,6 +959,67 @@
     \draw[decorate, decoration = {brace, amplitude=3pt}] ([xshift=0.2em]{\px+\dx}, {\py+\dy}, {t(\px+\dx, \py+\dy)}) -- ([xshift=0.2em]{\px+\dx}, {\py+\dy}, {t(\px+\dx, \py)}) node[right,xshift=0.5em,midway] {$\pdv{f(x_0, y_0)}{y}\dd{y}$};
     \draw[decorate, decoration = {brace, amplitude=3pt}] ([xshift=7em]{\px+\dx}, {\py+\dy}, {t(\px+\dx, \py+\dy)}) -- ([xshift=7em]{\px+\dx}, {\py+\dy}, {f(\px, \py)}) node[right,xshift=0.5em,midway] {$\dd{f(x_0, y_0)}$};
   \end{axis}
+\end{tikzpicture}
+\end{document}
+~~~
+## constant_inverted.svg
+[![constant_inverted.svg](mathematics/constant/constant_inverted.svg "constant_inverted.svg")](mathematics/constant/constant_inverted.svg) [[PDF]](mathematics/constant/constant_inverted.pdf) [[PNG]](mathematics/constant/constant_inverted.png) [[SVG]](mathematics/constant/constant_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    color=white,
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\usepackage{pgfplots}
+\tikzset{>=latex}
+\colorlet{green}{green}
+
+\pgfplotsset{
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=black,
+      text=white
+    }
+  },
+  every non boxed x axis/.append style={
+    axis line style={-latex}
+  },
+  every non boxed y axis/.append style={
+    axis line style={-latex}
+  }
+}
+
+\begin{document}
+\begin{tikzpicture}[inverted,inverted]
+\begin{axis}[inverted,
+  thick,
+  width=6cm,
+  height=6cm,
+  xlabel={$x$},
+  ylabel={$y$},
+  xmin = -7, xmax = 7,
+  ymin = -2, ymax = 2.5,
+  axis y line=middle,
+  axis x line=middle,
+  xlabel style={at=(current axis.right of origin), anchor=west},
+  ylabel style={at=(current axis.above origin), anchor=south},
+  ytick distance=1,
+  samples=10,
+  domain=-6:6,
+  smooth,
+  clip=false,
+  ]
+  \addplot[red] {-1.5} node[right] {$f(x)=-\frac{3}{2}$};
+  \addplot[blue] {0.5} node[right] {$f(x)=\frac{1}{2}$};
+  \addplot[green] {1.5} node[right] {$f(x)=\frac{3}{2}$};
+\end{axis}
 \end{tikzpicture}
 \end{document}
 ~~~
