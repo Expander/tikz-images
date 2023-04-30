@@ -1112,6 +1112,50 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## sin-cos-unit-circle.svg
+[![sin-cos-unit-circle.svg](mathematics/sin-cos-unit-circle/sin-cos-unit-circle.svg "sin-cos-unit-circle.svg")](mathematics/sin-cos-unit-circle/sin-cos-unit-circle.svg) [[PDF]](mathematics/sin-cos-unit-circle/sin-cos-unit-circle.pdf) [[PNG]](mathematics/sin-cos-unit-circle/sin-cos-unit-circle.png) [[SVG]](mathematics/sin-cos-unit-circle/sin-cos-unit-circle.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\usepackage{pgfplots}
+\usetikzlibrary{angles}
+
+\tikzset{>=latex}
+
+\pgfplotsset{
+  every non boxed x axis/.append style={
+    axis line style={-latex}
+  },
+  every non boxed y axis/.append style={
+    axis line style={-latex}
+  },
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=black,
+      text=white
+    }
+  }
+}
+
+\begin{document}
+\begin{tikzpicture}[scale=2]
+  \draw[->] (-1.2,0) -- (1.2,0) node[right] {$x$};
+  \draw[->] (0,-1.2) -- (0,1.2) node[above] {$y$};
+  \draw[thick] (0,0) circle (1);
+  \coordinate (o) at (0,0);
+  \coordinate (p) at (40:1);
+  \coordinate (x) at (p |- o);
+  \draw[fill] (p) circle (1pt);
+  \draw[thick] (o) -- node[above left] {$1$} (p);
+  \draw[thick,red] (p) -- node[right] {$\sin(\alpha)$} (x);
+  \draw[thick,blue] (x) -- node[below] {$\cos(\alpha)$} (o);
+  \node[above right] at (p) {$P$};
+  \pic[draw, angle eccentricity=0.7, angle radius=0.7cm, pic text={$\alpha$}] {angle = x--o--p};
+  \pic[draw, angle eccentricity=0.5, angle radius=0.4cm, pic text=.] {right angle = p--x--o};
+\end{tikzpicture}
+\end{document}
+~~~
 ## sin-frequency.svg
 [![sin-frequency.svg](mathematics/sin-frequency/sin-frequency.svg "sin-frequency.svg")](mathematics/sin-frequency/sin-frequency.svg) [[PDF]](mathematics/sin-frequency/sin-frequency.pdf) [[PNG]](mathematics/sin-frequency/sin-frequency.png) [[SVG]](mathematics/sin-frequency/sin-frequency.svg)
 ~~~.tex
@@ -2902,6 +2946,59 @@
   \addplot[blue,densely dotted] { cos(deg(x)) };
   \addlegendentry{$\cos(x)$};
 \end{axis}
+\end{tikzpicture}
+\end{document}
+~~~
+## sin-cos-unit-circle_inverted.svg
+[![sin-cos-unit-circle_inverted.svg](mathematics/sin-cos-unit-circle/sin-cos-unit-circle_inverted.svg "sin-cos-unit-circle_inverted.svg")](mathematics/sin-cos-unit-circle/sin-cos-unit-circle_inverted.svg) [[PDF]](mathematics/sin-cos-unit-circle/sin-cos-unit-circle_inverted.pdf) [[PNG]](mathematics/sin-cos-unit-circle/sin-cos-unit-circle_inverted.png) [[SVG]](mathematics/sin-cos-unit-circle/sin-cos-unit-circle_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    color=white,
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\usepackage{pgfplots}
+\usetikzlibrary{angles}
+
+\tikzset{>=latex}
+
+\pgfplotsset{
+  every non boxed x axis/.append style={
+    axis line style={-latex}
+  },
+  every non boxed y axis/.append style={
+    axis line style={-latex}
+  },
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=white,
+      text=white
+    }
+  }
+}
+
+\begin{document}
+\begin{tikzpicture}[inverted,scale=2]
+  \draw[->] (-1.2,0) -- (1.2,0) node[right] {$x$};
+  \draw[->] (0,-1.2) -- (0,1.2) node[above] {$y$};
+  \draw[thick] (0,0) circle (1);
+  \coordinate (o) at (0,0);
+  \coordinate (p) at (40:1);
+  \coordinate (x) at (p |- o);
+  \draw[fill] (p) circle (1pt);
+  \draw[thick] (o) -- node[above left] {$1$} (p);
+  \draw[thick,red] (p) -- node[right] {$\sin(\alpha)$} (x);
+  \draw[thick,blue] (x) -- node[below] {$\cos(\alpha)$} (o);
+  \node[above right] at (p) {$P$};
+  \pic[draw, angle eccentricity=0.7, angle radius=0.7cm, pic text={$\alpha$}] {angle = x--o--p};
+  \pic[draw, angle eccentricity=0.5, angle radius=0.4cm, pic text=.] {right angle = p--x--o};
 \end{tikzpicture}
 \end{document}
 ~~~
