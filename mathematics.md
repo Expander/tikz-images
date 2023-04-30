@@ -376,6 +376,58 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## linear-2.svg
+[![linear-2.svg](mathematics/linear-2/linear-2.svg "linear-2.svg")](mathematics/linear-2/linear-2.svg) [[PDF]](mathematics/linear-2/linear-2.pdf) [[PNG]](mathematics/linear-2/linear-2.png) [[SVG]](mathematics/linear-2/linear-2.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\usepackage{pgfplots}
+\tikzset{>=latex}
+\colorlet{green}{black!40!green}
+
+\pgfplotsset{
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=hardblack,
+      text=white
+    }
+  },
+  every non boxed x axis/.append style={
+    axis line style={-latex}
+  },
+  every non boxed y axis/.append style={
+    axis line style={-latex}
+  }
+}
+
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[
+  thick,
+  width=6cm,
+  height=6cm,
+  xlabel={$x$},
+  ylabel={$y$},
+  xmin = -4, xmax = 7,
+  ymin = -6, ymax = 7,
+  axis y line=middle,
+  axis x line=middle,
+  xlabel style={at=(current axis.right of origin), anchor=west},
+  ylabel style={at=(current axis.above origin), anchor=south},
+  xtick distance=2,
+  ytick distance=2,
+  samples=10,
+  smooth,
+  clip=false,
+  ]
+  \addplot[red, domain=-4:4] {x+2} node[above,xshift=-1em] {$f(x)=x+2$};
+  \addplot[blue, domain=-4:6] {x} node[right] {$f(x)=x$};
+  \addplot[green, domain=-3:6] {x-3} node[right] {$f(x)=x-3$};
+\end{axis}
+\end{tikzpicture}
+\end{document}
+~~~
 ## linear.svg
 [![linear.svg](mathematics/linear/linear.svg "linear.svg")](mathematics/linear/linear.svg) [[PDF]](mathematics/linear/linear.pdf) [[PNG]](mathematics/linear/linear.png) [[SVG]](mathematics/linear/linear.svg)
 ~~~.tex
@@ -1500,6 +1552,67 @@
   ymin=0, ymax={5.5}
   ]
   \addplot[red,smooth] { 1/x };
+\end{axis}
+\end{tikzpicture}
+\end{document}
+~~~
+## linear-2_inverted.svg
+[![linear-2_inverted.svg](mathematics/linear-2/linear-2_inverted.svg "linear-2_inverted.svg")](mathematics/linear-2/linear-2_inverted.svg) [[PDF]](mathematics/linear-2/linear-2_inverted.pdf) [[PNG]](mathematics/linear-2/linear-2_inverted.png) [[SVG]](mathematics/linear-2/linear-2_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    color=white,
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\usepackage{pgfplots}
+\tikzset{>=latex}
+\colorlet{green}{green}
+
+\pgfplotsset{
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=black,
+      text=white
+    }
+  },
+  every non boxed x axis/.append style={
+    axis line style={-latex}
+  },
+  every non boxed y axis/.append style={
+    axis line style={-latex}
+  }
+}
+
+\begin{document}
+\begin{tikzpicture}[inverted,inverted]
+\begin{axis}[inverted,
+  thick,
+  width=6cm,
+  height=6cm,
+  xlabel={$x$},
+  ylabel={$y$},
+  xmin = -4, xmax = 7,
+  ymin = -6, ymax = 7,
+  axis y line=middle,
+  axis x line=middle,
+  xlabel style={at=(current axis.right of origin), anchor=west},
+  ylabel style={at=(current axis.above origin), anchor=south},
+  xtick distance=2,
+  ytick distance=2,
+  samples=10,
+  smooth,
+  clip=false,
+  ]
+  \addplot[red, domain=-4:4] {x+2} node[above,xshift=-1em] {$f(x)=x+2$};
+  \addplot[blue, domain=-4:6] {x} node[right] {$f(x)=x$};
+  \addplot[green, domain=-3:6] {x-3} node[right] {$f(x)=x-3$};
 \end{axis}
 \end{tikzpicture}
 \end{document}
