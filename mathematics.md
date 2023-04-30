@@ -483,7 +483,6 @@
 \documentclass[crop,tikz]{standalone}
 
 \usepackage{pgfplots}
-\colorlet{green}{black!40!green}
 
 \tikzset{>=latex}
 
@@ -1940,7 +1939,6 @@
 }
 
 \usepackage{pgfplots}
-\colorlet{green}{green}
 
 \tikzset{>=latex}
 
