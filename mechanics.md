@@ -2943,7 +2943,6 @@
 \tikzset{>=latex}
 
 \pgfplotsset{
-  compat=1.16,
   every non boxed x axis/.append style={
     axis line style={-latex}
   },
@@ -6830,7 +6829,6 @@
 \tikzset{>=latex}
 
 \pgfplotsset{
-  compat=1.16,
   every non boxed x axis/.append style={
     axis line style={-latex}
   },

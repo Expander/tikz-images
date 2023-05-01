@@ -1031,7 +1031,7 @@
   inverted/.style = {
     every axis legend/.append style={
       draw=white,
-      fill=black,
+      fill=hardblack,
       text=white
     }
   }
@@ -1091,7 +1091,7 @@
   inverted/.style = {
     every axis legend/.append style={
       draw=white,
-      fill=black,
+      fill=hardblack,
       text=white
     }
   }
@@ -1175,7 +1175,7 @@
   inverted/.style = {
     every axis legend/.append style={
       draw=white,
-      fill=black,
+      fill=hardblack,
       text=white
     }
   }
@@ -1226,6 +1226,7 @@
 \tikzset{>=latex}
 
 \pgfplotsset{
+  compat=1.16,
   every non boxed x axis/.append style={
     axis line style={-latex}
   },
@@ -1235,7 +1236,7 @@
   inverted/.style = {
     every axis legend/.append style={
       draw=white,
-      fill=black,
+      fill=hardblack,
       text=white
     }
   }
@@ -2867,7 +2868,7 @@
   inverted/.style = {
     every axis legend/.append style={
       draw=white,
-      fill=white,
+      fill=black,
       text=white
     }
   }
@@ -2936,7 +2937,7 @@
   inverted/.style = {
     every axis legend/.append style={
       draw=white,
-      fill=white,
+      fill=black,
       text=white
     }
   }
@@ -3038,7 +3039,7 @@
   inverted/.style = {
     every axis legend/.append style={
       draw=white,
-      fill=white,
+      fill=black,
       text=white
     }
   }
@@ -3098,6 +3099,7 @@
 \tikzset{>=latex}
 
 \pgfplotsset{
+  compat=1.16,
   every non boxed x axis/.append style={
     axis line style={-latex}
   },
@@ -3107,7 +3109,7 @@
   inverted/.style = {
     every axis legend/.append style={
       draw=white,
-      fill=white,
+      fill=black,
       text=white
     }
   }
