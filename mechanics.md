@@ -1,4 +1,23 @@
 # Mechanics
+## actio-reactio-2.svg
+[![actio-reactio-2.svg](mechanics/actio-reactio-2/actio-reactio-2.svg "actio-reactio-2.svg")](mechanics/actio-reactio-2/actio-reactio-2.svg) [[PDF]](mechanics/actio-reactio-2/actio-reactio-2.pdf) [[PNG]](mechanics/actio-reactio-2/actio-reactio-2.png) [[SVG]](mechanics/actio-reactio-2/actio-reactio-2.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\usepackage{amsmath}
+\tikzset{>=latex}
+
+\begin{document}
+\begin{tikzpicture}
+  \draw[gray!50,fill] (-2.5,0) circle (1)   coordinate (c1);
+  \draw[gray!50,fill] (+2.5,0) circle (0.5) coordinate (c2);
+  \node[blue,yshift=1.2cm] at (c1) {1};
+  \node[red, yshift=0.7cm] at (c2) {2};
+  \draw[->,blue] (c1) -- ++(-1.5,0) node[below] {$\vec{F}_{2\to 1}$};
+  \draw[->,red]  (c2) -- ++(+1.5,0) node[below] {$\vec{F}_{1\to 2}$};
+\end{tikzpicture}
+\end{document}
+~~~
 ## actio-reactio.svg
 [![actio-reactio.svg](mechanics/actio-reactio/actio-reactio.svg "actio-reactio.svg")](mechanics/actio-reactio/actio-reactio.svg) [[PDF]](mechanics/actio-reactio/actio-reactio.pdf) [[PNG]](mechanics/actio-reactio/actio-reactio.png) [[SVG]](mechanics/actio-reactio/actio-reactio.svg)
 ~~~.tex
@@ -3108,6 +3127,34 @@
   \draw[fill] (45:1) circle (0.03);
   \draw[->,blue,thick] (45:1) -- +(+135:0.5) node[above]{$\vel(t)$};
   \draw[->,red,thick]   (45:1) -- +(-135:0.5) node[below]{$\FZp(t)$};
+\end{tikzpicture}
+\end{document}
+~~~
+## actio-reactio-2_inverted.svg
+[![actio-reactio-2_inverted.svg](mechanics/actio-reactio-2/actio-reactio-2_inverted.svg "actio-reactio-2_inverted.svg")](mechanics/actio-reactio-2/actio-reactio-2_inverted.svg) [[PDF]](mechanics/actio-reactio-2/actio-reactio-2_inverted.pdf) [[PNG]](mechanics/actio-reactio-2/actio-reactio-2_inverted.png) [[SVG]](mechanics/actio-reactio-2/actio-reactio-2_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    color=white,
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\usepackage{amsmath}
+\tikzset{>=latex}
+
+\begin{document}
+\begin{tikzpicture}[inverted,inverted]
+  \draw[gray!50,fill] (-2.5,0) circle (1)   coordinate (c1);
+  \draw[gray!50,fill] (+2.5,0) circle (0.5) coordinate (c2);
+  \node[blue,yshift=1.2cm] at (c1) {1};
+  \node[red, yshift=0.7cm] at (c2) {2};
+  \draw[->,blue] (c1) -- ++(-1.5,0) node[below] {$\vec{F}_{2\to 1}$};
+  \draw[->,red]  (c2) -- ++(+1.5,0) node[below] {$\vec{F}_{1\to 2}$};
 \end{tikzpicture}
 \end{document}
 ~~~
