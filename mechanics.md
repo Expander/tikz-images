@@ -2701,6 +2701,57 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## throw.svg
+[![throw.svg](mechanics/throw/throw.svg "throw.svg")](mechanics/throw/throw.svg) [[PDF]](mechanics/throw/throw.pdf) [[PNG]](mechanics/throw/throw.png) [[SVG]](mechanics/throw/throw.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\usepackage{pgfplots}
+\tikzset{>=latex}
+
+\pgfplotsset{
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=hardblack,
+      text=white
+    }
+  },
+  every non boxed x axis/.append style={
+    axis line style={-latex}
+  },
+  every non boxed y axis/.append style={
+    axis line style={-latex}
+  }
+}
+
+\begin{document}
+\begin{tikzpicture}
+  \begin{axis}[
+    height=5cm,
+    width=5cm,
+    thick,
+    axis x line=middle,
+    axis y line=middle,
+    xlabel={$x$},
+    ylabel={$y$},
+    xlabel style={right},
+    ylabel style={above},
+    xtick={1},
+    xticklabels={$x_{\max}$},
+    ytick={0.5, 1.5},
+    yticklabels={$h$, $y_{\max}$},
+    xmin=0, xmax=2.5,
+    ymin=0, ymax=1.7,
+    samples=100,
+    declare function = { f(\x) = -(\x - 1)^2 + 1.5; },
+    ]
+    \addplot[red,domain=0:2.3] { f(x) };
+    \draw[gray,dashed] (axis cs:1,0) -- (axis cs:1,{f(1)}) -- (axis cs:0,{f(1)});
+  \end{axis}
+\end{tikzpicture}
+\end{document}
+~~~
 ## velocity-2-delta.svg
 [![velocity-2-delta.svg](mechanics/velocity-2-delta/velocity-2-delta.svg "velocity-2-delta.svg")](mechanics/velocity-2-delta/velocity-2-delta.svg) [[PDF]](mechanics/velocity-2-delta/velocity-2-delta.pdf) [[PNG]](mechanics/velocity-2-delta/velocity-2-delta.png) [[SVG]](mechanics/velocity-2-delta/velocity-2-delta.svg)
 ~~~.tex
@@ -6588,6 +6639,66 @@
   \draw[fill] (r3) circle (\radi) node[above] {$3$};
   \draw[->,red]   (r3) -- ++({(\xthr-\xone)/\donethr}, {(\ythr-\yone)/\donethr}) node[below] {$\F_{1\to 3}$};
   \draw[->,green] (r3) -- ++({(\xthr-\xtwo)/\dtwothr}, {(\ythr-\ytwo)/\dtwothr}) node[right] {$\F_{2\to 3}$};
+\end{tikzpicture}
+\end{document}
+~~~
+## throw_inverted.svg
+[![throw_inverted.svg](mechanics/throw/throw_inverted.svg "throw_inverted.svg")](mechanics/throw/throw_inverted.svg) [[PDF]](mechanics/throw/throw_inverted.pdf) [[PNG]](mechanics/throw/throw_inverted.png) [[SVG]](mechanics/throw/throw_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    color=white,
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\usepackage{pgfplots}
+\tikzset{>=latex}
+
+\pgfplotsset{
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=black,
+      text=white
+    }
+  },
+  every non boxed x axis/.append style={
+    axis line style={-latex}
+  },
+  every non boxed y axis/.append style={
+    axis line style={-latex}
+  }
+}
+
+\begin{document}
+\begin{tikzpicture}[inverted,inverted]
+  \begin{axis}[inverted,
+    height=5cm,
+    width=5cm,
+    thick,
+    axis x line=middle,
+    axis y line=middle,
+    xlabel={$x$},
+    ylabel={$y$},
+    xlabel style={right},
+    ylabel style={above},
+    xtick={1},
+    xticklabels={$x_{\max}$},
+    ytick={0.5, 1.5},
+    yticklabels={$h$, $y_{\max}$},
+    xmin=0, xmax=2.5,
+    ymin=0, ymax=1.7,
+    samples=100,
+    declare function = { f(\x) = -(\x - 1)^2 + 1.5; },
+    ]
+    \addplot[red,domain=0:2.3] { f(x) };
+    \draw[gray,dashed] (axis cs:1,0) -- (axis cs:1,{f(1)}) -- (axis cs:0,{f(1)});
+  \end{axis}
 \end{tikzpicture}
 \end{document}
 ~~~
