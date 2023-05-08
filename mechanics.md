@@ -1287,6 +1287,26 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## friction-static.svg
+[![friction-static.svg](mechanics/friction-static/friction-static.svg "friction-static.svg")](mechanics/friction-static/friction-static.svg) [[PDF]](mechanics/friction-static/friction-static.pdf) [[PNG]](mechanics/friction-static/friction-static.png) [[SVG]](mechanics/friction-static/friction-static.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\usepackage{amsmath}
+\newcommand{\F}{\vec{F}}
+\tikzset{>=latex}
+\usetikzlibrary{patterns,decorations.pathmorphing}
+
+\begin{document}
+\begin{tikzpicture}[scale=1.4]
+  \pattern[pattern=north east lines,pattern color=black] (-1,0)--++(0,-0.2)--++(4,0)--++(0,0.2)--cycle;
+  \draw (-1,0) -- ++(4,0);
+  \draw[fill=gray!20] (0,0) rectangle (2,1);
+  \draw[->,thick,blue] (1,0.05) -- ++(2,0) node[above] {$\F_S$};
+  \draw[->,thick,red] (1,0.05) -- ++(-2,0) node[above] {$\F_R$};
+\end{tikzpicture}
+\end{document}
+~~~
 ## gravitational-force-earth.svg
 [![gravitational-force-earth.svg](mechanics/gravitational-force-earth/gravitational-force-earth.svg "gravitational-force-earth.svg")](mechanics/gravitational-force-earth/gravitational-force-earth.svg) [[PDF]](mechanics/gravitational-force-earth/gravitational-force-earth.pdf) [[PNG]](mechanics/gravitational-force-earth/gravitational-force-earth.png) [[SVG]](mechanics/gravitational-force-earth/gravitational-force-earth.svg)
 ~~~.tex
@@ -4865,6 +4885,35 @@
   \draw[->,thick,white]        (a) -- +($(-\sa*\ca,\sa*\sa)$) node[above] {$\F_R$};
   \draw[->,thick,green,dashed] (a) -- +($(-\sa*\ca,-\ca*\ca)$) node[below] {$\F_N$};
   \draw[->,thick,blue]         (a) -- +($(\sa*\ca,\ca*\ca)$) node[above] {$\Z$};
+\end{tikzpicture}
+\end{document}
+~~~
+## friction-static_inverted.svg
+[![friction-static_inverted.svg](mechanics/friction-static/friction-static_inverted.svg "friction-static_inverted.svg")](mechanics/friction-static/friction-static_inverted.svg) [[PDF]](mechanics/friction-static/friction-static_inverted.pdf) [[PNG]](mechanics/friction-static/friction-static_inverted.png) [[SVG]](mechanics/friction-static/friction-static_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    color=white,
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\usepackage{amsmath}
+\newcommand{\F}{\vec{F}}
+\tikzset{>=latex}
+\usetikzlibrary{patterns,decorations.pathmorphing}
+
+\begin{document}
+\begin{tikzpicture}[inverted,scale=1.4]
+  \pattern[pattern=north east lines,pattern color=white] (-1,0)--++(0,-0.2)--++(4,0)--++(0,0.2)--cycle;
+  \draw (-1,0) -- ++(4,0);
+  \draw[fill=gray!60] (0,0) rectangle (2,1);
+  \draw[->,thick,blue] (1,0.05) -- ++(2,0) node[above] {$\F_S$};
+  \draw[->,thick,red] (1,0.05) -- ++(-2,0) node[above] {$\F_R$};
 \end{tikzpicture}
 \end{document}
 ~~~
