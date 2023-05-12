@@ -44,7 +44,7 @@
     yticklabels={$-R$,$0$,$R$},
     ztick={0,1},
     zticklabels={$0$,$h$},
-    samples={\nphi+1}, samples y={\nz},
+    samples={\nphi+1}, samples y={\nz+1},
     z buffer=sort,
     clip=false,
     ]
@@ -59,7 +59,7 @@
       },
       samples={\nphi/2}, samples y={\nz-1},
       domain={-pi + 2*pi/\nphi + pi/\nphi}:{2*pi/\nphi - pi/\nphi},
-      domain y={1/18}:{1-1/18},
+      domain y={1/(2*\nz)}:{1-1/(2*\nz)},
     ] ({cos(deg(x))},{sin(deg(x))},{y});
   \end{axis}
 \end{tikzpicture}
