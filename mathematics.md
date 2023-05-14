@@ -1520,6 +1520,7 @@
     clip=false,
     ]
     \addplot3[surf,colormap/blackwhite,domain={-pi/2}:{3*pi/2},domain y=0:1] ({cos(deg(x))},{sin(deg(x))},{y});
+    \addplot3[surf,colormap/blackwhite,domain={0}:{2*pi},domain y=0:1] ({y*cos(deg(x))},{y*sin(deg(x))},{1});
     \addplot3[red,
       quiver = {
         u = {x},
@@ -3563,6 +3564,7 @@
     clip=false,
     ]
     \addplot3[surf,colormap/blackwhite,domain={-pi/2}:{3*pi/2},domain y=0:1] ({cos(deg(x))},{sin(deg(x))},{y});
+    \addplot3[surf,colormap/blackwhite,domain={0}:{2*pi},domain y=0:1] ({y*cos(deg(x))},{y*sin(deg(x))},{1});
     \addplot3[red,
       quiver = {
         u = {x},
