@@ -1,0 +1,70 @@
+\documentclass[crop,tikz]{standalone}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.16}
+\tikzset{>=latex}
+
+\colorlet{green}{black!40!green}
+
+\pgfplotsset{
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=black,
+      text=white
+    }
+  },
+  every non boxed x axis/.append style={
+    axis line style={-latex}
+  },
+  every non boxed y axis/.append style={
+    axis line style={-latex}
+  },
+  every non boxed z axis/.append style={
+    axis line style={-latex}
+  },
+}
+
+\begin{document}
+\begin{tikzpicture}
+  \pgfmathsetmacro{\px}{1.6};
+  \pgfmathsetmacro{\py}{2};
+  \pgfmathsetmacro{\pz}{2};
+  \begin{axis}[
+    width=6cm,
+    height=6cm,
+    view={30}{20},
+    xlabel={$x$},
+    ylabel={$y$},
+    zlabel={$z$},
+    xmin=0,xmax=2.5,
+    ymin=0,ymax=2.5,
+    zmin=0, zmax=2.5,
+    xtick=\empty,
+    ytick=\empty,
+    ztick=\empty,
+    axis x line=middle,
+    axis y line=middle,
+    axis z line=middle,
+    xlabel style={right},
+    ylabel style={right},
+    zlabel style={above},
+    clip=false,
+    ]
+    % vector to space point
+    \draw[->,red,thick]  (axis cs:0,0,0) -- (axis cs: {\px},{\py},{\pz}) node[above] { $\vec{r}$ };
+    % projections onto x-y-plane and z-axis
+    \draw[gray,dashed] (axis cs:0,0,0) -- (axis cs: {\px},{\py},0);
+    % help lines for projections
+    \draw[gray,dashed] (axis cs:{\px},{\py},0) -- (axis cs: {\px},{\py},{\pz});
+    \draw[gray,dashed] (axis cs:0,0,{\pz}) -- (axis cs: {\px},{\py},{\pz});
+    \draw[gray,dashed] (axis cs:{\px},0,0) -- (axis cs: {\px},{\py},0);
+    \draw[gray,dashed] (axis cs:0,{\py},0) -- (axis cs: {\px},{\py},0);
+    % unit vector
+    \draw[->,blue,very thick] (axis cs:0,0,0) -- (axis cs: {\px/sqrt(\px^2 + \py^2 + \pz^2)},{\py/sqrt(\px^2 + \py^2 + \pz^2)},{\pz/sqrt(\px^2 + \py^2 + \pz^2)}) node[above] { $\vec{e}_r$ };
+    % angles
+    \draw[->,gray] (axis cs:1,0,0) arc (0:{atan(\py/\px)}:1) node[left,pos=0.5] {\footnotesize $\varphi$};
+    \draw[->,gray] (axis cs:0,0,0.7) arc [start angle=90,end angle={acos(\pz/sqrt(\px^2 + \py^2 + \pz^2))},x radius=1.2,y radius=1.7] node[below,pos=0.3] {$\theta$};
+  \end{axis}
+\end{tikzpicture}
+\end{document}

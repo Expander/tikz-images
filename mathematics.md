@@ -1405,7 +1405,6 @@
 ~~~.tex
 \documentclass[crop,tikz]{standalone}
 
-\usepackage{tikz-3dplot}
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.16}
 \tikzset{>=latex}
@@ -1470,7 +1469,7 @@
     \draw[->,blue,very thick] (axis cs:0,0,0) -- (axis cs: {\px/sqrt(\px^2 + \py^2 + \pz^2)},{\py/sqrt(\px^2 + \py^2 + \pz^2)},{\pz/sqrt(\px^2 + \py^2 + \pz^2)}) node[above] { $\vec{e}_r$ };
     % angles
     \draw[->,gray] (axis cs:1,0,0) arc (0:{atan(\py/\px)}:1) node[left,pos=0.5] {\footnotesize $\varphi$};
-    \draw[->,gray] (axis cs:0,0,1) arc (0:{atan(\py/\px)}:1) node[left,pos=0.5] {\footnotesize $\theta$};
+    \draw[->,gray] (axis cs:0,0,0.7) arc [start angle=90,end angle={acos(\pz/sqrt(\px^2 + \py^2 + \pz^2))},x radius=1.2,y radius=1.7] node[below,pos=0.3] {$\theta$};
   \end{axis}
 \end{tikzpicture}
 \end{document}
@@ -3584,7 +3583,6 @@
   }
 }
 
-\usepackage{tikz-3dplot}
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.16}
 \tikzset{>=latex}
@@ -3649,7 +3647,7 @@
     \draw[->,blue,very thick] (axis cs:0,0,0) -- (axis cs: {\px/sqrt(\px^2 + \py^2 + \pz^2)},{\py/sqrt(\px^2 + \py^2 + \pz^2)},{\pz/sqrt(\px^2 + \py^2 + \pz^2)}) node[above] { $\vec{e}_r$ };
     % angles
     \draw[->,gray] (axis cs:1,0,0) arc (0:{atan(\py/\px)}:1) node[left,pos=0.5] {\footnotesize $\varphi$};
-    \draw[->,gray] (axis cs:0,0,1) arc (0:{atan(\py/\px)}:1) node[left,pos=0.5] {\footnotesize $\theta$};
+    \draw[->,gray] (axis cs:0,0,0.7) arc [start angle=90,end angle={acos(\pz/sqrt(\px^2 + \py^2 + \pz^2))},x radius=1.2,y radius=1.7] node[below,pos=0.3] {$\theta$};
   \end{axis}
 \end{tikzpicture}
 \end{document}
