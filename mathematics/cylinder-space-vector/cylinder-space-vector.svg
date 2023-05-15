@@ -101,16 +101,16 @@
 <g style="fill:rgb(0%,0%,100%);fill-opacity:1;">
   <use xlink:href="#glyph1-2" x="29.897" y="65.626"/>
 </g>
-<path style="fill:none;stroke-width:1.19553;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(0%,0%,100%);stroke-opacity:1;stroke-miterlimit:10;" d="M -0.00015625 -0.00025 L 25.577969 2.277094 " transform="matrix(1,0,0,-1,21.34,94.781)"/>
-<path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,100%);fill-opacity:1;" d="M 52.636719 91.996094 C 50.914062 91.828125 48.078125 91.121094 46.074219 90.179688 L 46.496094 94.941406 C 48.300781 93.660156 50.96875 92.464844 52.636719 91.996094 "/>
+<path style="fill:none;stroke-width:1.19553;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(0%,0%,100%);stroke-opacity:1;stroke-miterlimit:10;" d="M -0.00015625 -0.00025 L 28.468594 3.695063 " transform="matrix(1,0,0,-1,21.34,94.781)"/>
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,100%);fill-opacity:1;" d="M 55.5 90.347656 C 53.773438 90.25 50.910156 89.65625 48.867188 88.796875 L 49.484375 93.539062 C 51.238281 92.1875 53.855469 90.882812 55.5 90.347656 "/>
 <g style="fill:rgb(0%,0%,100%);fill-opacity:1;">
-  <use xlink:href="#glyph0-1" x="47.616" y="85.227"/>
+  <use xlink:href="#glyph0-1" x="50.479" y="83.58"/>
 </g>
 <g style="fill:rgb(0%,0%,100%);fill-opacity:1;">
-  <use xlink:href="#glyph0-4" x="48.004541" y="85.227"/>
+  <use xlink:href="#glyph0-4" x="50.867541" y="83.58"/>
 </g>
 <g style="fill:rgb(0%,0%,100%);fill-opacity:1;">
-  <use xlink:href="#glyph1-1" x="52.639" y="86.721"/>
+  <use xlink:href="#glyph1-1" x="55.502" y="85.074"/>
 </g>
 <path style="fill:none;stroke-width:0.3985;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(50%,50%,50%);stroke-opacity:1;stroke-miterlimit:10;" d="M 31.761563 -6.090094 C 37.327969 -2.886969 38.210781 0.988031 36.890469 2.109125 " transform="matrix(1,0,0,-1,21.34,94.781)"/>
 <path style=" stroke:none;fill-rule:nonzero;fill:rgb(50%,50%,50%);fill-opacity:1;" d="M 55.496094 90.351562 C 56.179688 91.191406 57.105469 92.765625 57.566406 94.070312 L 59.5 91.792969 C 58.140625 91.550781 56.4375 90.886719 55.496094 90.351562 "/>
@@ -124,7 +124,7 @@
   <use xlink:href="#glyph0-7" x="70.701" y="69.59"/>
 </g>
 <g style="fill:rgb(0%,0%,0%);fill-opacity:1;">
-  <use xlink:href="#glyph0-5" x="18.805" y="7.61"/>
+  <use xlink:href="#glyph0-5" x="18.804" y="7.61"/>
 </g>
 </g>
 </svg>

@@ -74,7 +74,7 @@
     \draw[gray,dashed] (axis cs:0,{\py},0) -- (axis cs: {\px},{\py},0);
     % unit vectors
     \draw[->,blue,very thick] (axis cs:0,0,0) -- (axis cs: 0,0,1) node[right] { $\vec{e}_z$ };
-    \draw[->,blue,very thick] (axis cs:0,0,0) -- (axis cs: {\px/sqrt(\px^2 + \py^2)},{\px/sqrt(\px^2 + \py^2)},0) node[above] { $\vec{e}_\rho$ };
+    \draw[->,blue,very thick] (axis cs:0,0,0) -- (axis cs: {\px/sqrt(\px^2 + \py^2)},{\py/sqrt(\px^2 + \py^2)},0) node[above] { $\vec{e}_\rho$ };
     % polar angle
     \draw[->,gray] (axis cs:1,0,0) arc (0:{atan(\py/\px)}:1) node[left,pos=0.5] {\footnotesize $\varphi$};
   \end{axis}
