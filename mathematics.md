@@ -56,8 +56,6 @@
 ~~~.tex
 \documentclass[crop,tikz]{standalone}
 
-\usepackage{amsmath,amssymb}
-\usepackage{physics}
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.16}
 \tikzset{>=latex}
@@ -1407,8 +1405,7 @@
 ~~~.tex
 \documentclass[crop,tikz]{standalone}
 
-\usepackage{amsmath,amssymb}
-\usepackage{physics}
+\usepackage{tikz-3dplot}
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.16}
 \tikzset{>=latex}
@@ -1463,17 +1460,17 @@
     % vector to space point
     \draw[->,red,thick]  (axis cs:0,0,0) -- (axis cs: {\px},{\py},{\pz}) node[above] { $\vec{r}$ };
     % projections onto x-y-plane and z-axis
-    \draw[->,green,thick] (axis cs:0,0,0) -- (axis cs: {\px},{\py},0) node[below] { $\rho\vec{e}_\rho$ };
-    \draw[->,green,thick] (axis cs:0,0,0) -- (axis cs: 0,0,{\pz}) node[left] { $z\vec{e}_z$ };
+    \draw[gray,dashed] (axis cs:0,0,0) -- (axis cs: {\px},{\py},0);
     % help lines for projections
     \draw[gray,dashed] (axis cs:{\px},{\py},0) -- (axis cs: {\px},{\py},{\pz});
     \draw[gray,dashed] (axis cs:0,0,{\pz}) -- (axis cs: {\px},{\py},{\pz});
     \draw[gray,dashed] (axis cs:{\px},0,0) -- (axis cs: {\px},{\py},0);
     \draw[gray,dashed] (axis cs:0,{\py},0) -- (axis cs: {\px},{\py},0);
     % unit vector
-    \draw[->,blue,very thick] (axis cs:0,0,0) -- (axis cs: {\px/sqrt(\px^2 + \py^2 + \pz^2)},{\py/sqrt(\px^2 + \py^2 + \pz^2)},{\pz/sqrt(\px^2 + \py^2 + \pz^2)}) node[above] { $\vec{e}_\rho$ };
-    % polar angle
+    \draw[->,blue,very thick] (axis cs:0,0,0) -- (axis cs: {\px/sqrt(\px^2 + \py^2 + \pz^2)},{\py/sqrt(\px^2 + \py^2 + \pz^2)},{\pz/sqrt(\px^2 + \py^2 + \pz^2)}) node[above] { $\vec{e}_r$ };
+    % angles
     \draw[->,gray] (axis cs:1,0,0) arc (0:{atan(\py/\px)}:1) node[left,pos=0.5] {\footnotesize $\varphi$};
+    \draw[->,gray] (axis cs:0,0,1) arc (0:{atan(\py/\px)}:1) node[left,pos=0.5] {\footnotesize $\theta$};
   \end{axis}
 \end{tikzpicture}
 \end{document}
@@ -2004,8 +2001,6 @@
   }
 }
 
-\usepackage{amsmath,amssymb}
-\usepackage{physics}
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.16}
 \tikzset{>=latex}
@@ -3589,8 +3584,7 @@
   }
 }
 
-\usepackage{amsmath,amssymb}
-\usepackage{physics}
+\usepackage{tikz-3dplot}
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.16}
 \tikzset{>=latex}
@@ -3645,17 +3639,17 @@
     % vector to space point
     \draw[->,red,thick]  (axis cs:0,0,0) -- (axis cs: {\px},{\py},{\pz}) node[above] { $\vec{r}$ };
     % projections onto x-y-plane and z-axis
-    \draw[->,green,thick] (axis cs:0,0,0) -- (axis cs: {\px},{\py},0) node[below] { $\rho\vec{e}_\rho$ };
-    \draw[->,green,thick] (axis cs:0,0,0) -- (axis cs: 0,0,{\pz}) node[left] { $z\vec{e}_z$ };
+    \draw[gray,dashed] (axis cs:0,0,0) -- (axis cs: {\px},{\py},0);
     % help lines for projections
     \draw[gray,dashed] (axis cs:{\px},{\py},0) -- (axis cs: {\px},{\py},{\pz});
     \draw[gray,dashed] (axis cs:0,0,{\pz}) -- (axis cs: {\px},{\py},{\pz});
     \draw[gray,dashed] (axis cs:{\px},0,0) -- (axis cs: {\px},{\py},0);
     \draw[gray,dashed] (axis cs:0,{\py},0) -- (axis cs: {\px},{\py},0);
     % unit vector
-    \draw[->,blue,very thick] (axis cs:0,0,0) -- (axis cs: {\px/sqrt(\px^2 + \py^2 + \pz^2)},{\py/sqrt(\px^2 + \py^2 + \pz^2)},{\pz/sqrt(\px^2 + \py^2 + \pz^2)}) node[above] { $\vec{e}_\rho$ };
-    % polar angle
+    \draw[->,blue,very thick] (axis cs:0,0,0) -- (axis cs: {\px/sqrt(\px^2 + \py^2 + \pz^2)},{\py/sqrt(\px^2 + \py^2 + \pz^2)},{\pz/sqrt(\px^2 + \py^2 + \pz^2)}) node[above] { $\vec{e}_r$ };
+    % angles
     \draw[->,gray] (axis cs:1,0,0) arc (0:{atan(\py/\px)}:1) node[left,pos=0.5] {\footnotesize $\varphi$};
+    \draw[->,gray] (axis cs:0,0,1) arc (0:{atan(\py/\px)}:1) node[left,pos=0.5] {\footnotesize $\theta$};
   \end{axis}
 \end{tikzpicture}
 \end{document}
