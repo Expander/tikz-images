@@ -51,6 +51,83 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## cylinder-space-vector.svg
+[![cylinder-space-vector.svg](mathematics/cylinder-space-vector/cylinder-space-vector.svg "cylinder-space-vector.svg")](mathematics/cylinder-space-vector/cylinder-space-vector.svg) [[PDF]](mathematics/cylinder-space-vector/cylinder-space-vector.pdf) [[PNG]](mathematics/cylinder-space-vector/cylinder-space-vector.png) [[SVG]](mathematics/cylinder-space-vector/cylinder-space-vector.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\usepackage{amsmath,amssymb}
+\usepackage{physics}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.16}
+\tikzset{>=latex}
+
+\colorlet{green}{black!40!green}
+
+\pgfplotsset{
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=black,
+      text=white
+    }
+  },
+  every non boxed x axis/.append style={
+    axis line style={-latex}
+  },
+  every non boxed y axis/.append style={
+    axis line style={-latex}
+  },
+  every non boxed z axis/.append style={
+    axis line style={-latex}
+  },
+}
+
+\begin{document}
+\begin{tikzpicture}
+  \pgfmathsetmacro{\px}{1.6};
+  \pgfmathsetmacro{\py}{2};
+  \pgfmathsetmacro{\pz}{2};
+  \begin{axis}[
+    width=6cm,
+    height=6cm,
+    view={30}{20},
+    xlabel={$x$},
+    ylabel={$y$},
+    zlabel={$z$},
+    xmin=0,xmax=2.5,
+    ymin=0,ymax=2.5,
+    zmin=0, zmax=2.5,
+    xtick=\empty,
+    ytick=\empty,
+    ztick=\empty,
+    axis x line=middle,
+    axis y line=middle,
+    axis z line=middle,
+    xlabel style={right},
+    ylabel style={right},
+    zlabel style={above},
+    clip=false,
+    ]
+    % vector to space point
+    \draw[->,red,thick]  (axis cs:0,0,0) -- (axis cs: {\px},{\py},{\pz}) node[above] { $\vec{r}$ };
+    % projections onto x-y-plane and z-axis
+    \draw[->,green,thick] (axis cs:0,0,0) -- (axis cs: {\px},{\py},0) node[below] { $\rho\vec{e}_\rho$ };
+    \draw[->,green,thick] (axis cs:0,0,0) -- (axis cs: 0,0,{\pz}) node[left] { $z\vec{e}_z$ };
+    % help lines for projections
+    \draw[gray,dashed] (axis cs:{\px},{\py},0) -- (axis cs: {\px},{\py},{\pz});
+    \draw[gray,dashed] (axis cs:0,0,{\pz}) -- (axis cs: {\px},{\py},{\pz});
+    \draw[gray,dashed] (axis cs:{\px},0,0) -- (axis cs: {\px},{\py},0);
+    \draw[gray,dashed] (axis cs:0,{\py},0) -- (axis cs: {\px},{\py},0);
+    % unit vectors
+    \draw[->,blue,very thick] (axis cs:0,0,0) -- (axis cs: 0,0,1) node[right] { $\vec{e}_z$ };
+    \draw[->,blue,very thick] (axis cs:0,0,0) -- (axis cs: {\px/sqrt(\px^2 + \py^2)},{\px/sqrt(\px^2 + \py^2)},0) node[above] { $\vec{e}_\rho$ };
+    % polar angle
+    \draw[->,gray] (axis cs:1,0,0) arc (0:{atan(\py/\px)}:1) node[left,pos=0.5] {\footnotesize $\varphi$};
+  \end{axis}
+\end{tikzpicture}
+\end{document}
+~~~
 ## derivative.svg
 [![derivative.svg](mathematics/derivative/derivative.svg "derivative.svg")](mathematics/derivative/derivative.svg) [[PDF]](mathematics/derivative/derivative.pdf) [[PNG]](mathematics/derivative/derivative.png) [[SVG]](mathematics/derivative/derivative.svg)
 ~~~.tex
@@ -1519,8 +1596,11 @@
     z buffer=sort,
     clip=false,
     ]
+    % side
     \addplot3[surf,colormap/blackwhite,domain={-pi/2}:{3*pi/2},domain y=0:1] ({cos(deg(x))},{sin(deg(x))},{y});
+    % top
     \addplot3[surf,colormap/blackwhite,domain={0}:{2*pi},domain y=0:1] ({y*cos(deg(x))},{y*sin(deg(x))},{1});
+    % vector field
     \addplot3[red,
       quiver = {
         u = {x},
@@ -1831,6 +1911,92 @@
   \addplot[blue] {0.5} node[right] {$f(x)=\frac{1}{2}$};
   \addplot[green] {1.5} node[right] {$f(x)=\frac{3}{2}$};
 \end{axis}
+\end{tikzpicture}
+\end{document}
+~~~
+## cylinder-space-vector_inverted.svg
+[![cylinder-space-vector_inverted.svg](mathematics/cylinder-space-vector/cylinder-space-vector_inverted.svg "cylinder-space-vector_inverted.svg")](mathematics/cylinder-space-vector/cylinder-space-vector_inverted.svg) [[PDF]](mathematics/cylinder-space-vector/cylinder-space-vector_inverted.pdf) [[PNG]](mathematics/cylinder-space-vector/cylinder-space-vector_inverted.png) [[SVG]](mathematics/cylinder-space-vector/cylinder-space-vector_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    color=white,
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\usepackage{amsmath,amssymb}
+\usepackage{physics}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.16}
+\tikzset{>=latex}
+
+\colorlet{green}{green}
+
+\pgfplotsset{
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=white,
+      text=white
+    }
+  },
+  every non boxed x axis/.append style={
+    axis line style={-latex}
+  },
+  every non boxed y axis/.append style={
+    axis line style={-latex}
+  },
+  every non boxed z axis/.append style={
+    axis line style={-latex}
+  },
+}
+
+\begin{document}
+\begin{tikzpicture}[inverted,inverted]
+  \pgfmathsetmacro{\px}{1.6};
+  \pgfmathsetmacro{\py}{2};
+  \pgfmathsetmacro{\pz}{2};
+  \begin{axis}[inverted,
+    width=6cm,
+    height=6cm,
+    view={30}{20},
+    xlabel={$x$},
+    ylabel={$y$},
+    zlabel={$z$},
+    xmin=0,xmax=2.5,
+    ymin=0,ymax=2.5,
+    zmin=0, zmax=2.5,
+    xtick=\empty,
+    ytick=\empty,
+    ztick=\empty,
+    axis x line=middle,
+    axis y line=middle,
+    axis z line=middle,
+    xlabel style={right},
+    ylabel style={right},
+    zlabel style={above},
+    clip=false,
+    ]
+    % vector to space point
+    \draw[->,red,thick]  (axis cs:0,0,0) -- (axis cs: {\px},{\py},{\pz}) node[above] { $\vec{r}$ };
+    % projections onto x-y-plane and z-axis
+    \draw[->,green,thick] (axis cs:0,0,0) -- (axis cs: {\px},{\py},0) node[below] { $\rho\vec{e}_\rho$ };
+    \draw[->,green,thick] (axis cs:0,0,0) -- (axis cs: 0,0,{\pz}) node[left] { $z\vec{e}_z$ };
+    % help lines for projections
+    \draw[gray,dashed] (axis cs:{\px},{\py},0) -- (axis cs: {\px},{\py},{\pz});
+    \draw[gray,dashed] (axis cs:0,0,{\pz}) -- (axis cs: {\px},{\py},{\pz});
+    \draw[gray,dashed] (axis cs:{\px},0,0) -- (axis cs: {\px},{\py},0);
+    \draw[gray,dashed] (axis cs:0,{\py},0) -- (axis cs: {\px},{\py},0);
+    % unit vectors
+    \draw[->,blue,very thick] (axis cs:0,0,0) -- (axis cs: 0,0,1) node[right] { $\vec{e}_z$ };
+    \draw[->,blue,very thick] (axis cs:0,0,0) -- (axis cs: {\px/sqrt(\px^2 + \py^2)},{\px/sqrt(\px^2 + \py^2)},0) node[above] { $\vec{e}_\rho$ };
+    % polar angle
+    \draw[->,gray] (axis cs:1,0,0) arc (0:{atan(\py/\px)}:1) node[left,pos=0.5] {\footnotesize $\varphi$};
+  \end{axis}
 \end{tikzpicture}
 \end{document}
 ~~~
