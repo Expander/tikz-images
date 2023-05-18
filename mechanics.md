@@ -564,6 +564,28 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## constraint-force-table-2.svg
+[![constraint-force-table-2.svg](mechanics/constraint-force-table-2/constraint-force-table-2.svg "constraint-force-table-2.svg")](mechanics/constraint-force-table-2/constraint-force-table-2.svg) [[PDF]](mechanics/constraint-force-table-2/constraint-force-table-2.pdf) [[PNG]](mechanics/constraint-force-table-2/constraint-force-table-2.png) [[SVG]](mechanics/constraint-force-table-2/constraint-force-table-2.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\tikzset{>=latex}
+\colorlet{gray}{gray!20}
+\newcommand{\F}{\vec{F}}
+\newcommand{\Z}{\vec{Z}}
+
+\begin{document}
+\begin{tikzpicture}[scale=1.5]
+  \draw[fill,gray] (xyz cs:x=0.1,z=-0.2) -- ++(xyz cs:x=2.6) -- ++(xyz cs:z=-3) -- ++(xyz cs:x=-2.6) -- cycle;
+  \draw[->] (xyz cs:x=-0.5) -- (xyz cs:x=3) node[below] {$x$};
+  \draw[->] (xyz cs:y=1.5) -- (xyz cs:y=-1) node[left] {$z$};
+  \draw[->] (xyz cs:z=1) -- (xyz cs:z=-3) node[above] {$y$};
+  \draw[fill,black] (xyz cs:x=1.5,z=-1.5) circle (0.1);
+  \draw[->,red] (xyz cs:x=1.5,z=-1.5) -- ++(0,-1) node[below] {$\F_g$};
+  \draw[->,blue] (xyz cs:x=1.5,z=-1.5) -- ++(0,+1) node[above] {$\Z$};
+\end{tikzpicture}
+\end{document}
+~~~
 ## constraint-force-table.svg
 [![constraint-force-table.svg](mechanics/constraint-force-table/constraint-force-table.svg "constraint-force-table.svg")](mechanics/constraint-force-table/constraint-force-table.svg) [[PDF]](mechanics/constraint-force-table/constraint-force-table.pdf) [[PNG]](mechanics/constraint-force-table/constraint-force-table.png) [[SVG]](mechanics/constraint-force-table/constraint-force-table.svg)
 ~~~.tex
@@ -3964,6 +3986,37 @@
   \draw[->,thick,green]        (a) -- +($(\sa*\ca,-\sa*\sa)$) node[above] {$\F_H$};
   \draw[->,thick,green,dashed] (a) -- +($(-\sa*\ca,-\ca*\ca)$) node[below] {$\F_N$};
   \draw[->,thick,blue]         (a) -- +($(\sa*\ca,\ca*\ca)$) node[above] {$\Z$};
+\end{tikzpicture}
+\end{document}
+~~~
+## constraint-force-table-2_inverted.svg
+[![constraint-force-table-2_inverted.svg](mechanics/constraint-force-table-2/constraint-force-table-2_inverted.svg "constraint-force-table-2_inverted.svg")](mechanics/constraint-force-table-2/constraint-force-table-2_inverted.svg) [[PDF]](mechanics/constraint-force-table-2/constraint-force-table-2_inverted.pdf) [[PNG]](mechanics/constraint-force-table-2/constraint-force-table-2_inverted.png) [[SVG]](mechanics/constraint-force-table-2/constraint-force-table-2_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    color=white,
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\tikzset{>=latex}
+\colorlet{gray}{gray!60}
+\newcommand{\F}{\vec{F}}
+\newcommand{\Z}{\vec{Z}}
+
+\begin{document}
+\begin{tikzpicture}[inverted,scale=1.5]
+  \draw[fill,gray] (xyz cs:x=0.1,z=-0.2) -- ++(xyz cs:x=2.6) -- ++(xyz cs:z=-3) -- ++(xyz cs:x=-2.6) -- cycle;
+  \draw[->] (xyz cs:x=-0.5) -- (xyz cs:x=3) node[below] {$x$};
+  \draw[->] (xyz cs:y=1.5) -- (xyz cs:y=-1) node[left] {$z$};
+  \draw[->] (xyz cs:z=1) -- (xyz cs:z=-3) node[above] {$y$};
+  \draw[fill,white] (xyz cs:x=1.5,z=-1.5) circle (0.1);
+  \draw[->,red] (xyz cs:x=1.5,z=-1.5) -- ++(0,-1) node[below] {$\F_g$};
+  \draw[->,blue] (xyz cs:x=1.5,z=-1.5) -- ++(0,+1) node[above] {$\Z$};
 \end{tikzpicture}
 \end{document}
 ~~~
