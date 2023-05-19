@@ -83,6 +83,70 @@
 \end{tikzpicture}
 \end{document}
 ~~~
+## diffraction-single-slit-overview.svg
+[![diffraction-single-slit-overview.svg](optics/diffraction-single-slit-overview/diffraction-single-slit-overview.svg "diffraction-single-slit-overview.svg")](optics/diffraction-single-slit-overview/diffraction-single-slit-overview.svg) [[PDF]](optics/diffraction-single-slit-overview/diffraction-single-slit-overview.pdf) [[PNG]](optics/diffraction-single-slit-overview/diffraction-single-slit-overview.png) [[SVG]](optics/diffraction-single-slit-overview/diffraction-single-slit-overview.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+
+\usepackage{pgfplots}
+
+\pgfplotsset{
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=hardblack,
+      text=white
+    }
+  }
+}
+
+\tikzset{>=latex}
+\colorlet{green}{black!40!green}
+
+\begin{document}
+\begin{tikzpicture}
+  \pgfmathsetlengthmacro{\slitmax}{2cm}
+  \pgfmathsetlengthmacro{\slitx}{0cm}
+  \pgfmathsetlengthmacro{\slity}{0cm}
+  \pgfmathsetlengthmacro{\slitheight}{0.3cm}
+  \pgfmathsetlengthmacro{\slitwidth}{0.1cm}
+  \pgfmathsetlengthmacro{\distance}{4cm}
+  \pgfmathsetmacro{\angl}{13}
+  \pgfmathsetlengthmacro{\boffset}{0.2cm}
+  \pgfmathsetlengthmacro{\radius}{2cm}
+  % slit
+  \draw[fill] ({\slitx-\slitwidth/2},{\slity+\slitheight/2}) rectangle ({\slitwidth/2},{\slitmax});
+  \draw[fill] ({\slitx-\slitwidth/2},{\slity-\slitheight/2}) rectangle ({\slitwidth/2},{-\slitmax});
+  \draw[->] ({\slitx-\boffset},{\slity-2*\slitheight}) -- ++ (0,{ 3*\slitheight/2});
+  \draw[->] ({\slitx-\boffset},{\slity+2*\slitheight}) -- ++ (0,{-3*\slitheight/2});
+  \node[left] at ({\slitx-\boffset},{\slity}) {$b$};
+  % ray
+  \draw[dashed] ({\slitx},{\slity}) -- ++ ({\distance},0);
+  \draw[red] ({\slitx},{\slity}) -- ({\angl}:{\distance/cos(\angl)}) coordinate (P);
+  \draw[green,thick] (\radius,0) arc (0:\angl:\radius);
+  \node[green] at ({\angl/2}:{0.8*\radius}) { $\vartheta$ };
+  % projection
+  \draw[very thick] ({\slitx + \distance},{-\slitmax}) -- ({\slitx + \distance},{\slitmax});
+  \node[right] at (P) {$P$};
+  % intensity
+  \begin{axis}[
+    width={3*\slitmax},
+    height={2*\slitmax},
+    anchor=origin,
+    rotate around={-90:(current axis.origin)},
+    domain={-2*pi}:{2*pi},
+    samples=100,
+    smooth,
+    axis x line=none,
+    axis y line=none,
+    yshift={\distance},
+    declare function = { S(\x) = sin(deg(\x))^2/\x^2; },
+    ]
+    \addplot[red,very thick,smooth] { S(x) };
+  \end{axis}
+\end{tikzpicture}
+\end{document}
+~~~
 ## huygens-aperture.svg
 [![huygens-aperture.svg](optics/huygens-aperture/huygens-aperture.svg "huygens-aperture.svg")](optics/huygens-aperture/huygens-aperture.svg) [[PDF]](optics/huygens-aperture/huygens-aperture.pdf) [[PNG]](optics/huygens-aperture/huygens-aperture.png) [[SVG]](optics/huygens-aperture/huygens-aperture.svg)
 ~~~.tex
@@ -598,6 +662,79 @@ color(75bp)=(violet); color(100bp)=(violet)}
   \draw[thick] (0,1)+(-70:{cos(20)}) -- (0,0);
   \draw[gray] (0,-1)+(20:0.4) -- +(-30:1) node[below,white] {$\Delta s$};
   \draw[gray] (0,0)+(20:0.2) -- +(130:1) node[left,white] {$\displaystyle\frac{\Delta s}{2}$};
+\end{tikzpicture}
+\end{document}
+~~~
+## diffraction-single-slit-overview_inverted.svg
+[![diffraction-single-slit-overview_inverted.svg](optics/diffraction-single-slit-overview/diffraction-single-slit-overview_inverted.svg "diffraction-single-slit-overview_inverted.svg")](optics/diffraction-single-slit-overview/diffraction-single-slit-overview_inverted.svg) [[PDF]](optics/diffraction-single-slit-overview/diffraction-single-slit-overview_inverted.pdf) [[PNG]](optics/diffraction-single-slit-overview/diffraction-single-slit-overview_inverted.png) [[SVG]](optics/diffraction-single-slit-overview/diffraction-single-slit-overview_inverted.svg)
+~~~.tex
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    color=white,
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\usepackage{pgfplots}
+
+\pgfplotsset{
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=black,
+      text=white
+    }
+  }
+}
+
+\tikzset{>=latex}
+\colorlet{green}{green}
+
+\begin{document}
+\begin{tikzpicture}[inverted,inverted]
+  \pgfmathsetlengthmacro{\slitmax}{2cm}
+  \pgfmathsetlengthmacro{\slitx}{0cm}
+  \pgfmathsetlengthmacro{\slity}{0cm}
+  \pgfmathsetlengthmacro{\slitheight}{0.3cm}
+  \pgfmathsetlengthmacro{\slitwidth}{0.1cm}
+  \pgfmathsetlengthmacro{\distance}{4cm}
+  \pgfmathsetmacro{\angl}{13}
+  \pgfmathsetlengthmacro{\boffset}{0.2cm}
+  \pgfmathsetlengthmacro{\radius}{2cm}
+  % slit
+  \draw[fill] ({\slitx-\slitwidth/2},{\slity+\slitheight/2}) rectangle ({\slitwidth/2},{\slitmax});
+  \draw[fill] ({\slitx-\slitwidth/2},{\slity-\slitheight/2}) rectangle ({\slitwidth/2},{-\slitmax});
+  \draw[->] ({\slitx-\boffset},{\slity-2*\slitheight}) -- ++ (0,{ 3*\slitheight/2});
+  \draw[->] ({\slitx-\boffset},{\slity+2*\slitheight}) -- ++ (0,{-3*\slitheight/2});
+  \node[left] at ({\slitx-\boffset},{\slity}) {$b$};
+  % ray
+  \draw[dashed] ({\slitx},{\slity}) -- ++ ({\distance},0);
+  \draw[red] ({\slitx},{\slity}) -- ({\angl}:{\distance/cos(\angl)}) coordinate (P);
+  \draw[green,thick] (\radius,0) arc (0:\angl:\radius);
+  \node[green] at ({\angl/2}:{0.8*\radius}) { $\vartheta$ };
+  % projection
+  \draw[very thick] ({\slitx + \distance},{-\slitmax}) -- ({\slitx + \distance},{\slitmax});
+  \node[right] at (P) {$P$};
+  % intensity
+  \begin{axis}[inverted,
+    width={3*\slitmax},
+    height={2*\slitmax},
+    anchor=origin,
+    rotate around={-90:(current axis.origin)},
+    domain={-2*pi}:{2*pi},
+    samples=100,
+    smooth,
+    axis x line=none,
+    axis y line=none,
+    yshift={\distance},
+    declare function = { S(\x) = sin(deg(\x))^2/\x^2; },
+    ]
+    \addplot[red,very thick,smooth] { S(x) };
+  \end{axis}
 \end{tikzpicture}
 \end{document}
 ~~~
