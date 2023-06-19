@@ -1,0 +1,43 @@
+\documentclass[crop,tikz]{standalone}
+
+\usepackage{amsmath}
+\usepackage{pgfplots}
+
+\tikzset{>=latex}
+\pgfplotsset{
+  compat=1.16,
+  every non boxed x axis/.append style={
+    axis line style={-latex}
+  },
+  every non boxed y axis/.append style={
+    axis line style={-latex}
+  }
+}
+
+\begin{document}
+\begin{tikzpicture}
+  \begin{axis}[
+    thick,
+    width=7cm,
+    height=6cm,
+    domain=0.5:4.6,
+    xmin=0, xmax=5,
+    ymin=0, ymax=5,
+    samples=100,
+    xlabel={$r$},
+    ylabel={$|\vec{F}_{\text{G}}|$},
+    axis x line=center,
+    axis y line=center,
+    xlabel style={right},
+    ylabel style={above},
+    xtick={\empty},
+    xticklabels={},
+    ytick={\empty},
+    yticklabels={},
+    clip=false
+    ]
+    \addplot[mark=none,red] {1/x^2};
+    \node[below left] at (axis cs:0,0) {$0$};
+  \end{axis}
+\end{tikzpicture}%
+\end{document}
