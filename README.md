@@ -14,4 +14,6 @@
 
 [Statistics](statistics.md)
 
+[Technics](technics.md)
+
 License: CC0

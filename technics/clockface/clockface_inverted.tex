@@ -1,0 +1,23 @@
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    color=white,
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\begin{document}
+\begin{tikzpicture}[inverted,thick]
+  \pgfmathsetmacro{\radius}{2}
+  \pgfmathsetmacro{\markersize}{0.1*\radius}
+  %
+  \draw (0,0) circle (\radius);
+  \foreach \num in {1,...,12} {
+    \draw ({90-30*\num}:\radius) -- ({90-30*\num}:{\radius-\markersize});
+    \node at ({90-30*\num}:{(\radius-\markersize)*0.85}) {\num};
+  }
+\end{tikzpicture}
+\end{document}

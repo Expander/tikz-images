@@ -33,9 +33,14 @@ STA_TEX   := $(shell find statistics      -name '*.tex' -a ! -name '*_inverted.t
 STA_TEX   := $(STA_TEX) $(patsubst %.tex,%_inverted.tex,$(STA_TEX))
 STA_SVG   := $(patsubst %.tex,%.svg,$(STA_TEX))
 
-MD_FILES  := $(DID_MD)  $(EDY_MD)  $(MAT_MD)  $(MEC_MD)  $(OPT_MD)  $(QUA_MD)  $(STA_MD) 
-SVG_FILES := $(DID_SVG) $(EDY_SVG) $(MAT_SVG) $(MEC_SVG) $(OPT_SVG) $(QUA_SVG) $(STA_SVG)
-TEX_FILES := $(DID_TEX) $(EDY_TEX) $(MAT_TEX) $(MEC_TEX) $(OPT_TEX) $(QUA_TEX) $(STA_TEX)
+TEC_MD    := technics.md
+TEC_TEX   := $(shell find technics        -name '*.tex' -a ! -name '*_inverted.tex' -type f | sort)
+TEC_TEX   := $(TEC_TEX) $(patsubst %.tex,%_inverted.tex,$(TEC_TEX))
+TEC_SVG   := $(patsubst %.tex,%.svg,$(TEC_TEX))
+
+MD_FILES  := $(DID_MD)  $(EDY_MD)  $(MAT_MD)  $(MEC_MD)  $(OPT_MD)  $(QUA_MD)  $(STA_MD)  $(TEC_MD) 
+SVG_FILES := $(DID_SVG) $(EDY_SVG) $(MAT_SVG) $(MEC_SVG) $(OPT_SVG) $(QUA_SVG) $(STA_SVG) $(TEC_SVG)
+TEX_FILES := $(DID_TEX) $(EDY_TEX) $(MAT_TEX) $(MEC_TEX) $(OPT_TEX) $(QUA_TEX) $(STA_TEX) $(TEC_TEX)
 
 AUX_FILES := $(patsubst %.tex,%.aux,$(TEX_FILES))
 LOG_FILES := $(patsubst %.tex,%.log,$(TEX_FILES))
@@ -74,6 +79,9 @@ $(QUA_MD): $(QUA_SVG)
 
 $(STA_MD): $(STA_SVG)
 	./generate-list Statistics $^ > $@
+
+$(TEC_MD): $(TEC_SVG)
+	./generate-list Technics $^ > $@
 
 %_inverted.tex: %.tex invert_colors
 	./invert_colors $< $@
