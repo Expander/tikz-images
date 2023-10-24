@@ -1,0 +1,28 @@
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    color=white,
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+% gear
+% #1 number of teeths
+% #2 radius intern
+% #3 radius extern
+% #4 angle from start to end of the first arc
+% #5 angle to decale the second arc from the first
+\newcommand{\gear}[5]{%
+\foreach \i in {1,...,#1} {%
+  [rotate=(\i-1)*360/#1]
+    (0:#2) arc (0:#4:#2) -- (#4+#5:#3) arc (#4+#5:360/#1-#5:#3) -- (360/#1:#2)
+}}
+
+\begin{document}
+\begin{tikzpicture}[inverted,inverted]
+  \draw[thick] \gear{12}{1}{1.15}{10}{4};
+\end{tikzpicture}
+\end{document}
