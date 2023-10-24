@@ -9,20 +9,47 @@
   }
 }
 
-% gear
-% #1 number of teeths
-% #2 radius intern
-% #3 radius extern
-% #4 angle from start to end of the first arc
-% #5 angle to decale the second arc from the first
-\newcommand{\gear}[5]{%
-\foreach \i in {1,...,#1} {%
-  [rotate=(\i-1)*360/#1]
-    (0:#2) arc (0:#4:#2) -- (#4+#5:#3) arc (#4+#5:360/#1-#5:#3) -- (360/#1:#2)
+% https://tex.stackexchange.com/a/299454
+\tikzset{pics/gear/.style n args={3}{
+    code={
+        \def\modu{#1}
+        \def\Zb{#2}
+        \def\AngleA{#3}
+
+        \pgfmathsetmacro{\Rpr}{\Zb*\modu/2}
+        \pgfmathsetmacro{\Rb}{\Rpr*cos(\AngleA)}
+        \pgfmathsetmacro{\Rt}{\Rpr+\modu}
+        \pgfmathsetmacro{\Rp}{\Rpr-1.1*\modu}
+        \pgfmathsetmacro{\AngleT}{pi/180*acos(\Rb/\Rt)}
+        \pgfmathsetmacro{\AnglePr}{pi/180*acos(\Rb/\Rpr)}
+        \pgfmathsetmacro{\demiAngle}{180/\Zb}
+        \pgfmathsetmacro{\Angledecal}{(\demiAngle-2*\AnglePr)/2}
+
+        \path[pic actions] foreach \zz in{1,...,\Zb}{
+            \ifnum\zz=1
+                % don't use a lineto in the first iteration
+                (\zz/\Zb*360-\Angledecal:\Rp)
+            \else
+                -- (\zz/\Zb*360-\Angledecal:\Rp)
+            \fi
+            to[bend right=\demiAngle]
+            (\zz/\Zb*360+\Angledecal:\Rp)
+            --
+            plot[domain=-0:\AngleT,smooth,variable=\t]
+                ({{180/pi*(-\t+tan(180/pi*\t)) +\zz/\Zb*360+\Angledecal}:\Rb/cos(180/pi*\t)})
+            %
+            to[bend right=\demiAngle]
+                ({{180/pi*(\AngleT+tan(180/pi*-\AngleT)) +(\zz+1)/\Zb*360-\Angledecal}:
+                \Rb/cos(180/pi*-\AngleT)})
+            --
+            plot[domain=-\AngleT:-0,smooth,variable=\t]
+            ({{180/pi*(-\t+tan(180/pi*\t)) +(\zz+1)/\Zb*360-\Angledecal}:\Rb/cos(180/pi*\t)})
+        } -- cycle;
+    }
 }}
 
 \begin{document}
 \begin{tikzpicture}[inverted,inverted]
-  \draw[thick] \gear{12}{1}{1.15}{10}{4};
+  \pic[draw] at (0,0) { gear={0.1}{24}{20} };
 \end{tikzpicture}
 \end{document}
