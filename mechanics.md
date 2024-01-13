@@ -53,6 +53,8 @@
 [![damped-oscillator-2.svg](mechanics/damped-oscillator-2/damped-oscillator-2.svg "damped-oscillator-2.svg")](mechanics/damped-oscillator-2/damped-oscillator-2.svg) [[PDF]](mechanics/damped-oscillator-2/damped-oscillator-2.pdf) [[PNG]](mechanics/damped-oscillator-2/damped-oscillator-2.png) [[SVG]](mechanics/damped-oscillator-2/damped-oscillator-2.svg) [[TEX]](mechanics/damped-oscillator-2/damped-oscillator-2.tex)
 ## damped-oscillator.svg
 [![damped-oscillator.svg](mechanics/damped-oscillator/damped-oscillator.svg "damped-oscillator.svg")](mechanics/damped-oscillator/damped-oscillator.svg) [[PDF]](mechanics/damped-oscillator/damped-oscillator.pdf) [[PNG]](mechanics/damped-oscillator/damped-oscillator.png) [[SVG]](mechanics/damped-oscillator/damped-oscillator.svg) [[TEX]](mechanics/damped-oscillator/damped-oscillator.tex)
+## double_pendulum.svg
+[![double_pendulum.svg](mechanics/double_pendulum/double_pendulum.svg "double_pendulum.svg")](mechanics/double_pendulum/double_pendulum.svg) [[PDF]](mechanics/double_pendulum/double_pendulum.pdf) [[PNG]](mechanics/double_pendulum/double_pendulum.png) [[SVG]](mechanics/double_pendulum/double_pendulum.svg) [[TEX]](mechanics/double_pendulum/double_pendulum.tex)
 ## earth-forces.svg
 [![earth-forces.svg](mechanics/earth-forces/earth-forces.svg "earth-forces.svg")](mechanics/earth-forces/earth-forces.svg) [[PDF]](mechanics/earth-forces/earth-forces.pdf) [[PNG]](mechanics/earth-forces/earth-forces.png) [[SVG]](mechanics/earth-forces/earth-forces.svg) [[TEX]](mechanics/earth-forces/earth-forces.tex)
 ## Epot-gravity.svg
@@ -245,6 +247,8 @@
 [![damped-oscillator-2_inverted.svg](mechanics/damped-oscillator-2/damped-oscillator-2_inverted.svg "damped-oscillator-2_inverted.svg")](mechanics/damped-oscillator-2/damped-oscillator-2_inverted.svg) [[PDF]](mechanics/damped-oscillator-2/damped-oscillator-2_inverted.pdf) [[PNG]](mechanics/damped-oscillator-2/damped-oscillator-2_inverted.png) [[SVG]](mechanics/damped-oscillator-2/damped-oscillator-2_inverted.svg) [[TEX]](mechanics/damped-oscillator-2/damped-oscillator-2_inverted.tex)
 ## damped-oscillator_inverted.svg
 [![damped-oscillator_inverted.svg](mechanics/damped-oscillator/damped-oscillator_inverted.svg "damped-oscillator_inverted.svg")](mechanics/damped-oscillator/damped-oscillator_inverted.svg) [[PDF]](mechanics/damped-oscillator/damped-oscillator_inverted.pdf) [[PNG]](mechanics/damped-oscillator/damped-oscillator_inverted.png) [[SVG]](mechanics/damped-oscillator/damped-oscillator_inverted.svg) [[TEX]](mechanics/damped-oscillator/damped-oscillator_inverted.tex)
+## double_pendulum_inverted.svg
+[![double_pendulum_inverted.svg](mechanics/double_pendulum/double_pendulum_inverted.svg "double_pendulum_inverted.svg")](mechanics/double_pendulum/double_pendulum_inverted.svg) [[PDF]](mechanics/double_pendulum/double_pendulum_inverted.pdf) [[PNG]](mechanics/double_pendulum/double_pendulum_inverted.png) [[SVG]](mechanics/double_pendulum/double_pendulum_inverted.svg) [[TEX]](mechanics/double_pendulum/double_pendulum_inverted.tex)
 ## earth-forces_inverted.svg
 [![earth-forces_inverted.svg](mechanics/earth-forces/earth-forces_inverted.svg "earth-forces_inverted.svg")](mechanics/earth-forces/earth-forces_inverted.svg) [[PDF]](mechanics/earth-forces/earth-forces_inverted.pdf) [[PNG]](mechanics/earth-forces/earth-forces_inverted.png) [[SVG]](mechanics/earth-forces/earth-forces_inverted.svg) [[TEX]](mechanics/earth-forces/earth-forces_inverted.tex)
 ## Epot-gravity_inverted.svg
