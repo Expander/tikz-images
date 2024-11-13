@@ -71,12 +71,18 @@
 [![foucault-curve.svg](mechanics/foucault-curve/foucault-curve.svg "foucault-curve.svg")](mechanics/foucault-curve/foucault-curve.svg) [[PDF]](mechanics/foucault-curve/foucault-curve.pdf) [[PNG]](mechanics/foucault-curve/foucault-curve.png) [[SVG]](mechanics/foucault-curve/foucault-curve.svg) [[TEX]](mechanics/foucault-curve/foucault-curve.tex)
 ## foucault.svg
 [![foucault.svg](mechanics/foucault/foucault.svg "foucault.svg")](mechanics/foucault/foucault.svg) [[PDF]](mechanics/foucault/foucault.pdf) [[PNG]](mechanics/foucault/foucault.png) [[SVG]](mechanics/foucault/foucault.svg) [[TEX]](mechanics/foucault/foucault.tex)
+## free-fall-a-diagram.svg
+[![free-fall-a-diagram.svg](mechanics/free-fall-a-diagram/free-fall-a-diagram.svg "free-fall-a-diagram.svg")](mechanics/free-fall-a-diagram/free-fall-a-diagram.svg) [[PDF]](mechanics/free-fall-a-diagram/free-fall-a-diagram.pdf) [[PNG]](mechanics/free-fall-a-diagram/free-fall-a-diagram.png) [[SVG]](mechanics/free-fall-a-diagram/free-fall-a-diagram.svg) [[TEX]](mechanics/free-fall-a-diagram/free-fall-a-diagram.tex)
 ## free-fall-a.svg
 [![free-fall-a.svg](mechanics/free-fall-a/free-fall-a.svg "free-fall-a.svg")](mechanics/free-fall-a/free-fall-a.svg) [[PDF]](mechanics/free-fall-a/free-fall-a.pdf) [[PNG]](mechanics/free-fall-a/free-fall-a.png) [[SVG]](mechanics/free-fall-a/free-fall-a.svg) [[TEX]](mechanics/free-fall-a/free-fall-a.tex)
 ## free-fall.svg
 [![free-fall.svg](mechanics/free-fall/free-fall.svg "free-fall.svg")](mechanics/free-fall/free-fall.svg) [[PDF]](mechanics/free-fall/free-fall.pdf) [[PNG]](mechanics/free-fall/free-fall.png) [[SVG]](mechanics/free-fall/free-fall.svg) [[TEX]](mechanics/free-fall/free-fall.tex)
+## free-fall-v-diagram.svg
+[![free-fall-v-diagram.svg](mechanics/free-fall-v-diagram/free-fall-v-diagram.svg "free-fall-v-diagram.svg")](mechanics/free-fall-v-diagram/free-fall-v-diagram.svg) [[PDF]](mechanics/free-fall-v-diagram/free-fall-v-diagram.pdf) [[PNG]](mechanics/free-fall-v-diagram/free-fall-v-diagram.png) [[SVG]](mechanics/free-fall-v-diagram/free-fall-v-diagram.svg) [[TEX]](mechanics/free-fall-v-diagram/free-fall-v-diagram.tex)
 ## free-fall-v.svg
 [![free-fall-v.svg](mechanics/free-fall-v/free-fall-v.svg "free-fall-v.svg")](mechanics/free-fall-v/free-fall-v.svg) [[PDF]](mechanics/free-fall-v/free-fall-v.pdf) [[PNG]](mechanics/free-fall-v/free-fall-v.png) [[SVG]](mechanics/free-fall-v/free-fall-v.svg) [[TEX]](mechanics/free-fall-v/free-fall-v.tex)
+## free-fall-z-diagram.svg
+[![free-fall-z-diagram.svg](mechanics/free-fall-z-diagram/free-fall-z-diagram.svg "free-fall-z-diagram.svg")](mechanics/free-fall-z-diagram/free-fall-z-diagram.svg) [[PDF]](mechanics/free-fall-z-diagram/free-fall-z-diagram.pdf) [[PNG]](mechanics/free-fall-z-diagram/free-fall-z-diagram.png) [[SVG]](mechanics/free-fall-z-diagram/free-fall-z-diagram.svg) [[TEX]](mechanics/free-fall-z-diagram/free-fall-z-diagram.tex)
 ## free-fall-z.svg
 [![free-fall-z.svg](mechanics/free-fall-z/free-fall-z.svg "free-fall-z.svg")](mechanics/free-fall-z/free-fall-z.svg) [[PDF]](mechanics/free-fall-z/free-fall-z.pdf) [[PNG]](mechanics/free-fall-z/free-fall-z.png) [[SVG]](mechanics/free-fall-z/free-fall-z.svg) [[TEX]](mechanics/free-fall-z/free-fall-z.tex)
 ## friction.svg
@@ -265,12 +271,18 @@
 [![foucault-curve_inverted.svg](mechanics/foucault-curve/foucault-curve_inverted.svg "foucault-curve_inverted.svg")](mechanics/foucault-curve/foucault-curve_inverted.svg) [[PDF]](mechanics/foucault-curve/foucault-curve_inverted.pdf) [[PNG]](mechanics/foucault-curve/foucault-curve_inverted.png) [[SVG]](mechanics/foucault-curve/foucault-curve_inverted.svg) [[TEX]](mechanics/foucault-curve/foucault-curve_inverted.tex)
 ## foucault_inverted.svg
 [![foucault_inverted.svg](mechanics/foucault/foucault_inverted.svg "foucault_inverted.svg")](mechanics/foucault/foucault_inverted.svg) [[PDF]](mechanics/foucault/foucault_inverted.pdf) [[PNG]](mechanics/foucault/foucault_inverted.png) [[SVG]](mechanics/foucault/foucault_inverted.svg) [[TEX]](mechanics/foucault/foucault_inverted.tex)
+## free-fall-a-diagram_inverted.svg
+[![free-fall-a-diagram_inverted.svg](mechanics/free-fall-a-diagram/free-fall-a-diagram_inverted.svg "free-fall-a-diagram_inverted.svg")](mechanics/free-fall-a-diagram/free-fall-a-diagram_inverted.svg) [[PDF]](mechanics/free-fall-a-diagram/free-fall-a-diagram_inverted.pdf) [[PNG]](mechanics/free-fall-a-diagram/free-fall-a-diagram_inverted.png) [[SVG]](mechanics/free-fall-a-diagram/free-fall-a-diagram_inverted.svg) [[TEX]](mechanics/free-fall-a-diagram/free-fall-a-diagram_inverted.tex)
 ## free-fall-a_inverted.svg
 [![free-fall-a_inverted.svg](mechanics/free-fall-a/free-fall-a_inverted.svg "free-fall-a_inverted.svg")](mechanics/free-fall-a/free-fall-a_inverted.svg) [[PDF]](mechanics/free-fall-a/free-fall-a_inverted.pdf) [[PNG]](mechanics/free-fall-a/free-fall-a_inverted.png) [[SVG]](mechanics/free-fall-a/free-fall-a_inverted.svg) [[TEX]](mechanics/free-fall-a/free-fall-a_inverted.tex)
 ## free-fall_inverted.svg
 [![free-fall_inverted.svg](mechanics/free-fall/free-fall_inverted.svg "free-fall_inverted.svg")](mechanics/free-fall/free-fall_inverted.svg) [[PDF]](mechanics/free-fall/free-fall_inverted.pdf) [[PNG]](mechanics/free-fall/free-fall_inverted.png) [[SVG]](mechanics/free-fall/free-fall_inverted.svg) [[TEX]](mechanics/free-fall/free-fall_inverted.tex)
+## free-fall-v-diagram_inverted.svg
+[![free-fall-v-diagram_inverted.svg](mechanics/free-fall-v-diagram/free-fall-v-diagram_inverted.svg "free-fall-v-diagram_inverted.svg")](mechanics/free-fall-v-diagram/free-fall-v-diagram_inverted.svg) [[PDF]](mechanics/free-fall-v-diagram/free-fall-v-diagram_inverted.pdf) [[PNG]](mechanics/free-fall-v-diagram/free-fall-v-diagram_inverted.png) [[SVG]](mechanics/free-fall-v-diagram/free-fall-v-diagram_inverted.svg) [[TEX]](mechanics/free-fall-v-diagram/free-fall-v-diagram_inverted.tex)
 ## free-fall-v_inverted.svg
 [![free-fall-v_inverted.svg](mechanics/free-fall-v/free-fall-v_inverted.svg "free-fall-v_inverted.svg")](mechanics/free-fall-v/free-fall-v_inverted.svg) [[PDF]](mechanics/free-fall-v/free-fall-v_inverted.pdf) [[PNG]](mechanics/free-fall-v/free-fall-v_inverted.png) [[SVG]](mechanics/free-fall-v/free-fall-v_inverted.svg) [[TEX]](mechanics/free-fall-v/free-fall-v_inverted.tex)
+## free-fall-z-diagram_inverted.svg
+[![free-fall-z-diagram_inverted.svg](mechanics/free-fall-z-diagram/free-fall-z-diagram_inverted.svg "free-fall-z-diagram_inverted.svg")](mechanics/free-fall-z-diagram/free-fall-z-diagram_inverted.svg) [[PDF]](mechanics/free-fall-z-diagram/free-fall-z-diagram_inverted.pdf) [[PNG]](mechanics/free-fall-z-diagram/free-fall-z-diagram_inverted.png) [[SVG]](mechanics/free-fall-z-diagram/free-fall-z-diagram_inverted.svg) [[TEX]](mechanics/free-fall-z-diagram/free-fall-z-diagram_inverted.tex)
 ## free-fall-z_inverted.svg
 [![free-fall-z_inverted.svg](mechanics/free-fall-z/free-fall-z_inverted.svg "free-fall-z_inverted.svg")](mechanics/free-fall-z/free-fall-z_inverted.svg) [[PDF]](mechanics/free-fall-z/free-fall-z_inverted.pdf) [[PNG]](mechanics/free-fall-z/free-fall-z_inverted.png) [[SVG]](mechanics/free-fall-z/free-fall-z_inverted.svg) [[TEX]](mechanics/free-fall-z/free-fall-z_inverted.tex)
 ## friction_inverted.svg

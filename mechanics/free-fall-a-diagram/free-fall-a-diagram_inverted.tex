@@ -1,0 +1,19 @@
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    color=white,
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\tikzset{>=latex}
+
+\begin{document}
+\begin{tikzpicture}[inverted,scale=2.5,thick]
+  \draw[->] (0,0) -- (1,0) node[right] {$t$};
+  \draw[->] (0,0) -- (0,1) node[left] {$a$};
+\end{tikzpicture}
+\end{document}
