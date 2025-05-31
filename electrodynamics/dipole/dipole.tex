@@ -2,6 +2,11 @@
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.13}
 
+% Field lines and lines of constant potential for an electric dipole.
+%
+% Inspired by the expressions given in Fließbach, "Arbeitsbuch zur
+% Theoretischen Physik", example 11.7.
+
 \pgfplotsset{
   inverted/.style = {
     every axis legend/.append style={
@@ -19,11 +24,6 @@
 }
 
 \begin{document}
-
-% Field lines and lines of constant potential for an electric dipole.
-%
-% Inspired by the expressions given in Fließbach, "Arbeitsbuch zur
-% Theoretischen Physik", example 11.7.
 
 \begin{tikzpicture}
   \pgfmathsetmacro{\numberoffieldlines}{10};
