@@ -1,6 +1,8 @@
 # Electrodynamics
 ## capacity-bodies.svg
 [![capacity-bodies.svg](electrodynamics/capacity-bodies/capacity-bodies.svg "capacity-bodies.svg")](electrodynamics/capacity-bodies/capacity-bodies.svg) [[PDF]](electrodynamics/capacity-bodies/capacity-bodies.pdf) [[PNG]](electrodynamics/capacity-bodies/capacity-bodies.png) [[SVG]](electrodynamics/capacity-bodies/capacity-bodies.svg) [[TEX]](electrodynamics/capacity-bodies/capacity-bodies.tex)
+## capacity-cylinder.svg
+[![capacity-cylinder.svg](electrodynamics/capacity-cylinder/capacity-cylinder.svg "capacity-cylinder.svg")](electrodynamics/capacity-cylinder/capacity-cylinder.svg) [[PDF]](electrodynamics/capacity-cylinder/capacity-cylinder.pdf) [[PNG]](electrodynamics/capacity-cylinder/capacity-cylinder.png) [[SVG]](electrodynamics/capacity-cylinder/capacity-cylinder.svg) [[TEX]](electrodynamics/capacity-cylinder/capacity-cylinder.tex)
 ## capacity-parallel.svg
 [![capacity-parallel.svg](electrodynamics/capacity-parallel/capacity-parallel.svg "capacity-parallel.svg")](electrodynamics/capacity-parallel/capacity-parallel.svg) [[PDF]](electrodynamics/capacity-parallel/capacity-parallel.pdf) [[PNG]](electrodynamics/capacity-parallel/capacity-parallel.png) [[SVG]](electrodynamics/capacity-parallel/capacity-parallel.svg) [[TEX]](electrodynamics/capacity-parallel/capacity-parallel.tex)
 ## capacity-plates.svg
@@ -105,6 +107,8 @@
 [![solid.svg](electrodynamics/solid/solid.svg "solid.svg")](electrodynamics/solid/solid.svg) [[PDF]](electrodynamics/solid/solid.pdf) [[PNG]](electrodynamics/solid/solid.png) [[SVG]](electrodynamics/solid/solid.svg) [[TEX]](electrodynamics/solid/solid.tex)
 ## capacity-bodies_inverted.svg
 [![capacity-bodies_inverted.svg](electrodynamics/capacity-bodies/capacity-bodies_inverted.svg "capacity-bodies_inverted.svg")](electrodynamics/capacity-bodies/capacity-bodies_inverted.svg) [[PDF]](electrodynamics/capacity-bodies/capacity-bodies_inverted.pdf) [[PNG]](electrodynamics/capacity-bodies/capacity-bodies_inverted.png) [[SVG]](electrodynamics/capacity-bodies/capacity-bodies_inverted.svg) [[TEX]](electrodynamics/capacity-bodies/capacity-bodies_inverted.tex)
+## capacity-cylinder_inverted.svg
+[![capacity-cylinder_inverted.svg](electrodynamics/capacity-cylinder/capacity-cylinder_inverted.svg "capacity-cylinder_inverted.svg")](electrodynamics/capacity-cylinder/capacity-cylinder_inverted.svg) [[PDF]](electrodynamics/capacity-cylinder/capacity-cylinder_inverted.pdf) [[PNG]](electrodynamics/capacity-cylinder/capacity-cylinder_inverted.png) [[SVG]](electrodynamics/capacity-cylinder/capacity-cylinder_inverted.svg) [[TEX]](electrodynamics/capacity-cylinder/capacity-cylinder_inverted.tex)
 ## capacity-parallel_inverted.svg
 [![capacity-parallel_inverted.svg](electrodynamics/capacity-parallel/capacity-parallel_inverted.svg "capacity-parallel_inverted.svg")](electrodynamics/capacity-parallel/capacity-parallel_inverted.svg) [[PDF]](electrodynamics/capacity-parallel/capacity-parallel_inverted.pdf) [[PNG]](electrodynamics/capacity-parallel/capacity-parallel_inverted.png) [[SVG]](electrodynamics/capacity-parallel/capacity-parallel_inverted.svg) [[TEX]](electrodynamics/capacity-parallel/capacity-parallel_inverted.tex)
 ## capacity-plates_inverted.svg
