@@ -29,15 +29,14 @@
     axis lines = none,
     view = {0}{90},
     xmin={-4*pi}, xmax={4*pi},
-    ymin=0, ymax=1,
+    ymin=0, ymax=2.02,
     zmin=0, zmax={\maxz},
     domain={-4*pi}:{4*pi},
-    domain y=0:1,
     samples=1000,
-    samples y=2,
     colormap={colorrange}{rgb=(0,0,0) rgb=(1,1,1)}, % color range from white to white
     ]
-    \addplot3[surf,shader=flat,colormap name=colorrange] {min(\maxz,(sin(deg(x))/x)^2)};
+    \addplot[thick,smooth] (x,{1.02 + (sin(deg(x))/x)^2});
+    \addplot3[surf,domain y=0:1,samples y=2,shader=flat,colormap name=colorrange] {min(\maxz,(sin(deg(x))/x)^2)};
   \end{axis}
 \end{tikzpicture}
 \end{document}
