@@ -33,6 +33,8 @@
 [![reflection-law.svg](optics/reflection-law/reflection-law.svg "reflection-law.svg")](optics/reflection-law/reflection-law.svg) [[PDF]](optics/reflection-law/reflection-law.pdf) [[PNG]](optics/reflection-law/reflection-law.png) [[SVG]](optics/reflection-law/reflection-law.svg) [[TEX]](optics/reflection-law/reflection-law.tex)
 ## refraction-law.svg
 [![refraction-law.svg](optics/refraction-law/refraction-law.svg "refraction-law.svg")](optics/refraction-law/refraction-law.svg) [[PDF]](optics/refraction-law/refraction-law.pdf) [[PNG]](optics/refraction-law/refraction-law.png) [[SVG]](optics/refraction-law/refraction-law.svg) [[TEX]](optics/refraction-law/refraction-law.tex)
+## single-slit-interference.svg
+[![single-slit-interference.svg](optics/single-slit-interference/single-slit-interference.svg "single-slit-interference.svg")](optics/single-slit-interference/single-slit-interference.svg) [[PDF]](optics/single-slit-interference/single-slit-interference.pdf) [[PNG]](optics/single-slit-interference/single-slit-interference.png) [[SVG]](optics/single-slit-interference/single-slit-interference.svg) [[TEX]](optics/single-slit-interference/single-slit-interference.tex)
 ## thin-layer.svg
 [![thin-layer.svg](optics/thin-layer/thin-layer.svg "thin-layer.svg")](optics/thin-layer/thin-layer.svg) [[PDF]](optics/thin-layer/thin-layer.pdf) [[PNG]](optics/thin-layer/thin-layer.png) [[SVG]](optics/thin-layer/thin-layer.svg) [[TEX]](optics/thin-layer/thin-layer.tex)
 ## aperture_inverted.svg
@@ -69,5 +71,7 @@
 [![reflection-law_inverted.svg](optics/reflection-law/reflection-law_inverted.svg "reflection-law_inverted.svg")](optics/reflection-law/reflection-law_inverted.svg) [[PDF]](optics/reflection-law/reflection-law_inverted.pdf) [[PNG]](optics/reflection-law/reflection-law_inverted.png) [[SVG]](optics/reflection-law/reflection-law_inverted.svg) [[TEX]](optics/reflection-law/reflection-law_inverted.tex)
 ## refraction-law_inverted.svg
 [![refraction-law_inverted.svg](optics/refraction-law/refraction-law_inverted.svg "refraction-law_inverted.svg")](optics/refraction-law/refraction-law_inverted.svg) [[PDF]](optics/refraction-law/refraction-law_inverted.pdf) [[PNG]](optics/refraction-law/refraction-law_inverted.png) [[SVG]](optics/refraction-law/refraction-law_inverted.svg) [[TEX]](optics/refraction-law/refraction-law_inverted.tex)
+## single-slit-interference_inverted.svg
+[![single-slit-interference_inverted.svg](optics/single-slit-interference/single-slit-interference_inverted.svg "single-slit-interference_inverted.svg")](optics/single-slit-interference/single-slit-interference_inverted.svg) [[PDF]](optics/single-slit-interference/single-slit-interference_inverted.pdf) [[PNG]](optics/single-slit-interference/single-slit-interference_inverted.png) [[SVG]](optics/single-slit-interference/single-slit-interference_inverted.svg) [[TEX]](optics/single-slit-interference/single-slit-interference_inverted.tex)
 ## thin-layer_inverted.svg
 [![thin-layer_inverted.svg](optics/thin-layer/thin-layer_inverted.svg "thin-layer_inverted.svg")](optics/thin-layer/thin-layer_inverted.svg) [[PDF]](optics/thin-layer/thin-layer_inverted.pdf) [[PNG]](optics/thin-layer/thin-layer_inverted.png) [[SVG]](optics/thin-layer/thin-layer_inverted.svg) [[TEX]](optics/thin-layer/thin-layer_inverted.tex)
