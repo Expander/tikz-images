@@ -69,7 +69,7 @@
       \clip (0,0) circle ({\rmax}) ({\xoff},0) circle ({\rmin});
       % field lines
       \pgfplotsinvokeforeach{0,...,{\numberoffieldlines}}{
-        \addplot[red,very thin,domain=0:360] (
+        \addplot[red,very thin] (
           {Ex(x, pc(#1,\numberoffieldlines), \zo)},
           {Ey(x, pc(#1,\numberoffieldlines), \zo)}
           );
