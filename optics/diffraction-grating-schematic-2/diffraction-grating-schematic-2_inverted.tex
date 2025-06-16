@@ -25,29 +25,30 @@
 
 \begin{document}
 \begin{tikzpicture}[inverted,inverted]
-  \pgfmathsetmacro{\gratinglength}{0.7};
-  \pgfmathsetmacro{\gratingwidth}{0.1};
-  \pgfmathsetmacro{\gratingdistance}{0.2};
+  \pgfmathsetmacro{\glength}{0.5};
+  \pgfmathsetmacro{\gwidth}{0.1};
+  \pgfmathsetmacro{\gdistance}{0.2};
+  \pgfmathsetmacro{\g}{\glength + \gdistance};
   \pgfmathsetmacro{\angle}{-30};
   \pgfmathsetmacro{\raylength}{3};
   % grating
-  \foreach \Y in {0,\gratinglength,...,4.0} {%
-    \draw[fill] ({-\gratingwidth/2},\Y) rectangle ({\gratingwidth/2},\Y+0.5);
+  \foreach \m in {-1,...,4} {%
+    \draw[fill] ({-\gwidth/2},{\m*\g + \gdistance/2}) rectangle ++ ({\gwidth},{\glength});
   }
-  \begin{scope}[shift={(0,{\gratinglength - \gratingdistance/2})},rotate={\angle}]
+  \begin{scope}[rotate={\angle}]
     % distances
-    \draw[<->,blue] (0,{\gratinglength*cos(\angle)+0.1}) -- ++ ({\gratinglength*sin(\angle)},0) node[midway,above,rotate={\angle}] {\tiny $\Delta s$};
+    \draw[<->,blue] (0,{\g*cos(\angle)+0.1}) -- ++ ({\g*sin(\angle)},0) node[midway,above,rotate={\angle}] {\tiny $\Delta s$};
     \foreach \m in {2,...,4} {%
-      \draw[<->,blue] (0,{\m*\gratinglength*cos(\angle)+0.1}) -- ++ ({\m*\gratinglength*sin(\angle)},0) node[midway,above,rotate={\angle}] {\tiny $\m\Delta s$};
+      \draw[<->,blue] (0,{\m*\g*cos(\angle)+0.1}) -- ++ ({\m*\g*sin(\angle)},0) node[midway,above,rotate={\angle}] {\tiny $\m\Delta s$};
     }
     % rays
     \foreach \m in {0,...,4} {%
-      \draw[red,->] ({\m*\gratinglength*sin(\angle)},{\m*\gratinglength*cos(\angle)}) -- ++ ({\raylength-\m*\gratinglength*sin(\angle)},0);
+      \draw[red,->] ({\m*\g*sin(\angle)},{\m*\g*cos(\angle)}) -- ++ ({\raylength-\m*\g*sin(\angle)},0);
     }
   \end{scope}
   % angle 1
-  \coordinate (O) at (0,{\gratinglength - \gratingdistance/2});
-  \coordinate (R) at ($(O)+({\angle}:{\raylength+\gratinglength*sin(\angle)})$);
+  \coordinate (O) at (0,0);
+  \coordinate (R) at ($(O)+({\angle}:{\raylength+\g*sin(\angle)})$);
   \draw[dashed] (O) -- ++ ({\raylength},0) coordinate (A1);
   \pic[draw,pic text={$\alpha$},angle radius=1cm,angle eccentricity=0.8] {angle = R--O--A1};
   % angle 2
@@ -55,6 +56,6 @@
   \draw[dashed] (O) -- ++ ({90+\angle}:{\raylength}) coordinate (A2);
   \pic[draw,pic text={},pic text options={pin={[pin distance=1.5em]10:{$\alpha$}}},inner sep=1pt,angle radius=0.5cm,angle eccentricity=0.8] {angle = A2--O--G};
   %
-  \draw[<->] (-1em,{\gratinglength - \gratingdistance/2}) -- node[left] {$g$} ++ (0,{\gratinglength});
+  \draw[<->] (-1em,0)++(O) -- node[left] {$g$} ++ (0,{\g});
 \end{tikzpicture}
 \end{document}
