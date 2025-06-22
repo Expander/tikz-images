@@ -1,0 +1,107 @@
+\documentclass[crop,tikz]{standalone}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.13}
+
+\pgfplotsset{
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=hardblack,
+      text=white
+    }
+  },
+}
+
+\begin{document}
+\begin{tikzpicture}
+  \pgfmathsetmacro{\Radius}{1}; % radius of sphere
+  \pgfmathsetmacro{\EO}{1}; % field strength of plate capacitor
+  \pgfmathsetmacro{\er}{4}; % relative permittivity
+  \pgfmathsetmacro{\A}{-3*\EO/(\er + 2)};
+  \pgfmathsetmacro{\B}{(\er - 1)/(\er + 2)*\Radius^3*\EO};
+  \pgfmathsetmacro{\scalingfactor}{3};
+  \pgfmathsetmacro{\minx}{-\Radius*\scalingfactor};
+  \pgfmathsetmacro{\maxx}{\Radius*\scalingfactor};
+  \pgfmathsetmacro{\miny}{-\Radius*\scalingfactor};
+  \pgfmathsetmacro{\maxy}{\Radius*\scalingfactor};
+  \def\myvalues{-3.,-2.8,-2.6,-2.4,-2.2,-2.,-1.8,-1.6,-1.4,-1.2,-1.,-0.8,-0.6,-0.4,-0.2,0.,0.2,0.4,0.6,0.8,1.,1.2,1.4,1.6,1.8,2.,2.2,2.4,2.6,2.8,3.}
+  %
+  \begin{axis}[
+    axis equal image,
+    axis lines = none,
+    xmin={\minx}, xmax={\maxx},
+    ymin={\miny}, ymax={\maxy},
+    view={0}{90},
+    samples=50,
+    samples y=50,
+    clip=false,
+    declare function={
+      % potential inside the sphere
+      % Vin[x_,y_,z_] := A z
+      Vin(\x,\y,\z) = \A*\z;
+      % potential outside the sphere
+      % Vout[x_,y_,z_] := -E0 z + B LegendreP[1,z/Sqrt[x^2+y^2+z^2]]/(x^2+y^2+z^2)
+      Vout(\x,\y,\z) = -\EO*\z + \B*\z/sqrt(\x^2 + \y^2 + \z^2)^3;
+      % field lines inside the sphere
+      % Ein[x_,y_,z_] := -A x
+      Ein(\x,\y,\z) = -\A*\x;
+      % field lines outside the sphere
+      % Eout[x_,y_,z_] := E0 x + B*x/Sqrt[x^2 + y^2 + z^2]^3
+      Eout(\x,\y,\z) = \EO*\x + \B*\x/sqrt(\x^2 + \y^2 + \z^2)^3;
+    }
+    ]
+    % field lines
+    % inside sphere
+    \addplot3[
+      domain={-\Radius}:{\Radius},
+      domain y={-\Radius}:{\Radius},
+      contour gnuplot={levels=\myvalues,draw color=red,labels=false},
+      very thin,
+      x filter/.expression={sqrt(x^2+y^2) < \Radius ? x : nan},
+      y filter/.expression={sqrt(x^2+y^2) < \Radius ? y : nan}] { Ein(x,0,y) };
+    % outside sphere
+    \addplot3[
+      domain={\minx}:{\maxx},
+      domain y={0}:{\maxy},
+      contour gnuplot={levels=\myvalues,draw color=red,labels=false},
+      very thin,
+      x filter/.expression={sqrt(x^2+y^2) > \Radius ? x : nan},
+      y filter/.expression={sqrt(x^2+y^2) > \Radius ? y : nan}] { Eout(x,0,y) };
+    \addplot3[
+      domain={\minx}:{\maxx},
+      domain y={\miny}:{0},
+      contour gnuplot={levels=\myvalues,draw color=red,labels=false},
+      very thin,
+      x filter/.expression={sqrt(x^2+y^2) > \Radius ? x : nan},
+      y filter/.expression={sqrt(x^2+y^2) > \Radius ? y : nan}] { Eout(x,0,y) };
+    % lines of constant potential
+    % inside sphere
+    \addplot3[
+      domain={-\Radius}:{\Radius},
+      domain y={-\Radius}:{\Radius},
+      contour gnuplot={levels=\myvalues,draw color=blue,labels=false},
+      very thin,
+      x filter/.expression={sqrt(x^2+y^2) < \Radius ? x : nan},
+      y filter/.expression={sqrt(x^2+y^2) < \Radius ? y : nan}] { Vin(x,0,y) };
+    % outside sphere
+    \addplot3[
+      domain=0:{\maxx},
+      domain y={\miny}:{\maxy},
+      contour gnuplot={levels=\myvalues,draw color=blue,labels=false},
+      very thin,
+      x filter/.expression={sqrt(x^2+y^2) > \Radius ? x : nan},
+      y filter/.expression={sqrt(x^2+y^2) > \Radius ? y : nan}] { Vout(x,0,y) };
+    \addplot3[
+      domain={\minx}:0,
+      domain y={\miny}:{\maxy},
+      contour gnuplot={levels=\myvalues,draw color=blue,labels=false},
+      very thin,
+      x filter/.expression={sqrt(x^2+y^2) > \Radius ? x : nan},
+      y filter/.expression={sqrt(x^2+y^2) > \Radius ? y : nan}] { Vout(x,0,y) };
+    % capacitors
+    \draw[thick] ({\minx},{\miny}) -- ({\maxx},{\miny});
+    \draw[thick] ({\minx},{\maxy}) -- ({\maxx},{\maxy});
+    \draw[thick] (0,0) circle ({\Radius});
+  \end{axis}
+\end{tikzpicture}
+\end{document}
