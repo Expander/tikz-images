@@ -50,15 +50,23 @@
       Eout(\x,\y,\z) = \EO*\x + \B*\x/sqrt(\x^2 + \y^2 + \z^2)^3;
     }
     ]
-    % field lines
     % inside sphere
-    \addplot3[
-      domain={-\Radius}:{\Radius},
-      domain y={-\Radius}:{\Radius},
-      contour gnuplot={levels=\myvalues,draw color=red,labels=false},
-      very thin,
-      x filter/.expression={sqrt(x^2+y^2) < \Radius ? x : nan},
-      y filter/.expression={sqrt(x^2+y^2) < \Radius ? y : nan}] { Ein(x,0,y) };
+    \begin{scope}
+      % field lines
+      \clip (0,0) circle ({\Radius});
+      \addplot3[
+        domain={-\Radius}:{\Radius},
+        domain y={-\Radius}:{\Radius},
+        contour gnuplot={levels=\myvalues,draw color=red,labels=false},
+        very thin] { Ein(x,0,y) };
+      % lines of constant potential
+      \addplot3[
+        domain={-\Radius}:{\Radius},
+        domain y={-\Radius}:{\Radius},
+        contour gnuplot={levels=\myvalues,draw color=blue,labels=false},
+        very thin] { Vin(x,0,y) };
+    \end{scope}
+    % field lines
     % outside sphere
     \addplot3[
       domain={\minx}:{\maxx},
@@ -75,14 +83,6 @@
       x filter/.expression={sqrt(x^2+y^2) > \Radius ? x : nan},
       y filter/.expression={sqrt(x^2+y^2) > \Radius ? y : nan}] { Eout(x,0,y) };
     % lines of constant potential
-    % inside sphere
-    \addplot3[
-      domain={-\Radius}:{\Radius},
-      domain y={-\Radius}:{\Radius},
-      contour gnuplot={levels=\myvalues,draw color=blue,labels=false},
-      very thin,
-      x filter/.expression={sqrt(x^2+y^2) < \Radius ? x : nan},
-      y filter/.expression={sqrt(x^2+y^2) < \Radius ? y : nan}] { Vin(x,0,y) };
     % outside sphere
     \addplot3[
       domain=0:{\maxx},
