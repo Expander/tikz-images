@@ -53,6 +53,8 @@
 [![coulomb-force-pos.svg](electrodynamics/coulomb-force-pos/coulomb-force-pos.svg "coulomb-force-pos.svg")](electrodynamics/coulomb-force-pos/coulomb-force-pos.svg) [[PDF]](electrodynamics/coulomb-force-pos/coulomb-force-pos.pdf) [[PNG]](electrodynamics/coulomb-force-pos/coulomb-force-pos.png) [[SVG]](electrodynamics/coulomb-force-pos/coulomb-force-pos.svg) [[TEX]](electrodynamics/coulomb-force-pos/coulomb-force-pos.tex)
 ## dipole.svg
 [![dipole.svg](electrodynamics/dipole/dipole.svg "dipole.svg")](electrodynamics/dipole/dipole.svg) [[PDF]](electrodynamics/dipole/dipole.pdf) [[PNG]](electrodynamics/dipole/dipole.png) [[SVG]](electrodynamics/dipole/dipole.svg) [[TEX]](electrodynamics/dipole/dipole.tex)
+## dipole-point.svg
+[![dipole-point.svg](electrodynamics/dipole-point/dipole-point.svg "dipole-point.svg")](electrodynamics/dipole-point/dipole-point.svg) [[PDF]](electrodynamics/dipole-point/dipole-point.pdf) [[PNG]](electrodynamics/dipole-point/dipole-point.png) [[SVG]](electrodynamics/dipole-point/dipole-point.svg) [[TEX]](electrodynamics/dipole-point/dipole-point.tex)
 ## drude.svg
 [![drude.svg](electrodynamics/drude/drude.svg "drude.svg")](electrodynamics/drude/drude.svg) [[PDF]](electrodynamics/drude/drude.pdf) [[PNG]](electrodynamics/drude/drude.png) [[SVG]](electrodynamics/drude/drude.svg) [[TEX]](electrodynamics/drude/drude.tex)
 ## electric-field-neg.svg
@@ -161,6 +163,8 @@
 [![coulomb-force-pos_inverted.svg](electrodynamics/coulomb-force-pos/coulomb-force-pos_inverted.svg "coulomb-force-pos_inverted.svg")](electrodynamics/coulomb-force-pos/coulomb-force-pos_inverted.svg) [[PDF]](electrodynamics/coulomb-force-pos/coulomb-force-pos_inverted.pdf) [[PNG]](electrodynamics/coulomb-force-pos/coulomb-force-pos_inverted.png) [[SVG]](electrodynamics/coulomb-force-pos/coulomb-force-pos_inverted.svg) [[TEX]](electrodynamics/coulomb-force-pos/coulomb-force-pos_inverted.tex)
 ## dipole_inverted.svg
 [![dipole_inverted.svg](electrodynamics/dipole/dipole_inverted.svg "dipole_inverted.svg")](electrodynamics/dipole/dipole_inverted.svg) [[PDF]](electrodynamics/dipole/dipole_inverted.pdf) [[PNG]](electrodynamics/dipole/dipole_inverted.png) [[SVG]](electrodynamics/dipole/dipole_inverted.svg) [[TEX]](electrodynamics/dipole/dipole_inverted.tex)
+## dipole-point_inverted.svg
+[![dipole-point_inverted.svg](electrodynamics/dipole-point/dipole-point_inverted.svg "dipole-point_inverted.svg")](electrodynamics/dipole-point/dipole-point_inverted.svg) [[PDF]](electrodynamics/dipole-point/dipole-point_inverted.pdf) [[PNG]](electrodynamics/dipole-point/dipole-point_inverted.png) [[SVG]](electrodynamics/dipole-point/dipole-point_inverted.svg) [[TEX]](electrodynamics/dipole-point/dipole-point_inverted.tex)
 ## drude_inverted.svg
 [![drude_inverted.svg](electrodynamics/drude/drude_inverted.svg "drude_inverted.svg")](electrodynamics/drude/drude_inverted.svg) [[PDF]](electrodynamics/drude/drude_inverted.pdf) [[PNG]](electrodynamics/drude/drude_inverted.png) [[SVG]](electrodynamics/drude/drude_inverted.svg) [[TEX]](electrodynamics/drude/drude_inverted.tex)
 ## electric-field-neg_inverted.svg
