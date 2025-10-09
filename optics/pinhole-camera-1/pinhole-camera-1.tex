@@ -1,0 +1,112 @@
+\documentclass[crop,tikz]{standalone}
+
+\usepackage{tikz-3dplot}
+
+\tikzset{>=latex}
+
+\begin{document}
+\tdplotsetmaincoords{70}{30} % {rot. around x}{rot. around z}
+\tdplotsetrotatedcoords{0}{90}{0} % rotation w.r.t. main coordinate system
+\begin{tikzpicture}[tdplot_main_coords]
+  \pgfmathsetmacro{\xobj}{-4}        % x position of object
+  \pgfmathsetmacro{\wobj}{5}         % width of object
+  \pgfmathsetmacro{\hobj}{4}         % height of object
+  \pgfmathsetmacro{\ximg}{2}         % x position of image
+  \pgfmathsetmacro{\wimg}{4}         % width of image
+  \pgfmathsetmacro{\himg}{3}         % height of image
+  \pgfmathsetmacro{\dpoint}{\hobj/5} % distance of object points
+  \pgfmathsetmacro{\rhole}{0.1}      % radius of pinhole
+  \pgfmathsetmacro{\robj}{0.05}      % radius of object points
+  \pgfmathsetmacro{\rimg}{(\rhole-\robj)/(0-\xobj)*\ximg + \rhole} % radius of image points
+  % axis (for debugging)
+  % \draw[->] (0,0,0) -- (1,0,0) node[right] {$x$};
+  % \draw[->] (0,0,0) -- (0,1,0) node[right] {$y$};
+  % \draw[->] (0,0,0) -- (0,0,1) node[right] {$z$};
+  % \draw[->,red,tdplot_rotated_coords] (0,0,0) -- (1,0,0) node[right] {$x'$};
+  % \draw[->,red,tdplot_rotated_coords] (0,0,0) -- (0,1,0) node[right] {$y'$};
+  % \draw[->,red,tdplot_rotated_coords] (0,0,0) -- (0,0,1) node[right] {$z'$};
+  % object
+  \draw ({\xobj},{-\wobj/2},{-\hobj/2})
+    -- ++ (0,{\wobj},0)
+    -- ++ (0,0,{\hobj})
+    -- ++ (0,{-\wobj},0)
+    -- ++ (0,0,{-\hobj});
+  % box front
+  \draw (0,{-\wimg/2},{-\himg/2}) coordinate (TMP)
+    -- ++ (0,0,{\himg})
+    -- ++ (0,{\wimg},0);
+  \draw[densely dashed] (TMP)
+    -- ++ (0,{\wimg},0)
+    -- ++ (0,0,{\himg});
+  % box back
+  \draw ({\ximg},{-\wimg/2},{-\himg/2})
+    -- ++ (0,{\wimg},0)
+    -- ++ (0,0,{\himg})
+    -- ++ (0,{-\wimg},0)
+    -- ++ (0,0,{-\himg});
+  % box side
+  \draw (0,{-\wimg/2},{-\himg/2}) -- ({\ximg},{-\wimg/2},{-\himg/2});
+  \draw (0,{-\wimg/2},{+\himg/2}) -- ({\ximg},{-\wimg/2},{+\himg/2});
+  \draw (0,{+\wimg/2},{+\himg/2}) -- ({\ximg},{+\wimg/2},{+\himg/2});
+  \draw[densely dashed] (0,{+\wimg/2},{-\himg/2}) -- ({\ximg},{+\wimg/2},{-\himg/2});
+  % hole and points
+  \begin{scope}[tdplot_rotated_coords]
+    % hole
+    \draw ({\rhole},0,0) arc (0:180:{\rhole});
+    % object coordinates
+    \coordinate (OA) at ({+\dpoint*3/2},{+\dpoint*3/2},{\xobj});
+    \coordinate (OB) at ({+\dpoint*1/2},{+\dpoint*1/2},{\xobj});
+    \coordinate (OC) at ({+\dpoint*3/2},{+\dpoint*1/2},{\xobj});
+    \coordinate (OD) at ({+\dpoint*1/2},{-\dpoint*1/2},{\xobj});
+    \coordinate (OE) at ({+\dpoint*3/2},{-\dpoint*1/2},{\xobj});
+    \coordinate (OF) at ({+\dpoint*1/2},{-\dpoint*3/2},{\xobj});
+    \coordinate (OG) at ({+\dpoint*3/2},{-\dpoint*3/2},{\xobj});
+    \coordinate (OH) at ({-\dpoint*1/2},{-\dpoint*1/2},{\xobj});
+    \coordinate (OI) at ({-\dpoint*1/2},{-\dpoint*3/2},{\xobj});
+    \coordinate (OJ) at ({-\dpoint*3/2},{-\dpoint*3/2},{\xobj});
+    % image coordinates
+    \coordinate (IA) at ($\ximg/\xobj*(OA)$);
+    \coordinate (IB) at ($\ximg/\xobj*(OB)$);
+    \coordinate (IC) at ($\ximg/\xobj*(OC)$);
+    \coordinate (ID) at ($\ximg/\xobj*(OD)$);
+    \coordinate (IE) at ($\ximg/\xobj*(OE)$);
+    \coordinate (IF) at ($\ximg/\xobj*(OF)$);
+    \coordinate (IG) at ($\ximg/\xobj*(OG)$);
+    \coordinate (IH) at ($\ximg/\xobj*(OH)$);
+    \coordinate (II) at ($\ximg/\xobj*(OI)$);
+    \coordinate (IJ) at ($\ximg/\xobj*(OJ)$);
+    % object points
+    \draw[fill=green] (OA) circle ({\robj});
+    \draw[fill=yellow]  (OB) circle ({\robj});
+    \draw[fill=yellow]  (OC) circle ({\robj});
+    \draw[fill=yellow]  (OD) circle ({\robj});
+    \draw[fill=yellow]  (OE) circle ({\robj});
+    \draw[fill=yellow]  (OF) circle ({\robj});
+    \draw[fill=blue]  (OG) circle ({\robj});
+    \draw[fill=yellow]  (OH) circle ({\robj});
+    \draw[fill=yellow]  (OI) circle ({\robj});
+    \draw[fill=red]   (OJ) circle ({\robj});
+    % rays
+    \fill[green,opacity=0.5] ($(OA)+({\robj},0,0)$) -- ($(OA)-({\robj},0,0)$) -- ($(IA)-({\rimg},0,0)$) -- ($(IA)+({\rimg},0,0)$);
+    \fill[blue ,opacity=0.5] ($(OG)+({\robj},0,0)$) -- ($(OG)-({\robj},0,0)$) -- ($(IG)-({\rimg},0,0)$) -- ($(IG)+({\rimg},0,0)$);
+    \fill[red  ,opacity=0.5] ($(OJ)+({\robj},0,0)$) -- ($(OJ)-({\robj},0,0)$) -- ($(IJ)-({\rimg},0,0)$) -- ($(IJ)+({\rimg},0,0)$);
+    % image points
+    \draw[fill=green] (IA) circle ({\rimg});
+    \draw[fill=yellow]  (IB) circle ({\rimg});
+    \draw[fill=yellow]  (IC) circle ({\rimg});
+    \draw[fill=yellow]  (ID) circle ({\rimg});
+    \draw[fill=yellow]  (IE) circle ({\rimg});
+    \draw[fill=yellow]  (IF) circle ({\rimg});
+    \draw[fill=blue]  (IG) circle ({\rimg});
+    \draw[fill=yellow]  (IH) circle ({\rimg});
+    \draw[fill=yellow]  (II) circle ({\rimg});
+    \draw[fill=red]   (IJ) circle ({\rimg});
+    % hole
+    \draw ({-\rhole},0,0) arc (180:360:{\rhole});
+  \end{scope}
+  % labels
+  \draw[<-] ({\ximg},{\wimg*0.4},{\himg*0.4}) -- ++ (0,1.5,0) node[above] {Image};
+  \draw[<-] (0,{-\rhole},{-\rhole}) -- ++ (0,-0.5,-0.5) node[below] {Hole};
+  \node[above left] at ({\xobj},0,{\hobj/2}) {Object};
+\end{tikzpicture}
+\end{document}
