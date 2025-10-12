@@ -29,6 +29,8 @@
 [![mirror-catacaustic.svg](optics/mirror-catacaustic/mirror-catacaustic.svg "mirror-catacaustic.svg")](optics/mirror-catacaustic/mirror-catacaustic.svg) [[PDF]](optics/mirror-catacaustic/mirror-catacaustic.pdf) [[PNG]](optics/mirror-catacaustic/mirror-catacaustic.png) [[SVG]](optics/mirror-catacaustic/mirror-catacaustic.svg) [[TEX]](optics/mirror-catacaustic/mirror-catacaustic.tex)
 ## mirror-parabolic.svg
 [![mirror-parabolic.svg](optics/mirror-parabolic/mirror-parabolic.svg "mirror-parabolic.svg")](optics/mirror-parabolic/mirror-parabolic.svg) [[PDF]](optics/mirror-parabolic/mirror-parabolic.pdf) [[PNG]](optics/mirror-parabolic/mirror-parabolic.png) [[SVG]](optics/mirror-parabolic/mirror-parabolic.svg) [[TEX]](optics/mirror-parabolic/mirror-parabolic.tex)
+## mirror-plan-1.svg
+[![mirror-plan-1.svg](optics/mirror-plan-1/mirror-plan-1.svg "mirror-plan-1.svg")](optics/mirror-plan-1/mirror-plan-1.svg) [[PDF]](optics/mirror-plan-1/mirror-plan-1.pdf) [[PNG]](optics/mirror-plan-1/mirror-plan-1.png) [[SVG]](optics/mirror-plan-1/mirror-plan-1.svg) [[TEX]](optics/mirror-plan-1/mirror-plan-1.tex)
 ## pinhole-camera-1.svg
 [![pinhole-camera-1.svg](optics/pinhole-camera-1/pinhole-camera-1.svg "pinhole-camera-1.svg")](optics/pinhole-camera-1/pinhole-camera-1.svg) [[PDF]](optics/pinhole-camera-1/pinhole-camera-1.pdf) [[PNG]](optics/pinhole-camera-1/pinhole-camera-1.png) [[SVG]](optics/pinhole-camera-1/pinhole-camera-1.svg) [[TEX]](optics/pinhole-camera-1/pinhole-camera-1.tex)
 ## pinhole-camera-2.svg
@@ -79,6 +81,8 @@
 [![mirror-catacaustic_inverted.svg](optics/mirror-catacaustic/mirror-catacaustic_inverted.svg "mirror-catacaustic_inverted.svg")](optics/mirror-catacaustic/mirror-catacaustic_inverted.svg) [[PDF]](optics/mirror-catacaustic/mirror-catacaustic_inverted.pdf) [[PNG]](optics/mirror-catacaustic/mirror-catacaustic_inverted.png) [[SVG]](optics/mirror-catacaustic/mirror-catacaustic_inverted.svg) [[TEX]](optics/mirror-catacaustic/mirror-catacaustic_inverted.tex)
 ## mirror-parabolic_inverted.svg
 [![mirror-parabolic_inverted.svg](optics/mirror-parabolic/mirror-parabolic_inverted.svg "mirror-parabolic_inverted.svg")](optics/mirror-parabolic/mirror-parabolic_inverted.svg) [[PDF]](optics/mirror-parabolic/mirror-parabolic_inverted.pdf) [[PNG]](optics/mirror-parabolic/mirror-parabolic_inverted.png) [[SVG]](optics/mirror-parabolic/mirror-parabolic_inverted.svg) [[TEX]](optics/mirror-parabolic/mirror-parabolic_inverted.tex)
+## mirror-plan-1_inverted.svg
+[![mirror-plan-1_inverted.svg](optics/mirror-plan-1/mirror-plan-1_inverted.svg "mirror-plan-1_inverted.svg")](optics/mirror-plan-1/mirror-plan-1_inverted.svg) [[PDF]](optics/mirror-plan-1/mirror-plan-1_inverted.pdf) [[PNG]](optics/mirror-plan-1/mirror-plan-1_inverted.png) [[SVG]](optics/mirror-plan-1/mirror-plan-1_inverted.svg) [[TEX]](optics/mirror-plan-1/mirror-plan-1_inverted.tex)
 ## pinhole-camera-1_inverted.svg
 [![pinhole-camera-1_inverted.svg](optics/pinhole-camera-1/pinhole-camera-1_inverted.svg "pinhole-camera-1_inverted.svg")](optics/pinhole-camera-1/pinhole-camera-1_inverted.svg) [[PDF]](optics/pinhole-camera-1/pinhole-camera-1_inverted.pdf) [[PNG]](optics/pinhole-camera-1/pinhole-camera-1_inverted.png) [[SVG]](optics/pinhole-camera-1/pinhole-camera-1_inverted.svg) [[TEX]](optics/pinhole-camera-1/pinhole-camera-1_inverted.tex)
 ## pinhole-camera-2_inverted.svg
