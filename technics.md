@@ -9,6 +9,8 @@
 [![gear3.svg](technics/gear3/gear3.svg "gear3.svg")](technics/gear3/gear3.svg) [[PDF]](technics/gear3/gear3.pdf) [[PNG]](technics/gear3/gear3.png) [[SVG]](technics/gear3/gear3.svg) [[TEX]](technics/gear3/gear3.tex)
 ## gear.svg
 [![gear.svg](technics/gear/gear.svg "gear.svg")](technics/gear/gear.svg) [[PDF]](technics/gear/gear.pdf) [[PNG]](technics/gear/gear.png) [[SVG]](technics/gear/gear.svg) [[TEX]](technics/gear/gear.tex)
+## leonardo_bridge.svg
+[![leonardo_bridge.svg](technics/leonardo_bridge/leonardo_bridge.svg "leonardo_bridge.svg")](technics/leonardo_bridge/leonardo_bridge.svg) [[PDF]](technics/leonardo_bridge/leonardo_bridge.pdf) [[PNG]](technics/leonardo_bridge/leonardo_bridge.png) [[SVG]](technics/leonardo_bridge/leonardo_bridge.svg) [[TEX]](technics/leonardo_bridge/leonardo_bridge.tex)
 ## clockface_inverted.svg
 [![clockface_inverted.svg](technics/clockface/clockface_inverted.svg "clockface_inverted.svg")](technics/clockface/clockface_inverted.svg) [[PDF]](technics/clockface/clockface_inverted.pdf) [[PNG]](technics/clockface/clockface_inverted.png) [[SVG]](technics/clockface/clockface_inverted.svg) [[TEX]](technics/clockface/clockface_inverted.tex)
 ## clockface-math-1_inverted.svg
@@ -19,3 +21,5 @@
 [![gear3_inverted.svg](technics/gear3/gear3_inverted.svg "gear3_inverted.svg")](technics/gear3/gear3_inverted.svg) [[PDF]](technics/gear3/gear3_inverted.pdf) [[PNG]](technics/gear3/gear3_inverted.png) [[SVG]](technics/gear3/gear3_inverted.svg) [[TEX]](technics/gear3/gear3_inverted.tex)
 ## gear_inverted.svg
 [![gear_inverted.svg](technics/gear/gear_inverted.svg "gear_inverted.svg")](technics/gear/gear_inverted.svg) [[PDF]](technics/gear/gear_inverted.pdf) [[PNG]](technics/gear/gear_inverted.png) [[SVG]](technics/gear/gear_inverted.svg) [[TEX]](technics/gear/gear_inverted.tex)
+## leonardo_bridge_inverted.svg
+[![leonardo_bridge_inverted.svg](technics/leonardo_bridge/leonardo_bridge_inverted.svg "leonardo_bridge_inverted.svg")](technics/leonardo_bridge/leonardo_bridge_inverted.svg) [[PDF]](technics/leonardo_bridge/leonardo_bridge_inverted.pdf) [[PNG]](technics/leonardo_bridge/leonardo_bridge_inverted.png) [[SVG]](technics/leonardo_bridge/leonardo_bridge_inverted.svg) [[TEX]](technics/leonardo_bridge/leonardo_bridge_inverted.tex)
