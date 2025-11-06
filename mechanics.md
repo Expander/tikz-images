@@ -187,6 +187,8 @@
 [![velocity.svg](mechanics/velocity/velocity.svg "velocity.svg")](mechanics/velocity/velocity.svg) [[PDF]](mechanics/velocity/velocity.pdf) [[PNG]](mechanics/velocity/velocity.png) [[SVG]](mechanics/velocity/velocity.svg) [[TEX]](mechanics/velocity/velocity.tex)
 ## wagon.svg
 [![wagon.svg](mechanics/wagon/wagon.svg "wagon.svg")](mechanics/wagon/wagon.svg) [[PDF]](mechanics/wagon/wagon.pdf) [[PNG]](mechanics/wagon/wagon.png) [[SVG]](mechanics/wagon/wagon.svg) [[TEX]](mechanics/wagon/wagon.tex)
+## water_jet.svg
+[![water_jet.svg](mechanics/water_jet/water_jet.svg "water_jet.svg")](mechanics/water_jet/water_jet.svg) [[PDF]](mechanics/water_jet/water_jet.pdf) [[PNG]](mechanics/water_jet/water_jet.png) [[SVG]](mechanics/water_jet/water_jet.svg) [[TEX]](mechanics/water_jet/water_jet.tex)
 ## wave-packets.svg
 [![wave-packets.svg](mechanics/wave-packets/wave-packets.svg "wave-packets.svg")](mechanics/wave-packets/wave-packets.svg) [[PDF]](mechanics/wave-packets/wave-packets.pdf) [[PNG]](mechanics/wave-packets/wave-packets.png) [[SVG]](mechanics/wave-packets/wave-packets.svg) [[TEX]](mechanics/wave-packets/wave-packets.tex)
 ## wave.svg
@@ -387,6 +389,8 @@
 [![velocity_inverted.svg](mechanics/velocity/velocity_inverted.svg "velocity_inverted.svg")](mechanics/velocity/velocity_inverted.svg) [[PDF]](mechanics/velocity/velocity_inverted.pdf) [[PNG]](mechanics/velocity/velocity_inverted.png) [[SVG]](mechanics/velocity/velocity_inverted.svg) [[TEX]](mechanics/velocity/velocity_inverted.tex)
 ## wagon_inverted.svg
 [![wagon_inverted.svg](mechanics/wagon/wagon_inverted.svg "wagon_inverted.svg")](mechanics/wagon/wagon_inverted.svg) [[PDF]](mechanics/wagon/wagon_inverted.pdf) [[PNG]](mechanics/wagon/wagon_inverted.png) [[SVG]](mechanics/wagon/wagon_inverted.svg) [[TEX]](mechanics/wagon/wagon_inverted.tex)
+## water_jet_inverted.svg
+[![water_jet_inverted.svg](mechanics/water_jet/water_jet_inverted.svg "water_jet_inverted.svg")](mechanics/water_jet/water_jet_inverted.svg) [[PDF]](mechanics/water_jet/water_jet_inverted.pdf) [[PNG]](mechanics/water_jet/water_jet_inverted.png) [[SVG]](mechanics/water_jet/water_jet_inverted.svg) [[TEX]](mechanics/water_jet/water_jet_inverted.tex)
 ## wave-packets_inverted.svg
 [![wave-packets_inverted.svg](mechanics/wave-packets/wave-packets_inverted.svg "wave-packets_inverted.svg")](mechanics/wave-packets/wave-packets_inverted.svg) [[PDF]](mechanics/wave-packets/wave-packets_inverted.pdf) [[PNG]](mechanics/wave-packets/wave-packets_inverted.png) [[SVG]](mechanics/wave-packets/wave-packets_inverted.svg) [[TEX]](mechanics/wave-packets/wave-packets_inverted.tex)
 ## wave_inverted.svg
