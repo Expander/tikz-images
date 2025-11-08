@@ -14,7 +14,7 @@ documents. Pre-generated graphics are provided as PDF, PNG and SVG.
 
 [Optics](optics.md)
 
-[Quantum Mechanics](quantum.md)
+[Quantum Theory](quantum.md)
 
 [Statistics](statistics.md)
 
