@@ -51,13 +51,13 @@
     samples=100,
     domain=0:360,
     declare function = {
-      phir(\a,\c) = 2*sqrt(\c)*\a/(1 - \c);
+      phir(\a,\c) = 2*sqrt(\c)*\a/(1 - \c); % radius
       phix(\x,\c,\a) = phir(\a,\c)*cos(\x) + (1 + \c)/(1 - \c)*\a;
       phiy(\x,\c,\a) = phir(\a,\c)*sin(\x);
-      Er(\a,\d) = sqrt(\a^2 + \d^2);
+      Er(\a,\d) = sqrt(\a^2 + \d^2); % radius
       Ex(\x,\d,\a) = Er(\a,\d)*cos(\x);
       Ey(\x,\d,\a) = Er(\a,\d)*sin(\x) - \d;
-      fc(\n,\nmax) = 1/\nmax*exp(2*\n/\nmax*ln(\nmax));
+      fc(\n,\nmax) = 1/\nmax*exp(2*\n/\nmax*ln(\nmax)); % calculates c
     },
     ]
     % field lines
