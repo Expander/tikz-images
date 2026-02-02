@@ -2,11 +2,19 @@
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.13}
 
-% Lines of constant potential for an upper half of a cylinder of
-% radius 1 at position (x,y) = (0,0).
+% Lines of constant potential for two half cylinders of radius 1 at
+% position (x,y) = (0,0). The upper cylinder has constant potential V
+% != 0, while the lower cylinder has constant potential V = 0.
+%
+% See also Jackson problem 2.13 for V_1 = V and V_2 = 0.
+%
+% We take the potential to be
+% Phi[z_, b_:1, V_:1] := V/Pi Im[Log[-I(z + b)/(z - b)]]
 %
 % Inspired by the discussion in
 % https://galileoandeinstein.phys.virginia.edu/Elec_Mag/2022_Lectures/EM_16_Conformal_Mapping.html
+
+\colorlet{green}{black!40!green}
 
 \pgfplotsset{
   inverted/.style = {
@@ -15,12 +23,6 @@
       fill=hardblack,
       text=white
     }
-  },
-  every non boxed x axis/.append style={
-    axis line style={-latex}
-  },
-  every non boxed y axis/.append style={
-    axis line style={-latex}
   }
 }
 
@@ -28,8 +30,8 @@
 
 \begin{tikzpicture}
   \pgfmathsetmacro{\numberofpotentiallines}{10};
-  \pgfmathsetmacro{\rmin}{1.1}; % minimum radius outside
-  \pgfmathsetmacro{\rmax}{4}; % maximum radius outside
+  \pgfmathsetmacro{\rmin}{1.1}; % minimum radius
+  \pgfmathsetmacro{\rmax}{4}; % maximum radius
   \pgfmathsetmacro{\remin}{-4};
   \pgfmathsetmacro{\remax}{-\remin};
   \pgfmathsetmacro{\immin}{-4};
@@ -50,20 +52,17 @@
       fc(\n,\nmax) = (\n/\nmax*2 - 1)*sqrt(\rmax^2 - 1); % calculates c
     },
     ]
-    \begin{scope}[even odd rule]
-      \clip ({\remin},{\immin}) rectangle ({\remax},{\immax}) (0,0) circle (1);
-      % lines of constant potential outside
-      \pgfplotsinvokeforeach{0,...,{\numberofpotentiallines}}{
-        \addplot[blue,very thin] (
-        {phix(x, fc(#1,\numberofpotentiallines))},
-        {phiy(x, fc(#1,\numberofpotentiallines))}
-        );
-      }
-    \end{scope}
+    % lines of constant potential outside
+    \pgfplotsinvokeforeach{0,...,{\numberofpotentiallines}}{
+      \addplot[blue,very thin] (
+      {phix(x, fc(#1,\numberofpotentiallines))},
+      {phiy(x, fc(#1,\numberofpotentiallines))}
+      );
+    }
     % upper half (potential V1 != 0)
-    \draw[thick] (1,0) arc (0:180:1);
+    \draw[thick] (1,0) arc (0:180:1) node[above,midway] {\scriptsize $V\neq 0$};
     % lower half (potential V2 = 0)
-    \draw[thick,green] (-1,0) arc (180:360:1);
+    \draw[thick,green] (-1,0) arc (180:360:1) node[below,midway] {\scriptsize $V=0$};
   \end{axis}
 \end{tikzpicture}
 \end{document}
