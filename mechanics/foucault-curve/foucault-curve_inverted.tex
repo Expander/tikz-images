@@ -15,8 +15,8 @@
 \begin{document}
 \begin{tikzpicture}[inverted,scale=2]
   \draw (0,0) circle (1);
-  \foreach \a in {0,...,\narcs-1} {
-    \draw[->,blue] ({\a*360/\narcs}:1) to[bend left=360/(2*\narcs)] ({(\a + \narcs/2 - 1)*360/\narcs}:1);
+  \foreach \a in {1,...,\narcs} {
+    \draw[->,blue] ({(\a-1)*360/\narcs}:1) to[bend left=360/(2*\narcs)] ({(\a + \narcs/2 - 2)*360/\narcs}:1);
   }
 \end{tikzpicture}
 \end{document}
