@@ -38,10 +38,12 @@
 \begin{document}
 
 \begin{tikzpicture}[inverted,inverted]
-  \pgfmathsetmacro{\numberofpotentiallines}{5};
-  \pgfmathsetmacro{\numberoffieldlines}{5};
-  \pgfmathsetmacro{\rmin}{1}; % minimum radius
-  \pgfmathsetmacro{\rmax}{4}; % maximum radius
+  \pgfmathsetmacro{\numberofpotentiallines}{10};
+  \pgfmathsetmacro{\numberoffieldlines}{10};
+  \pgfmathsetmacro{\sigmamin}{0.1}; % minimum sigma
+  \pgfmathsetmacro{\sigmamax}{pi/2}; % maximum sigma
+  \pgfmathsetmacro{\taumin}{0.1}; % minimum tau
+  \pgfmathsetmacro{\taumax}{2}; % maximum tau
   \pgfmathsetmacro{\remin}{-4};
   \pgfmathsetmacro{\remax}{-\remin};
   \pgfmathsetmacro{\immin}{-4};
@@ -56,15 +58,18 @@
     domain=0:360,
     declare function = {
       % field lines, defined by (x - c)^2 + y^2 = c^2 - 1, c^2 >= 1
+      % we set c = coth(tau) with 0 < tau
       Er(\c) = sqrt(\c^2 - 1); % radius
       Ex(\x,\c) = Er(\c)*cos(\x) + \c; % x coordinate
       Ey(\x,\c) = Er(\c)*sin(\x); % y coordinate
-      pc(\n,\nmax) = sqrt(\rmin^2 + 1) + \n/\nmax*(sqrt(\rmax^2 + 1) - sqrt(\rmin^2 + 1)); % calculates c
+      coth(\x) = 1 + 2/(exp(2*\x) - 1);
+      pc(\n,\nmax) = coth(\taumin + \n/\nmax*(\taumax - \taumin)); % calculates c
       % lines of constant potential, defined by x^2 + (y - c)^2 = c^2 + 1, for all c
+      % we set c = cot(sigma) with 0 < sigma <= pi/2
       phir(\c) = sqrt(1 + \c^2); % radius
       phix(\x,\c) = phir(\c)*cos(\x); % x coordinate
       phiy(\x,\c) = phir(\c)*sin(\x) + \c; % y coordinate
-      fc(\n,\nmax) = sqrt(\rmin^2 - 1) + \n/\nmax*(sqrt(\rmax^2 - 1) - sqrt(\rmin^2 - 1)); % calculates c
+      fc(\n,\nmax) = cot(deg(\sigmamin + \n/\nmax*(\sigmamax - \sigmamin))); % calculates c
     },
     ]
     % field lines
@@ -77,6 +82,7 @@
       {Ex(x, -pc(#1,\numberoffieldlines))},
       {Ey(x, -pc(#1,\numberoffieldlines))}
       );
+      % \addplot[red,very thin] coordinates { (0,{\immin}) (0,{\immax}) };
     }
     % lines of constant potential
     \pgfplotsinvokeforeach{0,...,{\numberofpotentiallines}}{
@@ -88,6 +94,7 @@
       {phix(x, -fc(#1,\numberofpotentiallines))},
       {phiy(x, -fc(#1,\numberofpotentiallines))}
       );
+      % \addplot[blue,very thin] coordinates { ({\remin},0) ({\remax},0) };
     }
     % upper half (potential V1 != 0)
     \draw[thick] (1,0) arc (0:180:1) node[above,midway] {\scriptsize $V\neq 0$};
