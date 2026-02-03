@@ -29,8 +29,9 @@
 \begin{document}
 
 \begin{tikzpicture}
-  \pgfmathsetmacro{\numberofpotentiallines}{10};
-  \pgfmathsetmacro{\rmin}{1.1}; % minimum radius
+  \pgfmathsetmacro{\numberofpotentiallines}{5};
+  \pgfmathsetmacro{\numberoffieldlines}{5};
+  \pgfmathsetmacro{\rmin}{1}; % minimum radius
   \pgfmathsetmacro{\rmax}{4}; % maximum radius
   \pgfmathsetmacro{\remin}{-4};
   \pgfmathsetmacro{\remax}{-\remin};
@@ -45,18 +46,38 @@
     samples=100,
     domain=0:360,
     declare function = {
-      % lines of constant potential
+      % field lines, defined by (x - c)^2 + y^2 = c^2 - 1, c^2 >= 1
+      Er(\c) = sqrt(\c^2 - 1); % radius
+      Ex(\x,\c) = Er(\c)*cos(\x) + \c; % x coordinate
+      Ey(\x,\c) = Er(\c)*sin(\x); % y coordinate
+      pc(\n,\nmax) = sqrt(\rmin^2 + 1) + \n/\nmax*(sqrt(\rmax^2 + 1) - sqrt(\rmin^2 + 1)); % calculates c
+      % lines of constant potential, defined by x^2 + (y - c)^2 = c^2 + 1, for all c
       phir(\c) = sqrt(1 + \c^2); % radius
       phix(\x,\c) = phir(\c)*cos(\x); % x coordinate
       phiy(\x,\c) = phir(\c)*sin(\x) + \c; % y coordinate
-      fc(\n,\nmax) = (\n/\nmax*2 - 1)*sqrt(\rmax^2 - 1); % calculates c
+      fc(\n,\nmax) = sqrt(\rmin^2 - 1) + \n/\nmax*(sqrt(\rmax^2 - 1) - sqrt(\rmin^2 - 1)); % calculates c
     },
     ]
-    % lines of constant potential outside
+    % field lines
+    \pgfplotsinvokeforeach{0,...,{\numberoffieldlines}}{
+      \addplot[red,very thin] (
+      {Ex(x, pc(#1,\numberoffieldlines))},
+      {Ey(x, pc(#1,\numberoffieldlines))}
+      );
+      \addplot[red,very thin] (
+      {Ex(x, -pc(#1,\numberoffieldlines))},
+      {Ey(x, -pc(#1,\numberoffieldlines))}
+      );
+    }
+    % lines of constant potential
     \pgfplotsinvokeforeach{0,...,{\numberofpotentiallines}}{
       \addplot[blue,very thin] (
       {phix(x, fc(#1,\numberofpotentiallines))},
       {phiy(x, fc(#1,\numberofpotentiallines))}
+      );
+      \addplot[blue,very thin] (
+      {phix(x, -fc(#1,\numberofpotentiallines))},
+      {phiy(x, -fc(#1,\numberofpotentiallines))}
       );
     }
     % upper half (potential V1 != 0)
