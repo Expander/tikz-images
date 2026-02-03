@@ -15,12 +15,6 @@
       text=white
     }
   },
-  every non boxed x axis/.append style={
-    axis line style={-latex}
-  },
-  every non boxed y axis/.append style={
-    axis line style={-latex}
-  }
 }
 
 \begin{document}
@@ -29,6 +23,10 @@
   \pgfmathsetmacro{\numberoffieldlines}{10};
   \pgfmathsetmacro{\numberofpotentiallines}{10};
   \pgfmathsetmacro{\chargepos}{1};
+  \pgfmathsetmacro{\sigmamin}{0.1}; % minimum sigma
+  \pgfmathsetmacro{\sigmamax}{pi/2}; % maximum sigma
+  \pgfmathsetmacro{\taumin}{0.1}; % minimum tau
+  \pgfmathsetmacro{\taumax}{2}; % maximum tau
   \pgfmathsetmacro{\remin}{-4*\chargepos};
   \pgfmathsetmacro{\remax}{-\remin};
   \pgfmathsetmacro{\immin}{-4*\chargepos};
@@ -42,20 +40,26 @@
     samples=100,
     domain=0:360,
     declare function = {
-      phir(\a,\c) = 2*sqrt(\c)*\a/(1 - \c); % radius
-      phix(\x,\c,\a) = phir(\a,\c)*cos(\x) + (1 + \c)/(1 - \c)*\a;
+      phir(\a,\c) = sqrt(\c^2 - \a^2); % radius
+      phix(\x,\c,\a) = phir(\a,\c)*cos(\x) + \c*\a;
       phiy(\x,\c,\a) = phir(\a,\c)*sin(\x);
-      Er(\a,\d) = sqrt(\a^2 + \d^2); % radius
-      Ex(\x,\d,\a) = Er(\a,\d)*cos(\x);
-      Ey(\x,\d,\a) = Er(\a,\d)*sin(\x) - \d;
-      fc(\n,\nmax) = 1/\nmax*exp(2*\n/\nmax*ln(\nmax)); % calculates c
+      coth(\x) = 1 + 2/(exp(2*\x) - 1);
+      fc(\n,\nmax) = coth(\taumin + \n/\nmax*(\taumax - \taumin)); % calculates c
+      Er(\a,\c) = sqrt(\a^2 + \c^2); % radius
+      Ex(\x,\c,\a) = Er(\a,\c)*cos(\x);
+      Ey(\x,\c,\a) = Er(\a,\c)*sin(\x) + \c;
+      pc(\n,\nmax) = cot(deg(\sigmamin + \n/\nmax*(\sigmamax - \sigmamin))); % calculates c
     },
     ]
     % field lines
-    \pgfplotsinvokeforeach{{-\chargepos*\numberoffieldlines/2},...,{\chargepos*\numberoffieldlines/2}}{
+    \pgfplotsinvokeforeach{0,...,{\numberoffieldlines}}{
       \addplot[red,very thin] (
-        {Ex(x,#1,\chargepos)},
-        {Ey(x,#1,\chargepos)}
+        {Ex(x, pc(#1,\numberoffieldlines), \chargepos)},
+        {Ey(x, pc(#1,\numberoffieldlines), \chargepos)}
+      );
+      \addplot[red,very thin] (
+        {Ex(x, -pc(#1,\numberoffieldlines), \chargepos)},
+        {Ey(x, -pc(#1,\numberoffieldlines), \chargepos)}
       );
     }
     % lines of constant potential
@@ -63,7 +67,11 @@
       \addplot[blue,very thin] (
         {phix(x, fc(#1,\numberofpotentiallines), \chargepos)},
         {phiy(x, fc(#1,\numberofpotentiallines), \chargepos)}
-     );
+      );
+      \addplot[blue,very thin] (
+        {phix(x, -fc(#1,\numberofpotentiallines), \chargepos)},
+        {phiy(x, -fc(#1,\numberofpotentiallines), \chargepos)}
+      );
     }
     % charges
     \addplot[only marks,mark=*] coordinates {
