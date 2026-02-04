@@ -1,0 +1,64 @@
+\documentclass[crop,tikz]{standalone}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+
+% Lines of constant potential for four quarter cylinders of radius 1
+% at position (x,y) = (0,0). The top right and bottom left cylinders
+% have constant potential V > 0, while the top left and bottom right
+% cylinders have constant potential -V.
+%
+% See also Jackson problem 2.14.
+%
+% We take the potential to be
+% phirt[r_, t_, b_:1, V_:1] := 2V/Pi ArcTan[2 r^2 b^2 Sin[2t], r^4 - b^4]
+
+\colorlet{green}{black!40!green}
+
+\pgfplotsset{
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=hardblack,
+      text=white
+    }
+  }
+}
+
+\begin{document}
+
+\begin{tikzpicture}
+  \pgfmathsetmacro{\Radius}{1}; % radius of capacitor
+  \pgfmathsetmacro{\numberoffieldlines}{30};
+  \pgfmathsetmacro{\remin}{-4};
+  \pgfmathsetmacro{\remax}{-\remin};
+  \pgfmathsetmacro{\immin}{-4};
+  \pgfmathsetmacro{\immax}{-\immin};
+  \pgfmathsetmacro{\cmin}{-30}; % minimum c
+  \pgfmathsetmacro{\cmax}{30}; % maximum c
+  \begin{axis}[
+    axis equal image,
+    xmin={\remin}, xmax={\remax},
+    ymin={\immin}, ymax={\immax},
+    xlabel={$\Re$},
+    ylabel={$\Im$},
+    samples=400,
+    declare function = {
+      f(\p,\c) = sqrt(\c*sin(2*\p) + sqrt((\c*sin(2*\p))^2 + 1)); % r(phi)
+      fc(\n,\nmax) = \cmin + \n/\nmax*(\cmax - \cmin); % calculates c
+    },
+    ]
+    % lines of constant potential
+    \pgfplotsinvokeforeach{0,...,{\numberoffieldlines}}{
+      \addplot[blue,very thin,domain={0}:{360}] (
+        {\Radius*f(x,fc(#1,\numberoffieldlines))*cos(x)},
+        {\Radius*f(x,fc(#1,\numberoffieldlines))*sin(x)}
+      );
+    }
+    % capacitor
+    \draw[thick] (0:\Radius) arc (0:90:\Radius) node at (45:{1.25*\Radius}) {\scriptsize $V$};
+    \draw[thick,green] (90:\Radius) arc (90:180:\Radius) node at (135:{1.25*\Radius}) {\scriptsize $-V$};
+    \draw[thick] (180:\Radius) arc (180:270:\Radius) node at (225:{1.25*\Radius}) {\scriptsize $V$};
+    \draw[thick,green] (270:\Radius) arc (270:360:\Radius) node at (315:{1.25*\Radius}) {\scriptsize $-V$};
+  \end{axis}
+\end{tikzpicture}
+\end{document}
