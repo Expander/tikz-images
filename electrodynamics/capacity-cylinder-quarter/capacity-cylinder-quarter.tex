@@ -2,14 +2,17 @@
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.18}
 
-% Lines of constant potential for four quarter cylinders of radius 1
-% at position (x,y) = (0,0). The top right and bottom left cylinders
-% have constant potential V > 0, while the top left and bottom right
-% cylinders have constant potential -V.
+% Field lines and lines of constant potential for four quarter
+% cylinders of radius 1 with center at (0,0). The top right and bottom
+% left cylinders have constant potential V, while the top left and
+% bottom right cylinders have constant potential -V.
 %
 % See also Jackson problem 2.14.
 %
-% We take the potential to be
+% We take the complex potential to be
+% phi[z_, b_:1, V_:1] := 2V/Pi Log[(z^2 - b^2)/(z^2 + b^2)]
+%
+% With z = r Exp[I t] we obtain the real potential
 % phirt[r_, t_, b_:1, V_:1] := 2V/Pi ArcTan[2 r^2 b^2 Sin[2t], r^4 - b^4]
 
 \colorlet{green}{black!40!green}
@@ -28,7 +31,7 @@
 
 \begin{tikzpicture}
   \pgfmathsetmacro{\Radius}{1}; % radius of capacitor
-  \pgfmathsetmacro{\numberoffieldlines}{30};
+  \pgfmathsetmacro{\numberofpotentiallines}{30};
   \pgfmathsetmacro{\remin}{-4};
   \pgfmathsetmacro{\remax}{-\remin};
   \pgfmathsetmacro{\immin}{-4};
@@ -41,19 +44,33 @@
     ymin={\immin}, ymax={\immax},
     xlabel={$\Re$},
     ylabel={$\Im$},
-    samples=400,
+    view={0}{90},
     declare function = {
+      % lines of constant potential
       f(\p,\c) = sqrt(\c*sin(2*\p) + sqrt((\c*sin(2*\p))^2 + 1)); % r(phi)
       fc(\n,\nmax) = \cmin + \n/\nmax*(\cmax - \cmin); % calculates c
+      % field lines
+      g(\x,\y) = (\x^4 + 2*\x^2*(-1 + \y^2) + (1 + \y^2)^2)/(\x^4 + (-1 + \y^2)^2 + 2*\x^2*(1 + \y^2));
     },
     ]
     % lines of constant potential
-    \pgfplotsinvokeforeach{0,...,{\numberoffieldlines}}{
-      \addplot[blue,very thin,domain={0}:{360}] (
-        {\Radius*f(x,fc(#1,\numberoffieldlines))*cos(x)},
-        {\Radius*f(x,fc(#1,\numberoffieldlines))*sin(x)}
+    \pgfplotsinvokeforeach{0,...,{\numberofpotentiallines}}{
+      \addplot[blue,very thin,domain={0}:{360},samples=400] (
+        {\Radius*f(x,fc(#1,\numberofpotentiallines))*cos(x)},
+        {\Radius*f(x,fc(#1,\numberofpotentiallines))*sin(x)}
       );
     }
+    % electric field lines
+    \addplot3[
+      very thin,
+      samples=100,
+      domain={\remin}:{\remax},
+      domain y={\immin}:{\immax},
+      contour gnuplot={
+        levels={1./10, 1./5, 3./10, 2./5, 1./2, 3./5, 7./10, 4./5, 9./10, 10./9, 5./4, 10./7, 5./3, 2, 5./2, 10./3, 5, 10},
+        draw color=red,
+        labels=false
+      }] { g(x,y) };
     % capacitor
     \draw[thick] (0:\Radius) arc (0:90:\Radius) node at (45:{1.25*\Radius}) {\scriptsize $V$};
     \draw[thick,green] (90:\Radius) arc (90:180:\Radius) node at (135:{1.25*\Radius}) {\scriptsize $-V$};
