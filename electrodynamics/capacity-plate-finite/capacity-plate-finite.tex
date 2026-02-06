@@ -19,7 +19,6 @@
 }
 
 \begin{document}
-
 \begin{tikzpicture}
   \pgfmathsetmacro{\numberoffieldlines}{30};
   \pgfmathsetmacro{\numberofpotentiallines}{30};
@@ -42,22 +41,22 @@
     declare function = {
       fx(\x,\y) = cosh(\x)*cos(deg(\y));
       fy(\x,\y) = sinh(\x)*sin(deg(\y));
-      fc(\n,\nmax) = \phimin + \n/\nmax*(\phimax - \phimin); % calculates phi
-      pc(\n,\nmax) = \psimin + \n/\nmax*(\psimax - \psimin); % calculates psi
+      phi(\n,\nmax) = \phimin + \n/\nmax*(\phimax - \phimin); % ulates phi
+      psi(\n,\nmax) = \psimin + \n/\nmax*(\psimax - \psimin); % ulates psi
     },
     ]
     % field lines
     \pgfplotsinvokeforeach{0,...,{\numberoffieldlines}}{
       \addplot[red,very thin,domain={\remin}:{\remax}] (
-        {\platesize*fx(x,pc(#1,\numberoffieldlines))},
-        {\platesize*fy(x,pc(#1,\numberoffieldlines))}
+        {\platesize*fx(x,psi(#1,\numberoffieldlines))},
+        {\platesize*fy(x,psi(#1,\numberoffieldlines))}
       );
     }
     % lines of constant potential
     \pgfplotsinvokeforeach{0,...,{\numberofpotentiallines}}{
       \addplot[blue,very thin,domain=0:{2*pi}] (
-        {\platesize*fx(fc(#1,\numberofpotentiallines),x)},
-        {\platesize*fy(fc(#1,\numberofpotentiallines),x)}
+        {\platesize*fx(phi(#1,\numberofpotentiallines),x)},
+        {\platesize*fy(phi(#1,\numberofpotentiallines),x)}
       );
     }
     % plate
