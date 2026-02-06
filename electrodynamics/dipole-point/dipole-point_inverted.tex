@@ -29,13 +29,14 @@
 \begin{document}
 
 \begin{tikzpicture}[inverted,inverted]
-  \pgfmathsetmacro{\numberoffieldlines}{10};
-  \pgfmathsetmacro{\numberofpotentiallines}{10};
-  \pgfmathsetmacro{\chargepos}{0.1};
-  \pgfmathsetmacro{\remin}{-1};
+  \pgfmathsetmacro{\numberoffieldlines}{21};
+  \pgfmathsetmacro{\numberofpotentiallines}{21};
+  \pgfmathsetmacro{\remin}{-4};
   \pgfmathsetmacro{\remax}{-\remin};
-  \pgfmathsetmacro{\immin}{-1};
+  \pgfmathsetmacro{\immin}{-4};
   \pgfmathsetmacro{\immax}{-\immin};
+  \pgfmathsetmacro{\sigmamin}{-pi/2}; % minimum sigma
+  \pgfmathsetmacro{\sigmamax}{pi/2}; % maximum sigma
   \begin{axis}[inverted,
     axis equal image,
     xmin={\remin}, xmax={\remax},
@@ -45,21 +46,28 @@
     samples=100,
     domain=0:360,
     declare function = {
-      Er(\c) = 1/(2*\c);
+      Er(\c) = abs(\c);
       Ex(\x,\c) = Er(\c)*cos(\x);
-      Ey(\x,\c) = Er(\c)*sin(\x) - 1/(2*\c);
-      phir(\c) = 1/(2*\c);
-      phix(\x,\c) = phir(\c)*cos(\x) + 1/(2*\c);
+      Ey(\x,\c) = Er(\c)*sin(\x) + \c;
+      phir(\c) = abs(\c);
+      phix(\x,\c) = phir(\c)*cos(\x) + \c;
       phiy(\x,\c) = phir(\c)*sin(\x);
+      pc(\n,\nmax) = cot(deg(\sigmamin + \n/\nmax*(\sigmamax - \sigmamin))); % calculates c
     },
     ]
     % field lines
-    \pgfplotsinvokeforeach{{-\numberoffieldlines/2},...,{\numberoffieldlines/2}}{
-      \addplot[red,very thin] ({Ex(x,#1)}, {Ey(x,#1)});
+    \pgfplotsinvokeforeach{0,...,{\numberoffieldlines}}{
+      \addplot[red,very thin] (
+        {Ex(x, pc(#1,\numberoffieldlines))},
+        {Ey(x, pc(#1,\numberoffieldlines))}
+      );
     }
     % lines of constant potential
-    \pgfplotsinvokeforeach{{-\numberofpotentiallines/2},...,{\numberofpotentiallines/2}}{
-      \addplot[blue,very thin] ({phix(x,#1)}, {phiy(x,#1)});
+    \pgfplotsinvokeforeach{0,...,{\numberofpotentiallines}}{
+      \addplot[blue,very thin] (
+        {phix(x, pc(#1,\numberofpotentiallines))},
+        {phiy(x, pc(#1,\numberofpotentiallines))}
+      );
     }
   \end{axis}
 \end{tikzpicture}
