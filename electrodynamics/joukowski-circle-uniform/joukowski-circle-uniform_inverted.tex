@@ -33,6 +33,7 @@
 \begin{document}
 \begin{tikzpicture}[inverted,inverted]
   \pgfmathsetmacro{\numberoffieldlines}{30};
+  \pgfmathsetmacro{\numberofpotentiallines}{15};
   \pgfmathsetmacro{\remin}{-4};
   \pgfmathsetmacro{\remax}{4};
   \pgfmathsetmacro{\immin}{-4};
@@ -48,8 +49,12 @@
     samples=100,
     domain=3:177,
     declare function = {
-      fr(\x,\c,\s) = \c/sin(\x) + \s*sqrt(1 + (\c/sin(\x))^2); % \s = sign
+      % flow lines
+      fr(\x,\c,\s) = \c/sin(\x) + \s*sqrt(1 + (\c/sin(\x))^2); % radius r as a function of \phi, \s = sign
       fc(\n,\nmax) = \cmin + \n/\nmax*(\cmax - \cmin); % calculates c
+      % lines of constant potential
+      pr(\r,\c) = 2*\c*\r/(1 + \r^2); % cos(\phi) as a function of r
+      pc(\n,\nmax) = -1 + 2*\n/\nmax; % calculates c
     },
     ]
     % flow lines
@@ -63,6 +68,17 @@
         {fr(x,-fc(#1,\numberoffieldlines),-1)*sin(x)}
       );
     }
+    % lines of constant potential
+    % \pgfplotsinvokeforeach{0,...,{\numberofpotentiallines}}{
+    %   \addplot[blue,very thin,domain=1:{\remax+1}] (
+    %     {x*pr(x,pc(#1,\numberofpotentiallines))},
+    %     {x*sqrt(1 - pr(x,pc(#1,\numberofpotentiallines))^2)}
+    %   );
+    %   \addplot[blue,very thin,domain=1:{\remax+1}] (
+    %     {x*pr(x,pc(#1,\numberofpotentiallines))},
+    %     {-x*sqrt(1 - pr(x,pc(#1,\numberofpotentiallines))^2)}
+    %   );
+    % }
     % circle
     \draw[ultra thick] (0,0) circle (1);
   \end{axis}
