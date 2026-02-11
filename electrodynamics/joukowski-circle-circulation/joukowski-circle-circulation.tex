@@ -1,0 +1,57 @@
+\documentclass[crop,tikz]{standalone}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+
+% Flow around a circle.
+%
+% Derived by trasforming the uniform flow f(w) = w via the Joukowski
+% mapping J(z) = (z + 1/z) - i*k*ln(z). The resulting complex
+% potential is given by g(z) = f(J(z)) = (z + 1/z)/2. Taking z = r
+% e^{i\phi}, the flow lines are given by Im(g(z)) = 1/2(r -
+% 1/r)sin(\phi) = constant = c.  Solving this last equation for
+% r(\phi) yields r(\phi) = c/sin(\phi) +- sqrt(1 + (c/sin(\phi))^2)
+
+\pgfplotsset{
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=hardblack,
+      text=white
+    }
+  },
+}
+
+\begin{document}
+\begin{tikzpicture}
+  \pgfmathsetmacro{\remin}{-4};
+  \pgfmathsetmacro{\remax}{4};
+  \pgfmathsetmacro{\immin}{-4};
+  \pgfmathsetmacro{\immax}{4};
+  \pgfmathsetmacro{\kval}{2};
+  % generated with: min = -8; max = 3; Subdivide[min, max, (max - min)*5] // N
+  \def\myvalues{-8., -7.8, -7.6, -7.4, -7.2, -7., -6.8, -6.6, -6.4, -6.2, -6., -5.8, -5.6, -5.4, -5.2, -5., -4.8, -4.6, -4.4, -4.2, -4., -3.8, -3.6, -3.4, -3.2, -3., -2.8, -2.6, -2.4, -2.2, -2., -1.8, -1.6, -1.4, -1.2, -1., -0.8, -0.6, -0.4, -0.2, 0., 0.2, 0.4, 0.6, 0.8, 1., 1.2, 1.4, 1.6, 1.8, 2., 2.2, 2.4, 2.6, 2.8, 3.}
+  \begin{axis}[
+    axis equal image,
+    xmin={\remin}, xmax={\remax},
+    ymin={\immin}, ymax={\immax},
+    xlabel={$\Re$},
+    ylabel={$\Im$},
+    view={0}{90},
+    samples=100,
+    samples y=100,
+    ]
+    % restrict flow lines to rectangular area w/o inner circle
+    \begin{scope}[even odd rule]
+      \clip ({\remin},{\immin}) rectangle ({\remax},{\immax}) (0,0) circle (1);
+      % flow lines
+      \addplot3[
+        domain={\remin}:{\remax},
+        domain y={\immin}:{\immax},
+        contour gnuplot={levels=\myvalues,draw color=red,labels=false},
+        very thin] { y*(1 - 1/(x^2 + y^2)) - 0.5*\kval*ln(x^2 + y^2) };
+    \end{scope}
+    % circle
+    \draw[ultra thick] (0,0) circle (1);
+  \end{axis}
+\end{tikzpicture}
+\end{document}
