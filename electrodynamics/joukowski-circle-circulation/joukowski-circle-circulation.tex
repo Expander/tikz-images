@@ -4,9 +4,11 @@
 
 % Flow around a circle with non-zero circulation.
 %
-% Derived by trasforming the uniform flow f(w) = w via the Joukowski
-% mapping J(z) = (z + 1/z) - i*k*ln(z). The resulting complex
-% potential is given by g(z) = f(J(z)). The flow lines are given by
+% Derived by trasforming the uniform flow f(w) = v*w via the Joukowski
+% mapping J(z) = z + 1/z and adding a vortex term -i*k*ln(z). The
+% resulting complex potential is given by g(z) = v*(z + r^2/z) - i*k*ln(z).
+% v corresponds to the velocity, r is the radius of the circle and k
+% describes the circulation. The flow lines are given by
 % Im(g(z)) = constant = c.
 
 \pgfplotsset{
@@ -25,9 +27,11 @@
   \pgfmathsetmacro{\remax}{4};
   \pgfmathsetmacro{\immin}{-4};
   \pgfmathsetmacro{\immax}{4};
+  \pgfmathsetmacro{\velocity}{1};
+  \pgfmathsetmacro{\radius}{1};
   \pgfmathsetmacro{\circlulation}{2}; % try 1.6, 2 or 2.5
   % generated with: min = -8; max = 3; Subdivide[min, max, (max - min)*5] // N
-  \def\myvalues{-8., -7.8, -7.6, -7.4, -7.2, -7., -6.8, -6.6, -6.4, -6.2, -6., -5.8, -5.6, -5.4, -5.2, -5., -4.8, -4.6, -4.4, -4.2, -4., -3.8, -3.6, -3.4, -3.2, -3., -2.8, -2.6, -2.4, -2.2, -2., -1.8, -1.6, -1.4, -1.2, -1., -0.8, -0.6, -0.4, -0.2, 0., 0.2, 0.4, 0.6, 0.8, 1., 1.2, 1.4, 1.6, 1.8, 2., 2.2, 2.4, 2.6, 2.8, 3.}
+  \def\contourlevels{-8., -7.8, -7.6, -7.4, -7.2, -7., -6.8, -6.6, -6.4, -6.2, -6., -5.8, -5.6, -5.4, -5.2, -5., -4.8, -4.6, -4.4, -4.2, -4., -3.8, -3.6, -3.4, -3.2, -3., -2.8, -2.6, -2.4, -2.2, -2., -1.8, -1.6, -1.4, -1.2, -1., -0.8, -0.6, -0.4, -0.2, 0., 0.2, 0.4, 0.6, 0.8, 1., 1.2, 1.4, 1.6, 1.8, 2., 2.2, 2.4, 2.6, 2.8, 3.}
   \begin{axis}[
     axis equal image,
     xmin={\remin}, xmax={\remax},
@@ -40,16 +44,16 @@
     ]
     % restrict flow lines to rectangular area w/o inner circle
     \begin{scope}[even odd rule]
-      \clip ({\remin},{\immin}) rectangle ({\remax},{\immax}) (0,0) circle (1);
+      \clip ({\remin},{\immin}) rectangle ({\remax},{\immax}) (0,0) circle (\radius);
       % flow lines
       \addplot3[
         domain={\remin}:{\remax},
         domain y={\immin}:{\immax},
-        contour gnuplot={levels=\myvalues,draw color=red,labels=false},
-        very thin] { y*(1 - 1/(x^2 + y^2)) - 0.5*\circlulation*ln(x^2 + y^2) };
+        contour gnuplot={levels=\contourlevels,draw color=red,labels=false},
+        very thin] { \velocity*y*(1 - \radius^2/(x^2 + y^2)) - 0.5*\circlulation*ln(x^2 + y^2) };
     \end{scope}
     % circle
-    \draw[ultra thick] (0,0) circle (1);
+    \draw[ultra thick] (0,0) circle (\radius);
   \end{axis}
 \end{tikzpicture}
 \end{document}
