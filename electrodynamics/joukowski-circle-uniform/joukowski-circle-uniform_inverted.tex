@@ -68,6 +68,8 @@
         {fr(x,-fc(#1,\numberoffieldlines),-1)*sin(x)}
       );
     }
+    \addplot[red,very thin,domain={\remin}:-1] { 0 };
+    \addplot[red,very thin,domain=1:{\remax}] { 0 };
     % lines of constant potential
     % \pgfplotsinvokeforeach{0,...,{\numberofpotentiallines}}{
     %   \addplot[blue,very thin,domain=1:{\remax+1}] (
