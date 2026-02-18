@@ -34,10 +34,10 @@
 
 \begin{document}
 \begin{tikzpicture}[inverted,inverted]
-  \pgfmathsetmacro{\remin}{-4};
-  \pgfmathsetmacro{\remax}{4};
-  \pgfmathsetmacro{\immin}{-4};
-  \pgfmathsetmacro{\immax}{4};
+  \pgfmathsetmacro{\remin}{-3};
+  \pgfmathsetmacro{\remax}{3};
+  \pgfmathsetmacro{\immin}{-3};
+  \pgfmathsetmacro{\immax}{3};
   \pgfmathsetmacro{\rea}{-0.15}; % Re(a)
   \pgfmathsetmacro{\ima}{0.23}; % Im(a)
   \pgfmathsetmacro{\reb}{0.23*sqrt(26)}; % Re(b)
@@ -52,6 +52,8 @@
     view={0}{90},
     samples=100,
     samples y=100,
+    xtick distance=1,
+    ytick distance=1,
     declare function = {
       nt(\p,\ra,\ia,\rb,\ib) = \ra^2 + \ia^2 + \rb^2 + \ib^2 + 2*(\ra*\rb + \ia*\ib)*cos(\p) + 2*(\ia*\rb - \ra*\ib)*sin(\p); % |a + b e^{i\phi}|^2
       rj(\p,\ra,\ia,\rb,\ib) = (\ra + \rb*cos(\p) - \ib*sin(\p))*(1 + 1/nt(\p,\ra,\ia,\rb,\ib)); % Re[w(t(e^{i\phi}))]
@@ -79,7 +81,7 @@
         set isosamples 2,50;
         set contour base;
         set cntrlabel onecolor;
-        set cntrparam bspline levels incremental -4,0.2,4;
+        set cntrparam bspline levels incremental -3,0.15,3;
         k = \circlulation;
         a = \rea + \ima*I;
         b = \reb + \imb*I;
