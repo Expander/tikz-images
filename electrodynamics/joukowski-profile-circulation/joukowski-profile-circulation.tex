@@ -69,15 +69,15 @@
         contour/draw color=red,
      ] gnuplot {
         set samples 51,2;
-        set isosamples 2,50;
+        set isosamples 2,51;
         set contour base;
         set cntrlabel onecolor;
         set cntrparam bspline levels incremental -3,0.15,3;
         k = \circlulation;
         a = \rea + \ima*I;
         b = \reb + \imb*I;
-        s(w) = real(w) < 0 ? -1 : 1;
-        z(w) = (w - a)/b + s(w)*sqrt(w**2 - 1)*abs(b)/b**2;
+        zs(w,s) = (w - a)/b + s*sqrt(w**2 - 1)*abs(b)/b**2;
+        z(w) = (abs(zs(w,1)) > 1.0 ? zs(w,1) : (abs(zs(w,-1)) > 1.0 ? zs(w,-1) : 0.0/0.0));
         F(z) = (z + 1/z)/2 + I*k*log(z);
         splot [\remin:\remax] [\immin:\immax] imag(F(z(x + I*y)))
       };
