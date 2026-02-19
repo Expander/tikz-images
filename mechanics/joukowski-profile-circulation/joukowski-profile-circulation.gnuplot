@@ -2,7 +2,7 @@ reset;
 
 a = -0.15 + 0.23*I
 b = 0.23*sqrt(26.0)
-k = (imag(a)*real(b) + (1 - real(a))*imag(b))/(real(b)**2 + imag(b)*imag(b))
+k = -imag((1 - a)/b) # Kutta condition
 
 zs(w,s) = (w - a)/b + s*sqrt(w**2 - 1)*abs(b)/b**2;
 z(w) = (abs(zs(w,1)) > 1.0 ? zs(w,1) : (abs(zs(w,-1)) > 1.0 ? zs(w,-1) : 0.0/0.0))
