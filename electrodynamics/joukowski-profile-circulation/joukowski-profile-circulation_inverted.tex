@@ -82,12 +82,11 @@
         set contour base;
         set cntrlabel onecolor;
         set cntrparam bspline levels incremental -3,0.15,3;
-        k = \circlulation;
         a = \rea + \ima*I;
         b = \reb + \imb*I;
         zs(w,s) = (w - a)/b + s*sqrt(w**2 - 1)*abs(b)/b**2;
         z(w) = (abs(zs(w,1)) > 1.0 ? zs(w,1) : (abs(zs(w,-1)) > 1.0 ? zs(w,-1) : 0.0/0.0));
-        F(z) = (z + 1/z)/2 + I*k*log(z);
+        F(z) = (z + 1/z)/2 + I*\circlulation*log(z);
         splot [\remin:\remax] [\immin:\immax] imag(F(z(x + I*y)))
       };
     \end{scope}
