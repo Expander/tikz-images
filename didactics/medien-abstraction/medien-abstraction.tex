@@ -1,8 +1,9 @@
 \documentclass[tikz]{standalone}
 \usepackage{tikz}
+\usepackage[sfdefault]{atkinson}
 
 \begin{document}
-\begin{tikzpicture}[font=\sffamily]
+\begin{tikzpicture}
 \pgfmathsetmacro{\H}{12}          % total height
 \pgfmathsetmacro{\A}{4}           % half width of base
 \pgfmathsetmacro{\TopFactor}{2.5} % factor to increase top level
@@ -38,7 +39,7 @@
 % label between y_low und y_high
 \newcommand{\layerlabelY}[3]{%
   \pgfmathsetmacro{\yy}{(#1+#2)/2}%
-  \node[align=center,font=\sffamily\small] at (0,\yy) {#3};%
+  \node[align=center,font=\small] at (0,\yy) {#3};%
 }
 
 % level labels
@@ -54,7 +55,7 @@
 
 \layerlabelY{8*\u}{9*\u}{visuelle\\ Symbole}
 %\layerlabelY{9*\u}{\H}{verbale\\ Symbole}
-\node[align=center,anchor=south,font=\sffamily\small] at (0,9*\u) {verbale\\ Symbole};
+\node[align=center,anchor=south,font=\small] at (0,9*\u) {verbale\\ Symbole};
 
 % additional labels
 \node[anchor=west] at (\A+0.8,\H-0.2) {Erfahrungen durch:};
