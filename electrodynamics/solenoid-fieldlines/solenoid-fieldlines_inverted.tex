@@ -1,0 +1,246 @@
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    color=white,
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+% Plots field lines of a finite solenoid of length h using the
+% expressions from Martín-Luna et.al., "On the Magnetic Field of a
+% Finite Solenoid", IEEE TRANSACTIONS ON MAGNETICS, VOL. 59, NO. 4,
+% APRIL 2023
+
+% Note that the expressions are written in terms of the dimensionless
+% ratio r/r_0. Thus, the x-axis shows the ratio x/r_0 and the y-axis
+% shows the ratio y/r_0. I.e. the borders of the solenoid are at x=-1
+% and x=1.
+
+\usepackage{pgfplots}
+
+\pgfplotsset{
+  compat=1.18,
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=black,
+      text=white
+    }
+  },
+}
+
+
+\begin{filecontents*}[overwrite]{\jobname.pgf-plot.gp}
+# boundaries
+xmin=-3;
+xmax=3;
+zmin=-3;
+zmax=3;
+
+set samples 101
+set isosamples 101
+set xrange [xmin:xmax]
+set yrange [zmin:zmax]
+set urange [xmin:xmax]
+set vrange [zmin:zmax]
+set pm3d map
+set pm3d interpolate 4,4
+
+B0 = 4*pi
+h = 2 # h/r_0
+
+# k_{\pm}, Eq.(11)
+k(r,z,s) = sqrt(4.*r/((1. + r)**2 + (z + 0.5*s*h)**2))
+kp(r,z) = k(r,z,1.) # k_+
+km(r,z) = k(r,z,-1.) # k_-
+
+# \sigma, Eq.(12)
+sigma(r) = 4.*r/(1. + r)**2
+
+# I_{\pm}, Eq.(9)
+Ipm(r,z,k) = -4./sqrt(r)*(EllipticE(k)/k - (1. - 0.5*k**2)*EllipticK(k)/k)
+
+# I'_{\pm}, Eq.(10), note missing +- sign in Eq.(10)
+Jpm(r,z,k,s) = k/sqrt(r)*(z + 0.5*s*h)*((1. - r)/(1. + r)*EllipticPi(sigma(r),k) + EllipticK(k))
+
+Ip(r,z) = Ipm(r,z,kp(r,z)) # I_+
+Im(r,z) = Ipm(r,z,km(r,z)) # I_-
+Jp(r,z) = Jpm(r,z,kp(r,z),1) # I'_+
+Jm(r,z) = Jpm(r,z,km(r,z),-1) # I'_-
+
+# limit r->0, Eq.(16)
+Bz0(r,z) = 0.5*B0*((z + 0.5*h)/sqrt(1 + (z + 0.5*h)**2) - (z - 0.5*h)/sqrt(1 + (z - 0.5*h)**2))
+
+# B_r(r,z), Eq.(5)
+Br(r,z) = r == 0 ? 0 : B0/(4*pi)*(Im(r,z) - Ip(r,z))
+
+# B_z(r,z), Eq.(6)
+Brz(r,z) = r == 0 ? Bz0(r,z) : B0/(4*pi)*(Jp(r,z) - Jm(r,z))
+
+# convert to cartesian coordinates
+r(x,y,z) = sqrt(x**2 + y**2)
+Bx(x,y,z) = r(x,y,z) == 0 ? 0 : Br(r(x,y,z),z)*cos(atan2(y,x))
+By(x,y,z) = r(x,y,z) == 0 ? 0 : Br(r(x,y,z),z)*sin(atan2(y,x))
+Bz(x,y,z) = Brz(r(x,y,z),z)
+Ba(x,y,z) = sqrt(Br(r(x,y,z),z)**2 + Bz(x,y,z)**2) # magnitude
+
+eps = 1e-12
+
+# components of magnetic field unit vector
+fx(x,z,sgn) = sgn*Bx(x,0,z)/(Ba(x,0,z) + eps)
+fz(x,z,sgn) = sgn*Bz(x,0,z)/(Ba(x,0,z) + eps)
+
+Nmax = 20000 # maximum number of points that define the field line
+NBUF = Nmax + 1
+array Xneg[NBUF]
+array Zneg[NBUF]
+array STEP[2]
+
+# one Runge-Kutta step; write result to STEP[]
+function $rk4_step(x, z, ds, sgn) << EOF
+   local k1x = ds*fx(x, z, sgn);
+   local k1z = ds*fz(x, z, sgn);
+
+   local k2x = ds*fx(x+0.5*k1x, z+0.5*k1z, sgn);
+   local k2z = ds*fz(x+0.5*k1x, z+0.5*k1z, sgn);
+
+   local k3x = ds*fx(x+0.5*k2x, z+0.5*k2z, sgn);
+   local k3z = ds*fz(x+0.5*k2x, z+0.5*k2z, sgn);
+
+   local k4x = ds*fx(x+k3x, z+k3z, sgn);
+   local k4z = ds*fz(x+k3x, z+k3z, sgn);
+
+   STEP[1] = x + (k1x + 2*k2x + 2*k3x + k4x)/6.0;
+   STEP[2] = z + (k1z + 2*k2z + 2*k3z + k4z)/6.0;
+
+   return 0
+EOF
+
+function $fieldline_rk4_poly(fname, x0, z0, ds, nmax, append) << EOF
+   if (nmax+1 > NBUF) { print "ERROR: nmax+1 > NBUF"; exit; }
+
+   local tol  = 2.0*ds;
+   local tol2 = tol*tol;
+   local left2 = (5.0*tol)*(5.0*tol);   # distance from seed
+   local closed = 0;
+
+   # 1) integrate with sgn=-1 and store it
+   local x = x0;
+   local z = z0;
+   local n = 0;
+   local left = 0;
+   do for [i=1:nmax] {
+     Xneg[i] = x;  Zneg[i] = z;  n = i;
+
+     tmp = $rk4_step(x, z, ds, -1);
+     x = STEP[1];  z = STEP[2];
+
+     # break if outside of box or magnitude of field too small
+     if (x<xmin || x>xmax || z<zmin || z>zmax) { break };
+     if (Ba(x,0,z) < 1e-10) { break };
+
+     # check for return to starting point
+     local d2 = (x-x0)**2 + (z-z0)**2;
+     if (!left && d2 > left2) { left = 1; };
+
+     if (left && d2 < tol2) {
+        # close the line (stroe seed as last point)
+        Xneg[i+1] = x0;  Zneg[i+1] = z0;  n = i+1;
+        closed = 1;
+        break;
+     };
+   }
+
+   # 2) print
+   if (append) { set print fname append; } else { set print fname; };
+
+   # write negative branch backwards, so we get a closed line
+   do for [j=n:1:-1] { print Xneg[j], Zneg[j]; }
+
+   # 3) only if not closed: integrate with sgn=+1 and append
+   if (!closed) {
+     x = x0; z = z0; left = 0;
+     do for [i=1:nmax] {
+       tmp = $rk4_step(x, z, ds, +1);
+       x = STEP[1];  z = STEP[2];
+
+       if (x<xmin || x>xmax || z<zmin || z>zmax) { break };
+       if (Ba(x,0,z) < 1e-10) { break };
+
+       print x, z;
+
+       local d2 = (x-x0)**2 + (z-z0)**2;
+       if (!left && d2 > left2) { left = 1; };
+
+       if (left && d2 < tol2) {
+         print x0, z0;   # close the field line
+         break;
+       };
+     }
+   }
+
+   print ""   # separator from next line
+   set print
+EOF
+
+outfile0 = "fieldlines_0z.dat"
+outfile = "fieldlines_xz.dat"
+ds = 0.02
+Nx = 10
+dx = 1.0/(Nx + 2)
+xseed_min = 0.0 + dx
+xseed_max = 1.0 - dx
+first = 1 # is first line
+
+# generate field line for x = 0
+tmp = $fieldline_rk4_poly(outfile0, 0, 0, ds, Nmax, 0)
+
+# generate field lines for x > 0
+do for [ix=0:Nx] {
+  x0 = xseed_min + (xseed_max - xseed_min)*ix/Nx
+  tmp = $fieldline_rk4_poly(outfile, x0, 0, ds, Nmax, (first?0:1))
+  first = 0 # next lines are not the first line
+}
+
+set table "solenoid-fieldlines.pgf-plot.dat";
+set format "%.7e";
+
+# plot field lines from x=0 to x=1 and mirrored
+plot \
+  outfile0 w l ls 1, \
+  outfile w l ls 1, \
+  outfile using (-$1):2 w l ls 1
+
+unset table
+\end{filecontents*}
+ 
+\begin{document}
+% execute gnuplot, requires --shell-escape
+\immediate\write18{gnuplot \jobname.pgf-plot.gp}
+\begin{tikzpicture}[inverted,inverted]
+  \pgfmathsetmacro{\height}{2}; % ratio h/r_0
+  \pgfmathsetmacro{\xmin}{-3};
+  \pgfmathsetmacro{\xmax}{3};
+  \pgfmathsetmacro{\ymin}{-3};
+  \pgfmathsetmacro{\ymax}{3};
+  \begin{axis}[inverted,
+    xmin = {\xmin}, xmax = {\xmax},
+    ymin = {\ymin}, ymax = {\ymax},
+    axis equal image,
+    view = {0}{90},
+    hide axis,
+    ]
+    % magnetic field lines
+    \addplot[
+      red,
+      very thin,
+    ] table[col sep=space] {solenoid-fieldlines.pgf-plot.dat};
+    % solenoid
+    \draw[very thick] (-1,{-\height/2}) -- (-1,{\height/2});
+    \draw[very thick] (1,{-\height/2}) -- (1,{\height/2});
+  \end{axis}
+\end{tikzpicture}
+\end{document}

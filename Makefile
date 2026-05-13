@@ -87,10 +87,10 @@ $(TEC_MD): $(TEC_SVG)
 	./invert_colors $< $@
 
 %.pdf: %.tex
-	cd $(dir $<) && pdflatex --shell-escape $(notdir $<)
+	cd $(dir $<) && lualatex --shell-escape $(notdir $<)
 
 %.png: %.pdf
 	cd $(dir $<) && pdftoppm -singlefile -r 300 -png $(notdir $<) $(basename $(notdir $@))
 
 %.svg: %.pdf
-	pdf2svg $< $@
+	dvisvgm --pdf --page=1 --bbox=min --optimize $< -o $@

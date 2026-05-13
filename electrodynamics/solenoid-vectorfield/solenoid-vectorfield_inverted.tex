@@ -1,0 +1,162 @@
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    color=white,
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+% Plots vector field and its magnitude of a finite solenoid of length
+% h using the expressions from Martín-Luna et.al., "On the Magnetic
+% Field of a Finite Solenoid", IEEE TRANSACTIONS ON MAGNETICS,
+% VOL. 59, NO. 4, APRIL 2023
+
+\usepackage{pgfplots}
+\usetikzlibrary{arrows.meta}
+\usepgfplotslibrary{colormaps}
+
+\pgfplotsset{
+  compat=1.18,
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=black,
+      text=white
+    }
+  },
+}
+
+\begin{filecontents*}[overwrite]{\jobname.pgf-plot.gp}
+unset key
+set size square
+set grid
+set xlabel "x/r_0"
+set ylabel "z/r_0"
+set samples 51
+set isosamples 51
+set xrange [-3:3]
+set yrange [-3:3]
+set urange [-3:3]
+set vrange [-3:3]
+
+B0 = 4*pi
+h = 2 # h/r_0
+
+# k_{\pm}, Eq.(11)
+k(r,z,s) = sqrt(4.*r/((1. + r)**2 + (z + 0.5*s*h)**2))
+kp(r,z) = k(r,z,1.) # k_+
+km(r,z) = k(r,z,-1.) # k_-
+
+# \sigma, Eq.(12)
+sigma(r) = 4.*r/(1. + r)**2
+
+# I_{\pm}, Eq.(9)
+Ipm(r,z,k) = -4./sqrt(r)*(EllipticE(k)/k - (1. - 0.5*k**2)*EllipticK(k)/k)
+
+# I'_{\pm}, Eq.(10), note missing +- sign in Eq.(10)
+Jpm(r,z,k,s) = k/sqrt(r)*(z + 0.5*s*h)*((1. - r)/(1. + r)*EllipticPi(sigma(r),k) + EllipticK(k))
+
+Ip(r,z) = Ipm(r,z,kp(r,z)) # I_+
+Im(r,z) = Ipm(r,z,km(r,z)) # I_-
+Jp(r,z) = Jpm(r,z,kp(r,z),1) # I'_+
+Jm(r,z) = Jpm(r,z,km(r,z),-1) # I'_-
+
+# limit r->0, Eq.(16)
+Bz0(r,z) = 0.5*B0*((z + 0.5*h)/sqrt(1 + (z + 0.5*h)**2) - (z - 0.5*h)/sqrt(1 + (z - 0.5*h)**2))
+
+# B_r(r,z), Eq.(5)
+Br(r,z) = r == 0 ? 0 : B0/(4*pi)*(Im(r,z) - Ip(r,z))
+
+# B_z(r,z), Eq.(6)
+Brz(r,z) = r == 0 ? Bz0(r,z) : B0/(4*pi)*(Jp(r,z) - Jm(r,z))
+
+# convert to cartesian coordinates
+r(x,y,z) = sqrt(x**2 + y**2)
+Bx(x,y,z) = r(x,y,z) == 0 ? 0 : Br(r(x,y,z),z)*cos(atan2(y,x))
+By(x,y,z) = r(x,y,z) == 0 ? 0 : Br(r(x,y,z),z)*sin(atan2(y,x))
+Bz(x,y,z) = Brz(r(x,y,z),z)
+Ba(x,y,z) = sqrt(Br(r(x,y,z),z)**2 + Bz(x,y,z)**2)
+
+set table "solenoid-vectorfield.pgf-plot.dat";
+set format "%.7e";
+
+plot "++" using 1:2:(Bx($1,0,$2)):(Bz($1,0,$2)) with vectors
+
+unset table
+\end{filecontents*}
+ 
+\begin{document}
+% execute gnuplot, requires --shell-escape
+\immediate\write18{gnuplot \jobname.pgf-plot.gp}
+\begin{tikzpicture}[inverted,inverted]
+  % Note that the expressions are written in terms of the
+  % dimensionless ratio r/r_0. The x-axis shows the ratio x/r_0 and
+  % the y-axis shows the ration y/r_0. I.e. the borders of the
+  % solenoid are at -1 and +1.
+  \pgfmathsetmacro{\height}{2}; % ration h/r_0
+  \pgfmathsetmacro{\xmin}{-3};
+  \pgfmathsetmacro{\xmax}{3};
+  \pgfmathsetmacro{\ymin}{-3};
+  \pgfmathsetmacro{\ymax}{3};
+\begin{axis}[inverted,
+  xmin = {\xmin}, xmax = {\xmax},
+  ymin = {\ymin}, ymax = {\ymax},
+  axis equal image,
+  view = {0}{90},
+  hide axis,
+  colormap={whiteblue}{rgb=(1,1,1) rgb=(0,0,1)},
+  ]
+  % magnitude of magnetic field
+  \addplot3 gnuplot [
+    raw gnuplot,
+    surf,
+    shader=interp,
+    no marks,
+  ] {
+    set samples 101;
+    set isosamples 101;
+    set xrange [\xmin:\xmax];
+    set yrange [\ymin:\ymax];
+    set urange [\xmin:\xmax];
+    set vrange [\ymin:\ymax];
+    B0 = 4*pi;
+    h = \height;
+    k(r,z,s) = sqrt(4.*r/((1. + r)**2 + (z + 0.5*s*h)**2));
+    kp(r,z) = k(r,z,1.);
+    km(r,z) = k(r,z,-1.);
+    sigma(r) = 4.*r/(1. + r)**2;
+    Ipm(r,z,k) = -4./sqrt(r)*(EllipticE(k)/k - (1. - 0.5*k**2)*EllipticK(k)/k);
+    Jpm(r,z,k,s) = k/sqrt(r)*(z + 0.5*s*h)*((1. - r)/(1. + r)*EllipticPi(sigma(r),k) + EllipticK(k));
+    Ip(r,z) = Ipm(r,z,kp(r,z));
+    Im(r,z) = Ipm(r,z,km(r,z));
+    Jp(r,z) = Jpm(r,z,kp(r,z),1);
+    Jm(r,z) = Jpm(r,z,km(r,z),-1);
+    Bz0(r,z) = 0.5*B0*((z + 0.5*h)/sqrt(1 + (z + 0.5*h)**2) - (z - 0.5*h)/sqrt(1 + (z - 0.5*h)**2));
+    Br(r,z) = r == 0 ? 0 : B0/(4*pi)*(Im(r,z) - Ip(r,z));
+    Brz(r,z) = r == 0 ? Bz0(r,z) : B0/(4*pi)*(Jp(r,z) - Jm(r,z));
+    r(x,y,z) = sqrt(x**2 + y**2);
+    Bx(x,y,z) = r(x,y,z) == 0 ? 0 : Br(r(x,y,z),z)*cos(atan2(y,x));
+    By(x,y,z) = r(x,y,z) == 0 ? 0 : Br(r(x,y,z),z)*sin(atan2(y,x));
+    Bz(x,y,z) = Brz(r(x,y,z),z);
+    Ba(x,y,z) = sqrt(Br(r(x,y,z),z)**2 + Bz(x,y,z)**2);
+    splot "++" using 1:2:(Ba($1,0,$2))
+  };
+  % magnetic vector field
+  \addplot[
+    red,
+    -{Latex[scale=0.3]},
+    quiver={
+      u=\thisrowno{2}, % 3rd column
+      v=\thisrowno{3}, % 4th column
+      scale arrows=0.04,
+    },
+  ] table[col sep=space] {solenoid-vectorfield.pgf-plot.dat};
+  % solenoid
+  \draw[very thick] (-1,{-\height/2}) -- (-1,{\height/2});
+  \draw[very thick] (1,{-\height/2}) -- (1,{\height/2});
+\end{axis}
+\end{tikzpicture}
+\end{document}
