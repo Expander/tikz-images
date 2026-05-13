@@ -93,4 +93,4 @@ $(TEC_MD): $(TEC_SVG)
 	cd $(dir $<) && pdftoppm -singlefile -r 300 -png $(notdir $<) $(basename $(notdir $@))
 
 %.svg: %.pdf
-	pdf2svg $< $@
+	dvisvgm --pdf --page=1 --bbox=min --optimize $< -o $@
