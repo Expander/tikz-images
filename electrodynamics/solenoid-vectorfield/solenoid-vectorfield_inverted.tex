@@ -1,4 +1,13 @@
 \documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    color=white,
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
 
 % Plots vector field and its magnitude of a finite solenoid of length
 % h using the expressions from Martín-Luna et.al., "On the Magnetic
@@ -10,7 +19,7 @@
 \usepgfplotslibrary{colormaps}
  
 \begin{document}
-\begin{tikzpicture}
+\begin{tikzpicture}[inverted,inverted]
   % Note that the expressions are written in terms of the
   % dimensionless ratio r/r_0. The x-axis shows the ratio x/r_0 and
   % the y-axis shows the ration y/r_0. I.e. the borders of the
@@ -20,7 +29,7 @@
   \pgfmathsetmacro{\xmax}{3};
   \pgfmathsetmacro{\ymin}{-3};
   \pgfmathsetmacro{\ymax}{3};
-\begin{axis}[
+\begin{axis}[inverted,
   xmin = {\xmin}, xmax = {\xmax},
   ymin = {\ymin}, ymax = {\ymax},
   axis equal image,

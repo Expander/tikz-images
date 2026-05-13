@@ -2,5 +2,6 @@
 *.aux
 *.dat
 *.log
+*.pgf-plot.gnuplot
 *.script
 *.table
