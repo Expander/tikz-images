@@ -74,7 +74,7 @@ Ba(x,y,z) = sqrt(Br(r(x,y,z),z)**2 + Bz(x,y,z)**2)
 set table "solenoid-vectorfield.pgf-plot.dat";
 set format "%.7e";
 
-plot "++" using 1:2:(Bx($1,0,$2)/Ba($1,0,$2)):(Bz($1,0,$2)/Ba($1,0,$2)) with vectors
+plot "++" using 1:2:(Bx($1,0,$2)):(Bz($1,0,$2)) with vectors
 
 unset table
 \end{filecontents*}
@@ -142,7 +142,7 @@ unset table
     quiver={
       u=\thisrowno{2}, % 3rd column
       v=\thisrowno{3}, % 4th column
-      scale arrows=0.1,
+      scale arrows=0.04,
     },
   ] table[col sep=space] {solenoid-vectorfield.pgf-plot.dat};
   % solenoid
