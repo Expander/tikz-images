@@ -105,14 +105,6 @@
       Ba(\x,\y,\z) = sqrt(Br(rr(\x,\y,\z),\z)^2 + Bz(\x,\y,\z)^2); % |\vec{B}(x,y,z)|
     },
     ]
-    % magnitude of magnetic field
-    \addplot3[
-      surf,
-      shader=interp,
-      no marks,
-      samples=101,
-      samples y=101,
-    ] { Ba(x,0,y) };
     % magnetic vector field
     \addplot3[
       red,

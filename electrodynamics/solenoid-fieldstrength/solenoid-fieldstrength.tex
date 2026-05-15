@@ -1,13 +1,4 @@
 \documentclass[crop,tikz]{standalone}
-\usetikzlibrary{backgrounds}
-\colorlet{blue}{cyan}
-\tikzset{
-  inverted/.style = {
-    color=white,
-    background rectangle/.style={fill},
-    show background rectangle
-  }
-}
 
 % Plots vector field and its magnitude of a finite solenoid of length
 % h using the expressions from Martín-Luna et.al., "On the Magnetic
@@ -23,14 +14,14 @@
   inverted/.style = {
     every axis legend/.append style={
       draw=white,
-      fill=black,
+      fill=hardblack,
       text=white
     }
   },
 }
  
 \begin{document}
-\begin{tikzpicture}[inverted,inverted]
+\begin{tikzpicture}
   % Note that the expressions are written in terms of the
   % dimensionless ratio r/r_0. The x-axis shows the ratio x/r_0 and
   % the y-axis shows the ration z/r_0. I.e. the borders of the
@@ -41,7 +32,7 @@
   \pgfmathsetmacro{\ymin}{-3};
   \pgfmathsetmacro{\ymax}{3};
   \pgfmathsetmacro{\BO}{4*pi};
-  \begin{axis}[inverted,
+  \begin{axis}[
     xmin = {\xmin}, xmax = {\xmax},
     ymin = {\ymin}, ymax = {\ymax},
     domain = {\xmin}:{\xmax},
@@ -114,18 +105,14 @@
       Ba(\x,\y,\z) = sqrt(Br(rr(\x,\y,\z),\z)^2 + Bz(\x,\y,\z)^2); % |\vec{B}(x,y,z)|
     },
     ]
-    % magnetic vector field
+    % magnitude of magnetic field
     \addplot3[
-      red,
-      -{Latex[scale=0.3]},
-      samples=51,
-      samples y=51,
-      quiver={
-        u={Bx(x,0,y)},
-        v={Bz(x,0,y)},
-        scale arrows=0.04,
-      },
-    ] {0};
+      surf,
+      shader=interp,
+      no marks,
+      samples=101,
+      samples y=101,
+    ] { Ba(x,0,y) };
     % solenoid
     \draw[very thick] (-1,{-\height/2}) -- (-1,{\height/2});
     \draw[very thick] (1,{-\height/2}) -- (1,{\height/2});

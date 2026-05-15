@@ -114,18 +114,14 @@
       Ba(\x,\y,\z) = sqrt(Br(rr(\x,\y,\z),\z)^2 + Bz(\x,\y,\z)^2); % |\vec{B}(x,y,z)|
     },
     ]
-    % magnetic vector field
+    % magnitude of magnetic field
     \addplot3[
-      red,
-      -{Latex[scale=0.3]},
-      samples=51,
-      samples y=51,
-      quiver={
-        u={Bx(x,0,y)},
-        v={Bz(x,0,y)},
-        scale arrows=0.04,
-      },
-    ] {0};
+      surf,
+      shader=interp,
+      no marks,
+      samples=101,
+      samples y=101,
+    ] { Ba(x,0,y) };
     % solenoid
     \draw[very thick] (-1,{-\height/2}) -- (-1,{\height/2});
     \draw[very thick] (1,{-\height/2}) -- (1,{\height/2});
