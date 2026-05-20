@@ -1,0 +1,47 @@
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    color=white,
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\usepackage{amsmath}
+
+\usetikzlibrary{angles,calc,patterns}
+\colorlet{green}{green}
+
+\begin{document}
+\begin{tikzpicture}[inverted,inverted]
+  \pgfmathsetmacro{\Radius}{3};
+  \pgfmathsetmacro{\MaxWinkel}{1.5*30};
+  \pgfmathsetmacro{\Winkel}{\MaxWinkel/2};
+  \pgfmathsetmacro{\mass}{1};
+  \pgfmathsetmacro{\gerde}{1.5};
+  \pgfmathsetmacro{\phidot}{0.2}; % omega^2
+  \pgfmathsetmacro{\mg}{\mass*\gerde};
+  \pgfmathsetmacro{\FZp}{\mass*\Radius*\phidot};
+  %
+  \coordinate (O) at (0,0);
+  \coordinate (N) at (0,{-\Radius});
+  \coordinate (M) at ({270+\Winkel}:{\Radius});
+  %
+  \pattern[pattern=north east lines,pattern color=white] (-2,0) rectangle (2,0.2);
+  \draw (-2,0) -- (2,0);
+  \draw[densely dotted] (O) -- (0,{-1.25*\Radius});
+  \draw[dashed] ({270-\MaxWinkel}:{\Radius}) arc ({270-\MaxWinkel}:{270+\MaxWinkel}:{\Radius});
+  % mass
+  \draw[fill] (M) circle (0.05) node[below right] {$m$};
+  \draw (O) -- (M);
+  \pic[draw,->,angle eccentricity=0.8,angle radius=1.5cm,pic text={$\varphi$}] {angle = N--O--M};
+  % gravity
+  \draw[->,red,thick] (M) -- ++ (0,{-\mg}) node[right] {$\vec{F}_g$}; 
+  % string force
+  \draw[->,blue,thick] (M) -- ++ ({\Winkel+90}:{\mg*cos(\Winkel)+\FZp}) node[right] {$\vec{Z}$};
+  % resulting force
+  \draw[->,green,thick] (M) -- ++ ($({\Winkel+90}:{\mg*cos(\Winkel)+\FZp})+(0,{-\mg})$) node[above] {$\vec{F}_{\text{res}}$};
+\end{tikzpicture}
+\end{document}
