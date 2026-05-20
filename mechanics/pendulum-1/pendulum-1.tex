@@ -22,14 +22,14 @@
   \draw[densely dotted] (O) -- (0,{-1.25*\Radius});
   \draw[dashed] ({270-\Winkel}:{\Radius}) arc ({270-\Winkel}:{270+\Winkel}:{\Radius});
   % mass
-  \draw[fill] (M) circle (0.05) coordinate (mmax) node[right] {$m$};
-  \draw (O) -- node[above] {$\ell$} (mmax);
+  \draw[fill] (M) circle (0.05) node[right] {$m$};
+  \draw (O) -- node[above] {$\ell$} (M);
   \pic[draw,->,angle eccentricity=0.8,angle radius=1.5cm,pic text={$\varphi_{\max}$}] {angle = N--O--M};
-  % resulting force
-  \draw[->,green,thick] (mmax) -- ++ ({\Winkel+180}:{\mg*sin(\Winkel)}) node[below] {$\vec{F}_{\text{res}}$};
   % gravity
-  \draw[->,red,thick] (mmax) -- ++ (0,{-\mg}) node[below] {$\vec{F}_g$}; 
+  \draw[->,red,thick] (M) -- ++ (0,{-\mg}) node[below] {$\vec{F}_g$}; 
   % string force
-  \draw[->,blue,thick] (mmax) -- ++ ({\Winkel+90}:{\mg*cos(\Winkel)}) node[above right] {$\vec{Z}$};
+  \draw[->,blue,thick] (M) -- ++ ({\Winkel+90}:{\mg*cos(\Winkel)}) node[above right] {$\vec{Z}$};
+  % resulting force
+  \draw[->,green,thick] (M) -- ++ ({\Winkel+180}:{\mg*sin(\Winkel)}) node[below] {$\vec{F}_{\text{res}}$};
 \end{tikzpicture}
 \end{document}
