@@ -121,6 +121,8 @@
 [![oscillations-r-v-a.svg](mechanics/oscillations-r-v-a/oscillations-r-v-a.svg "oscillations-r-v-a.svg")](mechanics/oscillations-r-v-a/oscillations-r-v-a.svg) [[PDF]](mechanics/oscillations-r-v-a/oscillations-r-v-a.pdf) [[PNG]](mechanics/oscillations-r-v-a/oscillations-r-v-a.png) [[SVG]](mechanics/oscillations-r-v-a/oscillations-r-v-a.svg) [[TEX]](mechanics/oscillations-r-v-a/oscillations-r-v-a.tex)
 ## pendulum-1.svg
 [![pendulum-1.svg](mechanics/pendulum-1/pendulum-1.svg "pendulum-1.svg")](mechanics/pendulum-1/pendulum-1.svg) [[PDF]](mechanics/pendulum-1/pendulum-1.pdf) [[PNG]](mechanics/pendulum-1/pendulum-1.png) [[SVG]](mechanics/pendulum-1/pendulum-1.svg) [[TEX]](mechanics/pendulum-1/pendulum-1.tex)
+## pendulum-2.svg
+[![pendulum-2.svg](mechanics/pendulum-2/pendulum-2.svg "pendulum-2.svg")](mechanics/pendulum-2/pendulum-2.svg) [[PDF]](mechanics/pendulum-2/pendulum-2.pdf) [[PNG]](mechanics/pendulum-2/pendulum-2.png) [[SVG]](mechanics/pendulum-2/pendulum-2.svg) [[TEX]](mechanics/pendulum-2/pendulum-2.tex)
 ## resonance.svg
 [![resonance.svg](mechanics/resonance/resonance.svg "resonance.svg")](mechanics/resonance/resonance.svg) [[PDF]](mechanics/resonance/resonance.pdf) [[PNG]](mechanics/resonance/resonance.png) [[SVG]](mechanics/resonance/resonance.svg) [[TEX]](mechanics/resonance/resonance.tex)
 ## rotating-sphere.svg
@@ -331,6 +333,8 @@
 [![oscillations-r-v-a_inverted.svg](mechanics/oscillations-r-v-a/oscillations-r-v-a_inverted.svg "oscillations-r-v-a_inverted.svg")](mechanics/oscillations-r-v-a/oscillations-r-v-a_inverted.svg) [[PDF]](mechanics/oscillations-r-v-a/oscillations-r-v-a_inverted.pdf) [[PNG]](mechanics/oscillations-r-v-a/oscillations-r-v-a_inverted.png) [[SVG]](mechanics/oscillations-r-v-a/oscillations-r-v-a_inverted.svg) [[TEX]](mechanics/oscillations-r-v-a/oscillations-r-v-a_inverted.tex)
 ## pendulum-1_inverted.svg
 [![pendulum-1_inverted.svg](mechanics/pendulum-1/pendulum-1_inverted.svg "pendulum-1_inverted.svg")](mechanics/pendulum-1/pendulum-1_inverted.svg) [[PDF]](mechanics/pendulum-1/pendulum-1_inverted.pdf) [[PNG]](mechanics/pendulum-1/pendulum-1_inverted.png) [[SVG]](mechanics/pendulum-1/pendulum-1_inverted.svg) [[TEX]](mechanics/pendulum-1/pendulum-1_inverted.tex)
+## pendulum-2_inverted.svg
+[![pendulum-2_inverted.svg](mechanics/pendulum-2/pendulum-2_inverted.svg "pendulum-2_inverted.svg")](mechanics/pendulum-2/pendulum-2_inverted.svg) [[PDF]](mechanics/pendulum-2/pendulum-2_inverted.pdf) [[PNG]](mechanics/pendulum-2/pendulum-2_inverted.png) [[SVG]](mechanics/pendulum-2/pendulum-2_inverted.svg) [[TEX]](mechanics/pendulum-2/pendulum-2_inverted.tex)
 ## resonance_inverted.svg
 [![resonance_inverted.svg](mechanics/resonance/resonance_inverted.svg "resonance_inverted.svg")](mechanics/resonance/resonance_inverted.svg) [[PDF]](mechanics/resonance/resonance_inverted.pdf) [[PNG]](mechanics/resonance/resonance_inverted.png) [[SVG]](mechanics/resonance/resonance_inverted.svg) [[TEX]](mechanics/resonance/resonance_inverted.tex)
 ## rotating-sphere_inverted.svg
