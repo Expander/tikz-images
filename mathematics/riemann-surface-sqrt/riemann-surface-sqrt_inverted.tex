@@ -1,0 +1,45 @@
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    color=white,
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+
+\pgfplotsset{
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=white,
+      text=white
+    }
+  }
+}
+
+\begin{document}
+\begin{tikzpicture}[inverted,inverted]
+  \begin{axis}[inverted,
+    width=15cm,
+    axis equal image,
+    view={-30}{40},
+    xlabel={$\Re(z)$},
+    ylabel={$\Im(z)$},
+    zlabel={$\Re(\sqrt{z})$},
+    xmin=-1,xmax=1,
+    ymin=-1,ymax=1,
+    zmin=-1, zmax=1,
+    samples=10, samples y=50,
+    domain=0:1, domain y=0:{2*360},
+    z buffer=sort,
+    grid,
+    ]
+    \addplot3[surf,colormap/hot] ({x*cos(y)},{x*sin(y)},{sqrt(x)*cos(y/2)});
+  \end{axis}
+\end{tikzpicture}
+\end{document}
