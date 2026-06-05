@@ -166,22 +166,18 @@ end
 
 \begin{document}
 \begin{tikzpicture}[inverted,inverted]
-  \pgfmathsetmacro{\height}{2}; % ratio h/r_0
-  \pgfmathsetmacro{\xmin}{-3};
-  \pgfmathsetmacro{\xmax}{3};
-  \pgfmathsetmacro{\ymin}{-3};
-  \pgfmathsetmacro{\ymax}{3};
+  \pgfmathsetmacro{\height}{4}; % ratio h/r_0
   \pgfmathsetmacro{\BO}{4*pi};
   \begin{axis}[inverted,
-    xmin = {\xmin}, xmax = {\xmax},
-    ymin = {\ymin}, ymax = {\ymax},
+    xmin = {-3}, xmax = {3},
+    ymin = {-5}, ymax = {5},
     axis equal image,
     view = {0}{90},
     hide axis,
     declare function={
       kk(\r,\z,\s) = sqrt(4*\r/((1 + \r)^2 + (\z + 0.5*\s*\height)^2)); % k_\pm
-      kp(\r,\z) = kk(\r, \z, 1); % k_+
-      km(\r,\z) = kk(\r, \z, -1); % k_-
+      kp(\r,\z) = kk(\r,\z,1); % k_+
+      km(\r,\z) = kk(\r,\z,-1); % k_-
       sigma(\r) = 4*\r/(1 + \r)^2;
       %
       Ipm(\r,\z,\k) = -4/sqrt(\r)*(luaE(\k)/\k - (1 - 0.5*\k^2)*luaK(\k)/\k); % I_\pm
@@ -203,18 +199,19 @@ end
     ]
     % magnetic vector field
     \addplot3[
-      red,
-      samples=51,
-      samples y=51,
-      quiver={
-        u={Bx(x,0,y)},
-        v={Bz(x,0,y)},
-        scale arrows=0.04,
+      samples = 51,
+      samples y = 51,
+      quiver = {
+        u = {Bx(x,0,y)},
+        v = {Bz(x,0,y)},
       },
     ] {0};
-    % solenoid
-    \draw[very thick] (-1,{-\height/2}) -- (-1,{\height/2});
-    \draw[very thick] (1,{-\height/2}) -- (1,{\height/2});
+    % bar magnet
+    \draw[fill,green] (-1,{-\height/2}) rectangle (1,0);
+    \draw[fill,red] (-1,0) rectangle (1,{\height/2});
+    \draw[thick] (-1,{-\height/2}) rectangle (1,{\height/2});
+    \node[below] at (0,{\height/2}) {N};
+    \node[above] at (0,{-\height/2}) {S};
   \end{axis}
 \end{tikzpicture}
 \end{document}
