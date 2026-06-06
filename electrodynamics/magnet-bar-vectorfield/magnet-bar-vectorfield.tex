@@ -1,0 +1,342 @@
+\documentclass[crop,tikz]{standalone}
+
+% Plots magnet field of a bar magnet of length h using the expressions
+% from Martín-Luna et.al., "On the Magnetic Field of a Finite
+% Solenoid", IEEE TRANSACTIONS ON MAGNETICS, VOL. 59, NO. 4, APRIL
+% 2023
+
+% Note that the expressions are written in terms of the dimensionless
+% ratio r/r_0. Thus, the x-axis shows the ratio x/r_0 and the y-axis
+% shows the ratio y/r_0. I.e. the borders of the magnet are at x=-1
+% and x=1.
+
+\usepackage{pgfplots}
+\usepackage{luacode}
+
+\usetikzlibrary{arrows.meta}
+
+\pgfplotsset{
+  compat=1.18,
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=hardblack,
+      text=white
+    }
+  },
+}
+
+\begin{luacode*}
+Mag = Mag or {}
+
+-- 16-pt Gauss-Legendre nodes/weights on [-1,1], reduced to 8 positive nodes
+Mag.xi = {
+  0.9894009349916499,
+  0.9445750230732326,
+  0.8656312023878317,
+  0.7554044083550030,
+  0.6178762444026437,
+  0.4580167776572274,
+  0.2816035507792589,
+  0.09501250983763744
+}
+Mag.wi = {
+  0.027152459411754095,
+  0.062253523938647893,
+  0.095158511682492785,
+  0.12462897125553387,
+  0.14959598881657673,
+  0.16915651939500254,
+  0.18260341504492359,
+  0.18945061045506850
+}
+
+function Mag.clamp(x)
+  local eps = 1e-15
+  if x < eps then
+    return eps
+  else
+    return x
+  end
+end
+
+function Mag.K(k)
+  local kk = k*k
+  local sum = 0.0
+  for i=1,#Mag.xi do
+    local th1 = math.pi/4*(1 + Mag.xi[i])
+    local th2 = math.pi/4*(1 - Mag.xi[i])
+    local s1  = math.sin(th1); s1 = s1*s1
+    local s2  = math.sin(th2); s2 = s2*s2
+    local r1  = Mag.clamp(1.0 - kk*s1)
+    local r2  = Mag.clamp(1.0 - kk*s2)
+    sum = sum + Mag.wi[i]*(1.0/math.sqrt(r1) + 1.0/math.sqrt(r2))
+  end
+  return math.pi/4*sum
+end
+
+function Mag.E(k)
+  local kk = k*k
+  local sum = 0.0
+  for i=1,#Mag.xi do
+    local th1 = math.pi/4*(1 + Mag.xi[i])
+    local th2 = math.pi/4*(1 - Mag.xi[i])
+    local s1  = math.sin(th1); s1 = s1*s1
+    local s2  = math.sin(th2); s2 = s2*s2
+    local r1  = Mag.clamp(1.0 - kk*s1)
+    local r2  = Mag.clamp(1.0 - kk*s2)
+    sum = sum + Mag.wi[i]*(math.sqrt(r1) + math.sqrt(r2))
+  end
+  return math.pi/4*sum
+end
+
+function Mag.Pi(n,k)
+  local kk = k*k
+  local sum = 0.0
+  for i=1,#Mag.xi do
+    local th1 = math.pi/4*(1 + Mag.xi[i])
+    local th2 = math.pi/4*(1 - Mag.xi[i])
+    local s1  = math.sin(th1); s1 = s1*s1
+    local s2  = math.sin(th2); s2 = s2*s2
+    local r1  = Mag.clamp(1.0 - kk*s1)
+    local r2  = Mag.clamp(1.0 - kk*s2)
+    local d1  = Mag.clamp(1.0 - n*s1)
+    local d2  = Mag.clamp(1.0 - n*s2)
+    sum = sum + Mag.wi[i]*(1.0/(d1*math.sqrt(r1)) + 1.0/(d2*math.sqrt(r2)))
+  end
+  return math.pi/4*sum
+end
+
+-- k_pm
+function Mag.k(r,z,h,s)
+  return math.sqrt(4*r/((1 + r)^2 + (z + 0.5*s*h)^2))
+end
+
+-- k_+
+function Mag.kp(r,z,h)
+  return Mag.k(r,z,h,1)
+end
+
+-- k_-
+function Mag.km(r,z,h)
+  return Mag.k(r,z,h,-1)
+end
+
+function sigma(r)
+  return 4*r/(1 + r)^2
+end
+
+-- normalization
+Mag.BO = 4*math.pi
+
+-- I_pm
+function Mag.Ipm(r,z,k)
+  return -4/math.sqrt(r)*(Mag.E(k)/k - (1 - 0.5*k^2)*Mag.K(k)/k)
+end
+
+-- I'_pm
+function Mag.Jpm(r,z,k,h,s)
+  return k/math.sqrt(r)*(z + 0.5*s*h)*((1 - r)/(1 + r)*Mag.Pi(sigma(r),k) + Mag.K(k))
+end
+
+-- I_+
+function Mag.Ip(r,z,h)
+  return Mag.Ipm(r,z,Mag.kp(r,z,h),h)
+end
+
+-- I_-
+function Mag.Im(r,z,h)
+  return Mag.Ipm(r,z,Mag.km(r,z,h),h)
+end
+
+-- I'_+
+function Mag.Jp(r,z,h)
+  return Mag.Jpm(r,z,Mag.kp(r,z,h),h,1)
+end
+
+-- I'_-
+function Mag.Jm(r,z,h)
+  return Mag.Jpm(r,z,Mag.km(r,z,h),h,-1)
+end
+
+-- B_z(0,z)
+function Mag.Bz0(r,z,h)
+  return 0.5*Mag.BO*((z + 0.5*h)/math.sqrt(1 + (z + 0.5*h)^2) - (z - 0.5*h)/math.sqrt(1 + (z - 0.5*h)^2))
+end
+
+-- B_r(r,z)
+function Mag.Br(r,z,h)
+  if r == 0 then
+    return 0
+  else
+    return Mag.BO/(4*math.pi)*(Mag.Im(r,z,h) - Mag.Ip(r,z,h))
+  end
+end
+
+-- B_z(r,z)
+function Mag.Brz(r,z,h)
+  if r == 0 then
+    return Mag.Bz0(r,z,h)
+  else
+    return Mag.BO/(4*math.pi)*(Mag.Jp(r,z,h) - Mag.Jm(r,z,h))
+  end
+end
+
+-- r(x,y)
+function Mag.r(x,y)
+  return math.sqrt(x^2 + y^2)
+end
+
+-- B_x(x,y,z)
+function Mag.Bx(x,y,z,h)
+  if Mag.r(x,y) == 0 then
+    return 0
+  else
+    return Mag.Br(Mag.r(x,y),z,h)*math.cos(math.atan2(y,x))
+  end
+end
+
+-- B_y(x,y,z)
+function Mag.By(x,y,z,h)
+  if Mag.r(x,y) == 0 then
+    return 0
+  else
+    return Mag.Br(Mag.r(x,y),z,h)*math.sin(math.atan2(y,x))
+  end
+end
+
+-- B_z(x,y,z)
+function Mag.Bz(x,y,z,h)
+  return Mag.Brz(Mag.r(x,y),z,h)
+end
+
+-- |vec{B}(x,y,z)|
+function Mag.Ba(x,y,z,h)
+  return math.sqrt(Mag.Br(Mag.r(x,y),z,h)^2 + Mag.Bz(x,y,z,h)^2)
+end
+\end{luacode*}
+
+\makeatletter
+\pgfmathdeclarefunction{Bx}{4}{%
+  \begingroup
+  \pgfmathfloatparsenumber{#1}%
+  \pgfmathfloattofixed{\pgfmathresult}%
+  \edef\xarg{\pgfmathresult}%
+  \pgfmathfloatparsenumber{#2}%
+  \pgfmathfloattofixed{\pgfmathresult}%
+  \edef\yarg{\pgfmathresult}%
+  \pgfmathfloatparsenumber{#3}%
+  \pgfmathfloattofixed{\pgfmathresult}%
+  \edef\zarg{\pgfmathresult}%
+  \pgfmathfloatparsenumber{#4}%
+  \pgfmathfloattofixed{\pgfmathresult}%
+  \edef\harg{\pgfmathresult}%
+  \pgfmathparse{%
+    \directlua{
+      local x = tonumber("\xarg")
+      local y = tonumber("\yarg")
+      local z = tonumber("\zarg")
+      local h = tonumber("\harg")
+      local fmt = string.char(37)..".16g"
+      tex.sprint(string.format(fmt, Mag.Bx(x,y,z,h)))
+    }%
+  }%
+  \pgfmath@smuggleone\pgfmathresult
+  \endgroup
+}
+\pgfmathdeclarefunction{Bz}{4}{%
+  \begingroup
+  \pgfmathfloatparsenumber{#1}%
+  \pgfmathfloattofixed{\pgfmathresult}%
+  \edef\xarg{\pgfmathresult}%
+  \pgfmathfloatparsenumber{#2}%
+  \pgfmathfloattofixed{\pgfmathresult}%
+  \edef\yarg{\pgfmathresult}%
+  \pgfmathfloatparsenumber{#3}%
+  \pgfmathfloattofixed{\pgfmathresult}%
+  \edef\zarg{\pgfmathresult}%
+  \pgfmathfloatparsenumber{#4}%
+  \pgfmathfloattofixed{\pgfmathresult}%
+  \edef\harg{\pgfmathresult}%
+  \pgfmathparse{%
+    \directlua{
+      local x = tonumber("\xarg")
+      local y = tonumber("\yarg")
+      local z = tonumber("\zarg")
+      local h = tonumber("\harg")
+      local fmt = string.char(37)..".16g"
+      tex.sprint(string.format(fmt, Mag.Bz(x,y,z,h)))
+    }%
+  }%
+  \pgfmath@smuggleone\pgfmathresult
+  \endgroup
+}
+\pgfmathdeclarefunction{Ba}{4}{%
+  \begingroup
+  \pgfmathfloatparsenumber{#1}%
+  \pgfmathfloattofixed{\pgfmathresult}%
+  \edef\xarg{\pgfmathresult}%
+  \pgfmathfloatparsenumber{#2}%
+  \pgfmathfloattofixed{\pgfmathresult}%
+  \edef\yarg{\pgfmathresult}%
+  \pgfmathfloatparsenumber{#3}%
+  \pgfmathfloattofixed{\pgfmathresult}%
+  \edef\zarg{\pgfmathresult}%
+  \pgfmathfloatparsenumber{#4}%
+  \pgfmathfloattofixed{\pgfmathresult}%
+  \edef\harg{\pgfmathresult}%
+  \pgfmathparse{%
+    \directlua{
+      local x = tonumber("\xarg")
+      local y = tonumber("\yarg")
+      local z = tonumber("\zarg")
+      local h = tonumber("\harg")
+      local fmt = string.char(37)..".16g"
+      tex.sprint(string.format(fmt, Mag.Ba(x,y,z,h)))
+    }%
+  }%
+  \pgfmath@smuggleone\pgfmathresult
+  \endgroup
+}
+\makeatother
+
+\begin{document}
+\begin{tikzpicture}
+  \pgfmathsetmacro{\height}{4}; % ratio h/r_0
+  \begin{axis}[
+    xmin = {-3}, xmax = {3},
+    ymin = {-5}, ymax = {5},
+    axis equal image,
+    view = {0}{90},
+    hide axis,
+    declare function={
+    },
+    ]
+    % magnetic vector field
+    \addplot3[
+      samples = 51,
+      samples y = 51,
+      x filter/.expression = {
+        % exclude vectors inside bar magnet
+        (x >= -1 && x <= 1 && y >= -\height/2 && y <= \height/2) ? nan : x
+      },
+      point meta = {Ba(x,0,y,\height)},
+      quiver = {
+        u = {Bx(x,0,y,\height)},
+        v = {Bz(x,0,y,\height)},
+        scale arrows = 0.05,
+        every arrow/.append style = {%
+          line width={.1+0.75*\pgfplotspointmetatransformed/1000},
+          -{Latex[length=0pt 3,width=0pt 2]}
+        },
+      },
+    ] {0};
+    % bar magnet
+    \draw[fill,green] (-1,{-\height/2}) rectangle (1,0);
+    \draw[fill,red] (-1,0) rectangle (1,{\height/2});
+    \draw[thick] (-1,{-\height/2}) rectangle (1,{\height/2});
+    \node[below] at (0,{\height/2}) {N};
+    \node[above] at (0,{-\height/2}) {S};
+  \end{axis}
+\end{tikzpicture}
+\end{document}
