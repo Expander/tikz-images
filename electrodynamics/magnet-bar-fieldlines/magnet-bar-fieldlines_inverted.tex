@@ -221,68 +221,101 @@ end
 function Ell.Ba(x,y,z,h)
   return math.sqrt(Ell.Br(Ell.r(x,y),z,h)^2 + Ell.Bz(x,y,z,h)^2)
 end
-\end{luacode*}
 
-\makeatletter
-\pgfmathdeclarefunction{Bx}{4}{%
-  \begingroup
-  \pgfmathfloatparsenumber{#1}%
-  \pgfmathfloattofixed{\pgfmathresult}%
-  \edef\xarg{\pgfmathresult}%
-  \pgfmathfloatparsenumber{#2}%
-  \pgfmathfloattofixed{\pgfmathresult}%
-  \edef\yarg{\pgfmathresult}%
-  \pgfmathfloatparsenumber{#3}%
-  \pgfmathfloattofixed{\pgfmathresult}%
-  \edef\zarg{\pgfmathresult}%
-  \pgfmathfloatparsenumber{#4}%
-  \pgfmathfloattofixed{\pgfmathresult}%
-  \edef\harg{\pgfmathresult}%
-  \pgfmathparse{%
-    \directlua{
-      local x = tonumber("\xarg")
-      local y = tonumber("\yarg")
-      local z = tonumber("\zarg")
-      local h = tonumber("\harg")
-      local fmt = string.char(37)..".16g"
-      tex.sprint(string.format(fmt, Ell.Bx(x,y,z,h)))
-    }%
-  }%
-  \pgfmath@smuggleone\pgfmathresult
-  \endgroup
-}
-\pgfmathdeclarefunction{Bz}{4}{%
-  \begingroup
-  \pgfmathfloatparsenumber{#1}%
-  \pgfmathfloattofixed{\pgfmathresult}%
-  \edef\xarg{\pgfmathresult}%
-  \pgfmathfloatparsenumber{#2}%
-  \pgfmathfloattofixed{\pgfmathresult}%
-  \edef\yarg{\pgfmathresult}%
-  \pgfmathfloatparsenumber{#3}%
-  \pgfmathfloattofixed{\pgfmathresult}%
-  \edef\zarg{\pgfmathresult}%
-  \pgfmathfloatparsenumber{#4}%
-  \pgfmathfloattofixed{\pgfmathresult}%
-  \edef\harg{\pgfmathresult}%
-  \pgfmathparse{%
-    \directlua{
-      local x = tonumber("\xarg")
-      local y = tonumber("\yarg")
-      local z = tonumber("\zarg")
-      local h = tonumber("\harg")
-      local fmt = string.char(37)..".16g"
-      tex.sprint(string.format(fmt, Ell.Bz(x,y,z,h)))
-    }%
-  }%
-  \pgfmath@smuggleone\pgfmathresult
-  \endgroup
-}
-\makeatother
+-- boundaries
+xmin,xmax,ymin,ymax = -3,3,-5,5
+
+-- Runge-Kutta integration
+local function rk4_step(x,y,h,d)
+  local function Fn(x,y)
+    local ux,uy = Ell.Bx(x,0,y,h),Ell.Bz(x,0,y,h)
+    local m = math.sqrt(ux^2 + uy^2)
+    if m==0 or m~=m then return 0,0 end
+    return ux/m, uy/m
+  end
+  local k1x,k1y = Fn(x,y)
+  local k2x,k2y = Fn(x+0.5*d*k1x, y+0.5*d*k1y)
+  local k3x,k3y = Fn(x+0.5*d*k2x, y+0.5*d*k2y)
+  local k4x,k4y = Fn(x+d*k3x, y+d*k3y)
+  return x + d/6*(k1x+2*k2x+2*k3x+k4x),
+         y + d/6*(k1y+2*k2y+2*k3y+k4y)
+end
+
+-- create fieldline
+function streamline(x0,y0,h,d,n)
+  local step = math.abs(d)
+  local eps  = step/2
+  local eps2 = eps*eps
+  local minsteps = 100
+
+  local function integrate(h,dd)
+    local pts = {}
+    local x,y = x0,y0
+    local d2  = 0.0
+    local closed = false
+
+    for i=1,n do
+      pts[#pts+1] = {x,y}
+
+      local xn,yn = rk4_step(x,y,h,dd)
+
+      local dx,dy   = x  - x0, y  - y0
+      local dxn,dyn = xn - x0, yn - y0
+      local d2n = dxn*dxn + dyn*dyn
+      d2 = dx*dx + dy*dy
+
+      if i > minsteps then
+        if (d2 > eps2) and (d2n <= eps2) then
+          -- interpolate intersection
+          local d  = math.sqrt(d2)
+          local dn = math.sqrt(d2n)
+          local t = (d - eps) / (d - dn)
+          local xc = x + t*(xn - x)
+          local yc = y + t*(yn - y)
+          pts[#pts+1] = {xc,yc}
+          closed = true
+          break
+        end
+        if d2n <= eps2 then
+          closed = true
+          break
+        end
+      end
+
+      x,y = xn,yn
+      if x<xmin or x>xmax or y<ymin or y>ymax then break end
+    end
+    return pts, closed
+  end
+
+  -- 1) forward integration
+  local fwd, closed = integrate(h,step)
+
+  if closed then
+    -- closed field line; print only once
+    for i=1,#fwd do
+      tex.sprint(string.format("(%.12g,%.12g)", fwd[i][1], fwd[i][2]))
+    end
+    return
+  end
+
+  -- 2) open field line: integrate backwards and forwards and connect them
+  local bwd, _ = integrate(h,-step)
+
+  -- integrate backwards in opposite direction (don't starting point twice)
+  for i=#bwd,2,-1 do
+    tex.sprint(string.format("(%.12g,%.12g)", bwd[i][1], bwd[i][2]))
+  end
+  for i=1,#fwd do
+    tex.sprint(string.format("(%.12g,%.12g)", fwd[i][1], fwd[i][2]))
+  end
+end
+\end{luacode*}
 
 \begin{document}
 \begin{tikzpicture}[inverted,inverted]
   \pgfmathsetmacro{\height}{4}; % ratio h/r_0
+  \pgfmathsetmacro{\numberoffieldlines}{20};
   \begin{axis}[inverted,
     xmin = {-3}, xmax = {3},
     ymin = {-5}, ymax = {5},
@@ -292,16 +325,10 @@ end
     declare function={
     },
     ]
-    % magnetic vector field
-    \addplot3[
-      samples = 51,
-      samples y = 51,
-      quiver = {
-        scale arrows = 0.04,
-        u = {Bx(x,0,y,\height)},
-        v = {Bz(x,0,y,\height)},
-      },
-    ] {0};
+    \pgfplotsinvokeforeach{1,...,\numberoffieldlines}{%
+      \addplot[very thin] coordinates { \directlua{streamline(-1 + 2*#1/(\numberoffieldlines+1),0,\height,0.02,500)} };
+      \addplot[very thin] coordinates { \directlua{streamline(1 - 2*#1/(\numberoffieldlines+1),0,\height,0.02,500)} };
+    }
     % bar magnet
     \draw[fill,green] (-1,{-\height/2}) rectangle (1,0);
     \draw[fill,red] (-1,0) rectangle (1,{\height/2});
