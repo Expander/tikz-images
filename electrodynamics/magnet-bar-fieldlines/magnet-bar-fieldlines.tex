@@ -101,53 +101,88 @@ function Ell.Pi(n,k)
   end
   return Ell.half*sum
 end
+
+Ell.height = 4
+
+-- k_pm
+function Ell.k(r,z,s)
+  return math.sqrt(4*r/((1 + r)^2 + (z + 0.5*s*Ell.height)^2))
+end
+
+-- k_+
+function Ell.kp(r,z)
+  return Ell.k(r,z,1)
+end
+
+-- k_-
+function Ell.km(r,z)
+  return Ell.k(r,z,-1)
+end
+
+function sigma(r)
+  return 4*r/(1 + r)^2
+end
+
+Ell.BO = 4*math.pi
+
+function Ell.Ipm(r,z,k) return -4/math.sqrt(r)*(Ell.E(k)/k - (1 - 0.5*k^2)*Ell.K(k)/k) end -- I_pm
+function Ell.Jpm(r,z,k,s) return k/math.sqrt(r)*(z + 0.5*s*Ell.height)*((1 - r)/(1 + r)*Ell.Pi(sigma(r),k) + Ell.K(k)) end -- I'_pm
+function Ell.Ip(r,z) return Ell.Ipm(r,z,Ell.kp(r,z)) end -- I_+
+function Ell.Im(r,z) return Ell.Ipm(r,z,Ell.km(r,z)) end -- I_-
+function Ell.Jp(r,z) return Ell.Jpm(r,z,Ell.kp(r,z),1) end -- I'_+
+function Ell.Jm(r,z) return Ell.Jpm(r,z,Ell.km(r,z),-1) end -- I'_-
+function Ell.Bz0(r,z) return 0.5*Ell.BO*((z + 0.5*Ell.height)/math.sqrt(1 + (z + 0.5*Ell.height)^2) - (z - 0.5*Ell.height)/math.sqrt(1 + (z - 0.5*Ell.height)^2)) end -- B_z(0,z)
+function Ell.Br(r,z) if r == 0 then return 0 else return Ell.BO/(4*math.pi)*(Ell.Im(r,z) - Ell.Ip(r,z)) end end -- B_r(r,z)
+function Ell.Brz(r,z) if r == 0 then return Ell.Bz0(r,z) else return Ell.BO/(4*math.pi)*(Ell.Jp(r,z) - Ell.Jm(r,z)) end end -- B_z(r,z)
+function Ell.r(x,y,z) return math.sqrt(x^2 + y^2) end -- r(x,y,z)
+function Ell.Bx(x,y,z) if Ell.r(x,y,z) == 0 then return 0 else return Ell.Br(Ell.r(x,y,z),z)*math.cos(math.atan2(y,x)) end end -- B_x(x,y,z)
+function Ell.By(x,y,z) if Ell.r(x,y,z) == 0 then return 0 else return Ell.Br(Ell.r(x,y,z),z)*math.sin(math.atan2(y,x)) end end -- B_y(x,y,z)
+function Ell.Bz(x,y,z) return Ell.Brz(Ell.r(x,y,z),z) end -- B_z(x,y,z)
+function Ell.Ba(x,y,z) return math.sqrt(Ell.Br(r(x,y,z),z)^2 + Ell.Bz(x,y,z)^2) end -- |vec{B}(x,y,z)|
 \end{luacode*}
 
 \makeatletter
-\pgfmathdeclarefunction{luaK}{1}{%
+\pgfmathdeclarefunction{Bx}{3}{%
   \begingroup
   \pgfmathfloatparsenumber{#1}%
   \pgfmathfloattofixed{\pgfmathresult}%
-  \edef\Karg{\pgfmathresult}%
-  \pgfmathparse{%
-    \directlua{
-      local k = tonumber("\Karg")
-      local fmt = string.char(37)..".16g"
-      tex.sprint(string.format(fmt, Ell.K(k)))
-    }%
-  }%
-  \pgfmath@smuggleone\pgfmathresult
-  \endgroup
-}
-\pgfmathdeclarefunction{luaE}{1}{%
-  \begingroup
-  \pgfmathfloatparsenumber{#1}%
-  \pgfmathfloattofixed{\pgfmathresult}%
-  \edef\Earg{\pgfmathresult}%
-  \pgfmathparse{%
-    \directlua{
-      local k = tonumber("\Earg")
-      local fmt = string.char(37)..".16g"
-      tex.sprint(string.format(fmt, Ell.E(k)))
-    }%
-  }%
-  \pgfmath@smuggleone\pgfmathresult
-  \endgroup
-}
-\pgfmathdeclarefunction{luaPi}{2}{%
-  \begingroup
-  \pgfmathfloatparsenumber{#1}%
-  \pgfmathfloattofixed{\pgfmathresult}%
-  \edef\Narg{\pgfmathresult}%
+  \edef\xarg{\pgfmathresult}%
   \pgfmathfloatparsenumber{#2}%
   \pgfmathfloattofixed{\pgfmathresult}%
-  \edef\Karg{\pgfmathresult}%
+  \edef\yarg{\pgfmathresult}%
+  \pgfmathfloatparsenumber{#3}%
+  \pgfmathfloattofixed{\pgfmathresult}%
+  \edef\zarg{\pgfmathresult}%
   \pgfmathparse{%
     \directlua{
-      local n = tonumber("\Narg")
-      local k = tonumber("\Karg")
+      local x = tonumber("\xarg")
+      local y = tonumber("\yarg")
+      local z = tonumber("\zarg")
       local fmt = string.char(37)..".16g"
-      tex.sprint(string.format(fmt, Ell.Pi(n,k)))
+      tex.sprint(string.format(fmt, Ell.Bx(x,y,z)))
+    }%
+  }%
+  \pgfmath@smuggleone\pgfmathresult
+  \endgroup
+}
+\pgfmathdeclarefunction{Bz}{3}{%
+  \begingroup
+  \pgfmathfloatparsenumber{#1}%
+  \pgfmathfloattofixed{\pgfmathresult}%
+  \edef\xarg{\pgfmathresult}%
+  \pgfmathfloatparsenumber{#2}%
+  \pgfmathfloattofixed{\pgfmathresult}%
+  \edef\yarg{\pgfmathresult}%
+  \pgfmathfloatparsenumber{#3}%
+  \pgfmathfloattofixed{\pgfmathresult}%
+  \edef\zarg{\pgfmathresult}%
+  \pgfmathparse{%
+    \directlua{
+      local x = tonumber("\xarg")
+      local y = tonumber("\yarg")
+      local z = tonumber("\zarg")
+      local fmt = string.char(37)..".16g"
+      tex.sprint(string.format(fmt, Ell.Bz(x,y,z)))
     }%
   }%
   \pgfmath@smuggleone\pgfmathresult
@@ -158,7 +193,6 @@ end
 \begin{document}
 \begin{tikzpicture}
   \pgfmathsetmacro{\height}{4}; % ratio h/r_0
-  \pgfmathsetmacro{\BO}{4*pi};
   \begin{axis}[
     xmin = {-3}, xmax = {3},
     ymin = {-5}, ymax = {5},
@@ -166,26 +200,6 @@ end
     view = {0}{90},
     hide axis,
     declare function={
-      kk(\r,\z,\s) = sqrt(4*\r/((1 + \r)^2 + (\z + 0.5*\s*\height)^2)); % k_\pm
-      kp(\r,\z) = kk(\r,\z,1); % k_+
-      km(\r,\z) = kk(\r,\z,-1); % k_-
-      sigma(\r) = 4*\r/(1 + \r)^2;
-      %
-      Ipm(\r,\z,\k) = -4/sqrt(\r)*(luaE(\k)/\k - (1 - 0.5*\k^2)*luaK(\k)/\k); % I_\pm
-      Jpm(\r,\z,\k,\s) = \k/sqrt(\r)*(\z + 0.5*\s*\height)*((1 - \r)/(1 + \r)*luaPi(sigma(\r),\k) + luaK(\k)); % I'_\pm
-      Ip(\r,\z) = Ipm(\r,\z,kp(\r,\z)); % I_+
-      Im(\r,\z) = Ipm(\r,\z,km(\r,\z)); % I_-
-      Jp(\r,\z) = Jpm(\r,\z,kp(\r,\z),1); % I'_+
-      Jm(\r,\z) = Jpm(\r,\z,km(\r,\z),-1); % I'_-
-      %
-      Bz0(\r,\z) = 0.5*\BO*((\z + 0.5*\height)/sqrt(1 + (\z + 0.5*\height)^2) - (\z - 0.5*\height)/sqrt(1 + (\z - 0.5*\height)^2)); % B_z(0,z)
-      Br(\r,\z) = \r == 0 ? 0 : \BO/(4*pi)*(Im(\r,\z) - Ip(\r,\z)); % B_r(r,z)
-      Brz(\r,\z) = \r == 0 ? Bz0(\r,\z) : \BO/(4*pi)*(Jp(\r,\z) - Jm(\r,\z)); % B_z(r,z)
-      rr(\x,\y,\z) = sqrt(\x^2 + \y^2); % r(x,y,z)
-      Bx(\x,\y,\z) = rr(\x,\y,\z) == 0 ? 0 : Br(rr(\x,\y,\z),\z)*cos(atan2(\y,\x)); % B_x(x,y,z)
-      By(\x,\y,\z) = rr(\x,\y,\z) == 0 ? 0 : Br(rr(\x,\y,\z),\z)*sin(atan2(\y,\x)); % B_y(x,y,z)
-      Bz(\x,\y,\z) = Brz(rr(\x,\y,\z),\z); % B_z(x,y,z)
-      Ba(\x,\y,\z) = sqrt(Br(rr(\x,\y,\z),\z)^2 + Bz(\x,\y,\z)^2); % |\vec{B}(x,y,z)|
     },
     ]
     % magnetic vector field
@@ -193,6 +207,7 @@ end
       samples = 51,
       samples y = 51,
       quiver = {
+        scale arrows = 0.04,
         u = {Bx(x,0,y)},
         v = {Bz(x,0,y)},
       },
