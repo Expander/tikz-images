@@ -51,48 +51,51 @@ Ell.wi = {
   0.18945061045506850
 }
 
-Ell.mid  = math.pi/4   -- midpoint of [0,pi/2]
-Ell.half = math.pi/4   -- half-length of [0,pi/2]
-Ell.eps  = 1e-15
-
-function Ell.clamp(x) if x < Ell.eps then return Ell.eps else return x end end
+function Ell.clamp(x)
+  local eps = 1e-15
+  if x < eps then
+    return eps
+  else
+    return x
+  end
+end
 
 function Ell.K(k)
   local kk = k*k
   local sum = 0.0
   for i=1,#Ell.xi do
-    local th1 = Ell.mid + Ell.half*Ell.xi[i]
-    local th2 = Ell.mid - Ell.half*Ell.xi[i]
+    local th1 = math.pi/4*(1 + Ell.xi[i])
+    local th2 = math.pi/4*(1 - Ell.xi[i])
     local s1  = math.sin(th1); s1 = s1*s1
     local s2  = math.sin(th2); s2 = s2*s2
     local r1  = Ell.clamp(1.0 - kk*s1)
     local r2  = Ell.clamp(1.0 - kk*s2)
     sum = sum + Ell.wi[i]*(1.0/math.sqrt(r1) + 1.0/math.sqrt(r2))
   end
-  return Ell.half*sum
+  return math.pi/4*sum
 end
 
 function Ell.E(k)
   local kk = k*k
   local sum = 0.0
   for i=1,#Ell.xi do
-    local th1 = Ell.mid + Ell.half*Ell.xi[i]
-    local th2 = Ell.mid - Ell.half*Ell.xi[i]
+    local th1 = math.pi/4*(1 + Ell.xi[i])
+    local th2 = math.pi/4*(1 - Ell.xi[i])
     local s1  = math.sin(th1); s1 = s1*s1
     local s2  = math.sin(th2); s2 = s2*s2
     local r1  = Ell.clamp(1.0 - kk*s1)
     local r2  = Ell.clamp(1.0 - kk*s2)
     sum = sum + Ell.wi[i]*(math.sqrt(r1) + math.sqrt(r2))
   end
-  return Ell.half*sum
+  return math.pi/4*sum
 end
 
 function Ell.Pi(n,k)
   local kk = k*k
   local sum = 0.0
   for i=1,#Ell.xi do
-    local th1 = Ell.mid + Ell.half*Ell.xi[i]
-    local th2 = Ell.mid - Ell.half*Ell.xi[i]
+    local th1 = math.pi/4*(1 + Ell.xi[i])
+    local th2 = math.pi/4*(1 - Ell.xi[i])
     local s1  = math.sin(th1); s1 = s1*s1
     local s2  = math.sin(th2); s2 = s2*s2
     local r1  = Ell.clamp(1.0 - kk*s1)
@@ -101,56 +104,195 @@ function Ell.Pi(n,k)
     local d2  = Ell.clamp(1.0 - n*s2)
     sum = sum + Ell.wi[i]*(1.0/(d1*math.sqrt(r1)) + 1.0/(d2*math.sqrt(r2)))
   end
-  return Ell.half*sum
+  return math.pi/4*sum
+end
+
+-- k_pm
+function Ell.k(r,z,h,s)
+  return math.sqrt(4*r/((1 + r)^2 + (z + 0.5*s*h)^2))
+end
+
+-- k_+
+function Ell.kp(r,z,h)
+  return Ell.k(r,z,h,1)
+end
+
+-- k_-
+function Ell.km(r,z,h)
+  return Ell.k(r,z,h,-1)
+end
+
+function sigma(r)
+  return 4*r/(1 + r)^2
+end
+
+-- normalization
+Ell.BO = 4*math.pi
+
+-- I_pm
+function Ell.Ipm(r,z,k)
+  return -4/math.sqrt(r)*(Ell.E(k)/k - (1 - 0.5*k^2)*Ell.K(k)/k)
+end
+
+-- I'_pm
+function Ell.Jpm(r,z,k,h,s)
+  return k/math.sqrt(r)*(z + 0.5*s*h)*((1 - r)/(1 + r)*Ell.Pi(sigma(r),k) + Ell.K(k))
+end
+
+-- I_+
+function Ell.Ip(r,z,h)
+  return Ell.Ipm(r,z,Ell.kp(r,z,h),h)
+end
+
+-- I_-
+function Ell.Im(r,z,h)
+  return Ell.Ipm(r,z,Ell.km(r,z,h),h)
+end
+
+-- I'_+
+function Ell.Jp(r,z,h)
+  return Ell.Jpm(r,z,Ell.kp(r,z,h),h,1)
+end
+
+-- I'_-
+function Ell.Jm(r,z,h)
+  return Ell.Jpm(r,z,Ell.km(r,z,h),h,-1)
+end
+
+-- B_z(0,z)
+function Ell.Bz0(r,z,h)
+  return 0.5*Ell.BO*((z + 0.5*h)/math.sqrt(1 + (z + 0.5*h)^2) - (z - 0.5*h)/math.sqrt(1 + (z - 0.5*h)^2))
+end
+
+-- B_r(r,z)
+function Ell.Br(r,z,h)
+  if r == 0 then
+    return 0
+  else
+    return Ell.BO/(4*math.pi)*(Ell.Im(r,z,h) - Ell.Ip(r,z,h))
+  end
+end
+
+-- B_z(r,z)
+function Ell.Brz(r,z,h)
+  if r == 0 then
+    return Ell.Bz0(r,z,h)
+  else
+    return Ell.BO/(4*math.pi)*(Ell.Jp(r,z,h) - Ell.Jm(r,z,h))
+  end
+end
+
+-- r(x,y)
+function Ell.r(x,y)
+  return math.sqrt(x^2 + y^2)
+end
+
+-- B_x(x,y,z)
+function Ell.Bx(x,y,z,h)
+  if Ell.r(x,y) == 0 then
+    return 0
+  else
+    return Ell.Br(Ell.r(x,y),z,h)*math.cos(math.atan2(y,x))
+  end
+end
+
+-- B_y(x,y,z)
+function Ell.By(x,y,z,h)
+  if Ell.r(x,y) == 0 then
+    return 0
+  else
+    return Ell.Br(Ell.r(x,y),z,h)*math.sin(math.atan2(y,x))
+  end
+end
+
+-- B_z(x,y,z)
+function Ell.Bz(x,y,z,h)
+  return Ell.Brz(Ell.r(x,y),z,h)
+end
+
+-- |vec{B}(x,y,z)|
+function Ell.Ba(x,y,z,h)
+  return math.sqrt(Ell.Br(Ell.r(x,y),z,h)^2 + Ell.Bz(x,y,z,h)^2)
 end
 \end{luacode*}
 
 \makeatletter
-% Define elliptic integrals as pgf functions
-\pgfmathdeclarefunction{luaK}{1}{%
+\pgfmathdeclarefunction{Bx}{4}{%
   \begingroup
   \pgfmathfloatparsenumber{#1}%
   \pgfmathfloattofixed{\pgfmathresult}%
-  \edef\Karg{\pgfmathresult}%
-  \pgfmathparse{%
-    \directlua{
-      local k = tonumber("\Karg")
-      local fmt = string.char(37)..".16g"
-      tex.sprint(string.format(fmt, Ell.K(k)))
-    }%
-  }%
-  \pgfmath@smuggleone\pgfmathresult
-  \endgroup
-}
-\pgfmathdeclarefunction{luaE}{1}{%
-  \begingroup
-  \pgfmathfloatparsenumber{#1}%
-  \pgfmathfloattofixed{\pgfmathresult}%
-  \edef\Earg{\pgfmathresult}%
-  \pgfmathparse{%
-    \directlua{
-      local k = tonumber("\Earg")
-      local fmt = string.char(37)..".16g"
-      tex.sprint(string.format(fmt, Ell.E(k)))
-    }%
-  }%
-  \pgfmath@smuggleone\pgfmathresult
-  \endgroup
-}
-\pgfmathdeclarefunction{luaPi}{2}{%
-  \begingroup
-  \pgfmathfloatparsenumber{#1}%
-  \pgfmathfloattofixed{\pgfmathresult}%
-  \edef\Narg{\pgfmathresult}%
+  \edef\xarg{\pgfmathresult}%
   \pgfmathfloatparsenumber{#2}%
   \pgfmathfloattofixed{\pgfmathresult}%
-  \edef\Karg{\pgfmathresult}%
+  \edef\yarg{\pgfmathresult}%
+  \pgfmathfloatparsenumber{#3}%
+  \pgfmathfloattofixed{\pgfmathresult}%
+  \edef\zarg{\pgfmathresult}%
+  \pgfmathfloatparsenumber{#4}%
+  \pgfmathfloattofixed{\pgfmathresult}%
+  \edef\harg{\pgfmathresult}%
   \pgfmathparse{%
     \directlua{
-      local n = tonumber("\Narg")
-      local k = tonumber("\Karg")
+      local x = tonumber("\xarg")
+      local y = tonumber("\yarg")
+      local z = tonumber("\zarg")
+      local h = tonumber("\harg")
       local fmt = string.char(37)..".16g"
-      tex.sprint(string.format(fmt, Ell.Pi(n,k)))
+      tex.sprint(string.format(fmt, Ell.Bx(x,y,z,h)))
+    }%
+  }%
+  \pgfmath@smuggleone\pgfmathresult
+  \endgroup
+}
+\pgfmathdeclarefunction{Bz}{4}{%
+  \begingroup
+  \pgfmathfloatparsenumber{#1}%
+  \pgfmathfloattofixed{\pgfmathresult}%
+  \edef\xarg{\pgfmathresult}%
+  \pgfmathfloatparsenumber{#2}%
+  \pgfmathfloattofixed{\pgfmathresult}%
+  \edef\yarg{\pgfmathresult}%
+  \pgfmathfloatparsenumber{#3}%
+  \pgfmathfloattofixed{\pgfmathresult}%
+  \edef\zarg{\pgfmathresult}%
+  \pgfmathfloatparsenumber{#4}%
+  \pgfmathfloattofixed{\pgfmathresult}%
+  \edef\harg{\pgfmathresult}%
+  \pgfmathparse{%
+    \directlua{
+      local x = tonumber("\xarg")
+      local y = tonumber("\yarg")
+      local z = tonumber("\zarg")
+      local h = tonumber("\harg")
+      local fmt = string.char(37)..".16g"
+      tex.sprint(string.format(fmt, Ell.Bz(x,y,z,h)))
+    }%
+  }%
+  \pgfmath@smuggleone\pgfmathresult
+  \endgroup
+}
+\pgfmathdeclarefunction{Ba}{4}{%
+  \begingroup
+  \pgfmathfloatparsenumber{#1}%
+  \pgfmathfloattofixed{\pgfmathresult}%
+  \edef\xarg{\pgfmathresult}%
+  \pgfmathfloatparsenumber{#2}%
+  \pgfmathfloattofixed{\pgfmathresult}%
+  \edef\yarg{\pgfmathresult}%
+  \pgfmathfloatparsenumber{#3}%
+  \pgfmathfloattofixed{\pgfmathresult}%
+  \edef\zarg{\pgfmathresult}%
+  \pgfmathfloatparsenumber{#4}%
+  \pgfmathfloattofixed{\pgfmathresult}%
+  \edef\harg{\pgfmathresult}%
+  \pgfmathparse{%
+    \directlua{
+      local x = tonumber("\xarg")
+      local y = tonumber("\yarg")
+      local z = tonumber("\zarg")
+      local h = tonumber("\harg")
+      local fmt = string.char(37)..".16g"
+      tex.sprint(string.format(fmt, Ell.Ba(x,y,z,h)))
     }%
   }%
   \pgfmath@smuggleone\pgfmathresult
@@ -161,7 +303,6 @@ end
 \begin{document}
 \begin{tikzpicture}
   \pgfmathsetmacro{\height}{4}; % ratio h/r_0
-  \pgfmathsetmacro{\BO}{4*pi};
   \begin{axis}[
     xmin = {-3}, xmax = {3},
     ymin = {-5}, ymax = {5},
@@ -169,26 +310,6 @@ end
     view = {0}{90},
     hide axis,
     declare function={
-      kk(\r,\z,\s) = sqrt(4*\r/((1 + \r)^2 + (\z + 0.5*\s*\height)^2)); % k_\pm
-      kp(\r,\z) = kk(\r,\z,1); % k_+
-      km(\r,\z) = kk(\r,\z,-1); % k_-
-      sigma(\r) = 4*\r/(1 + \r)^2;
-      %
-      Ipm(\r,\z,\k) = -4/sqrt(\r)*(luaE(\k)/\k - (1 - 0.5*\k^2)*luaK(\k)/\k); % I_\pm
-      Jpm(\r,\z,\k,\s) = \k/sqrt(\r)*(\z + 0.5*\s*\height)*((1 - \r)/(1 + \r)*luaPi(sigma(\r),\k) + luaK(\k)); % I'_\pm
-      Ip(\r,\z) = Ipm(\r,\z,kp(\r,\z)); % I_+
-      Im(\r,\z) = Ipm(\r,\z,km(\r,\z)); % I_-
-      Jp(\r,\z) = Jpm(\r,\z,kp(\r,\z),1); % I'_+
-      Jm(\r,\z) = Jpm(\r,\z,km(\r,\z),-1); % I'_-
-      %
-      Bz0(\r,\z) = 0.5*\BO*((\z + 0.5*\height)/sqrt(1 + (\z + 0.5*\height)^2) - (\z - 0.5*\height)/sqrt(1 + (\z - 0.5*\height)^2)); % B_z(0,z)
-      Br(\r,\z) = \r == 0 ? 0 : \BO/(4*pi)*(Im(\r,\z) - Ip(\r,\z)); % B_r(r,z)
-      Brz(\r,\z) = \r == 0 ? Bz0(\r,\z) : \BO/(4*pi)*(Jp(\r,\z) - Jm(\r,\z)); % B_z(r,z)
-      rr(\x,\y,\z) = sqrt(\x^2 + \y^2); % r(x,y,z)
-      Bx(\x,\y,\z) = rr(\x,\y,\z) == 0 ? 0 : Br(rr(\x,\y,\z),\z)*cos(atan2(\y,\x)); % B_x(x,y,z)
-      By(\x,\y,\z) = rr(\x,\y,\z) == 0 ? 0 : Br(rr(\x,\y,\z),\z)*sin(atan2(\y,\x)); % B_y(x,y,z)
-      Bz(\x,\y,\z) = Brz(rr(\x,\y,\z),\z); % B_z(x,y,z)
-      Ba(\x,\y,\z) = sqrt(Br(rr(\x,\y,\z),\z)^2 + Bz(\x,\y,\z)^2); % |\vec{B}(x,y,z)|
     },
     ]
     % magnetic vector field
@@ -199,10 +320,10 @@ end
         % exclude vectors inside bar magnet
         (x >= -1 && x <= 1 && y >= -\height/2 && y <= \height/2) ? nan : x
       },
-      point meta = {Ba(x,0,y)},
+      point meta = {Ba(x,0,y,\height)},
       quiver = {
-        u = {Bx(x,0,y)},
-        v = {Bz(x,0,y)},
+        u = {Bx(x,0,y,\height)},
+        v = {Bz(x,0,y,\height)},
         scale arrows = 0.05,
         every arrow/.append style = {%
           line width={.1+0.75*\pgfplotspointmetatransformed/1000},

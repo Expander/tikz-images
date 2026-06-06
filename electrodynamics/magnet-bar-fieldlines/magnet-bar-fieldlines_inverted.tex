@@ -219,7 +219,7 @@ end
 
 -- |vec{B}(x,y,z)|
 function Ell.Ba(x,y,z,h)
-  return math.sqrt(Ell.Br(r(x,y),z,h)^2 + Ell.Bz(x,y,z,h)^2)
+  return math.sqrt(Ell.Br(Ell.r(x,y),z,h)^2 + Ell.Bz(x,y,z,h)^2)
 end
 \end{luacode*}
 
