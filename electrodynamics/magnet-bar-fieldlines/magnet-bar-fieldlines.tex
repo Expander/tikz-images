@@ -53,7 +53,13 @@ Ell.mid  = math.pi/4   -- midpoint of [0,pi/2]
 Ell.half = math.pi/4   -- half-length of [0,pi/2]
 Ell.eps  = 1e-15
 
-function Ell.clamp(x) if x < Ell.eps then return Ell.eps else return x end end
+function Ell.clamp(x)
+  if x < Ell.eps then
+    return Ell.eps
+  else
+    return x
+  end
+end
 
 function Ell.K(k)
   local kk = k*k
@@ -102,47 +108,117 @@ function Ell.Pi(n,k)
   return Ell.half*sum
 end
 
-Ell.height = 4
-
 -- k_pm
-function Ell.k(r,z,s)
-  return math.sqrt(4*r/((1 + r)^2 + (z + 0.5*s*Ell.height)^2))
+function Ell.k(r,z,h,s)
+  return math.sqrt(4*r/((1 + r)^2 + (z + 0.5*s*h)^2))
 end
 
 -- k_+
-function Ell.kp(r,z)
-  return Ell.k(r,z,1)
+function Ell.kp(r,z,h)
+  return Ell.k(r,z,h,1)
 end
 
 -- k_-
-function Ell.km(r,z)
-  return Ell.k(r,z,-1)
+function Ell.km(r,z,h)
+  return Ell.k(r,z,h,-1)
 end
 
 function sigma(r)
   return 4*r/(1 + r)^2
 end
 
+-- normalization
 Ell.BO = 4*math.pi
 
-function Ell.Ipm(r,z,k) return -4/math.sqrt(r)*(Ell.E(k)/k - (1 - 0.5*k^2)*Ell.K(k)/k) end -- I_pm
-function Ell.Jpm(r,z,k,s) return k/math.sqrt(r)*(z + 0.5*s*Ell.height)*((1 - r)/(1 + r)*Ell.Pi(sigma(r),k) + Ell.K(k)) end -- I'_pm
-function Ell.Ip(r,z) return Ell.Ipm(r,z,Ell.kp(r,z)) end -- I_+
-function Ell.Im(r,z) return Ell.Ipm(r,z,Ell.km(r,z)) end -- I_-
-function Ell.Jp(r,z) return Ell.Jpm(r,z,Ell.kp(r,z),1) end -- I'_+
-function Ell.Jm(r,z) return Ell.Jpm(r,z,Ell.km(r,z),-1) end -- I'_-
-function Ell.Bz0(r,z) return 0.5*Ell.BO*((z + 0.5*Ell.height)/math.sqrt(1 + (z + 0.5*Ell.height)^2) - (z - 0.5*Ell.height)/math.sqrt(1 + (z - 0.5*Ell.height)^2)) end -- B_z(0,z)
-function Ell.Br(r,z) if r == 0 then return 0 else return Ell.BO/(4*math.pi)*(Ell.Im(r,z) - Ell.Ip(r,z)) end end -- B_r(r,z)
-function Ell.Brz(r,z) if r == 0 then return Ell.Bz0(r,z) else return Ell.BO/(4*math.pi)*(Ell.Jp(r,z) - Ell.Jm(r,z)) end end -- B_z(r,z)
-function Ell.r(x,y,z) return math.sqrt(x^2 + y^2) end -- r(x,y,z)
-function Ell.Bx(x,y,z) if Ell.r(x,y,z) == 0 then return 0 else return Ell.Br(Ell.r(x,y,z),z)*math.cos(math.atan2(y,x)) end end -- B_x(x,y,z)
-function Ell.By(x,y,z) if Ell.r(x,y,z) == 0 then return 0 else return Ell.Br(Ell.r(x,y,z),z)*math.sin(math.atan2(y,x)) end end -- B_y(x,y,z)
-function Ell.Bz(x,y,z) return Ell.Brz(Ell.r(x,y,z),z) end -- B_z(x,y,z)
-function Ell.Ba(x,y,z) return math.sqrt(Ell.Br(r(x,y,z),z)^2 + Ell.Bz(x,y,z)^2) end -- |vec{B}(x,y,z)|
+-- I_pm
+function Ell.Ipm(r,z,k)
+  return -4/math.sqrt(r)*(Ell.E(k)/k - (1 - 0.5*k^2)*Ell.K(k)/k)
+end
+
+-- I'_pm
+function Ell.Jpm(r,z,k,h,s)
+  return k/math.sqrt(r)*(z + 0.5*s*h)*((1 - r)/(1 + r)*Ell.Pi(sigma(r),k) + Ell.K(k))
+end
+
+-- I_+
+function Ell.Ip(r,z,h)
+  return Ell.Ipm(r,z,Ell.kp(r,z,h),h)
+end
+
+-- I_-
+function Ell.Im(r,z,h)
+  return Ell.Ipm(r,z,Ell.km(r,z,h),h)
+end
+
+-- I'_+
+function Ell.Jp(r,z,h)
+  return Ell.Jpm(r,z,Ell.kp(r,z,h),h,1)
+end
+
+-- I'_-
+function Ell.Jm(r,z,h)
+  return Ell.Jpm(r,z,Ell.km(r,z,h),h,-1)
+end
+
+-- B_z(0,z)
+function Ell.Bz0(r,z,h)
+  return 0.5*Ell.BO*((z + 0.5*h)/math.sqrt(1 + (z + 0.5*h)^2) - (z - 0.5*h)/math.sqrt(1 + (z - 0.5*h)^2))
+end
+
+-- B_r(r,z)
+function Ell.Br(r,z,h)
+  if r == 0 then
+    return 0
+  else
+    return Ell.BO/(4*math.pi)*(Ell.Im(r,z,h) - Ell.Ip(r,z,h))
+  end
+end
+
+-- B_z(r,z)
+function Ell.Brz(r,z,h)
+  if r == 0 then
+    return Ell.Bz0(r,z,h)
+  else
+    return Ell.BO/(4*math.pi)*(Ell.Jp(r,z,h) - Ell.Jm(r,z,h))
+  end
+end
+
+-- r(x,y)
+function Ell.r(x,y)
+  return math.sqrt(x^2 + y^2)
+end
+
+-- B_x(x,y,z)
+function Ell.Bx(x,y,z,h)
+  if Ell.r(x,y) == 0 then
+    return 0
+  else
+    return Ell.Br(Ell.r(x,y),z,h)*math.cos(math.atan2(y,x))
+  end
+end
+
+-- B_y(x,y,z)
+function Ell.By(x,y,z,h)
+  if Ell.r(x,y) == 0 then
+    return 0
+  else
+    return Ell.Br(Ell.r(x,y),z,h)*math.sin(math.atan2(y,x))
+  end
+end
+
+-- B_z(x,y,z)
+function Ell.Bz(x,y,z,h)
+  return Ell.Brz(Ell.r(x,y),z,h)
+end
+
+-- |vec{B}(x,y,z)|
+function Ell.Ba(x,y,z,h)
+  return math.sqrt(Ell.Br(r(x,y),z,h)^2 + Ell.Bz(x,y,z,h)^2)
+end
 \end{luacode*}
 
 \makeatletter
-\pgfmathdeclarefunction{Bx}{3}{%
+\pgfmathdeclarefunction{Bx}{4}{%
   \begingroup
   \pgfmathfloatparsenumber{#1}%
   \pgfmathfloattofixed{\pgfmathresult}%
@@ -153,19 +229,23 @@ function Ell.Ba(x,y,z) return math.sqrt(Ell.Br(r(x,y,z),z)^2 + Ell.Bz(x,y,z)^2) 
   \pgfmathfloatparsenumber{#3}%
   \pgfmathfloattofixed{\pgfmathresult}%
   \edef\zarg{\pgfmathresult}%
+  \pgfmathfloatparsenumber{#4}%
+  \pgfmathfloattofixed{\pgfmathresult}%
+  \edef\harg{\pgfmathresult}%
   \pgfmathparse{%
     \directlua{
       local x = tonumber("\xarg")
       local y = tonumber("\yarg")
       local z = tonumber("\zarg")
+      local h = tonumber("\harg")
       local fmt = string.char(37)..".16g"
-      tex.sprint(string.format(fmt, Ell.Bx(x,y,z)))
+      tex.sprint(string.format(fmt, Ell.Bx(x,y,z,h)))
     }%
   }%
   \pgfmath@smuggleone\pgfmathresult
   \endgroup
 }
-\pgfmathdeclarefunction{Bz}{3}{%
+\pgfmathdeclarefunction{Bz}{4}{%
   \begingroup
   \pgfmathfloatparsenumber{#1}%
   \pgfmathfloattofixed{\pgfmathresult}%
@@ -176,13 +256,17 @@ function Ell.Ba(x,y,z) return math.sqrt(Ell.Br(r(x,y,z),z)^2 + Ell.Bz(x,y,z)^2) 
   \pgfmathfloatparsenumber{#3}%
   \pgfmathfloattofixed{\pgfmathresult}%
   \edef\zarg{\pgfmathresult}%
+  \pgfmathfloatparsenumber{#4}%
+  \pgfmathfloattofixed{\pgfmathresult}%
+  \edef\harg{\pgfmathresult}%
   \pgfmathparse{%
     \directlua{
       local x = tonumber("\xarg")
       local y = tonumber("\yarg")
       local z = tonumber("\zarg")
+      local h = tonumber("\harg")
       local fmt = string.char(37)..".16g"
-      tex.sprint(string.format(fmt, Ell.Bz(x,y,z)))
+      tex.sprint(string.format(fmt, Ell.Bz(x,y,z,h)))
     }%
   }%
   \pgfmath@smuggleone\pgfmathresult
@@ -208,8 +292,8 @@ function Ell.Ba(x,y,z) return math.sqrt(Ell.Br(r(x,y,z),z)^2 + Ell.Bz(x,y,z)^2) 
       samples y = 51,
       quiver = {
         scale arrows = 0.04,
-        u = {Bx(x,0,y)},
-        v = {Bz(x,0,y)},
+        u = {Bx(x,0,y,\height)},
+        v = {Bz(x,0,y,\height)},
       },
     ] {0};
     % bar magnet
