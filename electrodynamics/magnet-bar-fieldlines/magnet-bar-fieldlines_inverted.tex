@@ -58,13 +58,10 @@ Ell.wi = {
   0.18945061045506850
 }
 
-Ell.mid  = math.pi/4   -- midpoint of [0,pi/2]
-Ell.half = math.pi/4   -- half-length of [0,pi/2]
-Ell.eps  = 1e-15
-
 function Ell.clamp(x)
-  if x < Ell.eps then
-    return Ell.eps
+  local eps = 1e-15
+  if x < eps then
+    return eps
   else
     return x
   end
@@ -74,38 +71,38 @@ function Ell.K(k)
   local kk = k*k
   local sum = 0.0
   for i=1,#Ell.xi do
-    local th1 = Ell.mid + Ell.half*Ell.xi[i]
-    local th2 = Ell.mid - Ell.half*Ell.xi[i]
+    local th1 = math.pi/4*(1 + Ell.xi[i])
+    local th2 = math.pi/4*(1 - Ell.xi[i])
     local s1  = math.sin(th1); s1 = s1*s1
     local s2  = math.sin(th2); s2 = s2*s2
     local r1  = Ell.clamp(1.0 - kk*s1)
     local r2  = Ell.clamp(1.0 - kk*s2)
     sum = sum + Ell.wi[i]*(1.0/math.sqrt(r1) + 1.0/math.sqrt(r2))
   end
-  return Ell.half*sum
+  return math.pi/4*sum
 end
 
 function Ell.E(k)
   local kk = k*k
   local sum = 0.0
   for i=1,#Ell.xi do
-    local th1 = Ell.mid + Ell.half*Ell.xi[i]
-    local th2 = Ell.mid - Ell.half*Ell.xi[i]
+    local th1 = math.pi/4*(1 + Ell.xi[i])
+    local th2 = math.pi/4*(1 - Ell.xi[i])
     local s1  = math.sin(th1); s1 = s1*s1
     local s2  = math.sin(th2); s2 = s2*s2
     local r1  = Ell.clamp(1.0 - kk*s1)
     local r2  = Ell.clamp(1.0 - kk*s2)
     sum = sum + Ell.wi[i]*(math.sqrt(r1) + math.sqrt(r2))
   end
-  return Ell.half*sum
+  return math.pi/4*sum
 end
 
 function Ell.Pi(n,k)
   local kk = k*k
   local sum = 0.0
   for i=1,#Ell.xi do
-    local th1 = Ell.mid + Ell.half*Ell.xi[i]
-    local th2 = Ell.mid - Ell.half*Ell.xi[i]
+    local th1 = math.pi/4*(1 + Ell.xi[i])
+    local th2 = math.pi/4*(1 - Ell.xi[i])
     local s1  = math.sin(th1); s1 = s1*s1
     local s2  = math.sin(th2); s2 = s2*s2
     local r1  = Ell.clamp(1.0 - kk*s1)
@@ -114,7 +111,7 @@ function Ell.Pi(n,k)
     local d2  = Ell.clamp(1.0 - n*s2)
     sum = sum + Ell.wi[i]*(1.0/(d1*math.sqrt(r1)) + 1.0/(d2*math.sqrt(r2)))
   end
-  return Ell.half*sum
+  return math.pi/4*sum
 end
 
 -- k_pm
