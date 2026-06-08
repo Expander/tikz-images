@@ -23,7 +23,7 @@
   \draw[dashed] ({270-\Winkel}:{\Radius}) arc ({270-\Winkel}:{270+\Winkel}:{\Radius});
   % mass
   \draw[fill] (M) circle (0.05) node[right] {$m$};
-  \draw (O) -- node[above] {$\ell$} (M);
+  \draw (O) -- node[pos=0.4,above] {$\ell$} (M);
   \pic[draw,->,angle eccentricity=0.8,angle radius=1.5cm,pic text={$\varphi_{\max}$}] {angle = N--O--M};
   % gravity
   \draw[->,red,thick] (M) -- ++ (0,{-\mg}) node[below] {$\vec{F}_g$}; 
