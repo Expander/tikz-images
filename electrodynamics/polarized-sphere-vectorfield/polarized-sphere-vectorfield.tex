@@ -35,9 +35,9 @@
 \begin{document}
 \begin{tikzpicture}
   \pgfmathsetmacro{\xmax}{3} % size of plot
-  \pgfmathsetmacro{\R}{1.0} % radius of sphere
-  \pgfmathsetmacro{\epsr}{4.0} % dielectric constant
-  \pgfmathsetmacro{\Ei}{1.0} % field strength inside sphere
+  \pgfmathsetmacro{\R}{1} % radius of sphere
+  \pgfmathsetmacro{\epsr}{2} % dielectric constant
+  \pgfmathsetmacro{\Ei}{1} % field strength inside sphere
   \begin{axis}[
     view={0}{90},
     axis equal image,
@@ -48,6 +48,7 @@
     unbounded coords=discard,
     samples=15,
     samples y=15,
+    colormap={whiteblack}{rgb=(0.9,0.9,0.9) rgb=(1,0,0)},
     declare function={
       rr(\x,\y) = sqrt(\x*\x + \y*\y);
       theta(\x,\y) = atan2(\y,\x);
@@ -55,17 +56,19 @@
       Etheta(\x,\y) = -\Ei*sin(theta(\x,\y))*((\epsr+2)/3 - (\epsr-1)/3*\R^3/(rr(\x,\y)^3));
       Ez(\x,\y) = Er(\x,\y)*cos(theta(\x,\y)) - Etheta(\x,\y)*sin(theta(\x,\y));
       Ex(\x,\y) = Er(\x,\y)*sin(theta(\x,\y)) + Etheta(\x,\y)*cos(theta(\x,\y));
-      Ea(\x,\y) = sqrt(Ez(\x,\y)^2 + Ex(\x,\y)^2);
+      Ea(\x,\y) = sqrt(Ez(\x,\y)^2 + Ex(\x,\y)^2); % magnitude
     },
     ]
+    % vector field
     \addplot3[
-      red,
       -{Latex[scale=0.75]},
       quiver={
-        u={ifthenelse(rr(x,y)<\R, 0, Ex(x,y)/Ea(x,y))},
-        v={ifthenelse(rr(x,y)<\R, 1, Ez(x,y)/Ea(x,y))},
+        u={ifthenelse(rr(x,y)<\R, 0, Ex(x,y)/Ea(x,y))}, % normalized vectors
+        v={ifthenelse(rr(x,y)<\R, \Ei, Ez(x,y)/Ea(x,y))}, % normalized vectors
         scale arrows=0.3,
       },
+      quiver/colored,
+      point meta={ifthenelse(rr(x,y)<\R, \Ei, Ea(x,y))}, % coloring according to magnitude
       domain=-3:3,
       domain y=-3:{3-2/15-0.3},
     ] ({x},{y},0);
