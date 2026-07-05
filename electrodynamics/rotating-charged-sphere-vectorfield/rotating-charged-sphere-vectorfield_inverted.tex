@@ -1,0 +1,69 @@
+\documentclass[crop,tikz]{standalone}
+\usetikzlibrary{backgrounds}
+\colorlet{blue}{cyan}
+\tikzset{
+  inverted/.style = {
+    color=white,
+    background rectangle/.style={fill},
+    show background rectangle
+  }
+}
+\usepackage{pgfplots}
+
+\usetikzlibrary{arrows.meta}
+
+% Vector field of a homogeneously electrically charged and rotating
+% sphere.
+
+\pgfplotsset{
+  compat=1.18,
+  inverted/.style = {
+    every axis legend/.append style={
+      draw=white,
+      fill=black,
+      text=white
+    }
+  },
+}
+
+\begin{document}
+\begin{tikzpicture}[inverted,inverted]
+  \pgfmathsetmacro{\R}{1.0}; % radius of sphere
+  \pgfmathsetmacro{\eps}{1.0e-9};
+  \begin{axis}[inverted,
+    width={0.6\linewidth},
+    axis equal image,
+    axis lines=middle,
+    hide axis,
+    view={0}{90},
+    xmin=-3, xmax=3,
+    ymin=-3, ymax=3,
+    declare function = {
+      rsq(\x,\z) = \x*\x + \z*\z;
+      rabs(\x,\z) = sqrt(rsq(\x,\z));
+      % magnetic field (inside and outside the sphere)
+      Bxraw(\x,\z) = (rabs(\x,\z) < \R) ? 0 : (3*\x*\z/rabs(\x,\z)^5);
+      Bzraw(\x,\z) = (rabs(\x,\z) < \R) ? 1 : ((2*\z*\z - \x*\x)/rabs(\x,\z)^5);
+      Bnorm(\x,\z) = sqrt(Bxraw(\x,\z)^2 + Bzraw(\x,\z)^2);
+      % normalized magnetic field
+      Bx(\x,\z) = (Bnorm(\x,\z) < \eps) ? (0/0) : (Bxraw(\x,\z)/Bnorm(\x,\z));
+      Bz(\x,\z) = (Bnorm(\x,\z) < \eps) ? (0/0) : (Bzraw(\x,\z)/Bnorm(\x,\z));
+    },
+    clip=false,
+    ]
+    \addplot3[
+      quiver={
+        u={Bx(x,y)},
+        v={Bz(x,y)},
+        scale arrows=0.3,
+      },
+      -{Latex[length=1pt 4,width=1pt 2]},
+      red,
+      domain=-3:3, y domain=-3:3,
+      samples=19, samples y=19,
+    ] {0};
+    % sphere
+    \addplot[white, thick, domain=0:360, samples=240] ({\R*cos(x)},{\R*sin(x)});
+  \end{axis}
+\end{tikzpicture}
+\end{document}
