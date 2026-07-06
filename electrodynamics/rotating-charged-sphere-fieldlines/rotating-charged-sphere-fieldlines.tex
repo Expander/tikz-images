@@ -12,11 +12,7 @@
 %
 % where m = q\omega R^2/3 is the magnetic moment, q is the total
 % charge of the sphere, \omega is the angular frequency of the
-% rotation and \theta\in[0;\pi] and \varphi\in[0;2\pi). In cartesian
-% coordinates one has
-%
-% \vec{B}(x,y,z)
-%   = \mu_0 m/(4\pi r^5)[3xz\vec{e}_x + 3yz\vec{e}_y + (2z^2 - x^2 - y^2)\vec{e}_z].
+% rotation and \theta\in[0;\pi] and \varphi\in[0;2\pi).
 
 \pgfplotsset{
   compat=1.18,
@@ -53,61 +49,68 @@
     xmin=-5.2, xmax=5.2,
     ymin=-3.2, ymax=3.2,
     samples=150,
-    clip=false,
+    % clip=false,
     ]
     % radius of sphere
     \pgfmathsetmacro{\R}{1}
     % sphere
     \addplot[black, thick, domain=0:360] ({\R*cos(x)}, {\R*sin(x)});
-    % parameter
-    \pgfplotsinvokeforeach{1.2,1.5,2,2.8,4}{
-        % -------------------------
-        % outside sphere
-        % r = c sin^2(theta)
-        % -------------------------
-        \pgfmathsetmacro{\c}{#1}
-        \pgfmathsetmacro{\cmin}{asin(sqrt(\R/\c))}
-        \pgfmathsetmacro{\cmax}{180-\cmin}
-        % right fieldline
-        \addplot[
-          fieldline,
-          domain={\cmin}:{\cmax},
-        ] ({\c*sin(x)^3}, {\c*sin(x)^2*cos(x)});
-        % left fieldline
-        \addplot[
-          fieldline,
-          domain={\cmin}:{\cmax},
-        ] ({-\c*sin(x)^3}, {\c*sin(x)^2*cos(x)});
-        % -------------------------
-        % inside sphere
-        % u(5-3u) sin^2(theta) = K
-        % where u = r^2/R^2 and K = 2R/c
-        % -------------------------
-        \pgfmathsetmacro{\K}{2*\R/\c}
-        % radius at equator
-        % u_e is the smallest solution of u(5-3u)=K
-        \pgfmathsetmacro{\ue}{(5 - sqrt(25 - 12*\K))/6}
-        % upper right inner fieldline from equator to north
-        \addplot[
-          fieldline,
-          domain={\ue}:1,
-        ] ({\R*sqrt(\K/(5-3*x))}, {\R*sqrt(x)*sqrt(max(0,1-\K/(x*(5-3*x))))});
-        % lower right inner fieldline from south to equator
-        \addplot[
-          fieldline,
-          domain=1:{\ue},
-        ] ({\R*sqrt(\K/(5-3*x))}, {-\R*sqrt(x)*sqrt(max(0,1-\K/(x*(5-3*x))))});
-        % upper left inner fieldline
-        \addplot[
-          fieldline,
-          domain={\ue}:1,
-        ] ({-\R*sqrt(\K/(5-3*x))}, {\R*sqrt(x)*sqrt(max(0,1-\K/(x*(5-3*x))))});
-        % lower left inner fieldline
-        \addplot[
-          fieldline,
-          domain=1:{\ue},
-        ] ({-\R*sqrt(\K/(5-3*x))}, {-\R*sqrt(x)*sqrt(max(0,1-\K/(x*(5-3*x))))});
+    % maximum x value inside sphere
+    \pgfmathsetmacro{\xmaxPhys}{sqrt(2/3)*\R}
+    % number of field lines
+    \pgfmathsetmacro{\Nlines}{8}
+    % loop over number of field lines
+    \pgfplotsinvokeforeach{0,1,2,3,4,5,6,7}{
+      % equidistant x-coordinate on positive x-axis
+      \pgfmathsetmacro{\xzero}{(#1+0.5)*\xmaxPhys/\Nlines}
+      % u_0 = x_0^2/R^2
+      \pgfmathsetmacro{\uzero}{(\xzero/\R)^2}
+      % K = u_0(5 - 3u_0)
+      \pgfmathsetmacro{\K}{\uzero*(5-3*\uzero)}
+      % corresponding outer fieldline parameter c
+      % r = c sin^2(theta)
+      \pgfmathsetmacro{\cVal}{2*\R/\K}
+      % -------------------------
+      % outside sphere
+      % r = c sin^2(theta)
+      % -------------------------
+      \pgfmathsetmacro{\thetamin}{asin(sqrt(\R/\cVal))}
+      \pgfmathsetmacro{\thetamax}{180-\thetamin}
+      % right outer fieldline
+      \addplot[
+        fieldline,
+        domain={\thetamin}:{\thetamax},
+      ] ({\cVal*sin(x)^3}, {\cVal*sin(x)^2*cos(x)});
+      % left outer fieldline
+      \addplot[
+        fieldline,
+        domain={\thetamin}:{\thetamax},
+      ] ({-\cVal*sin(x)^3}, {\cVal*sin(x)^2*cos(x)});
+      % -------------------------
+      % inside sphere
+      % u(5-3u) sin^2(theta) = K
+      % -------------------------
+      % upper right inner fieldline
+      \addplot[
+        fieldline,
+        domain={\uzero}:1,
+      ] ({\R*sqrt(\K/(5-3*x))}, {\R*sqrt(x)*sqrt(max(0,1-\K/(x*(5-3*x))))});
+      % lower right inner fieldline
+      \addplot[
+        fieldline,
+        domain=1:{\uzero},
+      ] ({\R*sqrt(\K/(5-3*x))}, {-\R*sqrt(x)*sqrt(max(0,1-\K/(x*(5-3*x))))});
+      % upper left inner fieldline
+      \addplot[
+        fieldline,
+        domain={\uzero}:1,
+      ] ({-\R*sqrt(\K/(5-3*x))}, {\R*sqrt(x)*sqrt(max(0,1-\K/(x*(5-3*x))))});
+      % lower left inner fieldline
+      \addplot[
+        fieldline,
+        domain=1:{\uzero},
+      ] ({-\R*sqrt(\K/(5-3*x))}, {-\R*sqrt(x)*sqrt(max(0,1-\K/(x*(5-3*x))))});
     }
-\end{axis}
+  \end{axis}
 \end{tikzpicture}
 \end{document}
