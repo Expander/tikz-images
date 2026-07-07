@@ -44,17 +44,9 @@
     declare function = {
       rsq(\x,\z) = \x*\x + \z*\z;
       rabs(\x,\z) = sqrt(rsq(\x,\z));
-      rpowfive(\x,\z) = max(rabs(\x,\z),\eps)^5;
-      % outside magnetic field for mu_0 m/(4 pi) = 1
-      Bxout(\x,\z) = 3*\x*\z/rpowfive(\x,\z);
-      Bzout(\x,\z) = (2*\z*\z - \x*\x)/rpowfive(\x,\z);
-      % inside magnetic field of rotating uniformly charged solid sphere
-      Bxin(\x,\z) = 3*\x*\z/(\R^5);
-      Bzin(\x,\z) = (5*\R^2 - 6*\x*\x - 3*\z*\z)/(\R^5);
-      % combined magnetic field
-      Bxraw(\x,\z) = (rabs(\x,\z) < \R) ? Bxin(\x,\z) : Bxout(\x,\z);
-      Bzraw(\x,\z) = (rabs(\x,\z) < \R) ? Bzin(\x,\z) : Bzout(\x,\z);
-      % norm
+      % magnetic field (inside and outside the sphere) for y=0 and \mu_0 m/(4\pi) = 1
+      Bxraw(\x,\z) = (rabs(\x,\z) < \R) ? 0 : (3*\x*\z/rabs(\x,\z)^5);
+      Bzraw(\x,\z) = (rabs(\x,\z) < \R) ? 1 : ((2*\z*\z - \x*\x)/rabs(\x,\z)^5);
       Bnorm(\x,\z) = sqrt(Bxraw(\x,\z)^2 + Bzraw(\x,\z)^2);
       % normalized magnetic field
       Bx(\x,\z) = (Bnorm(\x,\z) < \eps) ? (0/0) : (Bxraw(\x,\z)/Bnorm(\x,\z));
@@ -70,10 +62,8 @@
       },
       -{Latex[length=1pt 4,width=1pt 2]},
       red,
-      domain=-3:3,
-      y domain=-3:3,
-      samples=19,
-      samples y=19,
+      domain=-3:3, y domain=-3:3,
+      samples=19, samples y=19,
     ] {0};
     % sphere
     \addplot[black, thick, domain=0:360, samples=240] ({\R*cos(x)},{\R*sin(x)});
