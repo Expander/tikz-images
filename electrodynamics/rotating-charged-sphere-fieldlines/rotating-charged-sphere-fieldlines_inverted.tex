@@ -38,7 +38,8 @@
 
 \usetikzlibrary{decorations.markings,arrows.meta}
 
-\tikzset{
+\begin{document}
+\begin{tikzpicture}[inverted,
   fieldline/.style={
     red,
     thin,
@@ -47,11 +48,8 @@
       markings,
       mark=at position 0.5 with {\arrow{Latex[length=1mm]}}
     }
-  },
-}
-
-\begin{document}
-\begin{tikzpicture}[inverted,inverted]
+  }
+  ]
   \begin{axis}[inverted,
     hide axis,
     axis equal image,

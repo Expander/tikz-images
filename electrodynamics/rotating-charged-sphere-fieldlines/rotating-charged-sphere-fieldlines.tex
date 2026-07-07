@@ -29,7 +29,8 @@
 
 \usetikzlibrary{decorations.markings,arrows.meta}
 
-\tikzset{
+\begin{document}
+\begin{tikzpicture}[
   fieldline/.style={
     red,
     thin,
@@ -38,11 +39,8 @@
       markings,
       mark=at position 0.5 with {\arrow{Latex[length=1mm]}}
     }
-  },
-}
-
-\begin{document}
-\begin{tikzpicture}
+  }
+  ]
   \begin{axis}[
     hide axis,
     axis equal image,
