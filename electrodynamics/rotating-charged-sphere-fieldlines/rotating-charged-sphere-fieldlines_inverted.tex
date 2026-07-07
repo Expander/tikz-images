@@ -13,7 +13,8 @@
 \usetikzlibrary{arrows.meta}
 
 % Vector field of a homogeneously electrically charged and rotating
-% sphere of Radius R. In spherical coordinates, the magnetic field is
+% sphere shell of Radius R. In spherical coordinates, the magnetic
+% field outside the sphere is
 %
 % \vec{B}(r,\theta,\varphi)
 %   = \mu_0 m/(4\pi r^3)[3\vec{e}_r(\vec{e}_z\cdot\vec{e}_r) - \vec{e}_z]
@@ -21,7 +22,8 @@
 %
 % where m = q\omega R^2/3 is the magnetic moment, q is the total
 % charge of the sphere, \omega is the angular frequency of the
-% rotation and \theta\in[0;\pi] and \varphi\in[0;2\pi).
+% rotation and \theta\in[0;\pi] and \varphi\in[0;2\pi). Inside
+% the sphere the field is homogeneous.
 
 \pgfplotsset{
   compat=1.18,
@@ -62,64 +64,43 @@
     ]
     % radius of sphere
     \pgfmathsetmacro{\R}{1}
-    % sphere
-    \addplot[white, thick, domain=0:360] ({\R*cos(x)}, {\R*sin(x)});
-    % maximum x value inside sphere
-    \pgfmathsetmacro{\xmaxPhys}{sqrt(2/3)*\R}
-    % number of field lines
+    % number of field lines per side
     \pgfmathsetmacro{\Nlines}{8}
     % loop over number of field lines
     \pgfplotsinvokeforeach{0,1,2,3,4,5,6,7}{
-      % equidistant x-coordinate on positive x-axis
-      \pgfmathsetmacro{\xzero}{(#1+0.5)*\xmaxPhys/\Nlines}
-      % u_0 = x_0^2/R^2
-      \pgfmathsetmacro{\uzero}{(\xzero/\R)^2}
-      % K = u_0(5 - 3u_0)
-      \pgfmathsetmacro{\K}{\uzero*(5-3*\uzero)}
+      % -------------------------
+      % inside sphere:
+      % homogeneous field, so x = const.
+      % Choose equidistant x-values in (0,R)
+      % -------------------------
+      \pgfmathsetmacro{\xzero}{(#1+0.5)*\R/\Nlines}
+      % endpoint of vertical fieldline at sphere surface
+      \pgfmathsetmacro{\zmax}{sqrt(\R^2 - \xzero^2)}
       % corresponding outer fieldline parameter c
       % r = c sin^2(theta)
-      \pgfmathsetmacro{\cVal}{2*\R/\K}
+      \pgfmathsetmacro{\cVal}{\R^3/(\xzero*\xzero)}
+      % theta range outside the sphere
+      \pgfmathsetmacro{\thetamin}{asin(\xzero/\R)}
+      \pgfmathsetmacro{\thetamax}{180-\thetamin}
       % -------------------------
       % outside sphere
       % r = c sin^2(theta)
       % -------------------------
-      \pgfmathsetmacro{\thetamin}{asin(sqrt(\R/\cVal))}
-      \pgfmathsetmacro{\thetamax}{180-\thetamin}
       % right outer fieldline
-      \addplot[
-        fieldline,
-        domain={\thetamin}:{\thetamax},
-      ] ({\cVal*sin(x)^3}, {\cVal*sin(x)^2*cos(x)});
+      \addplot[fieldline, domain={\thetamin}:{\thetamax}] ({\cVal*sin(x)^3}, {\cVal*sin(x)^2*cos(x)});
       % left outer fieldline
-      \addplot[
-        fieldline,
-        domain={\thetamin}:{\thetamax},
-      ] ({-\cVal*sin(x)^3}, {\cVal*sin(x)^2*cos(x)});
+      \addplot[fieldline, domain={\thetamin}:{\thetamax}] ({-\cVal*sin(x)^3}, {\cVal*sin(x)^2*cos(x)});
       % -------------------------
       % inside sphere
-      % u(5-3u) sin^2(theta) = K
+      % homogeneous field: vertical lines
       % -------------------------
-      % upper right inner fieldline
-      \addplot[
-        fieldline,
-        domain={\uzero}:1,
-      ] ({\R*sqrt(\K/(5-3*x))}, {\R*sqrt(x)*sqrt(max(0,1-\K/(x*(5-3*x))))});
-      % lower right inner fieldline
-      \addplot[
-        fieldline,
-        domain=1:{\uzero},
-      ] ({\R*sqrt(\K/(5-3*x))}, {-\R*sqrt(x)*sqrt(max(0,1-\K/(x*(5-3*x))))});
-      % upper left inner fieldline
-      \addplot[
-        fieldline,
-        domain={\uzero}:1,
-      ] ({-\R*sqrt(\K/(5-3*x))}, {\R*sqrt(x)*sqrt(max(0,1-\K/(x*(5-3*x))))});
-      % lower left inner fieldline
-      \addplot[
-        fieldline,
-        domain=1:{\uzero},
-      ] ({-\R*sqrt(\K/(5-3*x))}, {-\R*sqrt(x)*sqrt(max(0,1-\K/(x*(5-3*x))))});
+      % right inner fieldline
+      \addplot[fieldline, domain={-\zmax}:{\zmax}] ({\xzero}, x);
+      % left inner fieldline
+      \addplot[fieldline, domain={-\zmax}:{\zmax}] ({-\xzero}, x);
     }
+    % sphere, drawn last so that the boundary is visible
+    \addplot[white, thick, domain=0:360] ({\R*cos(x)}, {\R*sin(x)});
   \end{axis}
 \end{tikzpicture}
 \end{document}

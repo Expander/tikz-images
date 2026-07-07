@@ -4,7 +4,8 @@
 \usetikzlibrary{arrows.meta}
 
 % Vector field of a homogeneously electrically charged and rotating
-% sphere of Radius R. In spherical coordinates, the magnetic field is
+% sphere shell of Radius R. In spherical coordinates, the magnetic
+% field outside the sphere is
 %
 % \vec{B}(r,\theta,\varphi)
 %   = \mu_0 m/(4\pi r^3)[3\vec{e}_r(\vec{e}_z\cdot\vec{e}_r) - \vec{e}_z]
@@ -17,6 +18,8 @@
 %
 % \vec{B}(x,y,z)
 %   = \mu_0 m/(4\pi r^5)[3xz\vec{e}_x + 3yz\vec{e}_y + (2z^2 - x^2 - y^2)\vec{e}_z].
+%
+% Inside the sphere the field is homogeneous.
 
 \pgfplotsset{
   compat=1.18,
