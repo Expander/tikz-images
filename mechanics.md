@@ -65,6 +65,8 @@
 [![Epot-quadtratic.svg](mechanics/Epot-quadratic/Epot-quadtratic.svg "Epot-quadtratic.svg")](mechanics/Epot-quadratic/Epot-quadtratic.svg) [[PDF]](mechanics/Epot-quadratic/Epot-quadtratic.pdf) [[PNG]](mechanics/Epot-quadratic/Epot-quadtratic.png) [[SVG]](mechanics/Epot-quadratic/Epot-quadtratic.svg) [[TEX]](mechanics/Epot-quadratic/Epot-quadtratic.tex)
 ## fictitious-force.svg
 [![fictitious-force.svg](mechanics/fictitious-force/fictitious-force.svg "fictitious-force.svg")](mechanics/fictitious-force/fictitious-force.svg) [[PDF]](mechanics/fictitious-force/fictitious-force.pdf) [[PNG]](mechanics/fictitious-force/fictitious-force.png) [[SVG]](mechanics/fictitious-force/fictitious-force.svg) [[TEX]](mechanics/fictitious-force/fictitious-force.tex)
+## flow-in-pipe-2d.svg
+[![flow-in-pipe-2d.svg](mechanics/flow-in-pipe-2d/flow-in-pipe-2d.svg "flow-in-pipe-2d.svg")](mechanics/flow-in-pipe-2d/flow-in-pipe-2d.svg) [[PDF]](mechanics/flow-in-pipe-2d/flow-in-pipe-2d.pdf) [[PNG]](mechanics/flow-in-pipe-2d/flow-in-pipe-2d.png) [[SVG]](mechanics/flow-in-pipe-2d/flow-in-pipe-2d.svg) [[TEX]](mechanics/flow-in-pipe-2d/flow-in-pipe-2d.tex)
 ## flow-in-pipe-3d.svg
 [![flow-in-pipe-3d.svg](mechanics/flow-in-pipe-3d/flow-in-pipe-3d.svg "flow-in-pipe-3d.svg")](mechanics/flow-in-pipe-3d/flow-in-pipe-3d.svg) [[PDF]](mechanics/flow-in-pipe-3d/flow-in-pipe-3d.pdf) [[PNG]](mechanics/flow-in-pipe-3d/flow-in-pipe-3d.png) [[SVG]](mechanics/flow-in-pipe-3d/flow-in-pipe-3d.svg) [[TEX]](mechanics/flow-in-pipe-3d/flow-in-pipe-3d.tex)
 ## force-addition.svg
@@ -283,6 +285,8 @@
 [![Epot-quadtratic_inverted.svg](mechanics/Epot-quadratic/Epot-quadtratic_inverted.svg "Epot-quadtratic_inverted.svg")](mechanics/Epot-quadratic/Epot-quadtratic_inverted.svg) [[PDF]](mechanics/Epot-quadratic/Epot-quadtratic_inverted.pdf) [[PNG]](mechanics/Epot-quadratic/Epot-quadtratic_inverted.png) [[SVG]](mechanics/Epot-quadratic/Epot-quadtratic_inverted.svg) [[TEX]](mechanics/Epot-quadratic/Epot-quadtratic_inverted.tex)
 ## fictitious-force_inverted.svg
 [![fictitious-force_inverted.svg](mechanics/fictitious-force/fictitious-force_inverted.svg "fictitious-force_inverted.svg")](mechanics/fictitious-force/fictitious-force_inverted.svg) [[PDF]](mechanics/fictitious-force/fictitious-force_inverted.pdf) [[PNG]](mechanics/fictitious-force/fictitious-force_inverted.png) [[SVG]](mechanics/fictitious-force/fictitious-force_inverted.svg) [[TEX]](mechanics/fictitious-force/fictitious-force_inverted.tex)
+## flow-in-pipe-2d_inverted.svg
+[![flow-in-pipe-2d_inverted.svg](mechanics/flow-in-pipe-2d/flow-in-pipe-2d_inverted.svg "flow-in-pipe-2d_inverted.svg")](mechanics/flow-in-pipe-2d/flow-in-pipe-2d_inverted.svg) [[PDF]](mechanics/flow-in-pipe-2d/flow-in-pipe-2d_inverted.pdf) [[PNG]](mechanics/flow-in-pipe-2d/flow-in-pipe-2d_inverted.png) [[SVG]](mechanics/flow-in-pipe-2d/flow-in-pipe-2d_inverted.svg) [[TEX]](mechanics/flow-in-pipe-2d/flow-in-pipe-2d_inverted.tex)
 ## flow-in-pipe-3d_inverted.svg
 [![flow-in-pipe-3d_inverted.svg](mechanics/flow-in-pipe-3d/flow-in-pipe-3d_inverted.svg "flow-in-pipe-3d_inverted.svg")](mechanics/flow-in-pipe-3d/flow-in-pipe-3d_inverted.svg) [[PDF]](mechanics/flow-in-pipe-3d/flow-in-pipe-3d_inverted.pdf) [[PNG]](mechanics/flow-in-pipe-3d/flow-in-pipe-3d_inverted.png) [[SVG]](mechanics/flow-in-pipe-3d/flow-in-pipe-3d_inverted.svg) [[TEX]](mechanics/flow-in-pipe-3d/flow-in-pipe-3d_inverted.tex)
 ## force-addition_inverted.svg
