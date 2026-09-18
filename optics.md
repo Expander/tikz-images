@@ -23,6 +23,8 @@
 [![huygens-double-slit-2.svg](optics/huygens-double-slit-2/huygens-double-slit-2.svg "huygens-double-slit-2.svg")](optics/huygens-double-slit-2/huygens-double-slit-2.svg) [[PDF]](optics/huygens-double-slit-2/huygens-double-slit-2.pdf) [[PNG]](optics/huygens-double-slit-2/huygens-double-slit-2.png) [[SVG]](optics/huygens-double-slit-2/huygens-double-slit-2.svg) [[TEX]](optics/huygens-double-slit-2/huygens-double-slit-2.tex)
 ## huygens-double-slit.svg
 [![huygens-double-slit.svg](optics/huygens-double-slit/huygens-double-slit.svg "huygens-double-slit.svg")](optics/huygens-double-slit/huygens-double-slit.svg) [[PDF]](optics/huygens-double-slit/huygens-double-slit.pdf) [[PNG]](optics/huygens-double-slit/huygens-double-slit.png) [[SVG]](optics/huygens-double-slit/huygens-double-slit.svg) [[TEX]](optics/huygens-double-slit/huygens-double-slit.tex)
+## inverting-prism.svg
+[![inverting-prism.svg](optics/inverting-prism/inverting-prism.svg "inverting-prism.svg")](optics/inverting-prism/inverting-prism.svg) [[PDF]](optics/inverting-prism/inverting-prism.pdf) [[PNG]](optics/inverting-prism/inverting-prism.png) [[SVG]](optics/inverting-prism/inverting-prism.svg) [[TEX]](optics/inverting-prism/inverting-prism.tex)
 ## lens-diacaustic.svg
 [![lens-diacaustic.svg](optics/lens-diacaustic/lens-diacaustic.svg "lens-diacaustic.svg")](optics/lens-diacaustic/lens-diacaustic.svg) [[PDF]](optics/lens-diacaustic/lens-diacaustic.pdf) [[PNG]](optics/lens-diacaustic/lens-diacaustic.png) [[SVG]](optics/lens-diacaustic/lens-diacaustic.svg) [[TEX]](optics/lens-diacaustic/lens-diacaustic.tex)
 ## lens-paraxial.svg
@@ -79,6 +81,8 @@
 [![huygens-double-slit-2_inverted.svg](optics/huygens-double-slit-2/huygens-double-slit-2_inverted.svg "huygens-double-slit-2_inverted.svg")](optics/huygens-double-slit-2/huygens-double-slit-2_inverted.svg) [[PDF]](optics/huygens-double-slit-2/huygens-double-slit-2_inverted.pdf) [[PNG]](optics/huygens-double-slit-2/huygens-double-slit-2_inverted.png) [[SVG]](optics/huygens-double-slit-2/huygens-double-slit-2_inverted.svg) [[TEX]](optics/huygens-double-slit-2/huygens-double-slit-2_inverted.tex)
 ## huygens-double-slit_inverted.svg
 [![huygens-double-slit_inverted.svg](optics/huygens-double-slit/huygens-double-slit_inverted.svg "huygens-double-slit_inverted.svg")](optics/huygens-double-slit/huygens-double-slit_inverted.svg) [[PDF]](optics/huygens-double-slit/huygens-double-slit_inverted.pdf) [[PNG]](optics/huygens-double-slit/huygens-double-slit_inverted.png) [[SVG]](optics/huygens-double-slit/huygens-double-slit_inverted.svg) [[TEX]](optics/huygens-double-slit/huygens-double-slit_inverted.tex)
+## inverting-prism_inverted.svg
+[![inverting-prism_inverted.svg](optics/inverting-prism/inverting-prism_inverted.svg "inverting-prism_inverted.svg")](optics/inverting-prism/inverting-prism_inverted.svg) [[PDF]](optics/inverting-prism/inverting-prism_inverted.pdf) [[PNG]](optics/inverting-prism/inverting-prism_inverted.png) [[SVG]](optics/inverting-prism/inverting-prism_inverted.svg) [[TEX]](optics/inverting-prism/inverting-prism_inverted.tex)
 ## lens-diacaustic_inverted.svg
 [![lens-diacaustic_inverted.svg](optics/lens-diacaustic/lens-diacaustic_inverted.svg "lens-diacaustic_inverted.svg")](optics/lens-diacaustic/lens-diacaustic_inverted.svg) [[PDF]](optics/lens-diacaustic/lens-diacaustic_inverted.pdf) [[PNG]](optics/lens-diacaustic/lens-diacaustic_inverted.png) [[SVG]](optics/lens-diacaustic/lens-diacaustic_inverted.svg) [[TEX]](optics/lens-diacaustic/lens-diacaustic_inverted.tex)
 ## lens-paraxial_inverted.svg
